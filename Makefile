@@ -1,27 +1,33 @@
 ##
 ## EPITECH PROJECT, 2020
-## Project_2020
+## MUL_my_rpg_2019
 ## File description:
 ## Project makefile
 ##
 
 DSRC	=	./src/
 
-SRC	=	$(DSRC)main.c		\
+SRC	=	$(DSRC)main.c										\
+		$(DSRC)sound_manager/sound_manager_create_destroy.c	\
+		$(DSRC)sound_manager/sound_manager_play_stop.c		\
+		$(DSRC)sound_manager/sound_manager_show_list.c		\
+		$(DSRC)sound_manager/sound_manager_config.c			\
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	exec.out
-
-CFLAGS	+= -Wall -Wextra -W -Werror $(INCLUDE)
+NAME	=	my_rpg
 
 INCLUDE = -I./include -I./lib/my/include
+
+CSFML_FLAGS = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
+
+CFLAGS	+= -Wall -Wextra -W -Werror $(INCLUDE)
 
 all:  lib $(NAME)
 
 $(NAME): $(OBJ)
 	make -C ./lib/my
-	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy && \
+	@gcc -o $(NAME) $(OBJ) -L./lib/my -lmy $(CSFML_FLAGS) && \
 		$(ECHO) $(BOLD_T)$(GREEN_C)"\n[✔] COMPILED:" $(DEFAULT)$(LIGHT_GREEN) "$(NAME)\n"$(DEFAULT) || \
 		$(ECHO) $(BOLD_T)$(RED_C)"[✘] "$(UNDLN_T)"BUILD FAILED:" $(LIGHT_RED) "$(NAME)\n"$(DEFAULT)
 
