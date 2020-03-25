@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** main.c
+** MUL_my_rpg_2019
 ** File description:
 ** main function
 */
@@ -9,8 +9,6 @@
 
 int main(void)
 {
-    sound_manager_t sm;
-    sound_manager_create(&sm, 20, "asset/sound/", true);
-    sound_manager_destroy(&sm);
+
     return EXIT_SUCCESS;
 }
