@@ -27,6 +27,20 @@
 
 #define EXIT_ERROR 84
 
+#define DEFAULT_T "\e[0m"
+#define BOLD_T "\e[1m"
+#define DIM_T "\e[2m"
+#define UNDLN_T	"\e[4m"
+#define BLACK_C	"\e[30m"
+#define RED_C "\e[31m"
+#define GREEN_C "\e[32m"
+#define YELLO_C "\e[33m"
+#define BLUE_C "\e[34m"
+#define MAGEN_C "\e[35m"
+#define CYAN_C "\e[36m"
+#define WHITE_C "\e[97m"
+#define DEFAULT_C "\e[39m"
+
 // FILE
 char **my_read_file(const char *filepath);
 int my_read_filedir(file_list_t **files, const char *dirpath);
@@ -49,6 +63,7 @@ char *my_revstr(char *str);
 char *my_strstr(char *str, char const *to_find);
 int my_strcmp(char const *s1, char const *s2);
 int my_strncmp(char const *s1, char const *s2, int n);
+char *my_str_concat(const char *stra, const char *strb);
 char *my_strupcase(char *str);
 char *my_strlowcase(char *str);
 char *my_strcapitalize(char *str);

@@ -78,6 +78,7 @@ SRC_STR  =	$(DSTR)my_putchar.c				\
 			$(DSTR)my_printf_disp_misc.c   		\
 			$(DSTR)my_printf_misc.c        		\
 			$(DSTR)my_printf_search.c			\
+			$(DSTR)my_str_concat.c				\
 
 SRC	= $(SRC_STR) $(SRC_NBR) $(SRC_FILE) $(SRC_ENV)
 
