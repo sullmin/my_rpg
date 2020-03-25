@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Lib my
+** LIBMY
 ** File description:
-** read file
+** read file : simonR
 */
 
 #include "my.h"
@@ -54,7 +54,7 @@ char **build_word_array(char *content, int len)
     return word_array;
 }
 
-char **read_file(const char *filepath)
+char **my_read_file(const char *filepath)
 {
     int fd;
     int len = 0;

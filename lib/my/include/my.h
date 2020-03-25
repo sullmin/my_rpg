@@ -18,6 +18,9 @@
 #include <stdbool.h>
 
 #include "get_next_line.h"
+#include "my_env.h"
+
+#include "file_list_t.h"
 
 #define POW(x, y) my_compute_power_rec(x, y)
 #define SQRT(x) my_compute_square_root(x)
@@ -25,14 +28,19 @@
 #define EXIT_ERROR 84
 
 // FILE
-char **read_file(const char *filepath);
+char **my_read_file(const char *filepath);
+int my_read_filedir(file_list_t **files, const char *dirpath);
+int my_file_list_add(file_list_t **list, const char *filename);
+void my_file_list_destroy(file_list_t *list);
+char *my_file_list_read(file_list_t *list);
 
 // STRING
 
 int my_printf(char *format, ...);
 int my_putchar(char c);
 int my_putstr(char const *str);
-int my_putstr_error(const char *str, int status);
+int my_putstr_error(const char *str);
+int my_puterror(const char *str, int status);
 int my_strlen(char const *str);
 char *my_strdup(char const *src);
 char *my_strcpy(char *dest, char const *src);
@@ -57,8 +65,8 @@ char **my_str_to_word_array(char const *str, const char *delim);
 int my_show_word_array(char * const *tab);
 int my_sort_word_array(char **tab);
 void word_array_destroy(char **array);
-int word_array_len(const char **array);
-bool have_str_in_array(const char **array, const int size, const char *str);
+int word_array_len(char **array);
+bool have_str_in_array(char **array, const int size, const char *str);
 int my_advanced_sort_word_array(char **tab,
 int (*cmp)(char const *, char const *));
 

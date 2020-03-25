@@ -7,7 +7,18 @@
 
 #include "my.h"
 
-int my_putstr_error(const char *str, int status)
+int my_putstr_error(const char *str)
+{
+    int len;
+
+    if (!str)
+        return 0;
+    len = my_strlen(str);
+    write(2, str, len);
+    return len;
+}
+
+int my_puterror(const char *str, int status)
 {
     if (!str)
         return 0;
