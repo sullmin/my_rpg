@@ -18,6 +18,11 @@ static void file_content_destroy(char **file, int size)
 static int config_manager_get_file_content(char ***file_content,
 const char *filepath, int *len_content)
 {
+    if (!my_file_ext_cmp(filepath, ".conf")) {
+        my_printf("%s%sconfig_manager : invalid file ", RED_C, BOLD_T);
+        my_printf("extension \"%s\"%s\n", filepath, DEFAULT_T);
+        return EXIT_ERROR;
+    }
     *file_content = my_read_file(filepath);
     if (!file_content) {
         my_printf("%s%sconfig_manager : cannot open/read file", RED_C, BOLD_T);
