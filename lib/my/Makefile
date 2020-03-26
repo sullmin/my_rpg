@@ -33,6 +33,7 @@ SRC_NBR	=	$(DNBR)my_compute_power_rec.c	\
 SRC_FILE =	$(DFILE)my_read_file.c			\
 			$(DFILE)get_next_line.c			\
 			$(DFILE)my_read_dir.c			\
+			$(DFILE)my_file_ext_cmp.c		\
 
 SRC_ENV  =	$(DENV)my_env_create_destroy.c	\
 			$(DENV)my_env_merge.c			\
