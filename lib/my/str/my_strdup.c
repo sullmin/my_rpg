@@ -10,11 +10,15 @@
 char *my_strdup(char const *src)
 {
     char *cpy = NULL;
+    int len_src;
 
     if (!src)
         return NULL;
-    cpy = malloc(sizeof(char) * (my_strlen(src) + 1));
+    len_src = my_strlen(src);
+    cpy = malloc(sizeof(char) * (len_src + 1));
     if (cpy == NULL)
-        return (cpy);
-    return (my_strcpy(cpy, src));
+        return NULL;
+    my_strcpy(cpy, src);
+    cpy[len_src] = '\0';
+    return cpy;
 }
