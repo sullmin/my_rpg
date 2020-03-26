@@ -43,7 +43,7 @@
 
 // FILE
 char **my_read_file(const char *filepath);
-int my_read_filedir(file_list_t **files, const char *dirpath);
+int my_read_dir(file_list_t **files, const char *dirpath);
 int my_file_list_add(file_list_t **list, const char *filename);
 void my_file_list_destroy(file_list_t *list);
 char *my_file_list_read(file_list_t *list);
