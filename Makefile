@@ -12,6 +12,10 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)sound_manager/sound_manager_play_stop.c		\
 		$(DSRC)sound_manager/sound_manager_show_list.c		\
 		$(DSRC)sound_manager/sound_manager_config.c			\
+		$(DSRC)config_manager/config_manager_read.c			\
+		$(DSRC)config_manager/config_manager_clean_lines.c	\
+		$(DSRC)config_manager/config_manager_check_line.c	\
+		$(DSRC)config_manager/config_manager_create_array.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -21,7 +25,7 @@ INCLUDE = -I./include -I./lib/my/include
 
 CSFML_FLAGS = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
-CFLAGS	+= -Wall -Wextra -W -Werror $(INCLUDE)
+CFLAGS	+= -Wall -Wextra -W $(INCLUDE) -g #-Werror
 
 all:  lib $(NAME)
 

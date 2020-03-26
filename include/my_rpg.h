@@ -15,5 +15,6 @@
 
 #include "my.h"
 #include "sound_manager.h"
+#include "config_manager.h"
 
 #endif
