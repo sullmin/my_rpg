@@ -24,7 +24,7 @@ const char *filepath, int *len_content)
         return EXIT_ERROR;
     }
     *file_content = my_read_file(filepath);
-    if (!file_content) {
+    if (!(*file_content)) {
         my_printf("%s%sconfig_manager : cannot open/read file", RED_C, BOLD_T);
         my_printf(" \"%s\"%s\n", filepath, DEFAULT_T);
         return EXIT_ERROR;

@@ -16,6 +16,7 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)config_manager/config_manager_clean_lines.c	\
 		$(DSRC)config_manager/config_manager_check_line.c	\
 		$(DSRC)config_manager/config_manager_create_array.c	\
+		$(DSRC)config_manager/config_manager.c				\
 
 OBJ	=	$(SRC:.c=.o)
 
