@@ -48,7 +48,7 @@ bool show_loaded)
 {
     if (!sm)
         return EXIT_ERROR;
-    sm->size = my_read_filedir(&sm->file_list, dirpath);
+    sm->size = my_read_dir(&sm->file_list, dirpath);
     if (sm->size == 0)
         return EXIT_SUCCESS;
     if (sm->size == -1) {
