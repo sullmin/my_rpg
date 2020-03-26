@@ -35,7 +35,7 @@ int my_env_add(env_t *self, const char *label, const char *value)
     if (entry != NULL) {
         return my_puterror("my_env_add : label already exist\n", 0);
     }
-    new_env = my_env_alloc(self->var, self->size + 1, self->size);
+    new_env = my_env_alloc(self->var, NULL, self->size + 1, self->size);
     if (!new_env)
         return EXIT_ERROR;
     my_env_destroy(self);

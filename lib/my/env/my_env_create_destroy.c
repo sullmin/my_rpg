@@ -22,9 +22,17 @@ int my_env_create(env_t *env, char **copy_env)
 {
     int size_env = word_array_len(copy_env);
 
-    env->var = my_env_alloc(copy_env, size_env, size_env);
-    if (!env->var)
+    if (size_env == 0) {
+        env->size = 0;
+        env->var = NULL;
+        return EXIT_SUCCESS;
+    }
+    env->var = my_env_alloc(copy_env, NULL, size_env, size_env);
+    if (!env->var) {
+        env->size = 0;
+        env->var = NULL;
         return EXIT_ERROR;
+    }
     env->size = size_env;
     return EXIT_SUCCESS;
 }

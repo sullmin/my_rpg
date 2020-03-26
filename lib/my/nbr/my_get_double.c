@@ -29,7 +29,7 @@ static int incr_len(unsigned int *len, char c, char after_dot)
     return EXIT_SUCCESS;
 }
 
-static unsigned int *len_nbr(char *nbr)
+static unsigned int *len_nbr(const char *nbr)
 {
     unsigned int *len = malloc(sizeof(unsigned int) * 3);
     int i = -1;
@@ -53,19 +53,19 @@ static unsigned int *len_nbr(char *nbr)
     return len;
 }
 
-static char *get_dot(char *nbr)
+static ssize_t get_dot_idx(const char *nbr)
 {
-    for (size_t i = 0; nbr[i] != '\0'; i++) {
+    for (ssize_t i = 0; nbr[i] != '\0'; i++) {
         if (nbr[i] == '.')
-            return (&nbr[i]);
+            return i;
     }
-    return NULL;
+    return -1;
 }
 
 double my_get_double(const char *nbr)
 {
     unsigned int *len = len_nbr(nbr);
-    char *dot = get_dot(nbr);
+    ssize_t dot_idx = get_dot_idx(nbr);
     double alpha = 0;
     double beta = 0;
 
@@ -73,13 +73,13 @@ double my_get_double(const char *nbr)
         my_putstr_error("my_get_double : error\n");
         return 0;
     }
-    if (dot == NULL || len[2] == 0) {
+    if (dot_idx == -1 || len[2] == 0) {
         free(len);
         return ((double)my_getnbr(nbr));
     }
     if (len[1] != 0)
         alpha = my_getnbr(nbr);
-    beta = (double)my_getnbr(dot) / my_compute_power_rec(10, len[2]);
+    beta = (double)my_getnbr(&nbr[dot_idx]) / my_compute_power_rec(10, len[2]);
     if (alpha < 0 || (nbr[0] == '-' && alpha == 0))
         beta = -beta;
     free(len);

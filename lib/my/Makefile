@@ -23,6 +23,7 @@ SRC_NBR	=	$(DNBR)my_compute_power_rec.c	\
 			$(DNBR)my_is_prime.c			\
 			$(DNBR)my_putnbr_base.c			\
 			$(DNBR)my_put_double.c      	\
+			$(DNBR)my_get_double.c      	\
 			$(DNBR)my_putnbr_base_str.c		\
 			$(DNBR)my_put_nbr.c				\
 			$(DNBR)quick_sort.c				\
@@ -34,13 +35,16 @@ SRC_FILE =	$(DFILE)my_read_file.c			\
 			$(DFILE)my_read_filedir.c		\
 
 SRC_ENV  =	$(DENV)my_env_create_destroy.c	\
+			$(DENV)my_env_merge.c			\
 			$(DENV)my_env_alloc.c			\
-			$(DENV)my_env_tool.c			\
+			$(DENV)my_env_get_label.c		\
+			$(DENV)my_env_get_value.c		\
 			$(DENV)my_env_add.c				\
 			$(DENV)my_env_display.c			\
 			$(DENV)my_env_get.c				\
 			$(DENV)my_env_rm.c				\
 			$(DENV)my_env_update.c			\
+			$(DENV)my_env_size.c			\
 
 SRC_STR  =	$(DSTR)my_putchar.c				\
 			$(DSTR)my_putstr_error.c		\
@@ -86,7 +90,7 @@ DINCLUDE = ./include
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-Wall -Wextra -W -Werror -I$(DINCLUDE) -g
+CFLAGS	=	-Wall -Wextra -W -Werror -I$(DINCLUDE)
 
 NAME	=	libmy.a
 
