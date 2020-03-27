@@ -46,6 +46,8 @@ SRC_ENV  =	$(DENV)my_env_create_destroy.c	\
 			$(DENV)my_env_rm.c				\
 			$(DENV)my_env_update.c			\
 			$(DENV)my_env_size.c			\
+			$(DENV)my_env_exist.c			\
+			$(DENV)my_env_check_collision.c	\
 
 SRC_STR  =	$(DSTR)my_putchar.c				\
 			$(DSTR)my_putstr_error.c		\

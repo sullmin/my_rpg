@@ -9,6 +9,8 @@
 
 void my_env_destroy(env_t *env)
 {
+    if (!env)
+        return;
     for (int i = 0; i < env->size; i++) {
         free(env->var[i]);
         env->var[i] = NULL;
@@ -22,6 +24,8 @@ int my_env_create(env_t *env, char **copy_env)
 {
     int size_env = word_array_len(copy_env);
 
+    if (!env)
+        return EXIT_ERROR;
     if (size_env == 0) {
         env->size = 0;
         env->var = NULL;

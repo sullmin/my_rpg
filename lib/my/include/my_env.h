@@ -22,26 +22,27 @@ int my_env_update(env_t *self, const char *label, const char *value);
 int my_env_rm(env_t *self, const char *label);
 int my_env_add(env_t *self, const char *label, const char *value);
 
-// Get variables
-
+// [Get variables]
 //   For str variables
 char *my_env_get_value(env_t *env, const char *label);
 //   For Int varaibles
-int my_env_get_value_int(env_t *env, const char *label);
+int my_env_get_value_int(env_t *env, const char *label, bool *error);
 //   For double variables
-double my_env_get_value_double(env_t *env, const char *label);
+double my_env_get_value_dec(env_t *env, const char *label, bool *error);
 
 // Utility
+bool my_env_exist(env_t *env, const char *label);
 int my_env_size(env_t *env);
 void my_env_display(env_t *env);
-
-// Sub function
-char **my_env_alloc(char **src, env_t *old, int new_size, int src_size);
 
 // Advanced functions
 char **my_env_get_ptr(env_t *self, const char *label);
 char *my_env_get(env_t *self, const char *label);
 char *my_env_get_var_value(char *entry);
 char *my_env_get_var_label(char *entry);
+
+// Sub function (do not use)
+char **my_env_alloc(char **src, env_t *old, int new_size, int src_size);
+int my_env_check_collision(const env_t *env, char **env_array);
 
 #endif

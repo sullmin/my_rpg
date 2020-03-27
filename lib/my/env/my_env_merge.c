@@ -16,6 +16,9 @@ int my_env_merge(env_t *env, char **env_src)
     if (!env || !env_src) {
         return EXIT_ERROR;
     }
+    if (my_env_check_collision(env, env_src) != -1) {
+        return EXIT_FAILURE;
+    }
     new_size = env->size + size_env_src;
     new_env = my_env_alloc(env_src, env, new_size, size_env_src);
     if (!new_env)

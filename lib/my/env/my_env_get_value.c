@@ -32,34 +32,50 @@ char *my_env_get_value(env_t *env, const char *label)
     return my_env_get_var_value(entry);
 }
 
-int my_env_get_value_int(env_t *env, const char *label)
+int my_env_get_value_int(env_t *env, const char *label, bool *error)
 {
     char *entry = my_env_get(env, label);
     char *value;
     int nbr;
 
-    if (!entry)
-        return -1;
+    if (!entry) {
+        if (error)
+            *error = true;
+        return 0;
+    }
     value = my_env_get_var_value(entry);
-    if (!value)
-        return -1;
+    if (!value) {
+        if (error)
+            *error = true;
+        return 0;
+    }
     nbr = my_getnbr(value);
     free(value);
+    if (error)
+        *error = false;
     return nbr;
 }
 
-double my_env_get_value_double(env_t *env, const char *label)
+double my_env_get_value_dec(env_t *env, const char *label, bool *error)
 {
     char *entry = my_env_get(env, label);
     char *value;
     double nbr;
 
-    if (!entry)
-        return -1.0f;
+    if (!entry) {
+        if (error)
+            *error = true;
+        return 0.0f;
+    }
     value = my_env_get_var_value(entry);
-    if (!value)
-        return -1.0f;
+    if (!value) {
+        if (error)
+            *error = true;
+        return 0.0f;
+    }
     nbr = my_get_double(value);
     free(value);
+    if (error)
+        *error = false;
     return nbr;
 }
