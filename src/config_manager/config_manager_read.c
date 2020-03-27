@@ -33,15 +33,33 @@ const char *filepath, int *len_content)
     return EXIT_SUCCESS;
 }
 
-static int config_manager_apply_config(char **file_content, env_t *env,
-int len)
+static void display_label_conflic_error(const char *line, const char *filepath)
 {
+    my_printf("%s%sconfig_manager : label name conflict", RED_C, BOLD_T);
+    my_printf(" in \"%s\" with the label: \"", filepath);
+    for (size_t i = 0; line[i] != '\0'; i++) {
+        if (line[i] == '=')
+            break;
+        write(1, &line[i], 1);
+    }
+    my_printf("\".\n%s", DEFAULT_T);
+}
+
+static int config_manager_apply_config(char **file_content, env_t *env,
+int len, const char *filepath)
+{
+    int ret;
     char **conf = NULL;
 
     conf = config_manager_create_array(file_content, len);
     if (!conf)
         return my_puterror("config_manager : malloc error\n", EXIT_ERROR);
-    if (my_env_merge(env, conf) == EXIT_ERROR)
+    ret = my_env_check_collision(env, conf);
+    if (ret != -1) {
+        display_label_conflic_error(conf[ret], filepath);
+        return EXIT_ERROR;
+    }
+    if (my_env_merge(env, conf) != EXIT_SUCCESS)
         return EXIT_ERROR;
     word_array_destroy(conf);
     return EXIT_SUCCESS;
@@ -59,7 +77,7 @@ int config_manager_read(env_t *env, const char *filepath)
     if (clean_file_lines(file_content, filepath) == EXIT_ERROR) {
         file_content_destroy(file_content, len);
         return EXIT_ERROR;
-    } else if (config_manager_apply_config(file_content, env, len)) {
+    } else if (config_manager_apply_config(file_content, env, len, filepath)) {
         return EXIT_ERROR;
     }
     file_content_destroy(file_content, len);

@@ -10,9 +10,12 @@
 static int get_line_len(const char *line)
 {
     int len = 0;
+    bool is_str = false;
 
     for (size_t i = 0; line[i] != '\0'; i++) {
-        if (line[i] != ' ' && line[i] != '\t') {
+        if (line[i] == '"') {
+            is_str = true;
+        } else if (is_str || (line[i] != ' ' && line[i] != '\t')) {
             len++;
         }
     }
@@ -22,9 +25,12 @@ static int get_line_len(const char *line)
 static void line_cpy(char *dest, const char *src)
 {
     size_t idx_dest = 0;
+    bool is_str = false;
 
     for (size_t i = 0; src[i] != '\0'; i++) {
-        if (src[i] != ' ' && src[i] != '\t') {
+        if (src[i] == '"') {
+            is_str = true;
+        } else if (is_str || (src[i] != ' ' && src[i] != '\t')) {
             dest[idx_dest] = src[i];
             idx_dest++;
         }

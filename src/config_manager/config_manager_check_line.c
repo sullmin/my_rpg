@@ -25,11 +25,14 @@ static bool jump_char(char **str, const char *chars, bool inverse)
 
 static bool check_line_parta(char **line_ptr)
 {
-    jump_char(line_ptr, " \t", false);
-    if (jump_char(line_ptr, " \t=#", true) == false) {
+    const char *PATTERN_LABEL = " \t=#\"";
+    const char *PATTERN_SPACES = " \t";
+
+    jump_char(line_ptr, PATTERN_SPACES, false);
+    if (jump_char(line_ptr, PATTERN_LABEL, true) == false) {
         return false;
     }
-    jump_char(line_ptr, " \t", false);
+    jump_char(line_ptr, PATTERN_SPACES, false);
     if (*(*line_ptr) != '=') {
         return false;
     } else {
@@ -40,14 +43,25 @@ static bool check_line_parta(char **line_ptr)
 
 static bool check_line_partb(char **line_ptr)
 {
+    char *pattern_str = "=#\"";
+    char *pattern = " \t=#";
+
     jump_char(line_ptr, " \t", false);
-    if (jump_char(line_ptr, " \t=#", true) == false) {
+    if (*(*line_ptr) == '\"') {
+        pattern = pattern_str;
+        (*line_ptr)++;
+    }
+    if (jump_char(line_ptr, pattern, true) == false) {
         return false;
     }
-    jump_char(line_ptr, " \t", false);
-    if (*(*line_ptr) != '\0' && *(*line_ptr) != '#') {
+    if (pattern == pattern_str && *(*line_ptr) != '\"') {
         return false;
+    } else if (pattern == pattern_str) {
+        (*line_ptr)++;
     }
+    jump_char(line_ptr, " \t", false);
+    if (*(*line_ptr) != '\0' && *(*line_ptr) != '#')
+        return false;
     return true;
 }
 

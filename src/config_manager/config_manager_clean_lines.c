@@ -31,7 +31,7 @@ int clean_file_lines(char **file, const char *filepath)
         } else if (ret == EXIT_ERROR) {
             my_printf("%s%s", RED_C, BOLD_T);
             my_printf("config_manager : syntax error in \"%s\"", filepath);
-            my_printf(" on line %u.%s\n", i, DEFAULT_T);
+            my_printf(" on line %u.%s\n", (i + 1), DEFAULT_T);
             return EXIT_ERROR;
         } else {
             replace_hash(file[i]);
