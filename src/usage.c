@@ -9,7 +9,7 @@
 
 static const char *USAGES =
 "Options:\n"
-"\t-h\t\tDisplay the help\n";
+"\t-h\tDisplay the help\n";
 
 int usage(int status, const char *program_name)
 {
