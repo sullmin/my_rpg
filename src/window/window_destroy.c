@@ -9,5 +9,5 @@
 
 void window_destroy(window_t *w)
 {
-
+    sfRenderWindow_destroy(w->window);
 }
