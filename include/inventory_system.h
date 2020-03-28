@@ -40,7 +40,7 @@ typedef struct item_s
     sfSprite *sprite;
     sfTexture *texture;
     particule_effect_t particule;
-    stat_t stats,
+    stat_t stats;
 } item_t;
 
 #endif
