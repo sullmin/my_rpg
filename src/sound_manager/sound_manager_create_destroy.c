@@ -7,9 +7,6 @@
 
 #include "sound_manager.h"
 
-//static const float DEF_SOUND_VOLUME = 20;
-//static const char *SOUND_DIR = "./asset/sound/";
-
 static int sound_manager_alloc(sound_manager_t *sm)
 {
     sm->sounds = malloc(sizeof(sfMusic *) * sm->size);
