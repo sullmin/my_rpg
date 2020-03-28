@@ -35,7 +35,7 @@
 // Information Importantes !!!!
 // Etant donne que le projet est consequent et pour eviter les merges
 // ne PAS mettre les prototypes de vos fonctions dans ce header
-// mais creer une .h dedie et l'inclure le dans celui-ci
+// mais creer un .h dedie et l'inclure dans celui-ci
 
 // #include "quest_system.h"
 // #include "inventory_system.h"
