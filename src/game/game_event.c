@@ -37,7 +37,7 @@ static void event_crossroads(game_t *game, sfEvent *event)
 
 void call_event_manager(game_t *game, sfEvent *event)
 {
-    if (event->type == sfEvtClosed) {
+    if (event->type == sfEvtClosed || game->state == QUIT) {
         event_window_close(game);
         return;
     }
