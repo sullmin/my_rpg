@@ -7,16 +7,37 @@
 
 DSRC	=	./src/
 
-SRC	=	$(DSRC)main.c										\
-		$(DSRC)sound_manager/sound_manager_create_destroy.c	\
-		$(DSRC)sound_manager/sound_manager_play_stop.c		\
-		$(DSRC)sound_manager/sound_manager_show_list.c		\
-		$(DSRC)sound_manager/sound_manager_config.c			\
-		$(DSRC)config_manager/config_manager_read.c			\
-		$(DSRC)config_manager/config_manager_clean_lines.c	\
-		$(DSRC)config_manager/config_manager_check_line.c	\
-		$(DSRC)config_manager/config_manager_create_array.c	\
-		$(DSRC)config_manager/config_manager.c				\
+SRC_SOUND	=	$(DSRC)sound_manager/sound_manager_create_destroy.c	\
+				$(DSRC)sound_manager/sound_manager_play_stop.c		\
+				$(DSRC)sound_manager/sound_manager_show_list.c		\
+				$(DSRC)sound_manager/sound_manager_config.c			\
+
+SRC_CONFIG	=	$(DSRC)config_manager/config_manager_read.c			\
+				$(DSRC)config_manager/config_manager_clean_lines.c	\
+				$(DSRC)config_manager/config_manager_check_line.c	\
+				$(DSRC)config_manager/config_manager_create_array.c	\
+				$(DSRC)config_manager/config_manager.c				\
+
+SRC_WINDOW	=	$(DSRC)window/window_create.c						\
+				$(DSRC)window/window_destroy.c						\
+
+#SRC_GUI	=	$(DSRC)game/gui/
+#SRC_FIGHT	=	$(DSRC)game/fight_mode/
+#SRC_ISO	=	$(DSRC)game/iso_world/
+#SRC_MWORLD =	$(DSRC)game/main_world/
+#SRC_INVENT =	$(DSRC)inventory_system/
+#SRC_QUEST 	=	$(DSRC)quest_system/
+#SRC_MENU 	=	$(DSRC)main_menu/
+
+SRC_GAME	=	$(DSRC)game/game_create.c							\
+				$(DSRC)game/game_destroy.c							\
+				$(DSRC)game/game_loop.c								\
+
+SRC_MAIN	=	$(DSRC)main.c										\
+				$(DSRC)usage.c										\
+				$(DSRC)master.c										\
+
+SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG)
 
 OBJ	=	$(SRC:.c=.o)
 
