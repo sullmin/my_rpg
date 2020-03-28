@@ -7,10 +7,13 @@
 
 #include "my.h"
 
-int word_array_len(const char **array)
+int word_array_len(char **array)
 {
     int len = 0;
 
+    if (!array) {
+        return 0;
+    }
     for (size_t i = 0; array[i] != NULL; i++)
         len++;
     return len;
@@ -18,13 +21,19 @@ int word_array_len(const char **array)
 
 void word_array_destroy(char **array)
 {
+    if (!array) {
+        return;
+    }
     for (size_t i = 0; array[i] != NULL; i++)
         free(array[i]);
     free(array);
 }
 
-bool have_str_in_array(const char **array, const int size, const char *str)
+bool have_str_in_array(char **array, const int size, const char *str)
 {
+    if (!array) {
+        return false;
+    }
     for (size_t i = 0; i < (size_t)size; i++) {
         if (my_strcmp(array[i], str) == 0) {
             return true;
