@@ -30,6 +30,8 @@ static void event_crossroads(game_t *game, sfEvent *event)
         case ISO_WORLD:
             // Iso world exec event
             break;
+        default:
+            break;
     }
 }
 

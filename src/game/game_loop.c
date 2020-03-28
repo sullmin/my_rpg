@@ -25,6 +25,8 @@ static void crossroads(game_t *game)
         case ISO_WORLD:
             // Iso world exec
             break;
+        default:
+            break;
     }
 }
 
