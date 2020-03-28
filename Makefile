@@ -32,6 +32,7 @@ SRC_WINDOW	=	$(DSRC)window/window_create.c						\
 SRC_GAME	=	$(DSRC)game/game_create.c							\
 				$(DSRC)game/game_destroy.c							\
 				$(DSRC)game/game_loop.c								\
+				$(DSRC)game/game_event.c							\
 
 SRC_MAIN	=	$(DSRC)main.c										\
 				$(DSRC)usage.c										\
