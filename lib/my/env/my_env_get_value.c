@@ -52,7 +52,7 @@ int my_env_get_value_int(env_t *env, const char *label, bool *error)
     nbr = my_getnbr(value);
     free(value);
     if (error)
-        *error = false;
+        *error = *error | false;
     return nbr;
 }
 
@@ -76,6 +76,6 @@ double my_env_get_value_dec(env_t *env, const char *label, bool *error)
     nbr = my_get_double(value);
     free(value);
     if (error)
-        *error = false;
+        *error = *error | false;
     return nbr;
 }
