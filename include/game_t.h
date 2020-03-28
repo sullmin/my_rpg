@@ -28,7 +28,7 @@ typedef struct game {
     game_status_t state;
     window_t w;
     env_t env;
-    sound_manager_t msound;
+    sound_manager_t sound;
     //inventoy_t inventory;
     //sys_quest_t sysquest;
     //gui_t ui;
