@@ -12,14 +12,16 @@
     Define the state of the program (in game loop)
 */
 typedef enum game_status {
-    QUIT,
-    ERR,
-    MAIN_MENU,
-    PAUSE_MENU,
-    FIGHT_MODE,
-    MAIN_WORLD,
-    ISO_WORLD
+    QUIT = 0,
+    ERR = 1,
+    MAIN_MENU = 2,
+    PAUSE_MENU = 3,
+    FIGHT_MODE = 4,
+    MAIN_WORLD = 5,
+    ISO_WORLD = 6
 } game_status_t;
+
+#define NB_GAME_STATE 7
 
 /*
     Main structure of the program

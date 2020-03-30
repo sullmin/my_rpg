@@ -33,6 +33,7 @@ SRC_GAME	=	$(DSRC)game/game_create.c							\
 				$(DSRC)game/game_destroy.c							\
 				$(DSRC)game/game_loop.c								\
 				$(DSRC)game/game_event.c							\
+				$(DSRC)game/function_array.c						\
 
 SRC_MAIN	=	$(DSRC)main.c										\
 				$(DSRC)usage.c										\
