@@ -7,27 +7,15 @@
 
 #include "my_rpg.h"
 
+extern void (* const FUNC_EXEC[NB_GAME_STATE])(game_t *game);
+
 static void crossroads(game_t *game)
 {
-    switch (game->state) {
-        case MAIN_MENU:
-            // Main menu exec
-            break;
-        case PAUSE_MENU:
-            // Pause menu exec
-            break;
-        case FIGHT_MODE:
-            // Fight Mode exec
-            break;
-        case MAIN_WORLD:
-            // Main world exec
-            break;
-        case ISO_WORLD:
-            // Iso world exec
-            break;
-        default:
-            break;
+    if (game->state == QUIT || game->state == ERR) {
+        return;
     }
+    if (FUNC_EXEC[game->state] != NULL)
+        FUNC_EXEC[game->state](game);
 }
 
 static int run(game_t *game)
