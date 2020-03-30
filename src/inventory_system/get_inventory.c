@@ -11,15 +11,16 @@
 
 extern int NB_ITEM_INVENTORY;
 
-item_t *get_player_inventory(void)
+item_t **get_player_inventory(int size)
 {
-    item_t *inventory = malloc(sizeof(item_t) * NB_ITEM_INVENTORY);
+    item_t **inventory;
 
+    if (size <= 0)
+        return NULL;
+    inventory = malloc(sizeof(item_t *) * size);
     if (!inventory)
         return NULL;
-    for (size_t i = 0; i < NB_ITEM_INVENTORY; i++) {
-        inventory[i] = {0};
-        inventory[i].name = NULL;
-    }
+    for (size_t i = 0; i < size; i++)
+        inventory[i] = NULL;
     return inventory;
 }
