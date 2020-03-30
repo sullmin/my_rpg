@@ -43,4 +43,10 @@ typedef struct item_s
     stat_t stats;
 } item_t;
 
+typedef struct list_s
+{
+    struct list_s *next;
+    item_t *item;
+} list_t;
+
 #endif
