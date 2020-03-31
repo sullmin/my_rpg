@@ -10,6 +10,7 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include "my_rpg.h"
 #include "stat_t.h"
 
 //ITEM STRUCT
@@ -27,6 +28,7 @@ typedef struct particule_effect_s
 
 typedef struct item_s
 {
+    //char id[4];
     char *name;
     char *description;
     bool av_particule;
@@ -58,7 +60,7 @@ typedef struct player_inventory_s
 
 //PLAYER INVENTORY
 
-bool get_player_inventory(player_inventory_t *inv, env_t​ *env);//return false if ERR
+bool get_player_inventory(player_inventory_t *inv, env_t *env);//return false if ERR
 
 //ITEM STRUCT
 

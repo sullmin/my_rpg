@@ -25,7 +25,10 @@ SRC_WINDOW	=	$(DSRC)window/window_create.c						\
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
-#SRC_INVENT =	$(DSRC)inventory_system/
+SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c				\
+				$(DSRC)inventory_system/get_inventory.c				\
+				$(DSRC)inventory_system/destroy_item.c				\
+				$(DSRC)inventory_system/dup_item.c					\
 #SRC_QUEST 	=	$(DSRC)quest_system/
 #SRC_MENU 	=	$(DSRC)main_menu/
 
@@ -39,7 +42,7 @@ SRC_MAIN	=	$(DSRC)main.c										\
 				$(DSRC)usage.c										\
 				$(DSRC)master.c										\
 
-SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG)
+SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_INVENT)
 
 OBJ	=	$(SRC:.c=.o)
 

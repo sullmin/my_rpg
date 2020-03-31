@@ -21,11 +21,11 @@ static item_t **get_tab_inventory(size_t size)
     return inventory;
 }
 
-bool get_player_inventory(player_inventory_t *inv, env_t​ *env)
+bool get_player_inventory(player_inventory_t *inv, env_t *env)
 {
     bool err;
 
-    inv->size = my_env_get_value_int​(env, "INVENTORY_SIZE", &err);
+    inv->size = my_env_get_value_int(env, "INVENTORY_SIZE", &err);
     if (err || inv->size <= 0)
         return false;
     inv->inventory = get_tab_inventory(inv->size);
