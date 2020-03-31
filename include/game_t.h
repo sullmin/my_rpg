@@ -28,6 +28,7 @@ typedef enum game_status {
 */
 typedef struct game {
     game_status_t state;
+    sfClock *clock;
     window_t w;
     env_t env;
     sound_manager_t sound;
