@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2019
 ** stat_t.h
 ** File description:
-** stat_t.h
+** stat_t.hs
 */
 
-#ifndef INVENTORY_H
-#define INVENTORY_H
+#ifndef STAT_H
+#define STAT_H
 
 typedef struct stat_s
 {
