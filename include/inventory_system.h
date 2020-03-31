@@ -28,7 +28,7 @@ typedef struct particule_effect_s
 
 typedef struct item_s
 {
-    //char id[4];
+    char id[4];
     char *name;
     char *description;
     bool av_particule;
