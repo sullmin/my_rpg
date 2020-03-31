@@ -26,8 +26,16 @@ SRC_WINDOW	=	$(DSRC)window/window_create.c						\
 #SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
 #SRC_INVENT =	$(DSRC)inventory_system/
-#SRC_QUEST 	=	$(DSRC)quest_system/
 #SRC_MENU 	=	$(DSRC)main_menu/
+
+SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
+				$(DSRC)quest_system/quest_create_destroy.c			\
+				$(DSRC)quest_system/quest_enable.c					\
+				$(DSRC)quest_system/quest_finish.c					\
+				$(DSRC)quest_system/quest_event_manager.c			\
+				$(DSRC)quest_system/dialogue/dialogue_load.c		\
+				$(DSRC)quest_system/dialogue/dialogue_play.c		\
+				$(DSRC)quest_system/dialogue/dialogue_next.c		\
 
 SRC_GAME	=	$(DSRC)game/game_create.c							\
 				$(DSRC)game/game_destroy.c							\
@@ -39,7 +47,7 @@ SRC_MAIN	=	$(DSRC)main.c										\
 				$(DSRC)usage.c										\
 				$(DSRC)master.c										\
 
-SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG)
+SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST)
 
 OBJ	=	$(SRC:.c=.o)
 

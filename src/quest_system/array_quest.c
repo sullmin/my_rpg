@@ -10,10 +10,8 @@
 const quest_t QUEST_ARRAY[NB_QUEST] =
 {
     {
-        .id = ['A', 'A', 'A', 0],
         .title = "QUEST A TITLE",
         .text = "description of the quest",
-        .is_active = false,
         .file_pnj_dialogue = "diag1",
         .type_reward = REW_STAT,
         .reward_stat =
@@ -26,8 +24,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .iq = 0
         },
         .reward_ref_item = ['x', 'x', 'x', 0],
-        .time_begin = {0},
-        .max_duration = 0,
-        .ref_item_end = ['x', 'x', 'x', 0]
+        .ref_item_end = ['x', 'x', 'x', 0],
+        .max_duration = 0
     }
 };
