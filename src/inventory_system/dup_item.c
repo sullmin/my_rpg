@@ -48,6 +48,7 @@ bool item_dup(const item_t *item, item_t *dest)
         dest->name = NULL;
         return true;
     }
+    for (size_t i = 0; i < 5; dest->id[i] = item->id[i], i++);
     dest->name = my_strdup(item->name);
     dest->description = my_strdup(item->description);
     dest->sprite = sfSprite_copy(item->sprite);
