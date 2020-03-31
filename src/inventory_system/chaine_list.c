@@ -5,6 +5,8 @@
 ** myrpg
 */
 
+#include "inventory_system.h"
+
 list_t *make_list(item_t *first)
 {
     list_t *start = malloc(sizeof(list_t));
@@ -16,7 +18,7 @@ list_t *make_list(item_t *first)
     return start;
 }
 
-int add_one(list_t *my_list, item_t *other)
+bool add_one(list_t *my_list, item_t *other)
 {
     list_t *end = my_list;
 
@@ -24,10 +26,10 @@ int add_one(list_t *my_list, item_t *other)
         end = end->next;
     end->next = malloc(sizeof(list_t));
     if (!end->next)
-        return EXIT_ERROR;
+        return false;
     end->next->next = NULL;
     end->next->item = other;
-    return EXIT_SUCCESS;
+    return true;
 }
 
 void distroy(list_t *list)

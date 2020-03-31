@@ -5,9 +5,7 @@
 ** myrpg
 */
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include "myrpg.h"
+#include "inventory_system.h"
 
 static void stat_dup(const stat_t *stat, stat_t *dest)
 {

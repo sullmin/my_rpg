@@ -5,6 +5,8 @@
 ** myrpg
 */
 
+#include "inventory_system.h"
+
 void destroy_item(item_t *item)
 {
     if (item->name)
