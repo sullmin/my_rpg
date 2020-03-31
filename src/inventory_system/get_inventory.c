@@ -9,8 +9,6 @@
 #include <stdbool.h>
 #include "myrpg.h"
 
-extern int NB_ITEM_INVENTORY;
-
 item_t **get_player_inventory(int size)
 {
     item_t **inventory;
