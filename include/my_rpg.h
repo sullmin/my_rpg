@@ -19,6 +19,7 @@
 #include "window.h"
 #include "game.h"
 #include "inventory_system.h"
+#include "button.h"
 
 #define ENV(game) &game->env
 
