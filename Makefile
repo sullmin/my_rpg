@@ -33,8 +33,10 @@ SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c					\
 				$(DSRC)inventory_system/destroy_item.c					\
 				$(DSRC)inventory_system/dup_item.c						\
 #SRC_QUEST 	=	$(DSRC)quest_system/
-#SRC_MENU 	=	$(DSRC)main_menu/create_main_menu.c						\
-#				$(DSRC)main_menu/display_main_menu.c					\
+
+SRC_MENU 	=	$(DSRC)main_menu/create_main_menu.c						\
+				$(DSRC)main_menu/destroy_main_menu.c					\
+				$(DSRC)main_menu/display_main_menu.c					\
 
 SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_destroy.c								\
@@ -46,7 +48,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_INVENT) $(SRC_GUI)
+SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU)
 
 OBJ	=	$(SRC:.c=.o)
 

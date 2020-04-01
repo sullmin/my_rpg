@@ -8,23 +8,23 @@
 #include "my_rpg.h"
 
 static const char *play_path[] = {
-    "asset/play.png",
-    "asset/play.png",
-    "asset/play.png",
+    "asset/sprite/buttons/play.png",
+    "asset/sprite/buttons/play.png",
+    "asset/sprite/buttons/play.png",
     NULL,
 };
 
 static const char *quit_path[] = {
-    "asset/quit.png",
-    "asset/quit.png",
-    "asset/quit.png",
+    "asset/sprite/buttons/quit.png",
+    "asset/sprite/buttons/quit.png",
+    "asset/sprite/buttons/quit.png",
     NULL,
 };
 
 static const char *option_path[] = {
-    "asset/option.png",
-    "asset/option.png",
-    "asset/option.png",
+    "asset/sprite/buttons/option.png",
+    "asset/sprite/buttons/option.png",
+    "asset/sprite/buttons/option.png",
     NULL,
 };
 
