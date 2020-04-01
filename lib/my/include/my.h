@@ -20,6 +20,7 @@
 #include "get_next_line.h"
 #include "my_env.h"
 
+#include "list_str_t.h"
 #include "file_list_t.h"
 
 #define POW(x, y) my_compute_power_rec(x, y)
@@ -41,6 +42,11 @@
 #define WHITE_C "\e[97m"
 #define DEFAULT_C "\e[39m"
 
+// LINKED LIST
+void my_str_list_destroy(list_str_t *list);
+char *my_str_list_read(list_str_t *list);
+int my_str_list_add(list_str_t **list, const char *str);
+
 // FILE
 char **my_read_file(const char *filepath);
 int my_read_dir(file_list_t **files, const char *dirpath);
@@ -56,6 +62,7 @@ int my_putchar(char c);
 int my_putstr(char const *str);
 int my_putstr_error(const char *str);
 int my_puterror(const char *str, int status);
+int puterr(const char *str, int status);
 int my_strlen(char const *str);
 char *my_strdup(char const *src);
 char *my_strcpy(char *dest, char const *src);
