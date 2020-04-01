@@ -23,4 +23,18 @@ typedef struct my_button_shape_s {
     bool is_activate;
 } __attribute__((packed)) my_button_shape_t;
 
+typedef struct sound_t
+{
+    sfSound *sound;
+    sfSoundBuffer *buffer;
+} sound_s;
+
+typedef struct help_box_s
+{
+    sfFont *font;
+    sfText *text;
+    sfTexture *texture;
+    sfSprite *sprite;
+} help_box_t;
+
 #endif
