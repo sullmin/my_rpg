@@ -23,6 +23,8 @@ typedef enum game_status {
 
 #define NB_GAME_STATE 7
 
+#include "gui_t.h"
+
 /*
     Main structure of the program
 */
@@ -33,7 +35,7 @@ typedef struct game {
     sound_manager_t sound;
     //inventoy_t inventory;
     //sys_quest_t sysquest;
-    //gui_t ui;
+    gui_t ui;
     //iso_world_t wiso;
     //main_world_t wmain;
     //fight_mode_t wfight;
