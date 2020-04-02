@@ -32,9 +32,11 @@ int master(void)
         return EXIT_ERROR;
     if (game_create(&game) == EXIT_ERROR)
         return EXIT_ERROR;
-
+    if (create_main_menu(&game) == EXIT_ERROR)
+        return EXIT_ERROR;
     ret = game_loop(&game);
 
+    destroy_main_menu(&game);
     game_destroy(&game);
     window_destroy(&game.w);
     config_manager_destroy(&game.env);

@@ -5,9 +5,7 @@
 ** myrpg
 */
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include "myrpg.h"
+#include "inventory_system.h"
 
 static void stat_dup(const stat_t *stat, stat_t *dest)
 {
@@ -29,7 +27,8 @@ static bool effect_dup(const particule_effect_t *eff,
         return false;
     dest->framebuffer->width = eff->framebuffer->width;
     dest->framebuffer->height = eff->framebuffer->height;
-    dest->framebuffer->pixels = malloc(width * height * 32);
+    dest->framebuffer->pixels = malloc(eff->framebuffer->width
+        * eff->framebuffer->height * 32);
     if (!dest->framebuffer->pixels)
         return false;
     for (size_t y = 0; y < dest->framebuffer->height; y++)
@@ -49,6 +48,7 @@ bool item_dup(const item_t *item, item_t *dest)
         dest->name = NULL;
         return true;
     }
+    for (size_t i = 0; i < 5; dest->id[i] = item->id[i], i++);
     dest->name = my_strdup(item->name);
     dest->description = my_strdup(item->description);
     dest->sprite = sfSprite_copy(item->sprite);
@@ -59,7 +59,7 @@ bool item_dup(const item_t *item, item_t *dest)
     dest->is_equiped = item->is_equiped;
     dest->pos = item->pos;
     dest->size = item->size;
-    stat_dup(&item->stat, &dest->stat);
+    stat_dup(&item->stats, &dest->stats);
     if (!effect_dup(&item->particule, &dest->particule))
         return false;
     return true;

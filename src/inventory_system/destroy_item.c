@@ -5,6 +5,8 @@
 ** myrpg
 */
 
+#include "inventory_system.h"
+
 void destroy_item(item_t *item)
 {
     if (item->name)
@@ -15,8 +17,8 @@ void destroy_item(item_t *item)
         sfSprite_destroy(item->sprite);
     if (item->texture)
         sfTexture_destroy(item->texture);
-    if (item->framebuffer->pixels)
-        free(item->framebuffer->pixels);
-    if (item->framebuffer)
-        free(item->framebuffer);
+    if (item->particule.framebuffer->pixels)
+        free(item->particule.framebuffer->pixels);
+    if (item->particule.framebuffer)
+        free(item->particule.framebuffer);
 }

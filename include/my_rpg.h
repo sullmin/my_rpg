@@ -20,6 +20,8 @@
 #include "quest_system.h"
 #include "game.h"
 #include "inventory_system.h"
+#include "button.h"
+#include "main_menu.h"
 
 #define ENV(game) &game->env
 

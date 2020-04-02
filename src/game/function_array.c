@@ -11,7 +11,7 @@ void (* const FUNC_EXEC[NB_GAME_STATE])(game_t *game) =
 {
     NULL,
     NULL,
-    NULL, // Main Menu
+    &display_main_menu, // Main Menu
     NULL, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World

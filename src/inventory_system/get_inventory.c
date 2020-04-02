@@ -5,11 +5,9 @@
 ** myrpg
 */
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include "myrpg.h"
+#include "inventory_system.h"
 
-item_t **get_player_inventory(int size)
+static item_t **get_tab_inventory(size_t size)
 {
     item_t **inventory;
 
@@ -21,4 +19,18 @@ item_t **get_player_inventory(int size)
     for (size_t i = 0; i < size; i++)
         inventory[i] = NULL;
     return inventory;
+}
+
+bool get_player_inventory(player_inventory_t *inv, env_t *env)
+{
+    bool err;
+
+    inv->size = my_env_get_value_int(env, "INVENTORY_SIZE", &err);
+    if (err || inv->size <= 0)
+        return false;
+    inv->inventory = get_tab_inventory(inv->size);
+    if (!inv->inventory)
+        return false;
+    inv->nb_item = 0;
+    return true;
 }
