@@ -24,4 +24,6 @@ float size_char);
 int set_button_helpbox(button_t *button, const char *str,
 const char *font_path);
 
+int event_button(button_t *my_button, sfRenderWindow *window);
+
 #endif

@@ -25,6 +25,7 @@ SRC_GUI		=	$(DSRC)game/gui/widget/inputs/button/create_button.c	\
 				$(DSRC)game/gui/widget/inputs/button/destroy_button.c	\
 				$(DSRC)game/gui/widget/inputs/button/display_button.c	\
 				$(DSRC)game/gui/widget/inputs/button/set_button.c		\
+				$(DSRC)game/gui/widget/inputs/button/event_button.c		\
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
@@ -48,6 +49,7 @@ SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c					\
 SRC_MENU 	=	$(DSRC)main_menu/create_main_menu.c						\
 				$(DSRC)main_menu/destroy_main_menu.c					\
 				$(DSRC)main_menu/display_main_menu.c					\
+				$(DSRC)main_menu/event_main_menu.c						\
 
 SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_destroy.c								\
