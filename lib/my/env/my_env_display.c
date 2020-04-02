@@ -11,6 +11,7 @@ void my_env_display(env_t *env)
 {
     if (!env) {
         my_putstr_error("my_env_display : NULL env_t\n");
+        return;
     }
     for (int i = 0; i < env->size; i++) {
         if (env->var[i] == NULL)
