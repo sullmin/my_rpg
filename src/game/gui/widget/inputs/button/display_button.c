@@ -15,8 +15,8 @@ void display_button(button_t *button, sfRenderWindow *window)
     sfSprite_setPosition(sprite, button->pos);
     sfRenderWindow_drawSprite(window, sprite, NULL);
     sfSprite_destroy(sprite);
+    if (button->name)
+        sfRenderWindow_drawText(window, button->text, NULL);
 }
-//if (my_button->name)
-//    sfRenderWindow_drawText(window, my_button->text, NULL);
 //if (my_button->is_activate)
 //    sfSound_play(my_button->sound.sound);

@@ -21,3 +21,22 @@ int set_texture_button(button_t *my_button, const char **filepath)
     }
     return EXIT_SUCCESS;
 }
+
+int set_button_label(button_t *button, char *str, const char *font_path,
+    float size_char)
+{
+    sfVector2f pos = {button->pos.x + 30, button->pos.y + 5};
+    button->text = sfText_create();
+    button->font = sfFont_createFromFile(font_path);
+
+    if (!str || !button->font)
+        return EXIT_ERROR;
+    button->name = my_strdup(str);
+    if (!button->name)
+        return EXIT_ERROR;
+    sfText_setString(button->text, str);
+    sfText_setFont(button->text, button->font);
+    sfText_setCharacterSize(button->text, size_char);
+    sfText_setPosition(button->text, pos);
+    return EXIT_SUCCESS;
+}
