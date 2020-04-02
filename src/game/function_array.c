@@ -22,7 +22,7 @@ void (* const FUNC_EVENT[NB_GAME_STATE])(game_t *game, sfEvent *event) =
 {
     NULL,
     NULL,
-    NULL, // Main Menu
+    &event_main_menu, // Main Menu
     NULL, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World

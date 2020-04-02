@@ -15,6 +15,6 @@
 int create_main_menu(game_t *game);
 void destroy_main_menu(game_t *game);
 void display_main_menu(game_t *game);
-
+void event_main_menu(game_t *game, sfEvent *event);
 
 #endif /* !MAIN_MENU_H_ */
