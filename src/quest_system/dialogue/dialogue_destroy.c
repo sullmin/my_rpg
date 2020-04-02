@@ -6,3 +6,8 @@
 */
 
 #include "my_rpg.h"
+
+void dialogue_destroy(list_str_t *dialogue)
+{
+    
+}

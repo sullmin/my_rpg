@@ -8,10 +8,19 @@
 #ifndef H_QUEST
 #define H_QUEST
 
-#include "stat_t.h"
 #include "quest_t.h"
 
 int sysquest_create(sys_quest_t *quests);
 void sysquest_destroy(sys_quest_t *quests);
+
+int quest_enable(game_t *game, size_t id);
+int quest_finish(sys_quest_t *quests, game_t *game, size_t id);
+int sysquest_check_end(game_t *game);
+
+// DIALOGUE
+
+void dialogue_play(sys_quest_t *quests, int id);
+int dialogue_load(list_str_t **dialogue, const char *file);
+void dialogue_destroy(list_str_t *dialogue);
 
 #endif

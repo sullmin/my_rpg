@@ -10,6 +10,11 @@
 
 #define NB_QUEST 1
 
+#define IDX_DIALOGUE_END -1
+#define IDX_DIALOGUE_FAIL -2
+
+#include "stat_t.h"
+
 enum quest_reward_type {
     REW_STAT,
     REW_ITEM,
@@ -28,10 +33,12 @@ typedef struct quest {
 } quest_t;
 
 typedef struct quest_array {
-    ssize_t curr_quest_id;
-    ssize_t curr_diag_id;
+    bool play_dialogue;
+    ssize_t dialogue_id;
     size_t size;
     size_t size_enable;
+    list_str_t *pnj_dialogue_end;
+    list_str_t *pnj_dialogue_fail;
     list_str_t *pnj_dialogue[NB_QUEST];
     bool is_active[NB_QUEST];
     sfInt64 time_begin[NB_QUEST];

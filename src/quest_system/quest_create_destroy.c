@@ -8,11 +8,12 @@
 #include "my_rpg.h"
 
 extern const quest_t QUEST_ARRAY[];
+extern const char *FILE_PNJ_DIALOGUE_END;
 
 int sysquest_create(sys_quest_t *quests)
 {
-    quests->curr_quest_id = -1;
-    quests->curr_diag_id = -1;
+    quests->play_dialogue = false;
+    quests->dialogue_id = -1;
     quests->size = NB_QUEST;
     quests->size_enable = 0;
     for (size_t i = 0; i < quests->size; i++) {
@@ -25,13 +26,19 @@ int sysquest_create(sys_quest_t *quests)
             return EXIT_ERROR;
         }
     }
+    if (dialogue_load(&quests->pnj_dialogue_end, FILE_PNJ_DIALOGUE_END) != 0) {
+        return EXIT_ERROR;
+    }
     return EXIT_SUCCESS;
 }
 
 void sysquest_destroy(sys_quest_t *quests)
 {
+    if (!quests)
+        return;
     for (size_t i = 0; i < quests->size; i++) {
         dialogue_destroy(quests->pnj_dialogue[i]);
     }
     quests->size = 0;
+    quests->play_dialogue = false;
 }

@@ -8,6 +8,8 @@
 #ifndef H_GAME_T
 #define H_GAME_T
 
+#include "quest_t.h"
+
 /*
     Define the state of the program (in game loop)
 */
@@ -32,8 +34,8 @@ typedef struct game {
     window_t w;
     env_t env;
     sound_manager_t sound;
+    sys_quest_t sysquest;
     //inventoy_t inventory;
-    //sys_quest_t sysquest;
     //gui_t ui;
     //iso_world_t wiso;
     //main_world_t wmain;

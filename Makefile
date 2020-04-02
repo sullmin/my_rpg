@@ -32,10 +32,12 @@ SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
 				$(DSRC)quest_system/quest_create_destroy.c			\
 				$(DSRC)quest_system/quest_enable.c					\
 				$(DSRC)quest_system/quest_finish.c					\
-				$(DSRC)quest_system/quest_event_manager.c			\
+				$(DSRC)quest_system/quest_check_end.c				\
 				$(DSRC)quest_system/dialogue/dialogue_load.c		\
+				$(DSRC)quest_system/dialogue/dialogue_destroy.c		\
+				$(DSRC)quest_system/dialogue/dialogue_display.c		\
+				$(DSRC)quest_system/dialogue/dialogue_event_manager.c	\
 				$(DSRC)quest_system/dialogue/dialogue_play.c		\
-				$(DSRC)quest_system/dialogue/dialogue_next.c		\
 
 SRC_GAME	=	$(DSRC)game/game_create.c							\
 				$(DSRC)game/game_destroy.c							\

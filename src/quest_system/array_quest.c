@@ -7,6 +7,8 @@
 
 #include "my_rpg.h"
 
+const char *FILE_PNJ_DIALOGUE_END = "diag_end";
+
 const quest_t QUEST_ARRAY[NB_QUEST] =
 {
     {
@@ -23,8 +25,8 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = ['x', 'x', 'x', 0],
-        .ref_item_end = ['x', 'x', 'x', 0],
+        .reward_ref_item = {'x', 'x', 'x', 0},
+        .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
     }
 };

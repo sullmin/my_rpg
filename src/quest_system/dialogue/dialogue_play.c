@@ -6,3 +6,14 @@
 */
 
 #include "my_rpg.h"
+
+void dialogue_play(sys_quest_t *quests, int id)
+{
+    if (id < 0) {
+
+        return;
+    } else if (quests->pnj_dialogue[id] == NULL) {
+        return;
+    }
+
+}

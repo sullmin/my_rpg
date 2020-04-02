@@ -6,3 +6,8 @@
 */
 
 #include "my_rpg.h"
+
+int dialogue_load(list_str_t **dialogue, const char *file)
+{
+    
+}
