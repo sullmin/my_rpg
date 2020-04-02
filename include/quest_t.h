@@ -32,9 +32,10 @@ typedef struct quest {
     sfInt64 max_duration;
 } quest_t;
 
-typedef struct quest_array {
+typedef struct quest_system {
     bool play_dialogue;
     ssize_t dialogue_id;
+    char *curr_sentence;
     size_t size;
     size_t size_enable;
     list_str_t *pnj_dialogue_end;
@@ -42,6 +43,9 @@ typedef struct quest_array {
     list_str_t *pnj_dialogue[NB_QUEST];
     bool is_active[NB_QUEST];
     sfInt64 time_begin[NB_QUEST];
+    sfRectangleShape *back;
+    sfText *text;
+    sfFont *font;
 } sys_quest_t;
 
 #endif

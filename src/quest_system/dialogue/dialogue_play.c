@@ -13,7 +13,7 @@ void dialogue_play(sys_quest_t *quests, int id)
         return;
     if (id != IDX_DIALOGUE_END && id != IDX_DIALOGUE_FAIL && id < 0)
         return;
-    else if (id >= quests->size)
+    else if (id >= (int)quests->size)
         return;
     if (id >= 0 && quests->pnj_dialogue[id] == NULL)
         return;
@@ -23,5 +23,5 @@ void dialogue_play(sys_quest_t *quests, int id)
         return;
     quests->play_dialogue = true;
     quests->dialogue_id = id;
-    quests->dialogue_pos = 0;
+    quests->curr_sentence = NULL;
 }

@@ -7,14 +7,15 @@
 
 #include "my_rpg.h"
 
-const char *FILE_PNJ_DIALOGUE_END = "diag_end";
+const char *FILE_PNJ_DIALOGUE_END = "end.diag";
+const char *FILE_PNJ_DIALOGUE_FAIL = "fail.diag";
 
 const quest_t QUEST_ARRAY[NB_QUEST] =
 {
     {
         .title = "QUEST A TITLE",
         .text = "description of the quest",
-        .file_pnj_dialogue = "diag1",
+        .file_pnj_dialogue = "test.diag",
         .type_reward = REW_STAT,
         .reward_stat =
         {
