@@ -9,5 +9,5 @@
 
 void dialogue_destroy(list_str_t *dialogue)
 {
-    
+    my_str_list_destroy(dialogue);
 }
