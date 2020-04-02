@@ -32,10 +32,8 @@ int my_env_check_collision(const env_t *env, char **env_array)
         for (size_t j = 0; env_array[j] != NULL; j++) {
             if (i == j)
                 continue;
-            else if (my_env_line_cmp(env_array[i], env_array[j])) {
-                my_printf("C: %s %s %lu %lu\n", env_array[i], env_array[j], j, i);
+            else if (my_env_line_cmp(env_array[i], env_array[j]))
                 return (int)i;
-            }
         }
     }
     if (!env->var)

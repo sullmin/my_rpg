@@ -8,6 +8,8 @@
 #ifndef H_GAME_T
 #define H_GAME_T
 
+#include "quest_t.h"
+
 /*
     Define the state of the program (in game loop)
 */
@@ -30,12 +32,13 @@ typedef enum game_status {
 */
 typedef struct game {
     game_status_t state;
+    sfClock *clock;
     window_t w;
     env_t env;
     sound_manager_t sound;
-    //inventoy_t inventory;
-    //sys_quest_t sysquest;
+    sys_quest_t sysquest;
     gui_t ui;
+    //inventoy_t inventory;
     //iso_world_t wiso;
     //main_world_t wmain;
     //fight_mode_t wfight;

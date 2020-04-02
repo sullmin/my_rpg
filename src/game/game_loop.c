@@ -16,6 +16,9 @@ static void crossroads(game_t *game)
     }
     if (FUNC_EXEC[game->state] != NULL)
         FUNC_EXEC[game->state](game);
+    if (game->sysquest.play_dialogue == true) {
+        dialogue_display(game);
+    }
 }
 
 static int run(game_t *game)
@@ -32,6 +35,7 @@ int game_loop(game_t *game)
 {
     sfEvent event;
 
+    quest_enable(game, 0); // DEBUG => quest system dialogue
     game->state = MAIN_MENU;
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))

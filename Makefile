@@ -28,11 +28,22 @@ SRC_GUI		=	$(DSRC)game/gui/widget/inputs/button/create_button.c	\
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
+
+SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
+				$(DSRC)quest_system/quest_create_destroy.c			\
+				$(DSRC)quest_system/quest_enable.c					\
+				$(DSRC)quest_system/quest_finish.c					\
+				$(DSRC)quest_system/quest_check_end.c				\
+				$(DSRC)quest_system/dialogue/dialogue_load.c		\
+				$(DSRC)quest_system/dialogue/dialogue_destroy.c		\
+				$(DSRC)quest_system/dialogue/dialogue_display.c		\
+				$(DSRC)quest_system/dialogue/dialogue_event_manager.c	\
+				$(DSRC)quest_system/dialogue/dialogue_play.c		\
+
 SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c					\
 				$(DSRC)inventory_system/get_inventory.c					\
 				$(DSRC)inventory_system/destroy_item.c					\
 				$(DSRC)inventory_system/dup_item.c						\
-#SRC_QUEST 	=	$(DSRC)quest_system/
 
 SRC_MENU 	=	$(DSRC)main_menu/create_main_menu.c						\
 				$(DSRC)main_menu/destroy_main_menu.c					\
@@ -48,7 +59,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU)
+SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU)
 
 OBJ	=	$(SRC:.c=.o)
 

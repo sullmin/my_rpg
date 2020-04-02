@@ -9,6 +9,9 @@ DNBR = nbr/
 DSTR = str/
 DFILE = file/
 DENV = env/
+DLIST = list/
+
+SRC_LIST = $(DLIST)my_list_str.c			\
 
 SRC_NBR	=	$(DNBR)my_compute_power_rec.c	\
 			$(DNBR)my_compute_square_root.c	\
@@ -89,7 +92,7 @@ SRC_STR  =	$(DSTR)my_putchar.c				\
 			$(DSTR)my_str_replace_char.c		\
 			$(DSTR)my_str_have_char.c			\
 
-SRC	= $(SRC_STR) $(SRC_NBR) $(SRC_FILE) $(SRC_ENV)
+SRC	= $(SRC_STR) $(SRC_NBR) $(SRC_FILE) $(SRC_ENV) $(SRC_LIST)
 
 DINCLUDE = ./include
 

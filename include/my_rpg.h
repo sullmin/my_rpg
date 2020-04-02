@@ -17,6 +17,7 @@
 #include "sound_manager.h"
 #include "config_manager.h"
 #include "window.h"
+#include "quest_system.h"
 #include "game.h"
 #include "inventory_system.h"
 #include "button.h"

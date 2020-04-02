@@ -21,6 +21,9 @@ static void event_crossroads(game_t *game, sfEvent *event)
     }
     if (FUNC_EVENT[game->state] != NULL)
         FUNC_EVENT[game->state](game, event);
+    if (game->sysquest.play_dialogue == true) {
+        dialogue_event_manager(game, event);
+    }
 }
 
 void call_event_manager(game_t *game, sfEvent *event)
