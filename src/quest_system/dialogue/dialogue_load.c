@@ -8,17 +8,20 @@
 #include "my_rpg.h"
 
 static const char *EXT_FILE_DIALOGUE = ".diag";
+static const char *PATH_FILE_DIALOGUE = "./asset/dialogue/";
 
 int dialogue_load(list_str_t **dialogue, const char *file)
 {
     char **content = NULL;
+    char *filepath = my_str_concat(PATH_FILE_DIALOGUE, file);
 
-    if (!file)
+    if (!file || !filepath)
         return EXIT_ERROR;
     else if (!my_file_ext_cmp(file, EXT_FILE_DIALOGUE)) {
         return puterr("dialogue_load : wrong file extension\n", EXIT_ERROR);
     }
-    content = my_read_file(file);
+    content = my_read_file(filepath);
+    free(filepath);
     if (!content)
         return puterr("dialogue_load : fail to read diag file\n", EXIT_ERROR);
     if (word_array_len(content) == 0)

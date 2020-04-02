@@ -9,7 +9,7 @@
 
 static const float BACK_HEIGHT = 200.0f;
 static const float TEXT_SHIFT_X = 10.0f;
-static const float TEXT_SHIFT_Y = 10.0f;
+static const float TEXT_SHIFT_Y = 20.0f;
 
 static void set_back(game_t *game)
 {
@@ -30,7 +30,7 @@ static void set_text(game_t *game)
     sfVector2f position;
 
     position.x = TEXT_SHIFT_X;
-    position.x = TEXT_SHIFT_Y + (game->w.height - BACK_HEIGHT);
+    position.y = TEXT_SHIFT_Y + (game->w.height - BACK_HEIGHT);
     sfText_setPosition(game->sysquest.text, position);
 }
 

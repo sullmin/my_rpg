@@ -11,10 +11,10 @@ extern const quest_t QUEST_ARRAY[];
 extern const char *FILE_PNJ_DIALOGUE_END;
 extern const char *FILE_PNJ_DIALOGUE_FAIL;
 
-static const sfColor BACK_COLOR = {0, 0, 0, 255};
-static const float BACK_OUTLINE = 3.0f;
+static const sfColor BACK_COLOR = {30, 30, 30, 255};
+static const float BACK_OUTLINE = 4.0f;
 static const sfColor TEXT_COLOR = {255, 255, 255, 255};
-static const unsigned int TEXT_SIZE = 30;
+static const unsigned int TEXT_SIZE = 20;
 static const char *FONT_FILEPATH = "./asset/font/MADETOMMY.ttf";
 
 static int load_gui_elements(sys_quest_t *sysquest)

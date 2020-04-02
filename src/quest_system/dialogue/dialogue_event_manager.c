@@ -28,7 +28,8 @@ int dialogue_event_manager(game_t *game, sfEvent *event)
 {
     if (!game || game->sysquest.play_dialogue == false) {
         return EXIT_FAILURE;
-    } else if (!event || event->type != sfEvtKeyReleased) {
+    } else if (!event || (event->type != sfEvtKeyReleased
+            && event->type != sfEvtMouseButtonReleased)) {
         return EXIT_FAILURE;
     }
     if (dialogue_read_next_sentence(&game->sysquest) == false) {

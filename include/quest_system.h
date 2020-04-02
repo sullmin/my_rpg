@@ -18,13 +18,16 @@ int quest_enable(game_t *game, size_t id);
 int sysquest_check_end(game_t *game);
 
 // DIALOGUE
-void dialogue_play(sys_quest_t *quests, int id);
 int dialogue_display(game_t *game);
+int dialogue_event_manager(game_t *game, sfEvent *event);
+
+/////////
 
 // Quest sub-function
 int quest_finish(sys_quest_t *quests, game_t *game, size_t id);
 
 // Dialogue sub-function
+void dialogue_play(sys_quest_t *quests, int id);
 int dialogue_load(list_str_t **dialogue, const char *file);
 void dialogue_destroy(list_str_t *dialogue);
 bool dialogue_read_next_sentence(sys_quest_t *sysquest);

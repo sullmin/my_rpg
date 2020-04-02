@@ -23,5 +23,7 @@ void dialogue_play(sys_quest_t *quests, int id)
         return;
     quests->play_dialogue = true;
     quests->dialogue_id = id;
-    quests->curr_sentence = NULL;
+    if (dialogue_read_next_sentence(quests) == false) {
+        quests->play_dialogue = false;
+    }
 }
