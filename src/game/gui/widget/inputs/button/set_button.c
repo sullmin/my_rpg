@@ -22,14 +22,14 @@ int set_texture_button(button_t *my_button, const char **filepath)
     return EXIT_SUCCESS;
 }
 
-int set_button_label(button_t *button, char *str, const char *font_path,
+int set_button_label(button_t *button, const char *str, const char *font_path,
     float size_char)
 {
     sfVector2f pos = {button->pos.x + 30, button->pos.y + 5};
+
     button->text = sfText_create();
     button->font = sfFont_createFromFile(font_path);
-
-    if (!str || !button->font)
+    if (!str || !button->font || !button->text)
         return EXIT_ERROR;
     button->name = my_strdup(str);
     if (!button->name)
@@ -38,5 +38,21 @@ int set_button_label(button_t *button, char *str, const char *font_path,
     sfText_setFont(button->text, button->font);
     sfText_setCharacterSize(button->text, size_char);
     sfText_setPosition(button->text, pos);
+    return EXIT_SUCCESS;
+}
+
+int set_button_helpbox(button_t *button, const char *str,
+const char *font_path)
+{
+    button->help_box = malloc(sizeof(help_box_t));
+    if (button->help_box == NULL)
+        return EXIT_ERROR;
+    button->help_box->font = sfFont_createFromFile(font_path);
+    button->help_box->text = sfText_create();
+    if (!str || !button->help_box->font || !button->help_box->text)
+        return EXIT_ERROR;
+    sfText_setString(button->help_box->text, str);
+    sfText_setFont(button->help_box->text, button->help_box->font);
+    sfText_setCharacterSize(button->help_box->text, SIZE_HELP_BOX);
     return EXIT_SUCCESS;
 }

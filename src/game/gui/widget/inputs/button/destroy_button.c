@@ -17,6 +17,10 @@ void destroy_button(button_t *button)
         sfFont_destroy(button->font);
         sfText_destroy(button->text);
     }
+    if (button->help_box != NULL) {
+        sfFont_destroy(button->help_box->font);
+        sfText_destroy(button->help_box->text);
+    }
     free(button);
 }
 
