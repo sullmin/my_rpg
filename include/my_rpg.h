@@ -16,6 +16,7 @@
 #include "my.h"
 #include "sound_manager.h"
 #include "config_manager.h"
+#include "slider.h"
 #include "window.h"
 #include "quest_system.h"
 #include "game.h"

@@ -26,6 +26,11 @@ SRC_GUI		=	$(DSRC)game/gui/widget/inputs/button/create_button.c	\
 				$(DSRC)game/gui/widget/inputs/button/display_button.c	\
 				$(DSRC)game/gui/widget/inputs/button/set_button.c		\
 				$(DSRC)game/gui/widget/inputs/button/event_button.c		\
+				$(DSRC)game/gui/widget/inputs/slider/create_slider.c	\
+				$(DSRC)game/gui/widget/inputs/slider/destroy_slider.c	\
+				$(DSRC)game/gui/widget/inputs/slider/display_slider.c	\
+				$(DSRC)game/gui/widget/inputs/slider/set_slider.c		\
+
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
