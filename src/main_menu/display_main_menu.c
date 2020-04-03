@@ -9,7 +9,7 @@
 
 void display_main_menu(game_t *game)
 {
-    display_button(game->ui.main_menu->play, game->w.window);
-    display_button(game->ui.main_menu->quit, game->w.window);
-    display_button(game->ui.main_menu->option, game->w.window);
+    display_button(game->menu->play, game->w.window);
+    display_button(game->menu->quit, game->w.window);
+    display_button(game->menu->option, game->w.window);
 }

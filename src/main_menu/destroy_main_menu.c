@@ -9,8 +9,8 @@
 
 void destroy_main_menu(game_t *game)
 {
-    destroy_button(game->ui.main_menu->option);
-    destroy_button(game->ui.main_menu->play);
-    destroy_button(game->ui.main_menu->quit);
-    free(game->ui.main_menu);
+    destroy_button(game->menu->option);
+    destroy_button(game->menu->play);
+    destroy_button(game->menu->quit);
+    free(game->menu);
 }

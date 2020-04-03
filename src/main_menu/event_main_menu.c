@@ -9,11 +9,11 @@
 
 void event_main_menu(game_t *game, sfEvent *event)
 {
-    if (game->ui.main_menu->quit->toggle == 2)
+    if (game->menu->quit->toggle == 2)
         game->state = QUIT;
-    if (game->ui.main_menu->play->toggle == 2)
+    if (game->menu->play->toggle == 2)
         game->state = MAIN_WORLD;
-    event_button(game->ui.main_menu->option, game->w.window);
-    event_button(game->ui.main_menu->play, game->w.window);
-    event_button(game->ui.main_menu->quit, game->w.window);
+    event_button(game->menu->option, game->w.window);
+    event_button(game->menu->play, game->w.window);
+    event_button(game->menu->quit, game->w.window);
 }

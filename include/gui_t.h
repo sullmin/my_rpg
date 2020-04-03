@@ -11,7 +11,7 @@
 #include "main_menu_t.h"
 
 typedef struct gui {
-    main_menu_t *main_menu;
-} gui_t;
+
+}  gui_t;
 
 #endif /* !GUI_T_H_ */

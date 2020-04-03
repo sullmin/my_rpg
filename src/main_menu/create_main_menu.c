@@ -42,25 +42,25 @@ static int set_main_menu_button(game_t *game)
 {
     int ret = 0;
 
-    ret += set_button_texture(game->ui.main_menu->play, play_path);
-    ret += set_button_texture(game->ui.main_menu->quit, quit_path);
-    ret += set_button_texture(game->ui.main_menu->option, option_path);
-    ret += set_button_label(game->ui.main_menu->play, "play", font, 50);
-    ret += set_button_label(game->ui.main_menu->quit, "quit", font, 50);
-    ret += set_button_label(game->ui.main_menu->option, "option", font, 50);
+    ret += set_button_texture(game->menu->play, play_path);
+    ret += set_button_texture(game->menu->quit, quit_path);
+    ret += set_button_texture(game->menu->option, option_path);
+    ret += set_button_label(game->menu->play, "play", font, 50);
+    ret += set_button_label(game->menu->quit, "quit", font, 50);
+    ret += set_button_label(game->menu->option, "option", font, 50);
     return ret;
 }
 
 int create_main_menu(game_t *game)
 {
-    game->ui.main_menu = malloc(sizeof(main_menu_t));
-    if (game->ui.main_menu == NULL)
+    game->menu = malloc(sizeof(main_menu_t));
+    if (game->menu == NULL)
         return EXIT_ERROR;
-    game->ui.main_menu->play = create_button(button_p[0], button_s);
-    game->ui.main_menu->quit = create_button(button_p[1], button_s);
-    game->ui.main_menu->option = create_button(button_p[2], button_s);
-    if (game->ui.main_menu->play == NULL || !game->ui.main_menu->quit
-        || !game->ui.main_menu->option)
+    game->menu->play = create_button(button_p[0], button_s);
+    game->menu->quit = create_button(button_p[1], button_s);
+    game->menu->option = create_button(button_p[2], button_s);
+    if (game->menu->play == NULL || !game->menu->quit
+        || !game->menu->option)
         return EXIT_ERROR;
     if (set_main_menu_button(game) != EXIT_SUCCESS)
         return EXIT_ERROR;

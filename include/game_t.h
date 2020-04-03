@@ -37,12 +37,12 @@ typedef struct game {
     env_t env;
     sound_manager_t sound;
     sys_quest_t sysquest;
-    gui_t ui;
+    //gui_t ui;
     //inventoy_t inventory;
     //iso_world_t wiso;
     //main_world_t wmain;
     //fight_mode_t wfight;
-    //main_menu_t menu;
+    main_menu_t *menu;
 } game_t;
 
 #endif
