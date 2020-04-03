@@ -20,13 +20,15 @@ typedef enum game_status {
     PAUSE_MENU = 3,
     FIGHT_MODE = 4,
     MAIN_WORLD = 5,
-    ISO_WORLD = 6
+    ISO_WORLD = 6,
+    OPTION_MENU = 7
 } game_status_t;
 
-#define NB_GAME_STATE 7
+#define NB_GAME_STATE 8
 
 #include "gui_t.h"
-
+#include "option_t.h"
+#include "option_menu_t.h"
 /*
     Main structure of the program
 */
@@ -43,6 +45,8 @@ typedef struct game {
     //main_world_t wmain;
     //fight_mode_t wfight;
     main_menu_t *menu;
+    option_menu_t *option_menu;
+    option_t *option;
 } game_t;
 
 #endif

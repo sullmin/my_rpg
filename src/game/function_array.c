@@ -15,7 +15,8 @@ void (* const FUNC_EXEC[NB_GAME_STATE])(game_t *game) =
     NULL, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World
-    NULL // Iso World
+    NULL, // Iso World
+    &display_option_menu // Option Menu
 };
 
 void (* const FUNC_EVENT[NB_GAME_STATE])(game_t *game, sfEvent *event) =
@@ -26,5 +27,6 @@ void (* const FUNC_EVENT[NB_GAME_STATE])(game_t *game, sfEvent *event) =
     NULL, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World
-    NULL // Iso World
+    NULL, // Iso World
+    &event_option_menu // Option Menu
 };

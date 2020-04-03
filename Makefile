@@ -21,17 +21,17 @@ SRC_CONFIG	=	$(DSRC)config_manager/config_manager_read.c				\
 SRC_WINDOW	=	$(DSRC)window/window_create.c							\
 				$(DSRC)window/window_destroy.c							\
 
-SRC_GUI		=	$(DSRC)game/gui/widget/inputs/button/create_button.c	\
-				$(DSRC)game/gui/widget/inputs/button/destroy_button.c	\
-				$(DSRC)game/gui/widget/inputs/button/display_button.c	\
-				$(DSRC)game/gui/widget/inputs/button/set_button.c		\
-				$(DSRC)game/gui/widget/inputs/button/event_button.c		\
-				$(DSRC)game/gui/widget/inputs/slider/create_slider.c	\
-				$(DSRC)game/gui/widget/inputs/slider/destroy_slider.c	\
-				$(DSRC)game/gui/widget/inputs/slider/display_slider.c	\
-				$(DSRC)game/gui/widget/inputs/slider/set_slider.c		\
-				$(DSRC)game/gui/widget/inputs/slider/event_slider.c		\
-				$(DSRC)game/gui/widget/inputs/slider/get_value_slider.c	\
+SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
+				$(DSRC)gui/widget/inputs/button/destroy_button.c	\
+				$(DSRC)gui/widget/inputs/button/display_button.c	\
+				$(DSRC)gui/widget/inputs/button/set_button.c		\
+				$(DSRC)gui/widget/inputs/button/event_button.c		\
+				$(DSRC)gui/widget/inputs/slider/create_slider.c	\
+				$(DSRC)gui/widget/inputs/slider/destroy_slider.c	\
+				$(DSRC)gui/widget/inputs/slider/display_slider.c	\
+				$(DSRC)gui/widget/inputs/slider/set_slider.c		\
+				$(DSRC)gui/widget/inputs/slider/event_slider.c		\
+				$(DSRC)gui/widget/inputs/slider/get_value_slider.c	\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
@@ -58,6 +58,11 @@ SRC_MENU 	=	$(DSRC)main_menu/create_main_menu.c						\
 				$(DSRC)main_menu/display_main_menu.c					\
 				$(DSRC)main_menu/event_main_menu.c						\
 
+SRC_OPTION_MENU =	$(DSRC)option_menu/create_option_menu.c				\
+					$(DSRC)option_menu/destroy_option_menu.c				\
+					$(DSRC)option_menu/display_option_menu.c				\
+					$(DSRC)option_menu/event_option_menu.c				\
+
 SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_destroy.c								\
 				$(DSRC)game/game_loop.c									\
@@ -69,7 +74,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)master.c											\
 				$(DSRC)my_math.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU)
+SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU)
 
 OBJ	=	$(SRC:.c=.o)
 
