@@ -53,15 +53,15 @@ SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c					\
 				$(DSRC)inventory_system/destroy_item.c					\
 				$(DSRC)inventory_system/dup_item.c						\
 
-SRC_MENU 	=	$(DSRC)main_menu/create_main_menu.c						\
-				$(DSRC)main_menu/destroy_main_menu.c					\
-				$(DSRC)main_menu/display_main_menu.c					\
-				$(DSRC)main_menu/event_main_menu.c						\
+SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
+				$(DSRC)menu/main/destroy_main_menu.c					\
+				$(DSRC)menu/main/display_main_menu.c					\
+				$(DSRC)menu/main/event_main_menu.c						\
 
-SRC_OPTION_MENU =	$(DSRC)option_menu/create_option_menu.c				\
-					$(DSRC)option_menu/destroy_option_menu.c				\
-					$(DSRC)option_menu/display_option_menu.c				\
-					$(DSRC)option_menu/event_option_menu.c				\
+SRC_OPTION_MENU =	$(DSRC)menu/main/create_option_menu.c				\
+					$(DSRC)menu/main/destroy_option_menu.c				\
+					$(DSRC)menu/main/display_option_menu.c				\
+					$(DSRC)menu/main/event_option_menu.c				\
 
 SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_destroy.c								\
