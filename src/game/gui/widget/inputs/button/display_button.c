@@ -23,6 +23,6 @@ void display_button(button_t *button, sfRenderWindow *window)
         (sfVector2f){5 + mouse_pos.x, 5 + mouse_pos.y});
         sfRenderWindow_drawText(window, button->help_box->text, NULL);
     }
-    if (button->toggle == 2)
+    if (button->toggle == 2 && button->sound != NULL)
         sfSound_play(button->sound->sound);
 }
