@@ -30,6 +30,8 @@ SRC_GUI		=	$(DSRC)game/gui/widget/inputs/button/create_button.c	\
 				$(DSRC)game/gui/widget/inputs/slider/destroy_slider.c	\
 				$(DSRC)game/gui/widget/inputs/slider/display_slider.c	\
 				$(DSRC)game/gui/widget/inputs/slider/set_slider.c		\
+				$(DSRC)game/gui/widget/inputs/slider/event_slider.c		\
+				$(DSRC)game/gui/widget/inputs/slider/get_value_slider.c	\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
@@ -65,6 +67,7 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
+				$(DSRC)my_math.c											\
 
 SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU)
 
@@ -74,7 +77,7 @@ NAME	=	my_rpg
 
 INCLUDE = -I./include -I./lib/my/include
 
-CSFML_FLAGS = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
+CSFML_FLAGS = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system -lm
 
 CFLAGS	+= -Wall -Wextra -W $(INCLUDE) -g #-Werror
 
