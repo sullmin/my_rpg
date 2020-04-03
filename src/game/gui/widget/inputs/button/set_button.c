@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-int set_texture_button(button_t *my_button, const char **filepath)
+int set_button_texture(button_t *my_button, const char **filepath)
 {
     my_button->texture = malloc(sizeof(sfTexture *) * NB_BUTTON_STATE);
     if (!my_button->texture)
@@ -54,5 +54,18 @@ const char *font_path)
     sfText_setString(button->help_box->text, str);
     sfText_setFont(button->help_box->text, button->help_box->font);
     sfText_setCharacterSize(button->help_box->text, SIZE_HELP_BOX);
+    return EXIT_SUCCESS;
+}
+
+int set_button_sound(button_t *button, const char *filepath)
+{
+    button->sound = malloc(sizeof(sound_t));
+    if (button->sound == NULL)
+        return EXIT_ERROR;
+    button->sound->buffer = sfSoundBuffer_createFromFile(filepath);
+    button->sound->sound = sfSound_create();
+    if (button->sound->sound == NULL || button->sound->buffer == NULL)
+        return EXIT_ERROR;
+    sfSound_setBuffer(button->sound->sound, button->sound->buffer);
     return EXIT_SUCCESS;
 }

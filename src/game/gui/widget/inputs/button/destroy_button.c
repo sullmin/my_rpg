@@ -21,10 +21,10 @@ void destroy_button(button_t *button)
         sfFont_destroy(button->help_box->font);
         sfText_destroy(button->help_box->text);
     }
+    if (button->sound != NULL) {
+        sfSoundBuffer_destroy(button->sound->buffer);
+        sfSound_destroy(button->sound->sound);
+        free(button->sound);
+    }
     free(button);
 }
-
-/*
-
-    sfClock_destroy(button->clock_start);
-*/

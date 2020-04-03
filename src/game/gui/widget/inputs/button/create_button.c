@@ -20,5 +20,6 @@ button_t *create_button(sfVector2f pos, sfVector2f scale)
     my_button->texture = NULL;
     my_button->is_activate = false;
     my_button->help_box = NULL;
+    my_button->sound = NULL;
     return my_button;
 }

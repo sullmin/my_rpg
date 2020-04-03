@@ -42,9 +42,9 @@ static int set_main_menu_button(game_t *game)
 {
     int ret = 0;
 
-    ret += set_texture_button(game->ui.main_menu->play, play_path);
-    ret += set_texture_button(game->ui.main_menu->quit, quit_path);
-    ret += set_texture_button(game->ui.main_menu->option, option_path);
+    ret += set_button_texture(game->ui.main_menu->play, play_path);
+    ret += set_button_texture(game->ui.main_menu->quit, quit_path);
+    ret += set_button_texture(game->ui.main_menu->option, option_path);
     ret += set_button_label(game->ui.main_menu->play, "play", font, 50);
     ret += set_button_label(game->ui.main_menu->quit, "quit", font, 50);
     ret += set_button_label(game->ui.main_menu->option, "option", font, 50);

@@ -16,8 +16,7 @@ typedef struct button_s {
     sfText *text;
     sfFont *font;
     sfTexture **texture;
-    sfClock *clock_start;
-    //sound_s sound;
+    sound_t *sound;
     help_box_t *help_box;
     bool is_pressed;
     bool is_activate;
