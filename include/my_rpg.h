@@ -39,6 +39,9 @@
                                                             label,\
                                                             err_ptr)
 
+typedef void (* const FUNC_EXEC)(game_t *game);
+typedef void (* const FUNC_EVENT)(game_t *game, sfEvent *event);
+
 // Information Importantes !!!!
 // Etant donne que le projet est consequent et pour eviter les merges
 // ne PAS mettre les prototypes de vos fonctions dans ce header

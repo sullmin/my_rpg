@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-extern void (* const FUNC_EVENT[NB_GAME_STATE])(game_t *game, sfEvent *event);
+extern FUNC_EVENT fct_event[NB_GAME_STATE];
 
 static void event_window_close(game_t *game)
 {
@@ -19,8 +19,8 @@ static void event_crossroads(game_t *game, sfEvent *event)
     if (game->state == QUIT || game->state == ERR) {
         return;
     }
-    if (FUNC_EVENT[game->state] != NULL)
-        FUNC_EVENT[game->state](game, event);
+    if (fct_event[game->state] != NULL)
+        fct_event[game->state](game, event);
     if (game->sysquest.play_dialogue == true) {
         dialogue_event_manager(game, event);
     }
