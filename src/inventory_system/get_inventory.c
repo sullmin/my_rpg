@@ -34,3 +34,9 @@ bool player_inventory_creat(player_inventory_t *inv, env_t *env)
     inv->nb_item = 0;
     return true;
 }
+
+void player_inventory_destroy(player_inventory_t *inv)
+{
+    //free item who is in?
+    free(inv->inventory);
+}
