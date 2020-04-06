@@ -9,7 +9,6 @@
 #include "config_manager.h"
 
 //créer une fonction qui prend un id et qui ajoute l'item dans l'inventaire
-//créer une fonction qui prend un id et qui dit si l'item est dans l'inventaire
 
 static void id_load(item_t *item, env_t *my_env)
 {
