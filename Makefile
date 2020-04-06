@@ -52,6 +52,7 @@ SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c					\
 				$(DSRC)inventory_system/get_inventory.c					\
 				$(DSRC)inventory_system/destroy_item.c					\
 				$(DSRC)inventory_system/dup_item.c						\
+				$(DSRC)inventory_system/item_load.c						\
 
 SRC_MENU 	=	$(DSRC)main_menu/create_main_menu.c						\
 				$(DSRC)main_menu/destroy_main_menu.c					\
