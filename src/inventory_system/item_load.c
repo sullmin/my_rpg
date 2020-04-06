@@ -17,6 +17,7 @@ static void id_load(item_t *item, env_t *my_env)
 
     for (size_t i = 0; i < 4; i++)
         item->id[i] = tmp[i];
+    id[3] = '\0';
     free(tmp);
 }
 
