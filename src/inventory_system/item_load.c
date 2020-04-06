@@ -8,8 +8,6 @@
 #include "inventory_system.h"
 #include "config_manager.h"
 
-//créer une fonction qui prend un id et qui ajoute l'item dans l'inventaire
-
 static void id_load(item_t *item, env_t *my_env)
 {
     char *tmp = my_env_get_value(my_env, "ID");
@@ -30,7 +28,7 @@ static void stat_load(item_t *item, env_t *my_env)
     item->stats.iq = my_env_get_value_int(my_env, "IQ", NULL);
 }
 
-bool struct_load(item_t *item, env_t *my_env)
+static bool struct_load(item_t *item, env_t *my_env)
 {
     item->name = my_env_get_value(my_env, "NAME");
     item->description = my_env_get_value(my_env, "DESC");

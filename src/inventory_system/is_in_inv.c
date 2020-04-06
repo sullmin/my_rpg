@@ -11,7 +11,7 @@
 bool is_in_player_inv(player_inventory_t *inv, const char *id)
 {
     for (size_t i = 0; i < inv->size; i++)
-        if (my_strcmp(inv->inventory[i]->id, id) == 0)
+        if (inv->inventory[i] && my_strcmp(inv->inventory[i]->id, id) == 0)
             return true;
     return false;
 }
