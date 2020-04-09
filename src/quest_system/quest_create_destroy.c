@@ -57,6 +57,11 @@ int sysquest_create(sys_quest_t *quests)
     quests->dialogue_id = -1;
     quests->size = NB_QUEST;
     quests->size_enable = 0;
+    quests->pnj_dialogue_end = NULL;
+    quests->pnj_dialogue_fail = NULL;
+    for (size_t i = 0; i < quests->size; i++) {
+        quests->pnj_dialogue[i] = NULL;
+    }
     if (load_dialogues(quests) == EXIT_ERROR)
         return puterr("sysquest_create : fail load dialogues\n", EXIT_ERROR);
     if (load_gui_elements(quests) == EXIT_ERROR)
