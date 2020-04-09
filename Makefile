@@ -41,6 +41,10 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/widget/outputs/image_viewer/image_viewer_create_destroy.c	\
 				$(DSRC)gui/widget/outputs/image_viewer/image_viewer_display.c			\
 				$(DSRC)gui/widget/outputs/image_viewer/image_viewer_update_status.c		\
+				$(DSRC)gui/widget/outputs/progress_bar/progress_create_destroy.c		\
+				$(DSRC)gui/widget/outputs/progress_bar/progress_config.c				\
+				$(DSRC)gui/widget/outputs/progress_bar/progress_display.c				\
+				$(DSRC)gui/widget/outputs/progress_bar/progress_set_percentage.c		\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
