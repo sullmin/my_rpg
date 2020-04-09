@@ -32,6 +32,12 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/widget/inputs/slider/set_slider.c		\
 				$(DSRC)gui/widget/inputs/slider/event_slider.c		\
 				$(DSRC)gui/widget/inputs/slider/get_value_slider.c	\
+				$(DSRC)gui/widget/inputs/text_input/text_input_config_char.c	\
+				$(DSRC)gui/widget/inputs/text_input/text_input_config.c			\
+				$(DSRC)gui/widget/inputs/text_input/text_input_create_destroy.c	\
+				$(DSRC)gui/widget/inputs/text_input/text_input_buffer.c			\
+				$(DSRC)gui/widget/inputs/text_input/text_input_run.c			\
+				$(DSRC)gui/widget/inputs/text_input/text_input_status.c			\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
