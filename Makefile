@@ -38,6 +38,9 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/widget/inputs/text_input/text_input_buffer.c			\
 				$(DSRC)gui/widget/inputs/text_input/text_input_run.c			\
 				$(DSRC)gui/widget/inputs/text_input/text_input_status.c			\
+				$(DSRC)gui/widget/outputs/image_viewer/image_viewer_create_destroy.c	\
+				$(DSRC)gui/widget/outputs/image_viewer/image_viewer_display.c			\
+				$(DSRC)gui/widget/outputs/image_viewer/image_viewer_update_status.c		\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 #SRC_ISO	=	$(DSRC)game/iso_world/
