@@ -30,5 +30,6 @@ int dialogue_load(list_str_t **dialogue, const char *file)
         if (my_str_list_add(dialogue, content[i]) == EXIT_ERROR)
             return puterr("dialogue_load : list add error\n", EXIT_ERROR);
     }
+    word_array_destroy(content);
     return EXIT_SUCCESS;
 }
