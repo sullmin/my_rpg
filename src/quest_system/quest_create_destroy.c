@@ -46,7 +46,7 @@ static int load_dialogues(sys_quest_t *quests)
     }
     if (dialogue_load(&quests->pnj_dialogue_end, FILE_PNJ_DIALOGUE_END) != 0)
         return EXIT_ERROR;
-    if (dialogue_load(&quests->pnj_dialogue_end, FILE_PNJ_DIALOGUE_FAIL) != 0)
+    if (dialogue_load(&quests->pnj_dialogue_fail, FILE_PNJ_DIALOGUE_FAIL) != 0)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
@@ -57,6 +57,11 @@ int sysquest_create(sys_quest_t *quests)
     quests->dialogue_id = -1;
     quests->size = NB_QUEST;
     quests->size_enable = 0;
+    quests->pnj_dialogue_end = NULL;
+    quests->pnj_dialogue_fail = NULL;
+    for (size_t i = 0; i < quests->size; i++) {
+        quests->pnj_dialogue[i] = NULL;
+    }
     if (load_dialogues(quests) == EXIT_ERROR)
         return puterr("sysquest_create : fail load dialogues\n", EXIT_ERROR);
     if (load_gui_elements(quests) == EXIT_ERROR)
@@ -71,6 +76,8 @@ void sysquest_destroy(sys_quest_t *quests)
     for (size_t i = 0; i < quests->size; i++) {
         dialogue_destroy(quests->pnj_dialogue[i]);
     }
+    dialogue_destroy(quests->pnj_dialogue_end);
+    dialogue_destroy(quests->pnj_dialogue_fail);
     quests->size = 0;
     quests->play_dialogue = false;
     sfText_destroy(quests->text);

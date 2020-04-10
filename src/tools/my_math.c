@@ -5,7 +5,6 @@
 ** my_math
 */
 
-
 #include "my_math.h"
 
 bool point_is_on_circle(sfVector2i point, float radius, sfVector2f position)

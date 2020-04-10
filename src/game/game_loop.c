@@ -7,15 +7,15 @@
 
 #include "my_rpg.h"
 
-extern void (* const FUNC_EXEC[NB_GAME_STATE])(game_t *game);
+extern FUNC_EXEC fct_exec[NB_GAME_STATE];
 
 static void crossroads(game_t *game)
 {
     if (game->state == QUIT || game->state == ERR) {
         return;
     }
-    if (FUNC_EXEC[game->state] != NULL)
-        FUNC_EXEC[game->state](game);
+    if (fct_exec[game->state] != NULL)
+        fct_exec[game->state](game);
     if (game->sysquest.play_dialogue == true) {
         dialogue_display(game);
     }

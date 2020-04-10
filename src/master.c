@@ -31,6 +31,8 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (create_main_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (create_option_menu(game) == EXIT_ERROR)
+        return EXIT_ERROR;
     if (sysquest_create(&game->sysquest) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
@@ -39,6 +41,7 @@ static int master_contruct(game_t *game)
 static int master_destroy(game_t *game)
 {
     destroy_main_menu(game);
+    destroy_option_menu(game);
     game_destroy(game);
     window_destroy(&game->w);
     config_manager_destroy(&game->env);

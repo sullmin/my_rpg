@@ -16,6 +16,4 @@ typedef struct main_menu {
     button_t *option;
 } main_menu_t;
 
-
-
 #endif /* !MAIN_MENU_T_H_ */
