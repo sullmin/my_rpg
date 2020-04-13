@@ -78,6 +78,7 @@ SRC_OPTION_MENU =	$(DSRC)menu/option/create_option_menu.c				\
 					$(DSRC)menu/option/destroy_option_menu.c			\
 					$(DSRC)menu/option/display_option_menu.c			\
 					$(DSRC)menu/option/event_option_menu.c				\
+					$(DSRC)menu/option/set_keyboard_config.c			\
 
 SRC_PAUSE_MENU	=	$(DSRC)menu/pause/create_pause_menu.c				\
 					$(DSRC)menu/pause/destroy_pause_menu.c				\

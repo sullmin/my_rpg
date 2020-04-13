@@ -16,7 +16,7 @@ int event_button(button_t *my_button, sfRenderWindow *window)
         mouse_pos.y >= my_button->pos.y &&
         mouse_pos.y <= my_button->pos.y + my_button->scale.y) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            my_button->is_pressed = true;
+            my_button->is_activate = true;
             my_button->toggle = 2;
             return 2;
         }

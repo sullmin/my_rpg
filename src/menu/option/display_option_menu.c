@@ -13,4 +13,5 @@ void display_option_menu(game_t *game)
     display_button(game->option_menu->qwerty, game->w.window);
     display_button(game->option_menu->keypad, game->w.window);
     display_button(game->option_menu->main_menu, game->w.window);
+    display_slider(game->option_menu->sound, game->w.window);
 }

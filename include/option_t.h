@@ -13,7 +13,7 @@
 typedef struct option_s
 {
     move_t *move;
-    //float volume
+    float volume;
     //const char *langugae
 } option_t;
 
