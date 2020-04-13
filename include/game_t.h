@@ -29,6 +29,7 @@ typedef enum game_status {
 #include "gui_t.h"
 #include "option_t.h"
 #include "option_menu_t.h"
+#include "pause_menu_t.h"
 /*
     Main structure of the program
 */
@@ -46,6 +47,7 @@ typedef struct game {
     //fight_mode_t wfight;
     main_menu_t *menu;
     option_menu_t *option_menu;
+    pause_menu_t *pause;
     option_t *option;
 } game_t;
 

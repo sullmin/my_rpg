@@ -75,9 +75,14 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/main/event_main_menu.c						\
 
 SRC_OPTION_MENU =	$(DSRC)menu/option/create_option_menu.c				\
-					$(DSRC)menu/option/destroy_option_menu.c				\
-					$(DSRC)menu/option/display_option_menu.c				\
+					$(DSRC)menu/option/destroy_option_menu.c			\
+					$(DSRC)menu/option/display_option_menu.c			\
 					$(DSRC)menu/option/event_option_menu.c				\
+
+SRC_PAUSE_MENU	=	$(DSRC)menu/pause/create_pause_menu.c				\
+					$(DSRC)menu/pause/destroy_pause_menu.c				\
+					$(DSRC)menu/pause/display_pause_menu.c				\
+					$(DSRC)menu/pause/event_pause_menu.c				\
 
 SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_destroy.c								\
@@ -91,7 +96,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU)
+SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU)
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -11,7 +11,7 @@ FUNC_EXEC fct_exec[NB_GAME_STATE] = {
     NULL,
     NULL,
     &display_main_menu, // Main Menu
-    NULL, // Pause Menu
+    &display_pause_menu, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World
     NULL, // Iso World
@@ -22,7 +22,7 @@ FUNC_EVENT fct_event[NB_GAME_STATE] = {
     NULL,
     NULL,
     &event_main_menu, // Main Menu
-    NULL, // Pause Menu
+    &event_pause_menu, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World
     NULL, // Iso World

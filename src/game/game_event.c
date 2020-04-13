@@ -32,5 +32,8 @@ void call_event_manager(game_t *game, sfEvent *event)
         event_window_close(game);
         return;
     }
+    if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+        game->state = PAUSE_MENU;
+    }
     event_crossroads(game, event);
 }

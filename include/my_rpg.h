@@ -24,6 +24,7 @@
 #include "inventory_system.h"
 #include "option_menu.h"
 #include "main_menu.h"
+#include "pause_menu.h"
 
 #define ENV(game) &game->env
 
