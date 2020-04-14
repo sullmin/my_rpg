@@ -46,27 +46,38 @@ const event_input_t key_tab[36] = {
     {sfKeyNum9, "9"}
 };
 
-static int fill_keys(game_t *game, combination_t key_event)
+static int set_key_values(key_event_t key, event_input_t input)
 {
-    int group_input = rand() % KEY_TAB_SIZE;
+    key.toggle = false;
+    key.finish = false;
+    key.increase = true;
+    key.rotation = 0;
+    key.size = 0;
+    key.key = input.code;
+    key.text = sfText_create();
+    key.font = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
+    if (key.text == NULL || key_evt.group[i].font == NULL)
+        return EXIT_ERROR;
+    return EXIT_SUCCESS;
+}
 
-    for (int i = 0; i < key_event.nbr_comb; i++) {
-        key_event.group[i].toggle = false;
-        key_event.group[i].finish = false;
-        key_event.group[i].increase = true;
-        key_event.group[i].rotation = 0;
-        key_event.group[i].size = 0;
-        key_event.group[i].key = key_tab[group_input].code;
-        key_event.group[i].text = sfText_create();
-        key_event.group[i].font
-            = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
-        if (key_event.group[i].text == NULL || key_event.group[i].font == NULL)
-            return EXIT_ERROR;
-        sfText_setString(key_event.group[i].text, key_tab[group_input].key);
-        sfText_setFont(key_event.group[i].text, key_event.group[i].font);
-        sfText_setPosition(key_event.group[i].text, (sfVector2f) {rand()
-            % (game->w.width - KEYS_MAX_SIZE),
-            rand() % (game->w.height - KEYS_MAX_SIZE)});
+static void set_key_text(key_event_t key, event_input_t input)
+{
+    sfText_setString(key.text, input.key);
+    sfText_setFont(key.text, key.font);
+    sfText_setPosition(key.text, (sfVector2f) {rand()
+        % (game->w.width - KEYS_MAX_SIZE),
+        rand() % (game->w.height - KEYS_MAX_SIZE)});
+}
+
+static int fill_keys(game_t *game, combination_t key_evt)
+{
+    int group_input;
+
+    for (int i = 0; i < key_evt.nbr_comb; i++) {
+        group_input = rand() % KEY_TAB_SIZE;
+        set_key_values(key_evt.group[i], key_tab[group_input]);
+        set_key_text(key_evt.group[i], key_tab[group_input]);
     }
     return EXIT_SUCCESS;
 }
