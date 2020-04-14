@@ -5,8 +5,9 @@
 ** create fight events
 */
 
-const int key_tab_size = 36;
-event_input_t const key_tab[key_tab_size] = {
+#include "my_rpg.h"
+
+const event_input_t key_tab[36] = {
     {sfKeyA, "A"},
     {sfKeyB, "B"},
     {sfKeyC, "C"},
@@ -45,44 +46,59 @@ event_input_t const key_tab[key_tab_size] = {
     {sfKeyNum9, "9"}
 };
 
-static int fill_keys(game_t *game, key_event_t *key_event, int cmd_nbr)
+static int fill_keys(game_t *game, combination_t key_event)
 {
-    int group_key = rand() % key_tab_size;
+    int group_input = rand() % KEY_TAB_SIZE;
 
-    for (int i = 0; i < cmd_nbr; i++) {
-        key_event[i].toggle = false;
-        key_event[i].finish = false;
-        key_event[i].increase = true;
-        key_event[i].rotation = false;
-        key_event[i].size = 0;
-        key_event[i].key = key_tab[group_key].code;
-        key_event[i].text = sfText_create();
-        key_event[i].font = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
-        if (key_event[i].text == NULL || key_event[i].font == NULL)
+    for (int i = 0; i < key_event.nbr_comb; i++) {
+        key_event.group[i].toggle = false;
+        key_event.group[i].finish = false;
+        key_event.group[i].increase = true;
+        key_event.group[i].rotation = 0;
+        key_event.group[i].size = 0;
+        key_event.group[i].key = key_tab[group_input].code;
+        key_event.group[i].text = sfText_create();
+        key_event.group[i].font
+            = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
+        if (key_event.group[i].text == NULL || key_event.group[i].font == NULL)
             return EXIT_ERROR;
-        sfText_setString(text, key_tab[group_key].key);
-        sfText_setFont(text, font);
-        sfText_setPosition(text, (sfVector2f) {10 + rand()
-            % (game->w.width - 20), 10 + rand() % (game->w.height - 20)});
+        sfText_setString(key_event.group[i].text, key_tab[group_input].key);
+        sfText_setFont(key_event.group[i].text, key_event.group[i].font);
+        sfText_setPosition(key_event.group[i].text, (sfVector2f) {rand()
+            % (game->w.width - KEYS_MAX_SIZE),
+            rand() % (game->w.height - KEYS_MAX_SIZE)});
     }
     return EXIT_SUCCESS;
 }
 
-key_event_t **create_fight_events(game_t *game)
+combination_t *create_fight_events(game_t *game)
 {
-    key_event_t **events = malloc(sizeof(key_event_t *) * game->wfight.actions);   
-    int cmd_nbr;
+    combination_t *events = malloc(sizeof(combination_t) * game->wfight.actions);   
 
     if (events == NULL)
         return NULL;
     for (int i = 0; i < game->wfight.actions; i++) {
-        cmd_nbr = rand() % game->wfight.comb;
-        events[i] = malloc(sizeof(key_event_t) * cmd_nbr + 1);
-        if (events[i] == NULL)
+        events[i].nbr_comb = rand() % game->wfight.comb + 1;
+        events[i].group = malloc(sizeof(key_event_t) * events[i].nbr_comb + 1);
+        if (events[i].group == NULL)
             return NULL;
-        events[i][cmd_nbr] = 0;
-        if (fill_keys(game, events[i], cmd_nbr) == EXIT_ERROR)
+        if (fill_keys(game, events[i]) == EXIT_ERROR)
             return NULL;
     }
     return events;
+}
+
+void destroy_events(combination_t **key_events, sfClock **inter_clock,
+                    sfClock **update, int actions)
+{
+    sfClock_destroy(*inter_clock);
+    *inter_clock = NULL;
+    sfClock_destroy(*update);
+    *update = NULL;
+    for (int i = 0; i < actions; i++)
+        for (int k = 0; k < (*key_events)[i].nbr_comb; k++) {
+            sfText_destroy((*key_events)[i].group[k].text);
+            sfFont_destroy((*key_events)[i].group[k].font);
+        }
+    *key_events = NULL;
 }
