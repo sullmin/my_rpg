@@ -97,7 +97,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU)
+SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_FIGHT) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU)
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -36,20 +36,6 @@ typedef struct combination_s
     int nbr_comb;
 } combination_t;
 
-typedef struct fight_mode_s
-{
-    int actions;
-    float interval;
-    float speed;
-    int comb;
-} fight_mode_t;
-
-#endif
-
-#ifdef H_GAME_T
-#ifndef H_FIGHT_MODE_FUNC
-#define H_FIGHT_MODE_FUNC
-
 void fight_mode(game_t *game);
 combination_t *create_fight_events(game_t *game);
 void destroy_events(combination_t **key_events, sfClock **inter_clock,
@@ -58,5 +44,4 @@ void update_event_size(key_event_t *key, sfInt64 speed);
 void event_group_run(game_t *game, combination_t events, float ms);
 void manage_keys_pressed(combination_t *events);
 
-#endif
 #endif

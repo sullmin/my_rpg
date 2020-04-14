@@ -9,6 +9,7 @@
 #define H_GAME_T
 
 #include "quest_t.h"
+#include "fight_t.h"
 
 /*
     Define the state of the program (in game loop)

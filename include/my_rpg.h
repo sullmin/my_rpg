@@ -18,7 +18,6 @@
 #include "config_manager.h"
 #include "gui.h"
 #include "my_math.h"
-#include "fight.h"
 #include "window.h"
 #include "quest_system.h"
 #include "game.h"
