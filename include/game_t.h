@@ -44,7 +44,7 @@ typedef struct game {
     //inventoy_t inventory;
     //iso_world_t wiso;
     //main_world_t wmain;
-    //fight_mode_t wfight;
+    fight_mode_t wfight;
     main_menu_t *menu;
     option_menu_t *option_menu;
     pause_menu_t *pause;
