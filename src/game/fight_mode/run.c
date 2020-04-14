@@ -5,6 +5,8 @@
 ** run fight
 */
 
+#include "my_rpg.h"
+
 void update_event_size(key_event_t *key, sfInt64 speed)
 {
     if (key->toggle) {
