@@ -46,28 +46,27 @@ const event_input_t key_tab[36] = {
     {sfKeyNum9, "9"}
 };
 
-static int set_key_values(key_event_t key, event_input_t input)
+static int set_key_values(key_event_t *key, event_input_t input)
 {
-    key.toggle = false;
-    key.finish = false;
-    key.increase = true;
-    key.rotation = 0;
-    key.size = 0;
-    key.key = input.code;
-    key.text = sfText_create();
-    key.font = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
-    if (key.text == NULL || key_evt.group[i].font == NULL)
+    key->toggle = false;
+    key->finish = false;
+    key->increase = true;
+    key->rotation = 0;
+    key->size = 0;
+    key->key = input.code;
+    key->text = sfText_create();
+    key->font = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
+    if (key->text == NULL || key->font == NULL)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
-static void set_key_text(key_event_t key, event_input_t input)
+static void set_key_text(window_t window, key_event_t *key, event_input_t input)
 {
-    sfText_setString(key.text, input.key);
-    sfText_setFont(key.text, key.font);
-    sfText_setPosition(key.text, (sfVector2f) {rand()
-        % (game->w.width - KEYS_MAX_SIZE),
-        rand() % (game->w.height - KEYS_MAX_SIZE)});
+    sfText_setString(key->text, input.key);
+    sfText_setFont(key->text, key->font);
+    sfText_setPosition(key->text, (sfVector2f) {rand()
+        % (window.width - KEYS_MAX_SIZE), rand() % (window.height - KEYS_MAX_SIZE)});
 }
 
 static int fill_keys(game_t *game, combination_t key_evt)
@@ -76,8 +75,8 @@ static int fill_keys(game_t *game, combination_t key_evt)
 
     for (int i = 0; i < key_evt.nbr_comb; i++) {
         group_input = rand() % KEY_TAB_SIZE;
-        set_key_values(key_evt.group[i], key_tab[group_input]);
-        set_key_text(key_evt.group[i], key_tab[group_input]);
+        set_key_values(&key_evt.group[i], key_tab[group_input]);
+        set_key_text(game->w, &key_evt.group[i], key_tab[group_input]);
     }
     return EXIT_SUCCESS;
 }
@@ -112,4 +111,5 @@ void destroy_events(combination_t **key_events, sfClock **inter_clock,
             sfFont_destroy((*key_events)[i].group[k].font);
         }
     *key_events = NULL;
+    exit(0);
 }
