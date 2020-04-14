@@ -5,13 +5,12 @@
 ** fight mode header
 */
 
-typedef struct fight_mode_s
-{
-    int actions;
-    float interval;
-    float speed;
-    int comb;
-} fight_mode_t;
+#ifndef H_FIGHT_MODE
+#define H_FIGHT_MODE
+
+#define KEY_TAB_SIZE 36
+
+#define KEYS_MAX_SIZE 50
 
 typedef struct event_input_s
 {
@@ -24,9 +23,37 @@ typedef struct key_event_s
     bool toggle;
     bool finish;
     bool increase;
-    bool rotation;
+    float rotation;
     int size;
     sfKeyCode key;
     sfText *text;
     sfFont *font;
 } key_event_t;
+
+typedef struct combination_s
+{
+    key_event_t *group;
+    int nbr_comb;
+} combination_t;
+
+typedef struct fight_mode_s
+{
+    int actions;
+    float interval;
+    float speed;
+    int comb;
+} fight_mode_t;
+
+#endif
+
+#ifdef H_GAME_T
+#ifndef H_FIGHT_MODE_FUNC
+#define H_FIGHT_MODE_FUNC
+
+void fight_mode(game_t *game);
+combination_t *create_fight_events(game_t *game);
+void destroy_events(combination_t **key_events, sfClock **inter_clock,
+                    sfClock **update, int actions);
+
+#endif
+#endif
