@@ -24,6 +24,7 @@ SRC_WINDOW	=	$(DSRC)window/window_create.c						\
 #SRC_GUI	=	$(DSRC)game/gui/
 SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 				\
 				$(DSRC)game/fight_mode/fight.c 						\
+				$(DSRC)game/fight_mode/run.c 						\
 
 #SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
