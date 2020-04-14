@@ -9,7 +9,7 @@
 
 static int game_init_struct(game_t *game)
 {
-    game->state = MAIN_MENU;
+    game->state = FIGHT_MODE;
     return EXIT_SUCCESS;
 }
 

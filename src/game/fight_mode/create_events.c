@@ -61,10 +61,12 @@ static int set_key_values(key_event_t *key, event_input_t input)
     return EXIT_SUCCESS;
 }
 
-static void set_key_text(window_t window, key_event_t *key, event_input_t input)
+static void set_key_text(window_t window, key_event_t *key, event_input_t input,
+                        sfColor color)
 {
     sfText_setString(key->text, input.key);
     sfText_setFont(key->text, key->font);
+    sfText_setColor(key->text, color);
     sfText_setPosition(key->text, (sfVector2f) {rand()
         % (window.width - KEYS_MAX_SIZE), rand() % (window.height - KEYS_MAX_SIZE)});
 }
@@ -72,11 +74,15 @@ static void set_key_text(window_t window, key_event_t *key, event_input_t input)
 static int fill_keys(game_t *game, combination_t key_evt)
 {
     int group_input;
+    sfColor color = sfColor_fromInteger(rand() % 0xffffffff);
 
+    while (color.r < 50 && color.g < 50 && color.b < 50)
+        color = sfColor_fromInteger(rand() % 0xffffffff);
+    color.a = 255;
     for (int i = 0; i < key_evt.nbr_comb; i++) {
         group_input = rand() % KEY_TAB_SIZE;
         set_key_values(&key_evt.group[i], key_tab[group_input]);
-        set_key_text(game->w, &key_evt.group[i], key_tab[group_input]);
+        set_key_text(game->w, &key_evt.group[i], key_tab[group_input], color);
     }
     return EXIT_SUCCESS;
 }
