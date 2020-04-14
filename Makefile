@@ -22,7 +22,9 @@ SRC_WINDOW	=	$(DSRC)window/window_create.c						\
 				$(DSRC)window/window_destroy.c						\
 
 #SRC_GUI	=	$(DSRC)game/gui/
-#SRC_FIGHT	=	$(DSRC)game/fight_mode/
+SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 				\
+				$(DSRC)game/fight_mode/fight.c 						\
+
 #SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
 SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c				\
@@ -42,7 +44,7 @@ SRC_MAIN	=	$(DSRC)main.c										\
 				$(DSRC)usage.c										\
 				$(DSRC)master.c										\
 
-SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_INVENT)
+SRC			= $(SRC_MAIN) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_INVENT) $(SRC_FIGHT)
 
 OBJ	=	$(SRC:.c=.o)
 
