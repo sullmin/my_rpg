@@ -16,9 +16,15 @@
 #include "my.h"
 #include "sound_manager.h"
 #include "config_manager.h"
+#include "gui.h"
+#include "my_math.h"
 #include "window.h"
+#include "quest_system.h"
 #include "game.h"
 #include "inventory_system.h"
+#include "option_menu.h"
+#include "main_menu.h"
+#include "pause_menu.h"
 
 #define ENV(game) &game->env
 
@@ -32,6 +38,9 @@
 #define GET_VAR_DEC(game, label, err_ptr) my_env_get_value_dec(ENV(game),\
                                                             label,\
                                                             err_ptr)
+
+typedef void (* const FUNC_EXEC)(game_t *game);
+typedef void (* const FUNC_EVENT)(game_t *game, sfEvent *event);
 
 // Information Importantes !!!!
 // Etant donne que le projet est consequent et pour eviter les merges

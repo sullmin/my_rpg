@@ -10,4 +10,5 @@
 void game_destroy(game_t *game)
 {
     sound_manager_destroy(&game->sound);
+    sfClock_destroy(game->clock);
 }

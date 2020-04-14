@@ -25,3 +25,8 @@ int my_puterror(const char *str, int status)
     write(2, str, my_strlen(str));
     return status;
 }
+
+int puterr(const char *str, int status)
+{
+    return my_puterror(str, status);
+}

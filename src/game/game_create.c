@@ -29,6 +29,9 @@ static int load_sound_manager(game_t *game)
 
 int game_create(game_t *game)
 {
+    game->clock = sfClock_create();
+    if (!game->clock)
+        return EXIT_ERROR;
     if (game_init_struct(game) == EXIT_ERROR)
         return EXIT_ERROR;
     if (load_sound_manager(game) == EXIT_ERROR)

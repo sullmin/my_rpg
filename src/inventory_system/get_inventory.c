@@ -21,7 +21,7 @@ static item_t **get_tab_inventory(size_t size)
     return inventory;
 }
 
-bool get_player_inventory(player_inventory_t *inv, env_t *env)
+bool player_inventory_creat(player_inventory_t *inv, env_t *env)
 {
     bool err;
 
@@ -33,4 +33,10 @@ bool get_player_inventory(player_inventory_t *inv, env_t *env)
         return false;
     inv->nb_item = 0;
     return true;
+}
+
+void player_inventory_destroy(player_inventory_t *inv)
+{
+    //free item who is in?
+    free(inv->inventory);
 }
