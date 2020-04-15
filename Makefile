@@ -47,8 +47,63 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/widget/outputs/progress_bar/progress_set_percentage.c		\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
-#SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
+
+SRC_ISO	=	$(DSRC)game/iso_world/iso_world.c									\
+			$(DSRC)game/iso_world/constant.c									\
+			$(DSRC)game/iso_world/utility/math.c								\
+			$(DSRC)game/iso_world/utility/tool.c								\
+			$(DSRC)game/iso_world/utility/schr_extension.c						\
+			$(DSRC)game/iso_world/utility/read_file.c							\
+			$(DSRC)game/iso_world/window/window_create_destroy.c				\
+			$(DSRC)game/iso_world/window/window_reload.c						\
+			$(DSRC)game/iso_world/window/window_run.c							\
+			$(DSRC)game/iso_world/window/software_status_init.c					\
+			$(DSRC)game/iso_world/object/object_create.c						\
+			$(DSRC)game/iso_world/object/object_lines_create.c					\
+			$(DSRC)game/iso_world/object/object_2d_matrix_create.c				\
+			$(DSRC)game/iso_world/object/object_destroy.c						\
+			$(DSRC)game/iso_world/object/object_display.c						\
+			$(DSRC)game/iso_world/object/object_project_iso_point.c				\
+			$(DSRC)game/iso_world/object/object_texture_create.c				\
+			$(DSRC)game/iso_world/object/object_reload.c						\
+			$(DSRC)game/iso_world/object/object_tools_view.c					\
+			$(DSRC)game/iso_world/object/object_on_map.c						\
+			$(DSRC)game/iso_world/object/object_config.c						\
+			$(DSRC)game/iso_world/map/filemap/load_map.c						\
+			$(DSRC)game/iso_world/map/filemap/save_map.c						\
+			$(DSRC)game/iso_world/map/filemap/load_from_argv.c					\
+			$(DSRC)game/iso_world/map/filemap/fill_map.c						\
+			$(DSRC)game/iso_world/map/map_scale.c								\
+			$(DSRC)game/iso_world/map/map_tools_view.c							\
+			$(DSRC)game/iso_world/map/map_vertex_create_destroy.c				\
+			$(DSRC)game/iso_world/map/map_texture_vertex_create_destroy.c		\
+			$(DSRC)game/iso_world/map/map_texture_create_destroy.c				\
+			$(DSRC)game/iso_world/map/map_create_destroy.c						\
+			$(DSRC)game/iso_world/map/map_3d_create_destroy.c					\
+			$(DSRC)game/iso_world/map/map_2d_create_destroy.c					\
+			$(DSRC)game/iso_world/map/map_display.c								\
+			$(DSRC)game/iso_world/map/map_display_water.c						\
+			$(DSRC)game/iso_world/map/project_iso_point.c						\
+			$(DSRC)game/iso_world/map/map_update.c								\
+			$(DSRC)game/iso_world/map/map_resize.c								\
+			$(DSRC)game/iso_world/event/event_manager.c							\
+			$(DSRC)game/iso_world/event/event_init.c							\
+			$(DSRC)game/iso_world/event/event_mouse.c							\
+			$(DSRC)game/iso_world/event/event_keyboard.c						\
+			$(DSRC)game/iso_world/event/event_window.c							\
+			$(DSRC)game/iso_world/event_action/action_mouse_gui_button.c		\
+			$(DSRC)game/iso_world/event_action/action_gui_button_left.c			\
+			$(DSRC)game/iso_world/event_action/action_gui_button_top.c			\
+			$(DSRC)game/iso_world/event_action/action_resize_shortcut.c			\
+			$(DSRC)game/iso_world/event_action/action_mouse_clicked.c			\
+			$(DSRC)game/iso_world/event_action/action_show_click.c				\
+			$(DSRC)game/iso_world/event_action/action_texture.c					\
+			$(DSRC)game/iso_world/event_action/action_manager.c					\
+			$(DSRC)game/iso_world/event_action/action_map_file.c				\
+			$(DSRC)game/iso_world/event_action/action_update_text_gui.c			\
+			$(DSRC)game/iso_world/event_action/action_object_move.c				\
+			$(DSRC)game/iso_world/event_action/action_ui_button_tool.c 			\
 
 SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
 				$(DSRC)quest_system/quest_create_destroy.c			\
@@ -97,7 +152,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU)
+SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_ISO)
 
 OBJ	=	$(SRC:.c=.o)
 
