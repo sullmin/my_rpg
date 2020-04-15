@@ -72,12 +72,11 @@ int load_map(const char *filepath, map_t *map)
     sfVector2i size_map = {0};
 
     if (my_file_ext_cmp(filepath, MAP_EXTENSION) == false)
-        puterr("load_map : wrong file extension\n", EXIT_ERROR);
+        return puterr("load_map : wrong file extension\n", EXIT_ERROR);
     if (error_handling(file))
         return EXIT_ERROR;
     if (get_size_map(&size_map, file)) {
-        my_putstr_error("load_map : error size map\n");
-        return EXIT_ERROR;
+        return puterr("load_map : error size map\n", EXIT_ERROR);
     }
     if (map_create(&map_load, size_map.y, size_map.x))
         return EXIT_ERROR;

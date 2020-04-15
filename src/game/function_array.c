@@ -14,7 +14,7 @@ FUNC_EXEC fct_exec[NB_GAME_STATE] = {
     &display_pause_menu, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World
-    NULL, // Iso World
+    &isow_run, // Iso World
     &display_option_menu // Option Menu
 };
 

@@ -37,6 +37,8 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (sysquest_create(&game->sysquest) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (isow_create(&ISOW) == EXIT_ERROR)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -49,6 +51,7 @@ static int master_destroy(game_t *game)
     window_destroy(&game->w);
     config_manager_destroy(&game->env);
     sysquest_destroy(&game->sysquest);
+    isow_destroy(&ISOW);
     return EXIT_SUCCESS;
 }
 

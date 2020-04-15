@@ -12,9 +12,9 @@ extern const int MAP_INIT_WIDTH;
 extern const sfInt32 MS_UPDATE_PANEL;
 
 static const char *PLAYER_TXR[3] = {
-    "asset/img/real_black.png",
-    "asset/img/red.png",
-    "asset/img/blue.png"
+    "asset/sprite/iso_world/real_black.png",
+    "asset/sprite/iso_world/red.png",
+    "asset/sprite/iso_world/blue.png"
 };
 
 static int create_clock(isow_t *isow)
@@ -38,15 +38,15 @@ static int create_player(isow_t *isow)
 
 int isow_create(isow_t *isow)
 {
-    if (map_create(&isow->map_water, MAP_INIT_HEIGHT, MAP_INIT_WIDTH) != 0)
+    if (map_create(&isow->map, 1, 1) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (map_create(&isow->map, MAP_INIT_HEIGHT, MAP_INIT_WIDTH) == EXIT_ERROR)
+    if (load_map("./asset/map/iso.world", &isow->map) == EXIT_ERROR)
+        return EXIT_ERROR;
+    if (map_create(&isow->map_water, isow->map.height, isow->map.width) != 0)
         return EXIT_ERROR;
     if (create_clock(isow) == EXIT_ERROR)
         return EXIT_ERROR;
     if (create_player(isow) != EXIT_SUCCESS)
-        return EXIT_ERROR;
-    if (load_map("./asset/map/iso.world", &isow->map) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
