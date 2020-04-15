@@ -52,6 +52,7 @@ void event_option_menu(game_t *game, sfEvent *event)
     event_azerty_button(game);
     event_qwerty_button(game);
     event_keypad_button(game);
-    event_slider(game->option_menu->sound, sfMouse_getPositionRenderWindow(game->w.window));
+    event_slider(game->option_menu->sound,
+    sfMouse_getPositionRenderWindow(game->w.window));
     game->option->volume = get_value_slider(game->option_menu->sound) * 100;
 }

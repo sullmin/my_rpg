@@ -7,10 +7,10 @@
 
 #include "my_rpg.h"
 
-const sfVector2f TEXT_IN_INIT_POS = (sfVector2f){4, 4};
+const sfVector2f TEXT_IN_INIT_POS = {4, 4};
 const unsigned int TEXT_IN_INIT_CHARSIZE = 50;
-const sfColor TEXT_IN_INIT_TXTCOLOR = (sfColor){255, 255, 255, 255};
-const sfColor TEXT_IN_INIT_BGCOLOR = (sfColor){55, 55, 55, 255};
+const sfColor TEXT_IN_INIT_TXTCOLOR = {255, 255, 255, 255};
+const sfColor TEXT_IN_INIT_BGCOLOR = {55, 55, 55, 255};
 const char *TEXT_IN_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
 const unsigned int TEXT_IN_INIT_HEIGHT = 70;
 const unsigned int TEXT_IN_INIT_CHAR_WIDTH = 28;

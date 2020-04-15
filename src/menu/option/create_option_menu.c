@@ -50,13 +50,14 @@ extern const char *font;
 
 static int set_option_menu_button(game_t *game)
 {
+    char *label = "main menu";
     int ret = 0;
 
     ret += set_button_texture(game->option_menu->azerty, azerty_path);
     ret += set_button_texture(game->option_menu->qwerty, qwerty_path);
     ret += set_button_texture(game->option_menu->keypad, keypad_path);
     ret += set_button_texture(game->option_menu->main_menu, main_menu_path);
-    ret += set_button_label(game->option_menu->main_menu, "main menu", font, 50);
+    ret += set_button_label(game->option_menu->main_menu, label, font, 50);
     game->option_menu->azerty->is_activate = true;
     return ret;
 }

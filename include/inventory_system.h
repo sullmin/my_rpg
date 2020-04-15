@@ -60,7 +60,8 @@ typedef struct player_inventory_s
 
 //PLAYER INVENTORY
 
-bool get_player_inventory(player_inventory_t *inv, env_t *env);//return false if ERR
+//return false if ERR
+bool get_player_inventory(player_inventory_t *inv, env_t *env);
 
 //ITEM STRUCT
 
