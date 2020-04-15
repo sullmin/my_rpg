@@ -5,10 +5,10 @@
 ** map
 */
 
-#ifndef MAP_H_
-#define MAP_H_
+#ifndef ISOW_MAP_H_
+#define ISOW_MAP_H_
 
-#include "map_t.h"
+#include "isow_map_t.h"
 
 // MAIN FUNCTIONS
 int map_create(map_t *map, int height, int width);

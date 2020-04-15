@@ -80,23 +80,9 @@ SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/map/project_iso_point.c					\
 			$(DSRC)game/iso_world/map/map_update.c							\
 			$(DSRC)game/iso_world/map/map_resize.c							\
-			# $(DSRC)game/iso_world/event/event_manager.c						\
-			# $(DSRC)game/iso_world/event/event_init.c						\
-			# $(DSRC)game/iso_world/event/event_mouse.c						\
-			# $(DSRC)game/iso_world/event/event_keyboard.c					\
-			# $(DSRC)game/iso_world/event/event_window.c						\
-			# $(DSRC)game/iso_world/event_action/action_mouse_gui_button.c	\
-			# $(DSRC)game/iso_world/event_action/action_gui_button_left.c		\
-			# $(DSRC)game/iso_world/event_action/action_gui_button_top.c		\
-			# $(DSRC)game/iso_world/event_action/action_resize_shortcut.c		\
-			# $(DSRC)game/iso_world/event_action/action_mouse_clicked.c		\
-			# $(DSRC)game/iso_world/event_action/action_show_click.c			\
-			# $(DSRC)game/iso_world/event_action/action_texture.c				\
-			# $(DSRC)game/iso_world/event_action/action_manager.c				\
-			# $(DSRC)game/iso_world/event_action/action_map_file.c			\
-			# $(DSRC)game/iso_world/event_action/action_update_text_gui.c		\
-			# $(DSRC)game/iso_world/event_action/action_object_move.c			\
-			# $(DSRC)game/iso_world/event_action/action_ui_button_tool.c 		\
+			$(DSRC)game/iso_world/event/event_mouse.c						\
+			$(DSRC)game/iso_world/event/event_keyboard.c					\
+			$(DSRC)game/iso_world/event/event_object_move.c					\
 
 SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
 				$(DSRC)quest_system/quest_create_destroy.c			\

@@ -25,6 +25,6 @@ FUNC_EVENT fct_event[NB_GAME_STATE] = {
     &event_pause_menu, // Pause Menu
     NULL, // Fight Mode
     NULL, // Main World
-    NULL, // Iso World
+    &isow_event_manager, // Iso World
     &event_option_menu // Option Menu
 };

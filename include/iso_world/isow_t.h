@@ -8,7 +8,7 @@
 #ifndef ISOW_T_H_
 #define ISOW_T_H_
 
-#include "map_t.h"
+#include "isow_map_t.h"
 #include "object_t.h"
 
 typedef struct iso_world {

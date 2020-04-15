@@ -5,8 +5,8 @@
 ** map_t
 */
 
-#ifndef MAP_T_H_
-#define MAP_T_H_
+#ifndef ISOW_MAP_T_H_
+#define ISOW_MAP_T_H_
 
 typedef struct world_map {
     char *map_name;

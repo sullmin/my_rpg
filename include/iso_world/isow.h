@@ -8,6 +8,8 @@
 #ifndef ISOW_H_
 #define ISOW_H_
 
+#include <SFML/Graphics.h>
+
 #define EXIT_ERROR 84
 
 #define ISOW game->wiso
@@ -18,14 +20,14 @@
 #define TIME_MILLI(clock) sfTime_asMilliseconds(sfClock_getElapsedTime(clock))
 
 #include "isow_t.h"
-//#include "event_action.h"
-#include "map.h"
+#include "isow_map.h"
+#include "isow_event.h"
 #include "object.h"
 
 // MAIN
 int isow_create(isow_t *isow);
 int isow_destroy(isow_t *isow);
-int isow_event_manager(isow_t *isow);
-int isow_run(game_t *game);
+void isow_event_manager(game_t *game, sfEvent *event);
+void isow_run(game_t *game);
 
 #endif

@@ -7,8 +7,6 @@
 
 #include "my_rpg.h"
 
-extern const int MAP_INIT_HEIGHT;
-extern const int MAP_INIT_WIDTH;
 extern const sfInt32 MS_UPDATE_PANEL;
 
 static const char *PLAYER_TXR[3] = {
@@ -32,7 +30,7 @@ static int create_player(isow_t *isow)
     if (object_create(&isow->player, NULL, NULL, PLAYER_TXR))
         return EXIT_ERROR;
     object_set_size(&isow->player, 0, 0, isow->map.sampling.x);
-    object_on_map_set_coord(&isow->player, &isow->map, 1, 1);
+    object_on_map_set_coord(&isow->player, &isow->map, 10, 10);
     return EXIT_SUCCESS;
 }
 

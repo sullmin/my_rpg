@@ -14,18 +14,6 @@ static void event_window_close(game_t *game)
     sfRenderWindow_close(game->w.window);
 }
 
-static void event_crossroads(game_t *game, sfEvent *event)
-{
-    if (game->state == QUIT || game->state == ERR) {
-        return;
-    }
-    if (fct_event[game->state] != NULL)
-        fct_event[game->state](game, event);
-    if (game->sysquest.play_dialogue == true) {
-        dialogue_event_manager(game, event);
-    }
-}
-
 static bool check_quit_event(game_t *game, sfEvent *event)
 {
     if (event->type == sfEvtClosed || game->state == QUIT) {
@@ -37,6 +25,18 @@ static bool check_quit_event(game_t *game, sfEvent *event)
         return true;
     }
     return false;
+}
+
+static void event_crossroads(game_t *game, sfEvent *event)
+{
+    if (game->state == QUIT || game->state == ERR) {
+        return;
+    }
+    if (fct_event[game->state] != NULL)
+        fct_event[game->state](game, event);
+    if (game->sysquest.play_dialogue == true) {
+        dialogue_event_manager(game, event);
+    }
 }
 
 void call_event_manager(game_t *game, sfEvent *event)
