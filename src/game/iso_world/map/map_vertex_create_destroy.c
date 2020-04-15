@@ -5,7 +5,7 @@
 ** map
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 extern const sfColor MAP_LINE_COLOR;
 

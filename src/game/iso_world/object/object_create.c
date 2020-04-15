@@ -5,7 +5,7 @@
 ** 2020-03-05T14:33:04+01:00 : simon
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 static void object_init(object_t *obj, sfVector2f *position,
 sfVector3f *sampling, const char **img_path)

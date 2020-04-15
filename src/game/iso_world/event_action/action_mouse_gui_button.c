@@ -5,7 +5,7 @@
 ** Action GUI buttons
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 static int event_button_pressed(window_t *w, sfEvent *event)
 {

@@ -5,7 +5,7 @@
 ** load_map
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 extern const char *MAP_EXTENSION;
 
@@ -45,12 +45,12 @@ static int get_size_map(sfVector2i *size_map, char **file)
     if (!line)
         return EXIT_ERROR;
     if (word_array_len(line) != 2) {
-        free_2d_array(line);
+        word_array_destroy(line);
         return EXIT_ERROR;
     }
     size_map->x = my_getnbr(line[0]);
     size_map->y = my_getnbr(line[1]);
-    free_2d_array(line);
+    word_array_destroy(line);
     if (size_map->x < 2 || size_map->y < 2)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
@@ -68,7 +68,7 @@ static int load_map_data(map_t *map_load, char **file)
 int load_map(const char *filepath, map_t *map)
 {
     map_t map_load;
-    char **file = read_file(filepath);
+    char **file = my_read_file(filepath);
     sfVector2i size_map = {0};
 
     if (my_file_ext_cmp(filepath, MAP_EXTENSION) == false)
@@ -82,7 +82,7 @@ int load_map(const char *filepath, map_t *map)
     if (map_create(&map_load, size_map.y, size_map.x))
         return EXIT_ERROR;
     load_map_data(&map_load, file);
-    free_2d_array(file);
+    word_array_destroy(file);
     map_destroy(map);
     map_load.modified = true;
     *map = map_load;

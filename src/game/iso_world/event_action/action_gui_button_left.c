@@ -5,7 +5,7 @@
 ** Action GUI Buttons on the left
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 extern const int WIN_WIDTH;
 extern const sfVector3f MAP_INIT_SAMP;

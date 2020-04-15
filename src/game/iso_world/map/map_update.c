@@ -5,17 +5,17 @@
 ** map_update
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
-int map_update_all(window_t *w, map_t *map)
+int map_update_all(isow_t *isow, map_t *map)
 {
-    object_on_map_refresh(&w->player, map);
+    object_on_map_refresh(&isow->player, map);
     if (map_update(map) == EXIT_FAILURE)
         return EXIT_FAILURE;
     map->modified = sfFalse;
-    if (map_update(&w->map_water) == EXIT_FAILURE)
+    if (map_update(&isow->map_water) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    w->map_water.modified = sfFalse;
+    isow->map_water.modified = sfFalse;
     return EXIT_SUCCESS;
 }
 

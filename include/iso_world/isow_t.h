@@ -8,8 +8,8 @@
 #ifndef ISOW_T_H_
 #define ISOW_T_H_
 
-#include "ui_t.h"
-#include "state_t.h"
+#include "map_t.h"
+#include "object_t.h"
 
 typedef struct iso_world {
     object_t player;

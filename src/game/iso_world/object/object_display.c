@@ -5,7 +5,7 @@
 ** Created: 2020-03-05T14:51:13+01:00 | Author: SimonRacaud
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 static void object_display_texture(object_t *obj, sfRenderWindow *win)
 {

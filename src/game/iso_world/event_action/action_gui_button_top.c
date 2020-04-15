@@ -5,7 +5,7 @@
 ** Action GUI buttons top of the window
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 static int check_event_button_headbar_beta(window_t *w,
 enum button_status status, sfVector2i mouse)

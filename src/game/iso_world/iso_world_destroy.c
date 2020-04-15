@@ -5,7 +5,7 @@
 ** Created: 2020-04-15T09:13:14+02:00 | Author: simon
 */
 
-#include "isow.h"
+#include "my_rpg.h"
 
 int isow_destroy(isow_t *isow)
 {

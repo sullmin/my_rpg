@@ -5,7 +5,7 @@
 ** Created: 2020-03-06T14:51:13+01:00 | Author: SimonRacaud
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 void object_set_size(object_t *obj, int x, int y, int z)
 {

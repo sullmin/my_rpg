@@ -5,7 +5,7 @@
 ** map_resize
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 static void map_add_tiles(map_t *map, map_t *new_map)
 {
@@ -48,11 +48,11 @@ int map_resize(map_t *map, sfVector2i resize)
     return EXIT_SUCCESS;
 }
 
-int map_resize_all(window_t *w, sfVector2i resize)
+int map_resize_all(isow_t *isow, sfVector2i resize)
 {
-    if (map_resize(&w->map, resize) == EXIT_FAILURE)
+    if (map_resize(&isow->map, resize) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (map_resize(&w->map_water, resize) == EXIT_FAILURE)
+    if (map_resize(&isow->map_water, resize) == EXIT_FAILURE)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

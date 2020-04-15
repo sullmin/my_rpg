@@ -5,7 +5,7 @@
 ** Created: 2020-03-05T14:51:13+01:00 | Author: SimonRacaud
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 int object_on_map_set_coord(object_t *obj, map_t *map, int x, int y)
 {

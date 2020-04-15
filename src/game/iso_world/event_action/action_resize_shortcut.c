@@ -5,7 +5,7 @@
 ** resize_shortcut
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 void resize_shortcut(window_t *w, sfEvent *event, int coeff)
 {

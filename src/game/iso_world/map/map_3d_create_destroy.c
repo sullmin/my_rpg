@@ -5,7 +5,7 @@
 ** create_3d_map
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 static void init_3d_map(int **map_3d, int height, int width)
 {

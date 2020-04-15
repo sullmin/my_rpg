@@ -5,7 +5,7 @@
 ** map_tools
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 int map_set_anglex(map_t *map, float anglex)
 {
@@ -42,18 +42,18 @@ int map_rotate(map_t *map, float anglex, float angley)
     return EXIT_SUCCESS;
 }
 
-int map_translate(map_t *map, float deltax, float deltay, window_t *w)
+int map_translate(map_t *map, float deltax, float deltay)
 {
     float max_sizex = map->width * map->sampling.x;
     float max_sizey = map->height * map->sampling.y;
 
     if (map->origin.x <= -max_sizex && deltax < 0)
         return EXIT_SUCCESS;
-    else if (map->origin.x >= w->width + max_sizex && deltax > 0)
+    else if (map->origin.x >= 1920 + max_sizex && deltax > 0)
         return EXIT_SUCCESS;
     if (map->origin.y <= -max_sizey && deltay < 0)
         return EXIT_SUCCESS;
-    else if (map->origin.y >= w->height && deltay > 0)
+    else if (map->origin.y >= 1080 && deltay > 0)
         return EXIT_SUCCESS;
     map->origin.x += deltax;
     map->origin.y += deltay;

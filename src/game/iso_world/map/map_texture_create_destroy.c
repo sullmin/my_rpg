@@ -5,7 +5,7 @@
 ** create 2d vertex array for texture
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 extern const char *TEXTURE_PATH[];
 extern const int TEXTURE_COUNT;

@@ -5,7 +5,7 @@
 ** 2020-03-05T14:33:04+01:00 : simon
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 static void create_triangle(sfVertexArray **vertex, sfVector2f *pos)
 {

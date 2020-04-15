@@ -5,12 +5,12 @@
 ** map_scale
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
-int map_scale_all(window_t *w, float scale)
+int map_scale_all(isow_t *isow, float scale)
 {
-    map_scale(&w->map, scale);
-    map_scale(&w->map_water, scale);
+    map_scale(&isow->map, scale);
+    map_scale(&isow->map_water, scale);
     return EXIT_SUCCESS;
 }
 

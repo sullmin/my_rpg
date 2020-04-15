@@ -5,7 +5,7 @@
 ** map_t
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 extern const sfVector3f MAP_INIT_SAMP;
 extern const sfVector2f MAP_INIT_ANGL;

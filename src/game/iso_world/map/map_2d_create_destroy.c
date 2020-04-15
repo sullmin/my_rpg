@@ -5,7 +5,7 @@
 ** create_2d_map
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 int create_2d_map(map_t *map)
 {

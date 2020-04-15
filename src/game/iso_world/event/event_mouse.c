@@ -5,7 +5,7 @@
 ** event manager
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 void event_mouse_in_out_window(window_t *w, sfEvent *event)
 {

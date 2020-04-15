@@ -5,7 +5,7 @@
 ** fill_map
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 int fill_map(map_t *map_load, char *data)
 {
@@ -22,7 +22,7 @@ int fill_map(map_t *map_load, char *data)
             foo++;
         }
     }
-    free_2d_array(coord_z);
+    word_array_destroy(coord_z);
     return EXIT_SUCCESS;
 }
 
@@ -41,6 +41,6 @@ int fill_map_texture(map_t *map_load, char *data)
             foo++;
         }
     }
-    free_2d_array(coord_z);
+    word_array_destroy(coord_z);
     return EXIT_SUCCESS;
 }

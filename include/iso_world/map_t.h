@@ -8,8 +8,6 @@
 #ifndef MAP_T_H_
 #define MAP_T_H_
 
-#include "my_world.h"
-
 typedef struct world_map {
     char *map_name;
     int **map_3d;

@@ -8,7 +8,7 @@
 #ifndef EVENT_H_
 #define EVENT_H_
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 // EVENT
 

@@ -5,7 +5,7 @@
 ** create 2d vertex array for texture
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 void map_vertex_texture_destroy(map_t *map)
 {

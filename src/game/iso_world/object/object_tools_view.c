@@ -5,7 +5,7 @@
 ** object tools view
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 int object_rotate(object_t *obj, float anglex, float angley)
 {

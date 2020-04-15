@@ -5,7 +5,7 @@
 ** event manager
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 extern const int EVT_MAP_TRANSLATE_DELTA;
 extern const sfKeyCode KEY_MAP_TRANS_UP;

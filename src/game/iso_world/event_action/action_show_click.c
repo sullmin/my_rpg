@@ -5,7 +5,7 @@
 ** IF the user click on the screen -> Display a circle
 */
 
-#include "my_world.h"
+#include "my_rpg.h"
 
 void action_show_click(window_t *w)
 {
