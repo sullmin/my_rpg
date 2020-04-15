@@ -10,7 +10,7 @@
 
 #define KEY_TAB_SIZE 36
 
-#define KEYS_MAX_SIZE 50
+#define KEYS_MAX_SIZE 100
 
 typedef struct event_input_s
 {
