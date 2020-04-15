@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-static const float BACK_HEIGHT = 200.0f;
+static const float BACK_HEIGHT = 140.0f;
 static const float TEXT_SHIFT_X = 10.0f;
 static const float TEXT_SHIFT_Y = 20.0f;
 
