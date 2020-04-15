@@ -7,14 +7,17 @@
 
 #include "my_rpg.h"
 
-void update_event_size(key_event_t *key, sfInt64 speed)
+static bool update_event_size(key_event_t *key, sfInt64 speed)
 {
     if (key->toggle) {
         if (key->size >= 0) {
             key->size += speed / 10000 * (key->increase ? 1 : -1);
             sfText_setCharacterSize(key->text, key->size);
-        } else
+        } else {
             key->finish = true;
+            if (key->rotation == 0)
+                return true;
+        }
         if (key->rotation > 0) {
             sfText_setRotation(key->text, key->rotation);
             key->rotation += speed / 250;
@@ -22,12 +25,14 @@ void update_event_size(key_event_t *key, sfInt64 speed)
         if (key->size > KEYS_MAX_SIZE)
             key->increase = false;
     }
+    return false;
 }
 
 void event_group_run(game_t *game, combination_t events, float ms)
 {
     for (int i = 0; i < events.nbr_comb; i++) {
-        update_event_size(&events.group[i], ms * game->wfight.speed);
+        if (update_event_size(&events.group[i], ms * game->wfight.speed))
+            game->wfight.win = false;
         if (events.group[i].size > 0)
             sfRenderWindow_drawText(game->w.window, events.group[i].text, NULL);
     }

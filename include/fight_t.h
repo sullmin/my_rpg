@@ -14,6 +14,7 @@ typedef struct fight_mode_s
     float interval;
     float speed;
     int comb;
+    bool win;
 } fight_mode_t;
 
 #endif

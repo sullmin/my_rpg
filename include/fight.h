@@ -40,7 +40,6 @@ void fight_mode(game_t *game);
 combination_t *create_fight_events(game_t *game);
 void destroy_events(combination_t **key_events, sfClock **inter_clock,
                     sfClock **update, int actions);
-void update_event_size(key_event_t *key, sfInt64 speed);
 void event_group_run(game_t *game, combination_t events, float ms);
 void manage_keys_pressed(combination_t *events);
 

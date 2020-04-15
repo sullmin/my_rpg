@@ -14,8 +14,10 @@ static int init_variables(sfClock **inter_clock, sfClock **update,
         *inter_clock = sfClock_create();
     if (*update == NULL)
         *update = sfClock_create();
-    if (*events == NULL)
+    if (*events == NULL) {
         *events = create_fight_events(game);
+        game->wfight.win = true;
+    }
     if (*events == NULL || *update == NULL || *inter_clock == NULL)
         return EXIT_ERROR;
     return EXIT_SUCCESS;

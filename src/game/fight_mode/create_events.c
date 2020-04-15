@@ -117,5 +117,4 @@ void destroy_events(combination_t **key_events, sfClock **inter_clock,
             sfFont_destroy((*key_events)[i].group[k].font);
         }
     *key_events = NULL;
-    exit(0);
 }
