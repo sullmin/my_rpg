@@ -12,8 +12,8 @@ float height, float width)
 {
     sfVector2f p0 = {0, 0};
     sfVector2f p1 = {32, 0};
-    sfVector2f p2 = {32, 32 * (height / width)};
-    sfVector2f p3 = {0, 32  * (height / width)};
+    sfVector2f p2 = {32, 32 * (GET_SIZE(height, width))};
+    sfVector2f p3 = {0, 32 * (GET_SIZE(height, width))};
     sfVertex v1 = {.texCoords = p0, .color = sfWhite};
     sfVertex v2 = {.texCoords = p1, .color = sfWhite};
     sfVertex v3 = {.texCoords = p2, .color = sfWhite};
