@@ -14,6 +14,8 @@
 #include "config_manager.h"
 #include "stat_t.h"
 
+#define INV_SPRITE "./asset/sprite/inventory/inventory.jpg"
+
 //ITEM STRUCT
 
 typedef struct {
@@ -57,12 +59,15 @@ typedef struct player_inventory_s
     item_t **inventory;
     size_t size;
     size_t nb_item;
+    sfSprite *sprite;
+    sfTexture *texture;
 } player_inventory_t;
 
 //PLAYER INVENTORY
 
 //return false if ERR
 bool player_inventory_creat(player_inventory_t *inv, env_t *env);
+void player_inventory_destroy(player_inventory_t *inv);
 
 //ITEM STRUCT
 
