@@ -7,9 +7,6 @@
 
 #include "my_rpg.h"
 
-#define INV_Y_SIZE 111
-#define INV_X_SIZE 489
-
 static void display_item(player_inventory_t *inv, sfRenderWindow *window,
     size_t i)
 {

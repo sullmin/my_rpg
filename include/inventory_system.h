@@ -14,6 +14,9 @@
 #include "config_manager.h"
 #include "stat_t.h"
 
+
+#define INV_Y_SIZE 111
+#define INV_X_SIZE 489
 #define INV_SPRITE "./asset/sprite/inventory/inventory.jpg"
 
 //ITEM STRUCT
