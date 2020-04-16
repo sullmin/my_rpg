@@ -45,6 +45,7 @@ static bool struct_load(item_t *item, env_t *my_env)
     if (!item->sprite || !item->texture)
         return false;
     sfSprite_setTexture(item->sprite, item->texture, sfTrue);
+    item->particule.framebuffer = NULL;
     return true;
 }
 
