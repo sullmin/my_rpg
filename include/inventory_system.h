@@ -88,5 +88,6 @@ item_t *item_load(const char *filepath);
 bool item_manage(list_t **list);
 void display_inventory(player_inventory_t *inv, sfRenderWindow *window);
 bool add_item_in_player_inv(player_inventory_t *inv, item_t *item);
+bool move_item_in_inventory(player_inventory_t *inv, list_t *item_load, const char *id);
 
 #endif

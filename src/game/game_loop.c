@@ -25,7 +25,6 @@ static int run(game_t *game)
 {
     sfRenderWindow_clear(game->w.window, sfBlack);
     crossroads(game);
-    display_inventory(&game->inventory, game->w.window);
     if (game->state == ERR)
         return EXIT_ERROR;
     sfRenderWindow_display(game->w.window);
