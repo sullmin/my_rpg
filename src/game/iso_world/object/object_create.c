@@ -20,7 +20,7 @@ sfVector3f *sampling, const char **img_path)
         obj->origin = (sfVector2f){200, 400};
     else
         obj->origin = *position;
-    obj->line_color = sfWhite;
+    obj->line_color = (sfColor){200, 200, 200, 255};
     obj->path_img = img_path;
     obj->modified = sfFalse;
     obj->coord_map = (sfVector2i){1, 1};

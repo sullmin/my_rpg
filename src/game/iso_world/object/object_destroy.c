@@ -28,7 +28,6 @@ void object_destroy(object_t *obj)
     }
     for (int i = 0; i < 3; i++) {
         sfTexture_destroy(obj->textures[i]);
-        sfVertexArray_destroy(obj->vrtx_txr_a[i]);
-        sfVertexArray_destroy(obj->vrtx_txr_b[i]);
+        sfVertexArray_destroy(obj->vrtx_txr[i]);
     }
 }

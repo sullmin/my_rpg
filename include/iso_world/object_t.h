@@ -14,8 +14,7 @@ typedef struct object {
     sfVertexArray *vrtx_x[2][2][2];
     sfVertexArray *vrtx_y[2][2][2];
     sfVertexArray *vrtx_z[2][2][2];
-    sfVertexArray *vrtx_txr_a[3];
-    sfVertexArray *vrtx_txr_b[3];
+    sfVertexArray *vrtx_txr[3];
     sfTexture *textures[3];
     const char **path_img;
     sfRenderStates render_state;

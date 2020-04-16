@@ -44,8 +44,5 @@ void object_on_map_refresh(object_t *obj, map_t *map)
     else if (obj->coord_map.y < 0)
         obj->coord_map.y = 0;
     obj->origin = map->map_2d[obj->coord_map.y][obj->coord_map.x];
-    obj->size.x = map->sampling.x;
-    obj->size.y = map->sampling.y;
-    obj->size.z = map->sampling.x;
     obj->modified = sfTrue;
 }

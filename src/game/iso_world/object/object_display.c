@@ -11,9 +11,7 @@ static void object_display_texture(object_t *obj, sfRenderWindow *win)
 {
     for (int i = 0; i < 3; i++) {
         obj->render_state.texture = obj->textures[i];
-        sfRenderWindow_drawVertexArray(win, obj->vrtx_txr_a[i],
-        &obj->render_state);
-        sfRenderWindow_drawVertexArray(win, obj->vrtx_txr_b[i],
+        sfRenderWindow_drawVertexArray(win, obj->vrtx_txr[i],
         &obj->render_state);
     }
 }
