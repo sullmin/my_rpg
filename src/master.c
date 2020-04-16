@@ -39,10 +39,8 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (!player_inventory_creat(&game->inventory, &game->env))
         return EXIT_ERROR;
-    if (!item_manage(&game->item_load)) {
-        printf("erroor item manage\n");
+    if (!item_manage(&game->item_load))
         return EXIT_ERROR;
-    }
     return EXIT_SUCCESS;
 }
 
@@ -55,6 +53,8 @@ static int master_destroy(game_t *game)
     window_destroy(&game->w);
     config_manager_destroy(&game->env);
     sysquest_destroy(&game->sysquest);
+    player_inventory_destroy(&game->inventory);
+    distroy_item_list(game->item_load);
     return EXIT_SUCCESS;
 }
 
