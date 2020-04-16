@@ -61,6 +61,7 @@ typedef struct player_inventory_s
     size_t nb_item;
     sfSprite *sprite;
     sfTexture *texture;
+    sfVector2f pos;
 } player_inventory_t;
 
 //PLAYER INVENTORY
@@ -82,5 +83,7 @@ void distroy_item_list(list_t *list);
 
 item_t *item_load(const char *filepath);
 bool item_manage(list_t **list);
+void display_inventory(player_inventory_t *inv, sfRenderWindow *window);
+bool add_item_in_player_inv(player_inventory_t *inv, item_t *item);
 
 #endif

@@ -37,6 +37,9 @@ bool player_inventory_creat(player_inventory_t *inv, env_t *env)
     if (!inv->texture || !inv->sprite)
         return false;
     sfSprite_setTexture(inv->sprite, inv->texture, sfTrue);
+    inv->pos.x = my_env_get_value_int(env, "INVENTORY_POSX", NULL);
+    inv->pos.y = my_env_get_value_int(env, "INVENTORY_POSY", NULL);
+    sfSprite_setPosition(inv->sprite, inv->pos);
     return true;
 }
 
