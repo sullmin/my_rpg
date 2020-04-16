@@ -30,6 +30,7 @@ typedef enum game_status {
 #include "option_t.h"
 #include "option_menu_t.h"
 #include "pause_menu_t.h"
+#include "inventory_system.h"
 /*
     Main structure of the program
 */
@@ -41,7 +42,8 @@ typedef struct game {
     sound_manager_t sound;
     sys_quest_t sysquest;
     //gui_t ui;
-    //inventoy_t inventory;
+    player_inventory_t inventory;
+    list_t *item_load;
     //iso_world_t wiso;
     //main_world_t wmain;
     //fight_mode_t wfight;

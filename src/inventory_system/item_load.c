@@ -48,15 +48,16 @@ static bool struct_load(item_t *item, env_t *my_env)
     return true;
 }
 
-bool item_load(item_t *item, const char *filepath)
+item_t *item_load(const char *filepath)
 {
-    bool exit_stat;
     env_t my_env = config_manager_create();
     int ret = config_manager_read(&my_env, filepath);
+    item_t *item = malloc(sizeof(item_t));
 
     if (ret == EXIT_ERROR)
-        return EXIT_ERROR;
-    exit_stat = struct_load(item, &my_env);
+        return NULL;
+    if (!struct_load(item, &my_env))
+        return NULL;
     config_manager_destroy(&my_env);
-    return exit_stat;
+    return item;
 }

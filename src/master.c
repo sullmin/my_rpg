@@ -37,6 +37,12 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (sysquest_create(&game->sysquest) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (!player_inventory_creat(&game->inventory, &game->env))
+        return EXIT_ERROR;
+    if (!item_manage(&game->item_load)) {
+        printf("erroor item manage\n");
+        return EXIT_ERROR;
+    }
     return EXIT_SUCCESS;
 }
 

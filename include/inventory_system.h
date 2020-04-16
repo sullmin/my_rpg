@@ -8,9 +8,10 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include <stdbool.h>
 #include <stdlib.h>
-#include "my_rpg.h"
+#include <stdbool.h>
+#include <SFML/Graphics.h>
+#include "config_manager.h"
 #include "stat_t.h"
 
 //ITEM STRUCT
@@ -61,7 +62,7 @@ typedef struct player_inventory_s
 //PLAYER INVENTORY
 
 //return false if ERR
-bool get_player_inventory(player_inventory_t *inv, env_t *env);
+bool player_inventory_creat(player_inventory_t *inv, env_t *env);
 
 //ITEM STRUCT
 
@@ -71,7 +72,10 @@ void destroy_item(item_t *item);
 //CHAIN LIST FOR WORLD ITEM
 
 list_t *make_list(item_t *first);//return false if ERR
-bool add_one(list_t *my_list, item_t *other);//return false if ERR
-void distroy(list_t *list);
+bool add_one(list_t **my_list, item_t *other);//return false if ERR
+void distroy_item_list(list_t *list);
+
+item_t *item_load(const char *filepath);
+bool item_manage(list_t **list);
 
 #endif
