@@ -10,8 +10,8 @@
 
 // MAIN
 
-int object_create(object_t *obj, sfVector2f *position, sfVector3f *sampling,
-const char **img_path);
+int object_create(object_t *obj, const sfVector3f txr_size,
+sfVector3f *sampling, const char **img_path);
 
 void object_destroy(object_t *obj);
 

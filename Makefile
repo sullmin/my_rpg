@@ -64,6 +64,7 @@ SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/object/object_reload.c					\
 			$(DSRC)game/iso_world/object/object_tools_view.c				\
 			$(DSRC)game/iso_world/object/object_on_map.c					\
+			$(DSRC)game/iso_world/object/object_on_map_move.c				\
 			$(DSRC)game/iso_world/object/object_config.c					\
 			$(DSRC)game/iso_world/map/filemap/load_map.c					\
 			$(DSRC)game/iso_world/map/filemap/fill_map.c					\

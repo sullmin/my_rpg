@@ -8,8 +8,6 @@
 #ifndef OBJ_T_H_
 #define OBJ_T_H_
 
-#define GET_SIZE(h, w) (h > w) ? (w / h) : (h / w)
-
 typedef struct object {
     int width;
     sfVector2f mtx_2d[2][2][2];
@@ -21,6 +19,7 @@ typedef struct object {
     const char **path_img;
     sfRenderStates render_state;
     sfVector3f size;
+    sfVector3f size_txr;
     sfVector2f angle;
     sfVector2f origin;
     sfColor line_color;
