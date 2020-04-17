@@ -27,11 +27,11 @@ static bool check_coord(sfVector2i *coord, map_t *map)
     if (!is_valid_map_coord(coord, map)) {
         return false;
     }
-    if (map->map_3d[coord->y][coord->x] <= 0) {
+    if (map->map_3d[coord->y][coord->x] < 0) {
         return false;
     }
     if (is_valid_map_coord(&coord_diag, map)) {
-        if (map->map_3d[coord_diag.y][coord_diag.x] <= 0) {
+        if (map->map_3d[coord_diag.y][coord_diag.x] < 0) {
             return false;
         }
         if (map->map_3d[coord->y][coord->x]
