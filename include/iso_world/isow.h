@@ -33,5 +33,6 @@ void isow_run(game_t *game);
 
 int player_movement(isow_t *isow, game_t *game);
 void check_tp_point(game_t *game);
+void camera_move(isow_t *isow, window_t *w);
 
 #endif

@@ -21,5 +21,6 @@ int player_movement(isow_t *isow, game_t *game)
     if (isow->event.player_move_key == sfKeyRight)
         object_on_map_move(&isow->player, &isow->map, 1, 0);
     check_tp_point(game);
+    camera_move(isow, &game->w);
     return EXIT_SUCCESS;
 }
