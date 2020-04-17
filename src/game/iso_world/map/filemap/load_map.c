@@ -75,15 +75,16 @@ int load_map(const char *filepath, map_t *map)
         return puterr("Load ISO map : wrong file extension\n", EXIT_ERROR);
     if (error_handling(file))
         return puterr("Load ISO Map fail\n", EXIT_ERROR);
-    if (get_size_map(&size_map, file)) {
+    if (get_size_map(&size_map, file))
         return puterr("Load ISO map : Invalid size map\n", EXIT_ERROR);
-    }
     if (map_create(&map_load, size_map.y, size_map.x))
         return puterr("Load ISO map : Fail to create map\n", EXIT_ERROR);
     load_map_data(&map_load, file);
     word_array_destroy(file);
     map_destroy(map);
-    map_load.modified = true;
     *map = map_load;
+    map->modified = true;
+    if (map_update(map) == EXIT_FAILURE)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
