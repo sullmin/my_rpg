@@ -10,10 +10,12 @@
 extern const sfInt32 MS_UPDATE_PANEL;
 
 static const char *PLAYER_TXR[3] = {
-    "asset/sprite/iso_world/real_black.png",
-    "asset/sprite/iso_world/red.png",
-    "asset/sprite/iso_world/blue.png"
+    "asset/sprite/iso_world/cobblestone.png",
+    "asset/sprite/iso_world/player.png",
+    "asset/sprite/iso_world/player.png"
 };
+
+static const sfVector3f PLAYER_TXR_SIZE = {32, 45, 32};
 
 static int create_clock(isow_t *isow)
 {
@@ -27,10 +29,13 @@ static int create_clock(isow_t *isow)
 
 static int create_player(isow_t *isow)
 {
-    if (object_create(&isow->player, NULL, NULL, PLAYER_TXR))
+    if (object_create(&isow->player, PLAYER_TXR_SIZE, NULL, PLAYER_TXR))
         return EXIT_ERROR;
-    object_set_size(&isow->player, 0, 0, isow->map.sampling.x);
-    object_on_map_set_coord(&isow->player, &isow->map, 10, 10);
+    object_set_size(&isow->player, isow->map.sampling.x, isow->map.sampling.y, isow->map.sampling.x * 2);
+    object_on_map_set_coord(&isow->player, &isow->map, 18, 18);
+
+    //object_set_size(&isow->player, isow->map.sampling.x * 20, isow->map.sampling.y * 20, isow->map.sampling.x * 10);
+    //object_on_map_set_coord(&isow->player, &isow->map, 0, 0);
     return EXIT_SUCCESS;
 }
 

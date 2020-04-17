@@ -10,23 +10,13 @@
 int object_on_map_set_coord(object_t *obj, map_t *map, int x, int y)
 {
     if (!obj || !map)
-        return EXIT_FAILURE;
+        return puterr("obj set coord fail\n", EXIT_FAILURE);
     if (x < map->width - 1 && x >= 0 && y < map->height - 1 && y >= 0) {
         obj->coord_map.x = x;
         obj->coord_map.y = y;
         object_on_map_refresh(obj, map);
     } else
-        return EXIT_FAILURE;
-    return EXIT_SUCCESS;
-}
-
-int object_on_map_move(object_t *obj, map_t *map, int x, int y)
-{
-    if (!obj || !map)
-        return EXIT_FAILURE;
-    obj->coord_map.x += x;
-    obj->coord_map.y += y;
-    object_on_map_refresh(obj, map);
+        return puterr("obj set coord fail\n", EXIT_FAILURE);
     return EXIT_SUCCESS;
 }
 
