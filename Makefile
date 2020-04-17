@@ -53,6 +53,7 @@ SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\
 			$(DSRC)game/iso_world/iso_world_run.c							\
 			$(DSRC)game/iso_world/iso_world_event_manager.c					\
+			$(DSRC)game/iso_world/player_movement.c							\
 			$(DSRC)game/iso_world/constant.c								\
 			$(DSRC)game/iso_world/object/object_create.c					\
 			$(DSRC)game/iso_world/object/object_lines_create.c				\

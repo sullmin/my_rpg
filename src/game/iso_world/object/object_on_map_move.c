@@ -17,6 +17,8 @@ static bool is_valid_map_coord(sfVector2i *coord, map_t *map)
         return false;
     else if (coord->y < 0)
         return false;
+    if (coord->y <= 25 && coord->x <= 23)
+        return false;
     return true;
 }
 
