@@ -16,5 +16,8 @@ int object_reload(object_t *obj)
     object_lines_create(obj);
     if (object_texture_create(obj, obj->path_img) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    if (obj->linked_map != NULL) {
+        object_on_map_refresh(obj, obj->linked_map);
+    }
     return EXIT_SUCCESS;
 }

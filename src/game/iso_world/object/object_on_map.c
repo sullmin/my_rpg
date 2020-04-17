@@ -15,6 +15,7 @@ int object_on_map_set_coord(object_t *obj, map_t *map, int x, int y)
         obj->coord_map.x = x;
         obj->coord_map.y = y;
         object_on_map_refresh(obj, map);
+        obj->linked_map = map;
     } else
         return puterr("obj set coord fail\n", EXIT_FAILURE);
     return EXIT_SUCCESS;

@@ -25,6 +25,7 @@ typedef struct object {
     sfColor line_color;
     sfBool modified;
     sfVector2i coord_map;
+    map_t *linked_map;
 } object_t;
 
 #endif

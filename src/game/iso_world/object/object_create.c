@@ -22,6 +22,7 @@ sfVector3f *sampling, const char **img_path)
     obj->path_img = img_path;
     obj->modified = sfFalse;
     obj->coord_map = (sfVector2i){1, 1};
+    obj->linked_map = NULL;
 }
 
 int object_create(object_t *obj, const sfVector3f txr_size,

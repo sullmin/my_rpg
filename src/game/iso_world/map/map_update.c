@@ -9,7 +9,6 @@
 
 int map_update_all(isow_t *isow, map_t *map)
 {
-    object_on_map_refresh(&isow->player, map);
     if (map_update(map) == EXIT_FAILURE)
         return EXIT_FAILURE;
     map->modified = sfFalse;
