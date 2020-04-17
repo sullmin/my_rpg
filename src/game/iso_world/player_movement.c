@@ -7,7 +7,7 @@
 
 #include "isow.h"
 
-int player_movement(isow_t *isow)
+int player_movement(isow_t *isow, game_t *game)
 {
     if (isow->event.player_move == false) {
         return EXIT_SUCCESS;
@@ -20,5 +20,6 @@ int player_movement(isow_t *isow)
         object_on_map_move(&isow->player, &isow->map, -1, 0);
     if (isow->event.player_move_key == sfKeyRight)
         object_on_map_move(&isow->player, &isow->map, 1, 0);
+    check_tp_point(game);
     return EXIT_SUCCESS;
 }

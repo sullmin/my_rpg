@@ -31,6 +31,7 @@ int isow_destroy(isow_t *isow);
 void isow_event_manager(game_t *game, sfEvent *event);
 void isow_run(game_t *game);
 
-int player_movement(isow_t *isow);
+int player_movement(isow_t *isow, game_t *game);
+void check_tp_point(game_t *game);
 
 #endif
