@@ -10,6 +10,7 @@
 int isow_destroy(isow_t *isow)
 {
     object_destroy(&isow->player);
+    object_destroy(&isow->prison);
     map_destroy(&isow->map);
     map_destroy(&isow->map_water);
     sfClock_destroy(isow->clock);

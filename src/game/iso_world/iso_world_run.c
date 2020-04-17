@@ -17,5 +17,6 @@ void isow_run(game_t *game)
             ISOW.timer -= ISOW.ms_loop;
 
     }
+    object_display(&ISOW.prison, game->w.window);
     object_display(&ISOW.player, game->w.window);
 }

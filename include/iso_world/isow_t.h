@@ -13,6 +13,7 @@
 
 typedef struct iso_world {
     object_t player;
+    object_t prison;
     map_t map;
     map_t map_water;
     sfClock *clock;
