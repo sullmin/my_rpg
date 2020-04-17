@@ -39,7 +39,8 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (!player_inventory_creat(&game->inventory, &game->env))
         return EXIT_ERROR;
-    if (!item_manage(&game->item_load))
+    if (!item_manage(&game->item_load) ||
+        !init_display_stat(&game->ui.display_stat, &game->env))
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
