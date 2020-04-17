@@ -28,19 +28,19 @@ static void object_lines_create_sub(object_t *obj, int z, int y)
             &obj->mtx_2d[z][y][x + 1], obj->line_color);
         } else if (x == 0)
             obj->vrtx_x[z][y][x] = create_line(&obj->mtx_2d[z][y][x],
-            &obj->mtx_2d[z][y][x + 1], (sfColor){255, 255, 255, 100});
+            &obj->mtx_2d[z][y][x + 1], (sfColor){255, 255, 255, 20});
         if (z == 0 && (x || y)) {
             obj->vrtx_z[z][y][x] = create_line( &obj->mtx_2d[z][y][x],
             &obj->mtx_2d[z + 1][y][x], obj->line_color);
         } else if (z == 0)
             obj->vrtx_z[z][y][x] = create_line(&obj->mtx_2d[z][y][x],
-            &obj->mtx_2d[z + 1][y][x], (sfColor){255, 255, 255, 100});
+            &obj->mtx_2d[z + 1][y][x], (sfColor){255, 255, 255, 20});
         if (y == 0 && (x || z)) {
             obj->vrtx_y[z][y][x] = create_line(&obj->mtx_2d[z][y][x],
             &obj->mtx_2d[z][y + 1][x], obj->line_color);
         } else if (y == 0)
             obj->vrtx_y[z][y][x] = create_line(&obj->mtx_2d[z][y][x],
-            &obj->mtx_2d[z][y + 1][x], (sfColor){255, 255, 255, 100});
+            &obj->mtx_2d[z][y + 1][x], (sfColor){255, 255, 255, 20});
     }
 }
 

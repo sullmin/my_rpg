@@ -10,12 +10,12 @@
 extern const sfInt32 MS_UPDATE_PANEL;
 
 static const char *PLAYER_TXR[3] = {
-    "asset/sprite/iso_world/cobblestone.png",
+    "asset/sprite/iso_world/player_head.png",
     "asset/sprite/iso_world/player.png",
     "asset/sprite/iso_world/player.png"
 };
 
-static const sfVector3f PLAYER_TXR_SIZE = {32, 45, 32};
+static const sfVector3f PLAYER_TXR_SIZE = {32, 86, 32};
 
 static int create_clock(isow_t *isow)
 {
