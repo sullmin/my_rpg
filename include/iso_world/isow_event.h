@@ -19,6 +19,7 @@ void event_mouse_wheel_click(isow_t *isow, sfEvent *event);
 void event_mouse_move(isow_t *isow, sfEvent *event);
 
 void event_keypressed(isow_t *isow, sfEvent *event);
+void event_keyreleased(isow_t *isow, sfEvent *event);
 
 void event_object_move(isow_t *isow, sfEvent *event);
 

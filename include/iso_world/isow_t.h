@@ -11,7 +11,13 @@
 #include "isow_map_t.h"
 #include "object_t.h"
 
+struct isow_event {
+    sfKeyCode player_move_key;
+    bool player_move;
+};
+
 typedef struct iso_world {
+    struct isow_event event;
     object_t player;
     object_t prison;
     map_t map;

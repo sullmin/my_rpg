@@ -9,6 +9,7 @@
 #define ISOW_H_
 
 #include <SFML/Graphics.h>
+#include <stdbool.h>
 
 #define EXIT_ERROR 84
 
@@ -29,5 +30,7 @@ int isow_create(isow_t *isow);
 int isow_destroy(isow_t *isow);
 void isow_event_manager(game_t *game, sfEvent *event);
 void isow_run(game_t *game);
+
+int player_movement(isow_t *isow);
 
 #endif

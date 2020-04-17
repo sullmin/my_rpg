@@ -9,12 +9,16 @@
 
 void event_object_move(isow_t *isow, sfEvent *event)
 {
-    if (event->key.code == sfKeyUp)
-        object_on_map_move(&isow->player, &isow->map, 0, -1);
-    if (event->key.code == sfKeyDown)
-        object_on_map_move(&isow->player, &isow->map, 0, 1);
-    if (event->key.code == sfKeyLeft)
-        object_on_map_move(&isow->player, &isow->map, -1, 0);
-    if (event->key.code == sfKeyRight)
-        object_on_map_move(&isow->player, &isow->map, 1, 0);
+    if (event->key.code != sfKeyUp
+        && event->key.code != sfKeyDown
+        && event->key.code != sfKeyLeft
+        && event->key.code != sfKeyRight) {
+        return;
+    }
+    if (event->type == sfEvtKeyPressed) {
+        isow->event.player_move = true;
+        isow->event.player_move_key = event->key.code;
+    } else if (event->type == sfEvtKeyReleased) {
+        isow->event.player_move = false;
+    }
 }

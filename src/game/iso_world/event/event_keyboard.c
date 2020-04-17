@@ -11,3 +11,8 @@ void event_keypressed(isow_t *isow, sfEvent *event)
 {
     event_object_move(isow, event);
 }
+
+void event_keyreleased(isow_t *isow, sfEvent *event)
+{
+    event_object_move(isow, event);
+}

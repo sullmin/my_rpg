@@ -15,7 +15,7 @@ void isow_run(game_t *game)
     if (ISOW.timer >= ISOW.ms_loop) {
         while (ISOW.timer >= ISOW.ms_loop)
             ISOW.timer -= ISOW.ms_loop;
-
+        player_movement(&ISOW);
     }
     object_display(&ISOW.prison, game->w.window);
     object_display(&ISOW.player, game->w.window);
