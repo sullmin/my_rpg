@@ -36,7 +36,7 @@ void event_mouse_wheel_scroll(isow_t *isow, sfEvent *event)
     object_set_size(&isow->player, isow->map.sampling.x, isow->map.sampling.y,
     isow->map.sampling.x * 2);
     object_set_size(&isow->prison, isow->map.sampling.x * 23,
-    isow->map.sampling.y * 25, isow->map.sampling.x * 10);
+    isow->map.sampling.y * 25, isow->map.sampling.x * 14);
 }
 
 void event_mouse_move(isow_t *isow, sfEvent *event)

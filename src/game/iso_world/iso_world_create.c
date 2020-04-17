@@ -16,14 +16,14 @@ static const char *PLAYER_TXR[3] = {
 };
 
 static const char *PRISON_TXR[3] = {
-    "asset/sprite/iso_world/green.png",
-    "asset/sprite/iso_world/blue.png",
-    "asset/sprite/iso_world/red.png"
+    "asset/sprite/iso_world/prison_up.png",
+    "asset/sprite/iso_world/prison_right.png",
+    "asset/sprite/iso_world/prison_left.png"
 };
 
 static const sfVector3f PLAYER_TXR_SIZE = {32, 86, 32};
 
-static const sfVector3f PRISON_TXR_SIZE = {32, 32, 32};
+static const sfVector3f PRISON_TXR_SIZE = {250, 200, 230};
 
 static int create_clock(isow_t *isow)
 {
@@ -45,8 +45,9 @@ static int create_objects(isow_t *isow)
     if (object_create(&isow->prison, PRISON_TXR_SIZE, NULL, PRISON_TXR))
         return EXIT_ERROR;
     object_set_size(&isow->prison, isow->map.sampling.x * 23,
-    isow->map.sampling.y * 25, isow->map.sampling.x * 10);
+    isow->map.sampling.y * 25, isow->map.sampling.x * 14);
     object_on_map_set_coord(&isow->prison, &isow->map, 0, 0);
+    isow->event.player_move = false;
     return EXIT_SUCCESS;
 }
 
