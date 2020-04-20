@@ -7,18 +7,37 @@
 
 #include "isow.h"
 
+static void begin_move(isow_t *isow, sfEvent *event)
+{
+    if (event->key.code == sfKeyUp || event->key.code == sfKeyDown) {
+        isow->event.player_move = true;
+        isow->event.player_move_key_v = event->key.code;
+    } else if (event->key.code == sfKeyLeft
+            || event->key.code == sfKeyRight) {
+        isow->event.player_move = true;
+        isow->event.player_move_key_h = event->key.code;
+    }
+}
+
+static void stop_move(isow_t *isow, sfEvent *event)
+{
+    if (event->key.code == sfKeyUp || event->key.code == sfKeyDown) {
+        isow->event.player_move_key_v = 0;
+    } else if (event->key.code == sfKeyLeft
+            || event->key.code == sfKeyRight) {
+        isow->event.player_move_key_h = 0;
+    }
+    if (isow->event.player_move_key_v == 0
+        && isow->event.player_move_key_h == 0) {
+        isow->event.player_move = false;
+    }
+}
+
 void event_object_move(isow_t *isow, sfEvent *event)
 {
-    if (event->key.code != sfKeyUp
-        && event->key.code != sfKeyDown
-        && event->key.code != sfKeyLeft
-        && event->key.code != sfKeyRight) {
-        return;
-    }
     if (event->type == sfEvtKeyPressed) {
-        isow->event.player_move = true;
-        isow->event.player_move_key = event->key.code;
+        begin_move(isow, event);
     } else if (event->type == sfEvtKeyReleased) {
-        isow->event.player_move = false;
+        stop_move(isow, event);
     }
 }

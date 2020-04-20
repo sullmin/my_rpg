@@ -12,7 +12,8 @@
 #include "object_t.h"
 
 struct isow_event {
-    sfKeyCode player_move_key;
+    sfKeyCode player_move_key_h;
+    sfKeyCode player_move_key_v;
     bool player_move;
 };
 

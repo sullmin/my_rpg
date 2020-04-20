@@ -15,6 +15,7 @@ int map_update_all(isow_t *isow, map_t *map)
     if (map_update(&isow->map_water) == EXIT_FAILURE)
         return EXIT_FAILURE;
     isow->map_water.modified = sfFalse;
+    object_on_map_refresh(&isow->prison, map);
     return EXIT_SUCCESS;
 }
 
