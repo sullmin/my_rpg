@@ -14,6 +14,19 @@ static void event_window_close(game_t *game)
     sfRenderWindow_close(game->w.window);
 }
 
+static bool check_quit_event(game_t *game, sfEvent *event)
+{
+    if (event->type == sfEvtClosed || game->state == QUIT) {
+        event_window_close(game);
+        return true;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        event_window_close(game);
+        return true;
+    }
+    return false;
+}
+
 static void event_crossroads(game_t *game, sfEvent *event)
 {
     if (game->state == QUIT || game->state == ERR) {
@@ -28,11 +41,9 @@ static void event_crossroads(game_t *game, sfEvent *event)
 
 void call_event_manager(game_t *game, sfEvent *event)
 {
-    if (event->type == sfEvtClosed || game->state == QUIT) {
-        event_window_close(game);
+    if (check_quit_event(game, event)) {
         return;
-    }
-    if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+    } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         game->state = PAUSE_MENU;
     }
     event_crossroads(game, event);

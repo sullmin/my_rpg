@@ -50,8 +50,49 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/my_revgetnbr.c												\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
-#SRC_ISO	=	$(DSRC)game/iso_world/
 #SRC_MWORLD =	$(DSRC)game/main_world/
+
+SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
+			$(DSRC)game/iso_world/iso_world_destroy.c						\
+			$(DSRC)game/iso_world/iso_world_run.c							\
+			$(DSRC)game/iso_world/iso_world_event_manager.c					\
+			$(DSRC)game/iso_world/player_movement.c							\
+			$(DSRC)game/iso_world/tp_point.c								\
+			$(DSRC)game/iso_world/camera_move.c								\
+			$(DSRC)game/iso_world/constant.c								\
+			$(DSRC)game/iso_world/object/object_create.c					\
+			$(DSRC)game/iso_world/object/object_lines_create.c				\
+			$(DSRC)game/iso_world/object/object_2d_matrix_create.c			\
+			$(DSRC)game/iso_world/object/object_destroy.c					\
+			$(DSRC)game/iso_world/object/object_display.c					\
+			$(DSRC)game/iso_world/object/object_project_iso_point.c			\
+			$(DSRC)game/iso_world/object/object_texture_create.c			\
+			$(DSRC)game/iso_world/object/object_reload.c					\
+			$(DSRC)game/iso_world/object/object_tools_view.c				\
+			$(DSRC)game/iso_world/object/object_on_map.c					\
+			$(DSRC)game/iso_world/object/object_on_map_move.c				\
+			$(DSRC)game/iso_world/object/object_config.c					\
+			$(DSRC)game/iso_world/map/filemap/load_map.c					\
+			$(DSRC)game/iso_world/map/filemap/fill_map.c					\
+			$(DSRC)game/iso_world/map/map_scale.c							\
+			$(DSRC)game/iso_world/map/map_tools_view.c						\
+			$(DSRC)game/iso_world/map/map_vertex_create_destroy.c			\
+			$(DSRC)game/iso_world/map/map_texture_vertex_create_destroy.c	\
+			$(DSRC)game/iso_world/map/map_texture_create_destroy.c			\
+			$(DSRC)game/iso_world/map/map_create_destroy.c					\
+			$(DSRC)game/iso_world/map/map_3d_create_destroy.c				\
+			$(DSRC)game/iso_world/map/map_2d_create_destroy.c				\
+			$(DSRC)game/iso_world/map/map_display.c							\
+			$(DSRC)game/iso_world/map/map_display_water.c					\
+			$(DSRC)game/iso_world/map/project_iso_point.c					\
+			$(DSRC)game/iso_world/map/map_update.c							\
+			$(DSRC)game/iso_world/map/map_resize.c							\
+			$(DSRC)game/iso_world/event/event_mouse.c						\
+			$(DSRC)game/iso_world/event/event_keyboard.c					\
+			$(DSRC)game/iso_world/event/event_object_move.c					\
+			$(DSRC)game/iso_world/kinematic/kinem_create_destroy.c			\
+			$(DSRC)game/iso_world/kinematic/kinem_run.c						\
+			$(DSRC)game/iso_world/kinematic/kinem_start_stop.c				\
 
 SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
 				$(DSRC)quest_system/quest_create_destroy.c			\
@@ -101,13 +142,13 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU)
+SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_ISO)
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	my_rpg
 
-INCLUDE = -I./include -I./lib/my/include
+INCLUDE = -I./include -I./lib/my/include  -I./include/iso_world
 
 CSFML_FLAGS = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system -lm
 
