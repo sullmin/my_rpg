@@ -15,5 +15,6 @@ int game_create(game_t *game);
 
 int game_loop(game_t *game);
 void call_event_manager(game_t *game, sfEvent *event);
+float as_seconds(sfClock *clock);
 
 #endif

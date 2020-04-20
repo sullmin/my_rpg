@@ -27,6 +27,7 @@ static int run(game_t *game)
     crossroads(game);
     if (game->state == ERR)
         return EXIT_ERROR;
+    display_player_gui(game);
     sfRenderWindow_display(game->w.window);
     return EXIT_SUCCESS;
 }

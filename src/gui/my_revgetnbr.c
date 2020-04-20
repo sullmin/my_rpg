@@ -10,7 +10,7 @@
 static char *get_size(int nb) {
     size_t size = 1;
 
-    for (size = 1; nb > 10 ; size++)
+    for (size = 2; nb > 10 ; size++)
         nb /= 10;
     return malloc(sizeof(char) * (size + 1));
 }

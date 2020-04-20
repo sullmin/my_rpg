@@ -138,6 +138,7 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/function_array.c							\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
+				$(DSRC)tools/as_second.c								\
 
 SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
