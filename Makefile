@@ -87,6 +87,9 @@ SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/event/event_mouse.c						\
 			$(DSRC)game/iso_world/event/event_keyboard.c					\
 			$(DSRC)game/iso_world/event/event_object_move.c					\
+			$(DSRC)game/iso_world/kinematic/kinem_create_destroy.c			\
+			$(DSRC)game/iso_world/kinematic/kinem_run.c						\
+			$(DSRC)game/iso_world/kinematic/kinem_start_stop.c				\
 
 SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
 				$(DSRC)quest_system/quest_create_destroy.c			\

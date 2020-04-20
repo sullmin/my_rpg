@@ -9,6 +9,9 @@
 
 void isow_run(game_t *game)
 {
+    if (ISOW.kinem.start == true) {
+        kinem_run(&ISOW, &game->sound);
+    }
     ISOW.timer += TIME_MILLI(ISOW.clock);
     sfClock_restart(ISOW.clock);
     if (ISOW.timer >= ISOW.ms_loop) {

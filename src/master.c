@@ -37,7 +37,7 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (sysquest_create(&game->sysquest) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (isow_create(&ISOW) == EXIT_ERROR)
+    if (isow_create(game) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }

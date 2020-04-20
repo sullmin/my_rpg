@@ -16,8 +16,8 @@ const char *MAP_EXTENSION = ".world";
 const float MAP_SHADOW_SUM = 10.00f;
 const float MAP_SHADOW_MUL = 00.1f;
 
-const sfVector3f MAP_INIT_SAMP = {30, 30, 5.5};
-const sfVector2f MAP_INIT_ANGL = {45, 45};
+const sfVector3f MAP_INIT_SAMP = {40, 40, 8};
+const sfVector2f MAP_INIT_ANGL = {45, 25};
 const sfVector2f MAP_INIT_ORIG = {1920 / 2, -200};
 const sfColor MAP_LINE_COLOR = {255, 255, 255, 100};
 

@@ -17,8 +17,28 @@ struct isow_event {
     bool player_move;
 };
 
+enum kinem_mode {
+    ANGLE,
+    PLAYER_MOVE
+};
+
+struct kinematic {
+    enum kinem_mode mode;
+    float curr_angle;
+    float step_angle;
+    float start_angle;
+    float max_angle;
+    int idx_player_move;
+    sfInt32 timer;
+    sfInt32 ms_loop;
+    int id_music;
+    sfVector2i player_start_pos;
+    bool start;
+};
+
 typedef struct iso_world {
     struct isow_event event;
+    struct kinematic kinem;
     object_t player;
     object_t prison;
     map_t map;

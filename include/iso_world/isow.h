@@ -26,7 +26,7 @@
 #include "object.h"
 
 // MAIN
-int isow_create(isow_t *isow);
+int isow_create(game_t *game);
 int isow_destroy(isow_t *isow);
 void isow_event_manager(game_t *game, sfEvent *event);
 void isow_run(game_t *game);
@@ -34,5 +34,15 @@ void isow_run(game_t *game);
 int player_movement(isow_t *isow, game_t *game);
 void check_tp_point(game_t *game);
 void camera_move(isow_t *isow, window_t *w);
+
+// KINEMATIC
+
+int kinem_create(isow_t *isow);
+int kinem_destroy(isow_t *isow);
+
+int kinem_start(isow_t *isow, sound_manager_t *sound);
+int kinem_stop(isow_t *isow, sound_manager_t *sound);
+
+int kinem_run(isow_t *isow, sound_manager_t *sound);
 
 #endif
