@@ -9,25 +9,19 @@
 
 static void (* const EVENT_HANDLER[])(isow_t *, sfEvent *) =
 {
-    &event_mouse_button_pressed,
-    &event_mouse_button_released,
     &event_mouse_wheel_scroll,
     &event_keypressed,
     &event_keyreleased,
-    &event_mouse_move,
 };
 
 static const sfEventType EVENT_TYPE[] =
 {
-    sfEvtMouseButtonPressed,
-    sfEvtMouseButtonReleased,
     sfEvtMouseWheelScrolled,
     sfEvtKeyPressed,
     sfEvtKeyReleased,
-    sfEvtMouseMoved,
 };
 
-static int EVENT_ARRAY_SIZE = 6;
+static int EVENT_ARRAY_SIZE = 3;
 
 void isow_event_manager(game_t *game, sfEvent *event)
 {
