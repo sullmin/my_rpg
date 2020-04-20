@@ -60,3 +60,11 @@ int object_on_map_move(object_t *obj, map_t *map, int x, int y)
     object_on_map_refresh(obj, map);
     return EXIT_SUCCESS;
 }
+
+bool object_map_position_is(object_t *obj, sfVector2i pos)
+{
+    if (obj->coord_map.x == pos.x && obj->coord_map.y == pos.y) {
+        return true;
+    }
+    return false;
+}

@@ -28,11 +28,12 @@ struct kinematic {
     float step_angle;
     float start_angle;
     float max_angle;
-    int idx_player_move;
     sfInt32 timer;
     sfInt32 ms_loop;
     int id_music;
+    int idx_player_move;
     sfVector2i player_start_pos;
+    float scale;
     bool start;
 };
 

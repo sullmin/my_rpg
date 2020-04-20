@@ -9,16 +9,54 @@
 
 extern const sfVector2f MAP_INIT_ANGL;
 
-static const float START_ANGLE = 20.0;
-static const float STEP_ANGLE = 0.25;
+static const float START_ANGLE = 30;
+static const float STEP_ANGLE = -0.3;
 
-static const int ID_MUSIC = 0;
+static const int ID_MUSIC = 1;
 
-static const sfInt32 MS_LOOP = 5;
+static const sfInt32 MS_LOOP = 180;
+
+static const float SCALE = -15;
 
 const sfVector2i PLAYER_MOVEMENT[] =
 {
-    {1, 1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -2},
+    {-1, -2},
+    {-1, -2},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-2, 1},
+    {-2, 1},
+    {-2, 1},
+    {-2, 1},
+    {-2, 1},
+    {-2, 1},
+    {-2, 1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
+    {-1, -1},
     {0, 0}
 };
 
@@ -33,7 +71,7 @@ int kinem_create(isow_t *isow)
     isow->kinem.id_music = ID_MUSIC;
     isow->kinem.start = false;
     isow->kinem.player_start_pos = PLAYER_START;
-    isow->kinem.mode = ANGLE;
+    isow->kinem.scale = SCALE;
     return EXIT_SUCCESS;
 }
 

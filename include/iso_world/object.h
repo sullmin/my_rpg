@@ -22,6 +22,7 @@ int object_display(object_t *obj, sfRenderWindow *win);
 int object_on_map_set_coord(object_t *obj, map_t *map, int x, int y);
 int object_on_map_move(object_t *obj, map_t *map, int x, int y);
 void object_on_map_refresh(object_t *obj, map_t *map);
+bool object_map_position_is(object_t *obj, sfVector2i pos);
 
 // CONFIG
 
