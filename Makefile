@@ -47,6 +47,7 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/widget/outputs/progress_bar/progress_set_percentage.c		\
 				$(DSRC)gui/display_player_stat.c										\
 				$(DSRC)gui/init_display_stat.c											\
+				$(DSRC)gui/display_player_gui.c											\
 				$(DSRC)gui/my_revgetnbr.c												\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
