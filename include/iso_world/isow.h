@@ -44,5 +44,6 @@ int kinem_start(isow_t *isow, sound_manager_t *sound);
 int kinem_stop(isow_t *isow, sound_manager_t *sound);
 
 int kinem_run(isow_t *isow, sound_manager_t *sound);
+void kinem_event(isow_t *isow, sound_manager_t *sound, sfEvent *event);
 
 #endif

@@ -26,6 +26,7 @@ static int EVENT_ARRAY_SIZE = 3;
 void isow_event_manager(game_t *game, sfEvent *event)
 {
     if (ISOW.kinem.start == true) {
+        kinem_event(&ISOW, &game->sound, event);
         return;
     }
     for (int i = 0; i < EVENT_ARRAY_SIZE; i++) {

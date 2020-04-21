@@ -7,6 +7,8 @@
 
 #include "my_rpg.h"
 
+extern const sfVector2i PLAYER_MOVEMENT[];
+
 int kinem_start(isow_t *isow, sound_manager_t *sound)
 {
     isow->kinem.start = true;
@@ -26,8 +28,17 @@ int kinem_start(isow_t *isow, sound_manager_t *sound)
 
 int kinem_stop(isow_t *isow, sound_manager_t *sound)
 {
+    size_t idx = 0;
+
     isow->kinem.start = false;
     sound_manager_stop_all(sound);
     map_scale_all(isow, (-isow->kinem.scale));
+    object_on_map_set_coord(&isow->player, &isow->map,
+    isow->kinem.player_start_pos.x, isow->kinem.player_start_pos.y);
+    while (PLAYER_MOVEMENT[idx].x != 0 && PLAYER_MOVEMENT[idx].y != 0) {
+        object_on_map_move(&isow->player, &isow->map, PLAYER_MOVEMENT[idx].x,
+        PLAYER_MOVEMENT[idx].y);
+        idx++;
+    }
     return EXIT_SUCCESS;
 }
