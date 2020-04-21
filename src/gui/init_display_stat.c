@@ -23,6 +23,8 @@ bool init_display_stat(display_stat_t *info, env_t *env)
     sfSprite_setPosition(info->sprite,
         (sfVector2f) {info->pos.x - 10, info->pos.y - 10});
     sfSprite_setTexture(info->sprite, info->texture, sfTrue);
+    info->display_it = false;
+    info->clock = sfClock_create();
     return true;
 }
 
@@ -31,4 +33,5 @@ void destroy_display_stat(display_stat_t *info)
     sfFont_destroy(info->font);
     sfSprite_destroy(info->sprite);
     sfTexture_destroy(info->texture);
+    sfClock_destroy(info->clock);
 }

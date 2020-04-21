@@ -17,6 +17,8 @@ typedef struct display_stat_s {
     sfFont *font;
     sfSprite *sprite;
     sfTexture *texture;
+    bool display_it;
+    sfClock *clock;
 } display_stat_t;
 
 #define INTER_LINE 50
