@@ -24,9 +24,26 @@ static int load_sound_manager(game_t *game)
 
     if (err) {
         return my_puterror("game_create: fail get volume\n", EXIT_ERROR);
-    } else if (sound_manager_create(&game->sound, volume, dirpath, true) != 0)
+    }
+    if (volume < 0 || volume > 100) {
+        return my_puterror("game_create: volume invalid\n", EXIT_ERROR);
+    }
+    if (sound_manager_create(&game->sound, volume, dirpath, true) != 0)
         return my_puterror("game_create: sound_manager ERROR\n", EXIT_ERROR);
     free(dirpath);
+    return EXIT_SUCCESS;
+}
+
+static int init_option(game_t *game)
+{
+    bool err = false;
+    int volume = GET_VAR_NBR(game, "DEF_VOLUME", &err);
+
+    if (err)
+        return EXIT_ERROR;
+    OPTION->volume = (float)volume;
+    set_slider_position(game->option_menu->sound, OPTION->volume);
+    set_keyboard_config(OPTION, azerty);
     return EXIT_SUCCESS;
 }
 
@@ -41,6 +58,7 @@ int game_create(game_t *game)
         return EXIT_ERROR;
     if (isow_create(game) == EXIT_ERROR)
         return EXIT_ERROR;
-    set_keyboard_config(game->option, azerty);
+    if (init_option(game) != EXIT_SUCCESS)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
