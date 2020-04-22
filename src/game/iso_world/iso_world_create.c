@@ -66,7 +66,5 @@ int isow_create(game_t *game)
     if (kinem_create(&ISOW) != EXIT_SUCCESS) {
         return EXIT_ERROR;
     }
-    if (kinem_start(&ISOW, &game->sound) != EXIT_SUCCESS)
-        return EXIT_SUCCESS;
     return EXIT_SUCCESS;
 }

@@ -9,6 +9,7 @@
 
 void event_pause_menu(game_t *game, sfEvent *event)
 {
+    (void)event;
     if (game->pause->quit->toggle == 2)
         game->state = QUIT;
     if (game->pause->resume->toggle == 2)

@@ -9,6 +9,7 @@
 
 void event_main_menu(game_t *game, sfEvent *event)
 {
+    (void)event;
     if (game->menu->quit->toggle == 2)
         game->state = QUIT;
     if (game->menu->play->toggle == 2)

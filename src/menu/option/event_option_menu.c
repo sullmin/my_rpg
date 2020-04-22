@@ -46,6 +46,7 @@ static void event_keypad_button(game_t *game)
 
 void event_option_menu(game_t *game, sfEvent *event)
 {
+    (void)event;
     event_button(game->option_menu->main_menu, game->w.window);
     if (game->option_menu->main_menu->toggle == 2)
         game->state = MAIN_MENU;
