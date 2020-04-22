@@ -19,13 +19,15 @@
 #include "gui.h"
 #include "my_math.h"
 #include "window.h"
-#include "quest_system.h"
 #include "game.h"
 #include "fight.h"
+#include "isow.h"
+#include "quest_system.h"
 #include "inventory_system.h"
 #include "option_menu.h"
 #include "main_menu.h"
 #include "pause_menu.h"
+#include "main_world.h"
 
 #define ENV(game) &game->env
 
@@ -56,5 +58,9 @@ typedef void (* const FUNC_EVENT)(game_t *game, sfEvent *event);
 // Just the main function's prototypes are in this header
 int usage(int status, const char *program_name);
 int master(void);
+
+void set_game_state(game_t *game, game_status_t new_state);
+
+void display_player_gui(game_t *game);
 
 #endif

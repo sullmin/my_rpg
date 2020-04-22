@@ -13,6 +13,11 @@
 
 #include "my.h"
 
+#define SUCCESS 0
+#define CLOCHE 1
+#define MUSIC2 2
+#define MUSIC1 3
+
 typedef struct sound_manager {
     int size;
     file_list_t *file_list;

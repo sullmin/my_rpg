@@ -9,9 +9,22 @@
 
 extern FUNC_EVENT fct_event[NB_GAME_STATE];
 
-static void event_window_close(game_t *game)
+void event_window_close(game_t *game)
 {
     sfRenderWindow_close(game->w.window);
+}
+
+static bool check_quit_event(game_t *game, sfEvent *event)
+{
+    if (event->type == sfEvtClosed || game->state == QUIT) {
+        event_window_close(game);
+        return true;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        event_window_close(game);
+        return true;
+    }
+    return false;
 }
 
 static void event_crossroads(game_t *game, sfEvent *event)
@@ -26,14 +39,25 @@ static void event_crossroads(game_t *game, sfEvent *event)
     }
 }
 
+static void event_gui(game_t *game, sfEvent *evt)
+{
+    if (evt->key.code == sfKeyE &&
+        as_seconds(game->ui.display_stat.clock) > 1) {
+        if (game->ui.display_stat.display_it)
+            game->ui.display_stat.display_it = false;
+        else
+            game->ui.display_stat.display_it = true;
+        sfClock_restart(game->ui.display_stat.clock);
+    }
+}
+
 void call_event_manager(game_t *game, sfEvent *event)
 {
-    if (event->type == sfEvtClosed || game->state == QUIT) {
-        event_window_close(game);
+    if (check_quit_event(game, event)) {
         return;
-    }
-    if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-        game->state = PAUSE_MENU;
+    } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+        set_game_state(game, PAUSE_MENU);
     }
     event_crossroads(game, event);
+    event_gui(game, event);
 }

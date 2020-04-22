@@ -9,6 +9,8 @@
 
 void destroy_main_menu(game_t *game)
 {
+    sfTexture_destroy(MMENU->txr_background);
+    sfSprite_destroy(MMENU->spr_background);
     destroy_button(game->menu->option);
     destroy_button(game->menu->play);
     destroy_button(game->menu->quit);

@@ -27,24 +27,36 @@ typedef enum game_status {
 
 #define NB_GAME_STATE 8
 
+#define OPTION game->option
+#define MENU_OPTION game->option_menu
+#define MMENU game->menu
+#define WINDOW game->w.window
+#define SOUND game->sound
+
 #include "gui_t.h"
 #include "option_t.h"
-#include "option_menu_t.h"
+#include "display_stat.h"
 #include "pause_menu_t.h"
+#include "option_menu_t.h"
+#include "inventory_system.h"
+#include "isow_t.h"
+#include "main_world_t.h"
 /*
     Main structure of the program
 */
 typedef struct game {
+    game_status_t prev_state;
     game_status_t state;
     sfClock *clock;
     window_t w;
     env_t env;
     sound_manager_t sound;
     sys_quest_t sysquest;
-    //gui_t ui;
-    //inventoy_t inventory;
-    //iso_world_t wiso;
-    //main_world_t wmain;
+    gui_t ui;
+    player_inventory_t inventory;
+    list_t *item_load;
+    isow_t wiso;
+    main_world_t *wmain;
     fight_mode_t wfight;
     main_menu_t *menu;
     option_menu_t *option_menu;

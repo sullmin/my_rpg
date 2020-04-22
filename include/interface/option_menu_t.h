@@ -16,6 +16,8 @@ typedef struct option_menu {
     button_t *keypad;
     button_t *main_menu;
     slider_t *sound;
+    sfSprite *spr_background;
+    sfTexture *txr_background;
 } option_menu_t;
 
 #endif /* !OPTION_MENU_T_H_ */

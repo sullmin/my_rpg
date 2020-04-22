@@ -9,9 +9,10 @@
 #define GUI_T_H_
 
 #include "main_menu_t.h"
+#include "display_stat.h"
 
 typedef struct gui {
-
+    display_stat_t display_stat;
 }  gui_t;
 
 #endif /* !GUI_T_H_ */

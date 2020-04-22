@@ -27,6 +27,7 @@ static int run(game_t *game)
     crossroads(game);
     if (game->state == ERR)
         return EXIT_ERROR;
+    display_player_gui(game);
     sfRenderWindow_display(game->w.window);
     return EXIT_SUCCESS;
 }
@@ -35,13 +36,16 @@ int game_loop(game_t *game)
 {
     sfEvent event;
 
-    quest_enable(game, 0); // DEBUG => quest system dialogue
-    game->state = MAIN_MENU;
+    //quest_enable(game, 0); // DEBUG => quest system dialogue
+    //set_game_state(game, MAIN_MENU);
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
         if (run(game) == EXIT_ERROR)
             return EXIT_ERROR;
+        if (game->state == QUIT) {
+            event_window_close(game);
+        }
     }
     return EXIT_SUCCESS;
 }

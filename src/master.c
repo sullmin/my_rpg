@@ -21,13 +21,21 @@ static int load_config_files(game_t *game)
     return EXIT_SUCCESS;
 }
 
-static int master_contruct(game_t *game)
+static int master_contruct_part2(game_t *game)
+{
+    if (!player_inventory_creat(&game->inventory, &game->env))
+        return EXIT_ERROR;
+    if (!item_manage(&game->item_load) ||
+        !init_display_stat(&game->ui.display_stat, &game->env))
+        return EXIT_ERROR;
+    return EXIT_SUCCESS;
+}
+
+static int master_contruct_part1(game_t *game)
 {
     if (load_config_files(game) == EXIT_ERROR)
         return EXIT_ERROR;
     if (window_create(game) == EXIT_ERROR)
-        return EXIT_ERROR;
-    if (game_create(game) == EXIT_ERROR)
         return EXIT_ERROR;
     if (create_main_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
@@ -36,6 +44,10 @@ static int master_contruct(game_t *game)
     if (create_pause_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
     if (sysquest_create(&game->sysquest) == EXIT_ERROR)
+        return EXIT_ERROR;
+    if (game_create(game) == EXIT_ERROR)
+        return EXIT_ERROR;
+    if (create_main_world(game) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
@@ -49,6 +61,9 @@ static int master_destroy(game_t *game)
     window_destroy(&game->w);
     config_manager_destroy(&game->env);
     sysquest_destroy(&game->sysquest);
+    player_inventory_destroy(&game->inventory);
+    distroy_item_list(game->item_load);
+    destroy_main_world(game);
     return EXIT_SUCCESS;
 }
 
@@ -57,7 +72,9 @@ int master(void)
     int ret;
     game_t game;
 
-    if (master_contruct(&game) == EXIT_ERROR)
+    if (master_contruct_part1(&game) == EXIT_ERROR)
+        return EXIT_ERROR;
+    if (master_contruct_part2(&game) == EXIT_ERROR)
         return EXIT_ERROR;
     ret = game_loop(&game);
     if (master_destroy(&game) == EXIT_ERROR)

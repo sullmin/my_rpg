@@ -13,4 +13,5 @@ int set_keyboard_config(option_t *option, const int *keyconfig)
     option->move->left = keyconfig[1];
     option->move->backward = keyconfig[2];
     option->move->right = keyconfig[3];
+    return EXIT_SUCCESS;
 }
