@@ -20,6 +20,9 @@ static const float SCALE = -15;
 
 const sfVector2i PLAYER_MOVEMENT[] =
 {
+    {-1, 1},
+    {-1, 1},
+    {-1, 1},
     {-1, -1},
     {-1, -1},
     {-1, -1},

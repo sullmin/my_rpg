@@ -137,6 +137,7 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_loop.c									\
 				$(DSRC)game/game_event.c								\
 				$(DSRC)game/function_array.c							\
+				$(DSRC)game/set_game_state.c							\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
 				$(DSRC)tools/as_second.c								\

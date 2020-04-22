@@ -39,6 +39,7 @@ typedef enum game_status {
     Main structure of the program
 */
 typedef struct game {
+    game_status_t prev_state;
     game_status_t state;
     sfClock *clock;
     window_t w;

@@ -12,6 +12,7 @@ extern const int azerty[];
 static int game_init_struct(game_t *game)
 {
     game->state = MAIN_MENU;
+    game->prev_state = QUIT;
     return EXIT_SUCCESS;
 }
 

@@ -57,6 +57,8 @@ typedef void (* const FUNC_EVENT)(game_t *game, sfEvent *event);
 int usage(int status, const char *program_name);
 int master(void);
 
+void set_game_state(game_t *game, game_status_t new_state);
+
 void display_player_gui(game_t *game);
 
 #endif
