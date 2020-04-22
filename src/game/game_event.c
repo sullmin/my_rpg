@@ -9,7 +9,7 @@
 
 extern FUNC_EVENT fct_event[NB_GAME_STATE];
 
-static void event_window_close(game_t *game)
+void event_window_close(game_t *game)
 {
     sfRenderWindow_close(game->w.window);
 }

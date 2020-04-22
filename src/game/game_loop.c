@@ -43,6 +43,9 @@ int game_loop(game_t *game)
             call_event_manager(game, &event);
         if (run(game) == EXIT_ERROR)
             return EXIT_ERROR;
+        if (game->state == QUIT) {
+            event_window_close(game);
+        }
     }
     return EXIT_SUCCESS;
 }
