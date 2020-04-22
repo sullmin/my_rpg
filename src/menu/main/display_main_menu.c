@@ -9,6 +9,7 @@
 
 void display_main_menu(game_t *game)
 {
+    sfRenderWindow_drawSprite(WINDOW, MMENU->spr_background, NULL);
     display_button(game->menu->play, game->w.window);
     display_button(game->menu->quit, game->w.window);
     display_button(game->menu->option, game->w.window);

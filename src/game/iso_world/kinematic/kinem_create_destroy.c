@@ -12,7 +12,7 @@ extern const sfVector2f MAP_INIT_ANGL;
 static const float START_ANGLE = 28;
 static const float STEP_ANGLE = -0.2;
 
-static const int ID_MUSIC = 1;
+static const int ID_MUSIC = MUSIC1;
 
 static const sfInt32 MS_LOOP = 180;
 

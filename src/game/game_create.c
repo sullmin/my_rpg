@@ -11,7 +11,7 @@ extern const int azerty[];
 
 static int game_init_struct(game_t *game)
 {
-    game->state = MAIN_MENU;
+    set_game_state(game, MAIN_MENU);
     game->prev_state = QUIT;
     return EXIT_SUCCESS;
 }
@@ -35,9 +35,9 @@ int game_create(game_t *game)
     game->clock = sfClock_create();
     if (!game->clock)
         return EXIT_ERROR;
-    if (game_init_struct(game) == EXIT_ERROR)
-        return EXIT_ERROR;
     if (load_sound_manager(game) == EXIT_ERROR)
+        return EXIT_ERROR;
+    if (game_init_struct(game) == EXIT_ERROR)
         return EXIT_ERROR;
     if (isow_create(game) == EXIT_ERROR)
         return EXIT_ERROR;

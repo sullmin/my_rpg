@@ -38,6 +38,8 @@ static const sfVector2f button_p[3] = {
 
 const char *font = "asset/font/MADETOMMY.ttf";
 
+const char *PATH_BACK = "asset/sprite/back_menu.png";
+
 static int set_main_menu_button(game_t *game)
 {
     int ret = 0;
@@ -49,6 +51,17 @@ static int set_main_menu_button(game_t *game)
     ret += set_button_label(game->menu->quit, "quit", font, 50);
     ret += set_button_label(game->menu->option, "option", font, 50);
     return ret;
+}
+
+static int load_texture(game_t *game)
+{
+    MMENU->txr_background = sfTexture_createFromFile(PATH_BACK, NULL);
+    MMENU->spr_background = sfSprite_create();
+    if (MMENU->txr_background == NULL || !MMENU->spr_background) {
+        return puterr("load main menu texture : fail\n", EXIT_ERROR);
+    }
+    sfSprite_setTexture(MMENU->spr_background, MMENU->txr_background, true);
+    return EXIT_SUCCESS;
 }
 
 int create_main_menu(game_t *game)
@@ -64,5 +77,8 @@ int create_main_menu(game_t *game)
         return EXIT_ERROR;
     if (set_main_menu_button(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
+    else if (load_texture(game) == EXIT_ERROR) {
+        return EXIT_ERROR;
+    }
     return EXIT_SUCCESS;
 }

@@ -27,6 +27,9 @@ typedef enum game_status {
 #define NB_GAME_STATE 8
 
 #define OPTION game->option
+#define MMENU game->menu
+#define WINDOW game->w.window
+#define SOUND game->sound
 
 #include "gui_t.h"
 #include "option_t.h"
