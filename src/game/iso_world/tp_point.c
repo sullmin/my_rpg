@@ -23,7 +23,7 @@ static void tp_player(game_t *game)
 {
     object_on_map_set_coord(&ISOW.player, &ISOW.map,
     POST_TP_COORD.x, POST_TP_COORD.y);
-    game->state = MAIN_WORLD;
+    set_game_state(game, MAIN_WORLD);
 }
 
 void check_tp_point(game_t *game)

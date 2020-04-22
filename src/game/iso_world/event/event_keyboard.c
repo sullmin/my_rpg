@@ -7,12 +7,12 @@
 
 #include "isow.h"
 
-void event_keypressed(isow_t *isow, sfEvent *event)
+void event_keypressed(isow_t *isow, sfEvent *event, option_t *option)
 {
-    event_object_move(isow, event);
+    event_object_move(isow, event, option);
 }
 
-void event_keyreleased(isow_t *isow, sfEvent *event)
+void event_keyreleased(isow_t *isow, sfEvent *event, option_t *option)
 {
-    event_object_move(isow, event);
+    event_object_move(isow, event, option);
 }

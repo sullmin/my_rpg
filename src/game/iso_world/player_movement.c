@@ -9,16 +9,18 @@
 
 int player_movement(isow_t *isow, game_t *game)
 {
+    option_t *option = game->option;
+
     if (isow->event.player_move == false) {
         return EXIT_SUCCESS;
     }
-    if (isow->event.player_move_key_v == sfKeyUp)
+    if (isow->event.player_move_key_v == UP_KEY)
         object_on_map_move(&isow->player, &isow->map, 0, -1);
-    if (isow->event.player_move_key_v == sfKeyDown)
+    if (isow->event.player_move_key_v == DOWN_KEY)
         object_on_map_move(&isow->player, &isow->map, 0, 1);
-    if (isow->event.player_move_key_h == sfKeyLeft)
+    if (isow->event.player_move_key_h == LEFT_KEY)
         object_on_map_move(&isow->player, &isow->map, -1, 0);
-    if (isow->event.player_move_key_h == sfKeyRight)
+    if (isow->event.player_move_key_h == RIGHT_KEY)
         object_on_map_move(&isow->player, &isow->map, 1, 0);
     check_tp_point(game);
     camera_move(isow, &game->w);

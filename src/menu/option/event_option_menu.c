@@ -7,9 +7,9 @@
 
 #include "my_rpg.h"
 
-static const int azerty[] = {sfKeyZ, sfKeyQ, sfKeyS, sfKeyD};
+const int azerty[] = {sfKeyZ, sfKeyQ, sfKeyS, sfKeyD};
 static const int qwerty[] = {sfKeyW, sfKeyA, sfKeyS, sfKeyD};
-static const int keypad[] = {sfKeyUp, sfKeyLeft, sfKeyBack, sfKeyRight};
+static const int keypad[] = {sfKeyUp, sfKeyLeft, sfKeyDown, sfKeyRight};
 
 static void event_azerty_button(game_t *game)
 {
@@ -46,9 +46,10 @@ static void event_keypad_button(game_t *game)
 
 void event_option_menu(game_t *game, sfEvent *event)
 {
+    (void)event;
     event_button(game->option_menu->main_menu, game->w.window);
     if (game->option_menu->main_menu->toggle == 2)
-        game->state = MAIN_MENU;
+        set_game_state(game, MAIN_MENU);
     event_azerty_button(game);
     event_qwerty_button(game);
     event_keypad_button(game);

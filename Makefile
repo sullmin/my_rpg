@@ -94,6 +94,7 @@ SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/kinematic/kinem_create_destroy.c			\
 			$(DSRC)game/iso_world/kinematic/kinem_run.c						\
 			$(DSRC)game/iso_world/kinematic/kinem_start_stop.c				\
+			$(DSRC)game/iso_world/kinematic/kinem_event.c					\
 
 SRC_QUEST 	=	$(DSRC)quest_system/array_quest.c					\
 				$(DSRC)quest_system/quest_create_destroy.c			\
@@ -136,6 +137,7 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_loop.c									\
 				$(DSRC)game/game_event.c								\
 				$(DSRC)game/function_array.c							\
+				$(DSRC)game/set_game_state.c							\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
 				$(DSRC)tools/as_second.c								\

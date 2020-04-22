@@ -12,9 +12,9 @@ int map_scale_all(isow_t *isow, float scale)
     map_scale(&isow->map, scale);
     map_scale(&isow->map_water, scale);
     object_set_size(&isow->player, isow->map.sampling.x, isow->map.sampling.y,
-    isow->map.sampling.x * 2);
+    isow->map.sampling.x * 3);
     object_set_size(&isow->prison, isow->map.sampling.x * 23,
-    isow->map.sampling.y * 25, isow->map.sampling.x * 14);
+    isow->map.sampling.y * 25, isow->map.sampling.x * 20);
     return EXIT_SUCCESS;
 }
 

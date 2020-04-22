@@ -26,6 +26,8 @@ typedef enum game_status {
 
 #define NB_GAME_STATE 8
 
+#define OPTION game->option
+
 #include "gui_t.h"
 #include "option_t.h"
 #include "display_stat.h"
@@ -37,6 +39,7 @@ typedef enum game_status {
     Main structure of the program
 */
 typedef struct game {
+    game_status_t prev_state;
     game_status_t state;
     sfClock *clock;
     window_t w;

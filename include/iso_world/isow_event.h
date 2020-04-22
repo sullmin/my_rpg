@@ -12,11 +12,11 @@
 
 // EVENT
 
-void event_mouse_wheel_scroll(isow_t *isow, sfEvent *event);
+void event_mouse_wheel_scroll(isow_t *isow, sfEvent *event, option_t *);
 
-void event_keypressed(isow_t *isow, sfEvent *event);
-void event_keyreleased(isow_t *isow, sfEvent *event);
+void event_keypressed(isow_t *isow, sfEvent *event, option_t *);
+void event_keyreleased(isow_t *isow, sfEvent *event, option_t *);
 
-void event_object_move(isow_t *isow, sfEvent *event);
+void event_object_move(isow_t *isow, sfEvent *event, option_t *);
 
 #endif

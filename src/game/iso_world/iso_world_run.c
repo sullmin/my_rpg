@@ -7,8 +7,22 @@
 
 #include "my_rpg.h"
 
+static int first_exec(game_t *game, bool *is_first_exec)
+{
+    *is_first_exec = false;
+    if (kinem_start(&ISOW, &game->sound) != EXIT_SUCCESS) {
+        return EXIT_SUCCESS;
+    }
+    return EXIT_SUCCESS;
+}
+
 void isow_run(game_t *game)
 {
+    static bool is_first_exec = true;
+
+    if (is_first_exec) {
+        first_exec(game, &is_first_exec);
+    }
     if (ISOW.kinem.start == true) {
         kinem_run(&ISOW, &game->sound);
     }

@@ -7,9 +7,12 @@
 
 #include "my_rpg.h"
 
+extern const int azerty[];
+
 static int game_init_struct(game_t *game)
 {
     game->state = MAIN_MENU;
+    game->prev_state = QUIT;
     return EXIT_SUCCESS;
 }
 
@@ -36,5 +39,8 @@ int game_create(game_t *game)
         return EXIT_ERROR;
     if (load_sound_manager(game) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (isow_create(game) == EXIT_ERROR)
+        return EXIT_ERROR;
+    set_keyboard_config(game->option, azerty);
     return EXIT_SUCCESS;
 }
