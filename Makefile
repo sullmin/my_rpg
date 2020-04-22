@@ -51,7 +51,10 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/my_revgetnbr.c												\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
-#SRC_MWORLD =	$(DSRC)game/main_world/
+SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c					\
+				$(DSRC)game/main_world/destroy_main_world.c					\
+				$(DSRC)game/main_world/display_main_world.c					\
+				$(DSRC)game/main_world/event_main_world.c					\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\
@@ -146,7 +149,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_ISO)
+SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_ISO) $(SRC_MWORLD)
 
 OBJ	=	$(SRC:.c=.o)
 

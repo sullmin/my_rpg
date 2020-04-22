@@ -42,6 +42,8 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (game_create(game) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (create_main_world(game) == EXIT_ERROR)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -56,6 +58,7 @@ static int master_destroy(game_t *game)
     sysquest_destroy(&game->sysquest);
     player_inventory_destroy(&game->inventory);
     distroy_item_list(game->item_load);
+    destroy_main_world(game);
     return EXIT_SUCCESS;
 }
 
