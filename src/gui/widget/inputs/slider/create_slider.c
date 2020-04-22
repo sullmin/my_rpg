@@ -25,7 +25,7 @@ slider_t *create_slider(sfVector2f position, float length)
     slider->isPressed = sfFalse;
     slider->min = position.x;
     slider->max = slider->min + length - slider->circle_radius * 2;
-    set_slider_position(slider);
+    update_slider_position(slider);
     set_slider_size(slider);
     return slider;
 }

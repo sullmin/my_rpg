@@ -13,7 +13,7 @@ void kinem_event(isow_t *isow, sound_manager_t *sound, sfEvent *event)
         return;
     }
     if (event->type == sfEvtKeyReleased) {
-        sound_manager_play(sound, 0);
+        sound_manager_play(sound, CLOCHE);
         kinem_stop(isow, sound);
     }
 }

@@ -40,10 +40,10 @@ static const sfVector2f button_s = {300, 75};
 static const sfVector2f keypad_s = {250, 166};
 
 static const sfVector2f button_p[4] = {
-    {100, 0},
-    {100, 400},
-    {100, 800},
-    {500, 600},
+    {100, 15},
+    {100, 415},
+    {100, 815},
+    {1920 / 2 - 150, 50},
 };
 
 extern const char *font;
@@ -60,6 +60,13 @@ static int set_option_menu_button(game_t *game)
     ret += set_button_label(game->option_menu->main_menu, label, font, 50);
     game->option_menu->azerty->is_activate = true;
     return ret;
+}
+
+static void update_button_state(game_t *game)
+{
+    event_azerty_button(game);
+    event_qwerty_button(game);
+    event_keypad_button(game);
 }
 
 int create_option_menu(game_t *game)
@@ -79,5 +86,6 @@ int create_option_menu(game_t *game)
         return EXIT_ERROR;
     if (set_option_menu_button(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
+    update_button_state(game);
     return EXIT_SUCCESS;
 }
