@@ -27,8 +27,6 @@ static int master_contruct(game_t *game)
         return EXIT_ERROR;
     if (window_create(game) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (game_create(game) == EXIT_ERROR)
-        return EXIT_ERROR;
     if (create_main_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
     if (create_option_menu(game) == EXIT_ERROR)
@@ -42,7 +40,7 @@ static int master_contruct(game_t *game)
     if (!item_manage(&game->item_load) ||
         !init_display_stat(&game->ui.display_stat, &game->env))
         return EXIT_ERROR;
-    if (isow_create(game) == EXIT_ERROR)
+    if (game_create(game) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
@@ -58,7 +56,6 @@ static int master_destroy(game_t *game)
     sysquest_destroy(&game->sysquest);
     player_inventory_destroy(&game->inventory);
     distroy_item_list(game->item_load);
-    isow_destroy(&ISOW);
     return EXIT_SUCCESS;
 }
 

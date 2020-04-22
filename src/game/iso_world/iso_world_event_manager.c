@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-static void (* const EVENT_HANDLER[])(isow_t *, sfEvent *) =
+static void (* const EVENT_HANDLER[])(isow_t *, sfEvent *, option_t *) =
 {
     &event_mouse_wheel_scroll,
     &event_keypressed,
@@ -31,7 +31,7 @@ void isow_event_manager(game_t *game, sfEvent *event)
     }
     for (int i = 0; i < EVENT_ARRAY_SIZE; i++) {
         if (EVENT_TYPE[i] == event->type) {
-            EVENT_HANDLER[i](&ISOW, event);
+            EVENT_HANDLER[i](&ISOW, event, OPTION);
             break;
         }
     }

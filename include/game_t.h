@@ -26,6 +26,8 @@ typedef enum game_status {
 
 #define NB_GAME_STATE 8
 
+#define OPTION game->option
+
 #include "gui_t.h"
 #include "option_t.h"
 #include "display_stat.h"

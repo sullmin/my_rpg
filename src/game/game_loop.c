@@ -37,8 +37,7 @@ int game_loop(game_t *game)
     sfEvent event;
 
     //quest_enable(game, 0); // DEBUG => quest system dialogue
-    //game->state = MAIN_MENU;
-    game->state = ISO_WORLD; // DEBUG
+    game->state = MAIN_MENU;
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
