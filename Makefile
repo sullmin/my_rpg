@@ -155,11 +155,11 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	my_rpg
 
-INCLUDE = -I./include -I./lib/my/include  -I./include/iso_world
+INCLUDE = -I./include/ -I./lib/my/include -I./include/iso_world  -I./include/interface -I./include/gui
 
 CSFML_FLAGS = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system -lm
 
-CFLAGS	+= -Wall -Wextra -W $(INCLUDE) -g #-Werror
+CFLAGS	+= -Wall -Wextra -W $(INCLUDE) -g# -Werror
 
 all:  lib $(NAME)
 
