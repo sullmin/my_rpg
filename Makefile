@@ -45,10 +45,6 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 				$(DSRC)gui/widget/outputs/progress_bar/progress_config.c				\
 				$(DSRC)gui/widget/outputs/progress_bar/progress_display.c				\
 				$(DSRC)gui/widget/outputs/progress_bar/progress_set_percentage.c		\
-				$(DSRC)gui/display_player_stat.c										\
-				$(DSRC)gui/init_display_stat.c											\
-				$(DSRC)gui/display_player_gui.c											\
-				$(DSRC)gui/my_revgetnbr.c												\
 
 #SRC_FIGHT	=	$(DSRC)game/fight_mode/
 SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c					\
@@ -123,6 +119,10 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/main/destroy_main_menu.c					\
 				$(DSRC)menu/main/display_main_menu.c					\
 				$(DSRC)menu/main/event_main_menu.c						\
+				$(DSRC)menu/stat_inventory/display_player_stat.c		\
+				$(DSRC)menu/stat_inventory/init_display_stat.c			\
+				$(DSRC)menu/stat_inventory/display_player_gui.c			\
+				$(DSRC)menu/stat_inventory/my_revgetnbr.c				\
 
 SRC_OPTION_MENU =	$(DSRC)menu/option/create_option_menu.c				\
 					$(DSRC)menu/option/destroy_option_menu.c			\
