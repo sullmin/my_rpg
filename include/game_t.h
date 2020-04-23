@@ -9,6 +9,7 @@
 #define H_GAME_T
 
 #include "quest_t.h"
+#include "fight_t.h"
 
 /*
     Define the state of the program (in game loop)
@@ -57,8 +58,8 @@ typedef struct game {
     list_t *item_load;
     isow_t wiso;
     main_world_t *wmain;
-    //fight_mode_t wfight;
     quest_menu_t *quest_menu;
+    fight_mode_t wfight;
     main_menu_t *menu;
     option_menu_t *option_menu;
     pause_menu_t *pause;
