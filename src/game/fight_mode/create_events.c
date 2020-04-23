@@ -55,7 +55,7 @@ static int set_key_values(key_event_t *key, event_input_t input)
     key->size = 0;
     key->key = input.code;
     key->text = sfText_create();
-    key->font = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
+    key->font = sfFont_createFromFile("./asset/font/ChunkfiveEx.ttf");
     if (key->text == NULL || key->font == NULL)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
@@ -89,7 +89,7 @@ static int fill_keys(game_t *game, combination_t key_evt)
 
 combination_t *create_fight_events(game_t *game)
 {
-    combination_t *events = malloc(sizeof(combination_t) * game->wfight.actions);   
+    combination_t *events = malloc(sizeof(combination_t) * game->wfight.actions);
 
     if (events == NULL)
         return NULL;
