@@ -8,10 +8,16 @@
 #include "my_rpg.h"
 
 static const char *PATH_BACK = "asset/sprite/menu_quest_back.png";
-static const char *PATH_BUTTON = "asset/sprite/buttons/quit.png";
 
 static const sfVector2f BUTTON_POS = {1920 / 2 - 150, 100};
 static const sfVector2f BUTTON_SIZE = {300, 75};
+
+static const char *BUTTON_TXT[] = {
+    "asset/sprite/buttons/quit.png",
+    "asset/sprite/buttons/quit_h.png",
+    "asset/sprite/buttons/quit_c.png",
+    NULL,
+};
 
 static int create_background_texture(quest_menu_t *menu)
 {
@@ -33,7 +39,7 @@ int menu_quest_create(game_t *game)
     MENU_QUEST.exit = create_button(BUTTON_POS, BUTTON_SIZE);
     if (!MENU_QUEST.exit)
         return puterr("quest menu create\n", EXIT_ERROR);
-    if (set_button_texture(MENU_QUEST.exit, PATH_BUTTON) != 0)
+    if (set_button_texture(MENU_QUEST.exit, BUTTON_TXT) != 0)
         return puterr("quest menu create\n", EXIT_ERROR);
     MENU_QUEST.ui_size = 0;
     if (menu_quest_load(game) != EXIT_SUCCESS)
@@ -45,7 +51,6 @@ void menu_quest_destroy(game_t *game)
 {
     sfTexture_destroy(MENU_QUEST.txr_background);
     sfSprite_destroy(MENU_QUEST.spr_background);
-    destroy_button(MENU_OPTION.exit);
+    destroy_button(MENU_QUEST.exit);
     menu_quest_unload(game);
-    return EXIT_SUCCESS;
 }
