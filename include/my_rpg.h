@@ -19,6 +19,7 @@
 #include "gui.h"
 #include "my_math.h"
 #include "window.h"
+#include "quest_menu.h"
 #include "game.h"
 #include "fight.h"
 #include "isow.h"

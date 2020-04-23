@@ -13,7 +13,13 @@
 int menu_quest_create(game_t *game);
 void menu_quest_destroy(game_t *game);
 
-int menu_quest_load(game_t *game);
+int menu_quest_reload(game_t *game);
+
+void menu_quest_display(game_t *game);
+void menu_quest_event(game_t *game, sfEvent *event);
+
+// SUB FUNCTIONS
 void menu_quest_unload(game_t *game);
+int menu_quest_load(game_t *game);
 
 #endif
