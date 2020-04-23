@@ -33,13 +33,16 @@ static void event_crossroads(game_t *game, sfEvent *event)
     if (game->state == QUIT || game->state == ERR) {
         return;
     }
-    if (game->submenu != NO_MENU && fct_event_sub_menu[game->submenu]) {
+    if (game->submenu != NO_MENU && fct_event_sub_menu[game->submenu]
+            && (game->state == MAIN_MENU || game->state == ISO_WORLD)) {
         fct_event_sub_menu[game->submenu](game, event);
         return;
     }
-    if (game->sysquest.play_dialogue == true) {
-        if (dialogue_event_manager(game, event) == true)
+    if (game->sysquest.play_dialogue == true && (game->state == MAIN_MENU
+            || game->state == ISO_WORLD || game->state == FIGHT_MODE)) {
+        if (dialogue_event_manager(game, event) == true) {
             return;
+        }
     }
     if (fct_event[game->state] != NULL) {
         fct_event[game->state](game, event);
@@ -64,6 +67,7 @@ void call_event_manager(game_t *game, sfEvent *event)
         return;
     } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         set_game_state(game, PAUSE_MENU);
+        return;
     }
     event_crossroads(game, event);
     event_gui(game, event);

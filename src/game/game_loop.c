@@ -17,10 +17,12 @@ static void crossroads(game_t *game)
     }
     if (fct_exec[game->state] != NULL)
         fct_exec[game->state](game);
-    if (game->sysquest.play_dialogue == true) {
+    if (game->sysquest.play_dialogue == true && (game->state == MAIN_MENU
+            || game->state == ISO_WORLD || game->state == FIGHT_MODE)) {
         dialogue_display(game);
     }
-    if (game->submenu != NO_MENU && fct_exec_sub_menu[game->submenu]) {
+    if (game->submenu != NO_MENU && fct_exec_sub_menu[game->submenu]
+            && (game->state == MAIN_MENU || game->state == ISO_WORLD)) {
         fct_exec_sub_menu[game->submenu](game);
     }
 }

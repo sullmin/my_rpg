@@ -28,6 +28,9 @@ bool dialogue_event_manager(game_t *game, sfEvent *event)
 {
     if (!game || game->sysquest.play_dialogue == false) {
         return false;
+    }
+    if (event && event->type == sfEvtKeyPressed) {
+        return true;
     } else if (!event || (event->type != sfEvtKeyReleased
             && event->type != sfEvtMouseButtonReleased)) {
         return false;
