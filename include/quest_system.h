@@ -19,7 +19,7 @@ int sysquest_check_end(game_t *game);
 
 // DIALOGUE
 int dialogue_display(game_t *game);
-int dialogue_event_manager(game_t *game, sfEvent *event);
+bool dialogue_event_manager(game_t *game, sfEvent *event);
 
 /////////
 

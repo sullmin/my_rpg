@@ -7,13 +7,13 @@
 
 #include "isow.h"
 
-void kinem_event(isow_t *isow, sound_manager_t *sound, sfEvent *event)
+void kinem_event(game_t *game, sfEvent *event)
 {
-    if (isow->kinem.start == false) {
+    if (ISOW.kinem.start == false) {
         return;
     }
     if (event->type == sfEvtKeyReleased) {
-        sound_manager_play(sound, CLOCHE);
-        kinem_stop(isow, sound);
+        sound_manager_play(&SOUND, CLOCHE);
+        kinem_stop(game);
     }
 }

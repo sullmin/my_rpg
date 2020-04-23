@@ -37,11 +37,12 @@ static void event_crossroads(game_t *game, sfEvent *event)
         fct_event_sub_menu[game->submenu](game, event);
         return;
     }
+    if (game->sysquest.play_dialogue == true) {
+        if (dialogue_event_manager(game, event) == true)
+            return;
+    }
     if (fct_event[game->state] != NULL) {
         fct_event[game->state](game, event);
-    }
-    if (game->sysquest.play_dialogue == true) {
-        dialogue_event_manager(game, event);
     }
 }
 
