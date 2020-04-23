@@ -19,6 +19,7 @@ void call_event_manager(game_t *game, sfEvent *event);
 
 float as_seconds(sfClock *clock);
 void event_window_close(game_t *game);
+bool is_key_released(sfEvent *event, sfKeyCode key);
 
 // SUB MENU EVENT
 void submenu_event_manager(game_t *game, sfEvent *event);
