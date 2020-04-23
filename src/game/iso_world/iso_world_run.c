@@ -24,7 +24,7 @@ void isow_run(game_t *game)
         first_exec(game, &is_first_exec);
     }
     if (ISOW.kinem.start == true) {
-        kinem_run(&ISOW, &game->sound);
+        kinem_run(game);
     }
     ISOW.timer += TIME_MILLI(ISOW.clock);
     sfClock_restart(ISOW.clock);

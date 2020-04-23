@@ -26,19 +26,20 @@ int kinem_start(isow_t *isow, sound_manager_t *sound)
     return EXIT_SUCCESS;
 }
 
-int kinem_stop(isow_t *isow, sound_manager_t *sound)
+int kinem_stop(game_t *game)
 {
     size_t idx = 0;
 
-    isow->kinem.start = false;
-    sound_manager_stop_all(sound);
-    map_scale_all(isow, (-isow->kinem.scale));
-    object_on_map_set_coord(&isow->player, &isow->map,
-    isow->kinem.player_start_pos.x, isow->kinem.player_start_pos.y);
+    ISOW.kinem.start = false;
+    sound_manager_stop_all(&SOUND);
+    map_scale_all(&ISOW, (-ISOW.kinem.scale));
+    object_on_map_set_coord(&ISOW.player, &ISOW.map,
+    ISOW.kinem.player_start_pos.x, ISOW.kinem.player_start_pos.y);
     while (PLAYER_MOVEMENT[idx].x != 0 && PLAYER_MOVEMENT[idx].y != 0) {
-        object_on_map_move(&isow->player, &isow->map, PLAYER_MOVEMENT[idx].x,
+        object_on_map_move(&ISOW.player, &ISOW.map, PLAYER_MOVEMENT[idx].x,
         PLAYER_MOVEMENT[idx].y);
         idx++;
     }
+    quest_enable(game, 0);
     return EXIT_SUCCESS;
 }

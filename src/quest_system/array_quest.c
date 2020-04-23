@@ -13,9 +13,9 @@ const char *FILE_PNJ_DIALOGUE_FAIL = "fail.diag";
 const quest_t QUEST_ARRAY[NB_QUEST] =
 {
     {
-        .title = "QUEST A TITLE",
-        .text = "description of the quest",
-        .file_pnj_dialogue = "test.diag",
+        .title = "STARTING QUEST",
+        .text = "find the holy savonette and conquier the world",
+        .file_pnj_dialogue = "start.diag",
         .type_reward = REW_STAT,
         .reward_stat =
         {

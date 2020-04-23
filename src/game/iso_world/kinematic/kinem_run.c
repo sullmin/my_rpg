@@ -9,44 +9,44 @@
 
 extern const sfVector2i PLAYER_MOVEMENT[];
 
-static int content_mode_move(isow_t *isow, sound_manager_t *sound)
+static int content_mode_move(game_t *game)
 {
-    int *i = &isow->kinem.idx_player_move;
+    int *i = &ISOW.kinem.idx_player_move;
 
     if (PLAYER_MOVEMENT[*i].x == 0 && PLAYER_MOVEMENT[*i].y == 0) {
-        kinem_stop(isow, sound);
+        kinem_stop(game);
     }
-    object_on_map_move(&isow->player, &isow->map, PLAYER_MOVEMENT[*i].x,
+    object_on_map_move(&ISOW.player, &ISOW.map, PLAYER_MOVEMENT[*i].x,
     PLAYER_MOVEMENT[*i].y);
     (*i)++;
     return EXIT_SUCCESS;
 }
 
-static int content_mode_angle(isow_t *isow)
+static int content_mode_angle(game_t *game)
 {
-    if (isow->kinem.curr_angle > isow->kinem.max_angle) {
-        map_rotate(&isow->map, 0, isow->kinem.step_angle);
-        map_rotate(&isow->map_water, 0, isow->kinem.step_angle);
-        isow->kinem.curr_angle += isow->kinem.step_angle;
+    if (ISOW.kinem.curr_angle > ISOW.kinem.max_angle) {
+        map_rotate(&ISOW.map, 0, ISOW.kinem.step_angle);
+        map_rotate(&ISOW.map_water, 0, ISOW.kinem.step_angle);
+        ISOW.kinem.curr_angle += ISOW.kinem.step_angle;
     } else {
-        isow->kinem.mode = PLAYER_MOVE;
+        ISOW.kinem.mode = PLAYER_MOVE;
     }
     return EXIT_SUCCESS;
 }
 
-int kinem_run(isow_t *isow, sound_manager_t *sound)
+int kinem_run(game_t *game)
 {
-    isow->kinem.timer += TIME_MILLI(isow->clock);
-    sfClock_restart(isow->clock);
-    if (isow->kinem.timer >= isow->kinem.ms_loop) {
-        while (isow->kinem.timer >= isow->kinem.ms_loop) {
-            isow->kinem.timer -= isow->kinem.ms_loop;
+    ISOW.kinem.timer += TIME_MILLI(ISOW.clock);
+    sfClock_restart(ISOW.clock);
+    if (ISOW.kinem.timer >= ISOW.kinem.ms_loop) {
+        while (ISOW.kinem.timer >= ISOW.kinem.ms_loop) {
+            ISOW.kinem.timer -= ISOW.kinem.ms_loop;
         }
-        if (isow->kinem.mode == ANGLE
-                && content_mode_angle(isow) != EXIT_SUCCESS) {
+        if (ISOW.kinem.mode == ANGLE
+                && content_mode_angle(game) != EXIT_SUCCESS) {
             return EXIT_ERROR;
-        } else if (isow->kinem.mode == PLAYER_MOVE
-                && content_mode_move(isow, sound) != EXIT_SUCCESS) {
+        } else if (ISOW.kinem.mode == PLAYER_MOVE
+                && content_mode_move(game) != EXIT_SUCCESS) {
             return EXIT_ERROR;
         }
     }
