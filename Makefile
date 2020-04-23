@@ -131,6 +131,7 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/quest/menu_quest_event.c					\
 				$(DSRC)menu/quest/menu_quest_load_quest.c				\
 				$(DSRC)menu/quest/menu_quest_reload.c					\
+				$(DSRC)menu/submenu_event_manager.c						\
 
 SRC_OPTION_MENU =	$(DSRC)menu/option/create_option_menu.c				\
 					$(DSRC)menu/option/destroy_option_menu.c			\

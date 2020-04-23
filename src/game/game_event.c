@@ -38,6 +38,9 @@ static void event_crossroads(game_t *game, sfEvent *event)
         fct_event_sub_menu[game->submenu](game, event);
         return;
     }
+    if (game->state == MAIN_WORLD || game->state == ISO_WORLD) {
+        submenu_event_manager(game, event);
+    }
     if (game->sysquest.play_dialogue == true && (game->state == MAIN_WORLD
             || game->state == ISO_WORLD || game->state == FIGHT_MODE)) {
         if (dialogue_event_manager(game, event) == true) {
