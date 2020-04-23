@@ -13,8 +13,6 @@
 #define IDX_DIALOGUE_END -1
 #define IDX_DIALOGUE_FAIL -2
 
-#define QUEST game->sysquest
-
 #include "stat_t.h"
 
 enum quest_reward_type {

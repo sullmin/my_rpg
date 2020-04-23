@@ -33,12 +33,14 @@ typedef enum game_status {
 #define WINDOW game->w.window
 #define SOUND game->sound
 #define MENU_QUEST game->quest_menu
+#define QUEST game->sysquest
 
 #include "gui_t.h"
 #include "option_t.h"
 #include "display_stat.h"
 #include "pause_menu_t.h"
 #include "option_menu_t.h"
+#include "quest_menu.h"
 #include "inventory_system.h"
 #include "isow_t.h"
 #include "main_world_t.h"
