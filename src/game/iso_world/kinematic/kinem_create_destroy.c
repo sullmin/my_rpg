@@ -9,20 +9,20 @@
 
 extern const sfVector2f MAP_INIT_ANGL;
 
-static const float START_ANGLE = 28;
-static const float STEP_ANGLE = -0.2;
+static const float START_ANGLE = 50;
+static const float STEP_ANGLE = -1;
 
 static const int ID_MUSIC = MUSIC1;
 
-static const sfInt32 MS_LOOP = 180;
+static const sfInt32 MS_LOOP = 300;
 
 static const float SCALE = -15;
 
 const sfVector2i PLAYER_MOVEMENT[] =
 {
-    {-1, 1},
-    {-1, 1},
-    {-1, 1},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
     {-1, -1},
     {-1, -1},
     {-1, -1},
@@ -46,20 +46,21 @@ const sfVector2i PLAYER_MOVEMENT[] =
     {-1, -1},
     {-1, -1},
     {-1, -1},
-    {-2, 1},
-    {-2, 1},
-    {-2, 1},
-    {-2, 1},
-    {-2, 1},
-    {-2, 1},
-    {-2, 1},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
     {-1, -1},
     {-1, -1},
     {-1, -1},
-    {-1, -1},
-    {-1, -1},
-    {-1, -1},
-    {-1, -1},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
+    {-1, 0},
     {0, 0}
 };
 
