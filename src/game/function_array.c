@@ -28,3 +28,17 @@ FUNC_EVENT fct_event[NB_GAME_STATE] = {
     &isow_event_manager, // Iso World
     &event_option_menu // Option Menu
 };
+
+FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU] = {
+    NULL,   // quest menu
+    NULL,   // inventory / stat menu
+    NULL,   // Help menu
+    NULL    // History menu
+};
+
+FUNC_EVENT fct_event_sub_menu[NB_SUB_MENU] = {
+    NULL,   // quest menu
+    NULL,   // inventory / stat menu
+    NULL,   // Help menu
+    NULL    // History menu
+};

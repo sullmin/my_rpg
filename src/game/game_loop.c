@@ -8,6 +8,7 @@
 #include "my_rpg.h"
 
 extern FUNC_EXEC fct_exec[NB_GAME_STATE];
+extern FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU];
 
 static void crossroads(game_t *game)
 {
@@ -18,6 +19,9 @@ static void crossroads(game_t *game)
         fct_exec[game->state](game);
     if (game->sysquest.play_dialogue == true) {
         dialogue_display(game);
+    }
+    if (game->submenu != NO_MENU && fct_exec_sub_menu[game->submenu]) {
+        fct_exec_sub_menu[game->submenu](game);
     }
 }
 

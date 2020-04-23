@@ -8,6 +8,7 @@
 #include "my_rpg.h"
 
 extern FUNC_EVENT fct_event[NB_GAME_STATE];
+extern FUNC_EVENT fct_event_sub_menu[NB_SUB_MENU];
 
 void event_window_close(game_t *game)
 {
@@ -32,8 +33,13 @@ static void event_crossroads(game_t *game, sfEvent *event)
     if (game->state == QUIT || game->state == ERR) {
         return;
     }
-    if (fct_event[game->state] != NULL)
+    if (game->submenu != NO_MENU && fct_event_sub_menu[game->submenu]) {
+        fct_event_sub_menu[game->submenu](game, event);
+        return;
+    }
+    if (fct_event[game->state] != NULL) {
         fct_event[game->state](game, event);
+    }
     if (game->sysquest.play_dialogue == true) {
         dialogue_event_manager(game, event);
     }

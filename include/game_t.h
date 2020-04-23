@@ -25,7 +25,16 @@ typedef enum game_status {
     OPTION_MENU = 7
 } game_status_t;
 
+typedef enum submenu_status {
+    NO_MENU = -1,
+    MQUEST = 0,
+    MINVSTAT = 1,
+    MHELP = 2,
+    MHIST = 3
+} submenu_status_t;
+
 #define NB_GAME_STATE 8
+#define NB_SUB_MENU 4
 
 #define OPTION game->option
 #define MENU_OPTION game->option_menu
@@ -44,10 +53,12 @@ typedef enum game_status {
 #include "inventory_system.h"
 #include "isow_t.h"
 #include "main_world_t.h"
+
 /*
     Main structure of the program
 */
 typedef struct game {
+    submenu_status_t submenu;
     game_status_t prev_state;
     game_status_t state;
     sfClock *clock;
