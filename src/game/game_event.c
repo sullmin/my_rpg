@@ -52,18 +52,6 @@ static void event_crossroads(game_t *game, sfEvent *event)
     }
 }
 
-static void event_gui(game_t *game, sfEvent *evt)
-{
-    if (evt->key.code == sfKeyE &&
-        as_seconds(game->ui.display_stat.clock) > 1) {
-        if (game->ui.display_stat.display_it)
-            game->ui.display_stat.display_it = false;
-        else
-            game->ui.display_stat.display_it = true;
-        sfClock_restart(game->ui.display_stat.clock);
-    }
-}
-
 void call_event_manager(game_t *game, sfEvent *event)
 {
     if (check_quit_event(game, event)) {
@@ -73,5 +61,4 @@ void call_event_manager(game_t *game, sfEvent *event)
         return;
     }
     event_crossroads(game, event);
-    event_gui(game, event);
 }

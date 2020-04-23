@@ -10,7 +10,7 @@
 static const sfKeyCode SHORTCUT_SUBMENU[NB_SUB_MENU] =
 {
     sfKeyO,
-    0,
+    sfKeyE,
     0,
     0
 };

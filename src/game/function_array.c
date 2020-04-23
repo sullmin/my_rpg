@@ -31,7 +31,7 @@ FUNC_EVENT fct_event[NB_GAME_STATE] = {
 
 FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU] = {
     &menu_quest_display,
-    NULL,   // inventory / stat menu
+    &display_player_gui,
     NULL,   // Help menu
     NULL    // History menu
 };
