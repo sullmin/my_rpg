@@ -10,4 +10,5 @@
 void display_main_world(game_t *game)
 {
     sfRenderWindow_drawSprite(game->w.window, game->wmain->sprite, NULL);
+    sfRenderWindow_drawSprite(game->w.window, game->wmain->s_player, NULL);
 }
