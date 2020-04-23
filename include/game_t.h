@@ -40,7 +40,7 @@ typedef enum game_status {
 #include "display_stat.h"
 #include "pause_menu_t.h"
 #include "option_menu_t.h"
-#include "quest_menu.h"
+#include "quest_menu_t.h"
 #include "inventory_system.h"
 #include "isow_t.h"
 #include "main_world_t.h"
@@ -60,7 +60,7 @@ typedef struct game {
     list_t *item_load;
     isow_t wiso;
     main_world_t *wmain;
-    quest_menu_t *quest_menu;
+    quest_menu_t quest_menu;
     fight_mode_t wfight;
     main_menu_t *menu;
     option_menu_t *option_menu;
