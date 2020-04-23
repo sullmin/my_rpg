@@ -31,6 +31,7 @@ typedef enum game_status {
 #define MMENU game->menu
 #define WINDOW game->w.window
 #define SOUND game->sound
+#define MENU_QUEST game->quest_menu
 
 #include "gui_t.h"
 #include "option_t.h"
@@ -57,6 +58,7 @@ typedef struct game {
     isow_t wiso;
     main_world_t *wmain;
     //fight_mode_t wfight;
+    quest_menu_t *quest_menu;
     main_menu_t *menu;
     option_menu_t *option_menu;
     pause_menu_t *pause;
