@@ -28,6 +28,8 @@ static int master_contruct_part2(game_t *game)
     if (!item_manage(&game->item_load) ||
         !init_display_stat(&game->ui.display_stat, &game->env))
         return EXIT_ERROR;
+    if (menu_quest_create(game) != EXIT_SUCCESS)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -64,6 +66,7 @@ static int master_destroy(game_t *game)
     player_inventory_destroy(&game->inventory);
     distroy_item_list(game->item_load);
     destroy_main_world(game);
+    menu_quest_destroy(game);
     return EXIT_SUCCESS;
 }
 

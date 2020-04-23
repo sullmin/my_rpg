@@ -7,9 +7,11 @@
 
 #include "my_rpg.h"
 
+extern const char *font;
+
 static const char *PATH_BACK = "asset/sprite/menu_quest_back.png";
 
-static const sfVector2f BUTTON_POS = {1920 / 2 - 150, 100};
+static const sfVector2f BUTTON_POS = {1920 - 600, 150};
 static const sfVector2f BUTTON_SIZE = {300, 75};
 
 static const char *BUTTON_TXT[] = {
@@ -41,6 +43,7 @@ int menu_quest_create(game_t *game)
         return puterr("quest menu create\n", EXIT_ERROR);
     if (set_button_texture(MENU_QUEST.exit, BUTTON_TXT) != 0)
         return puterr("quest menu create\n", EXIT_ERROR);
+    set_button_label(MENU_QUEST.exit, "EXIT", font, 50);
     MENU_QUEST.ui_size = 0;
     if (menu_quest_load(game) != EXIT_SUCCESS)
         return puterr("quest menu create\n", EXIT_ERROR);
