@@ -34,11 +34,11 @@ static void event_crossroads(game_t *game, sfEvent *event)
         return;
     }
     if (game->submenu != NO_MENU && fct_event_sub_menu[game->submenu]
-            && (game->state == MAIN_MENU || game->state == ISO_WORLD)) {
+            && (game->state == MAIN_WORLD || game->state == ISO_WORLD)) {
         fct_event_sub_menu[game->submenu](game, event);
         return;
     }
-    if (game->sysquest.play_dialogue == true && (game->state == MAIN_MENU
+    if (game->sysquest.play_dialogue == true && (game->state == MAIN_WORLD
             || game->state == ISO_WORLD || game->state == FIGHT_MODE)) {
         if (dialogue_event_manager(game, event) == true) {
             return;
