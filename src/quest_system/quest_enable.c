@@ -21,5 +21,6 @@ int quest_enable(game_t *game, size_t id)
     now = sfClock_getElapsedTime(game->clock);
     game->sysquest.time_begin[id] = now.microseconds;
     dialogue_play(&game->sysquest, (int)id);
+    menu_quest_reload(game);
     return EXIT_SUCCESS;
 }

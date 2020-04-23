@@ -36,5 +36,6 @@ int quest_finish(game_t *game, const size_t id)
         dialogue_play(&QUEST, IDX_DIALOGUE_END);
         quest_give_reward(game, id);
     }
+    menu_quest_reload(game);
     return EXIT_SUCCESS;
 }
