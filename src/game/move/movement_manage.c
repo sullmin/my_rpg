@@ -15,8 +15,9 @@ bool movement_creat(movement_t *mov)
     if (!mov->sprite || !mov->texture)
         return false;
     mov->clock = sfClock_create();
-    sfSprite_setPosition(mov->sprite, (sfVector2f) {100, 100});
+    sfSprite_setPosition(mov->sprite, (sfVector2f) {960, 540});
     sfSprite_setTexture(mov->sprite, mov->texture, sfTrue);
+    sfSprite_setScale(mov->sprite, (sfVector2f) {2, 2});
     for (size_t i = 0; i < 4; i++)
         mov->orient[i] = false;
     mov->orient[3] = true;

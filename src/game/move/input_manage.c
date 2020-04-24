@@ -13,7 +13,6 @@ void input_manage(game_t *game, sfEvent *event)
 {
     option_t *option = game->option;
 
-    //game->player_move.in_move = false;
     for (size_t i = 0; i < 4; game->player_move.orient[i] = false, i++);
     if (event->key.code == UP_KEY) {
         game->player_move.orient[3] = true;
