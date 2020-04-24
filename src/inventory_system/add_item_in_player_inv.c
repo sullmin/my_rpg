@@ -28,7 +28,7 @@ bool move_item_in_inventory(game_t *game, const char *id)
 
     if (!end)
         return false;
-    while (!end && my_strcmp(id, end->item->id) != 0)
+    while (end && my_strcmp(id, end->item->id) != 0)
         end = end->next;
     if (!end)
         return false;
