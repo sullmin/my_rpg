@@ -35,7 +35,7 @@ int kinem_stop(game_t *game)
     map_scale_all(&ISOW, (-ISOW.kinem.scale));
     object_on_map_set_coord(&ISOW.player, &ISOW.map,
     ISOW.kinem.player_start_pos.x, ISOW.kinem.player_start_pos.y);
-    while (PLAYER_MOVEMENT[idx].x != 0 && PLAYER_MOVEMENT[idx].y != 0) {
+    while (!(PLAYER_MOVEMENT[idx].x == 0 && PLAYER_MOVEMENT[idx].y == 0)) {
         object_on_map_move(&ISOW.player, &ISOW.map, PLAYER_MOVEMENT[idx].x,
         PLAYER_MOVEMENT[idx].y);
         idx++;

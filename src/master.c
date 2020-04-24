@@ -30,6 +30,8 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (menu_quest_create(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
+    if (!movement_creat(&game->player_move))
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -56,6 +58,7 @@ static int master_contruct_part1(game_t *game)
 
 static int master_destroy(game_t *game)
 {
+    destroy_movement(&game->player_move);
     destroy_main_menu(game);
     destroy_option_menu(game);
     destroy_pause_menu(game);

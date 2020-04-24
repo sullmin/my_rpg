@@ -64,5 +64,6 @@ void call_event_manager(game_t *game, sfEvent *event)
         set_game_state(game, PAUSE_MENU);
         return;
     }
+    input_manage(game, event);
     event_crossroads(game, event);
 }
