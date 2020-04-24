@@ -29,6 +29,7 @@
 #include "main_menu.h"
 #include "pause_menu.h"
 #include "main_world.h"
+#include "movement.h"
 
 #define ENV(game) &game->env
 
