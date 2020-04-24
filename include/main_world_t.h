@@ -12,6 +12,11 @@ typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
     sfIntRect *rect;
+    char **hitbox;
+    sfSprite *s_player;
+    sfTexture *t_player;
+    sfVector2f position_player;
+    sfVector2i position_on_map;
 }main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */
