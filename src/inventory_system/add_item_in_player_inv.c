@@ -9,6 +9,7 @@
 
 #include <stdbool.h>
 #include "inventory_system.h"
+#include "game_t.h"
 
 bool add_item_in_player_inv(player_inventory_t *inv, item_t *item)
 {
@@ -20,9 +21,9 @@ bool add_item_in_player_inv(player_inventory_t *inv, item_t *item)
     return false;
 }
 
-bool move_item_in_inventory(player_inventory_t *inv, list_t *item_load,
-    const char *id)
+bool move_item_in_inventory(game_t *game, const char *id)
 {
+    list_t *item_load = game->item_load;
     list_t *end = item_load;
 
     if (!end)
@@ -31,7 +32,7 @@ bool move_item_in_inventory(player_inventory_t *inv, list_t *item_load,
         end = end->next;
     if (!end)
         return false;
-    if (!add_item_in_player_inv(inv, end->item))
+    if (!add_item_in_player_inv(&game->inventory, end->item))
         return false;
     return true;
 }

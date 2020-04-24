@@ -50,10 +50,11 @@ typedef enum submenu_status {
 #include "pause_menu_t.h"
 #include "option_menu_t.h"
 #include "quest_menu_t.h"
-#include "inventory_system.h"
+#include "inventory_system_t.h"
 #include "isow_t.h"
 #include "main_world_t.h"
 #include "movement_t.h"
+
 
 /*
     Main structure of the program
