@@ -31,6 +31,7 @@ bool move_item_in_inventory(player_inventory_t *inv, list_t *item_load,
         end = end->next;
     if (!end)
         return false;
-    add_item_in_player_inv(inv, end->item);
+    if (!add_item_in_player_inv(inv, end->item))
+        return false;
     return true;
 }
