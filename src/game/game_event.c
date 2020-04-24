@@ -10,6 +10,9 @@
 extern FUNC_EVENT fct_event[NB_GAME_STATE];
 extern FUNC_EVENT fct_event_sub_menu[NB_SUB_MENU];
 
+static const sfKeyCode FORCE_QUIT_KEY = sfKeyW;
+static const sfKeyCode PAUSE_MENU_KEY = sfKeySpace;
+
 void event_window_close(game_t *game)
 {
     sfRenderWindow_close(game->w.window);
@@ -21,7 +24,7 @@ static bool check_quit_event(game_t *game, sfEvent *event)
         event_window_close(game);
         return true;
     }
-    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+    if (sfKeyboard_isKeyPressed(FORCE_QUIT_KEY)) {
         event_window_close(game);
         return true;
     }
@@ -56,7 +59,8 @@ void call_event_manager(game_t *game, sfEvent *event)
 {
     if (check_quit_event(game, event)) {
         return;
-    } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+    } else if (event->type == sfEvtKeyPressed
+            && event->key.code == PAUSE_MENU_KEY) {
         set_game_state(game, PAUSE_MENU);
         return;
     }
