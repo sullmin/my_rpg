@@ -41,7 +41,7 @@ static int get_player(game_t *game)
     game->wmain->position_player.x = 18 * 16 * 4;
     game->wmain->position_player.y = 6 * 16 * 4;
     game->wmain->position_on_map.x = 43;
-    game->wmain->position_on_map.y = 31;
+    game->wmain->position_on_map.y = 32;
     game->wmain->t_player = sfTexture_createFromFile(player, NULL);
     game->wmain->s_player = sfSprite_create();
     if (game->wmain->s_player == NULL || game->wmain->t_player == NULL)
