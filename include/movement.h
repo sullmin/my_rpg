@@ -12,7 +12,7 @@
 
 #define TIME_MOVE 1
 
-bool movement_creat(movement_t *mov);
+bool movement_creat(movement_t *mov, const char *sprite);
 void destroy_movement(movement_t *mov);
 void display_player(sfRenderWindow *window, movement_t *mov, bool act_move);
 void input_manage(game_t *game, sfEvent *event);

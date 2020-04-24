@@ -8,10 +8,10 @@
 #include "movement.h"
 #include "my_rpg.h"
 
-bool movement_creat(movement_t *mov)
+bool movement_creat(movement_t *mov, const char *sprite)
 {
     mov->sprite = sfSprite_create();
-    mov->texture = sfTexture_createFromFile("./asset/sprite/hero.png", NULL);
+    mov->texture = sfTexture_createFromFile(sprite, NULL);
     if (!mov->sprite || !mov->texture)
         return false;
     mov->clock = sfClock_create();
