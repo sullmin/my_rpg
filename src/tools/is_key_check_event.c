@@ -14,3 +14,11 @@ bool is_key_released(sfEvent *event, sfKeyCode key)
     }
     return false;
 }
+
+bool is_key_pressed(sfEvent *event, sfKeyCode key)
+{
+    if (event->type == sfEvtKeyPressed && event->key.code == key) {
+        return true;
+    }
+    return false;
+}
