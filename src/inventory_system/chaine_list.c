@@ -54,7 +54,7 @@ void distroy_item_list(list_t *list)
 
 static list_t *set_all_item(void)
 {
-    char *path[] = {"./asset/config/item1.conf",
+    char *path[] = {"./asset/config/soap.conf", "./asset/config/knife.conf",
                     NULL,
                     };
     list_t *ret = NULL;
