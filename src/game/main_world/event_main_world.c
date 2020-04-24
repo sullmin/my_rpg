@@ -9,9 +9,5 @@
 
 void event_main_world(game_t *game, sfEvent *event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-        game->state = PAUSE_MENU;
-        return;
-    }
     event_player(game, event);
 }

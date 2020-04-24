@@ -157,7 +157,7 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
 				$(DSRC)tools/as_second.c								\
-				$(DSRC)tools/is_key_released.c							\
+				$(DSRC)tools/is_key_check_event.c							\
 
 SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\

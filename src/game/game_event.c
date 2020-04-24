@@ -59,8 +59,8 @@ void call_event_manager(game_t *game, sfEvent *event)
 {
     if (check_quit_event(game, event)) {
         return;
-    } else if (event->type == sfEvtKeyPressed
-            && event->key.code == PAUSE_MENU_KEY) {
+    } else if (is_key_pressed(event, PAUSE_MENU_KEY)
+        && (game->state != MAIN_MENU && game->state != OPTION_MENU)) {
         set_game_state(game, PAUSE_MENU);
         return;
     }
