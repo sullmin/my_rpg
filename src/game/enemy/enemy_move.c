@@ -18,14 +18,24 @@ static bool is_in_player_vis(pnj_t *pnj, game_t *game)
     return false;
 }
 
+static bool is_col(game_t *game, pnj_t *pnj)
+{
+    if (game->wmain->hitbox[pnj->pos.y][pnj->pos.x + 1] == 'o' ||
+            game->wmain->hitbox[pnj->pos.y][pnj->pos.x - 1] == 'o' ||
+            ((pnj->pos.x - 1 == game->wmain->position_on_map.x ||
+                pnj->pos.x + 1 == game->wmain->position_on_map.x) &&
+                pnj->pos.y == game->wmain->position_on_map.y))
+        return true;
+    return false;
+}
+
 void simple_pnj_move(pnj_t *pnj, game_t *game)
 {
     sfVector2f pos = {0};
 
     if (as_seconds(pnj->clock) > 0.5) {
         pnj->pos.x += (pnj->sens) ? -1 : 1;
-        if (game->wmain->hitbox[pnj->pos.y][pnj->pos.x + 1] == 'o' ||
-            game->wmain->hitbox[pnj->pos.y][pnj->pos.x - 1] == 'o') {
+        if (is_col(game, pnj)) {
             pnj->sens = (pnj->sens) ? false : true;
             if (pnj->sens)
                 built_it(&pnj->move, 1);
