@@ -30,6 +30,7 @@
 #include "pause_menu.h"
 #include "main_world.h"
 #include "movement.h"
+#include "pnj.h"
 
 #define ENV(game) &game->env
 

@@ -9,7 +9,7 @@
 #include "movement.h"
 #include "my_rpg.h"
 
-static void built_it(movement_t *mov, size_t pos)
+void built_it(movement_t *mov, size_t pos)
 {
     for (size_t i = 0; i < 4; mov->orient[i] = false, i++);
     mov->orient[pos] = true;

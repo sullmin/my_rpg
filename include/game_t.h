@@ -54,6 +54,7 @@ typedef enum submenu_status {
 #include "isow_t.h"
 #include "main_world_t.h"
 #include "movement_t.h"
+#include "pnj_t.h"
 
 
 /*
@@ -80,6 +81,7 @@ typedef struct game {
     pause_menu_t *pause;
     option_t *option;
     movement_t player_move;
+    pnj_t enemy;
 } game_t;
 
 #endif

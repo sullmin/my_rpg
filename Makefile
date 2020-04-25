@@ -154,10 +154,12 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/move/movement_player.c						\
 				$(DSRC)game/move/movement_manage.c						\
 				$(DSRC)game/move/input_manage.c							\
+				$(DSRC)game/enemy/init_enemy.c							\
+				$(DSRC)game/enemy/enemy_move.c							\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
 				$(DSRC)tools/as_second.c								\
-				$(DSRC)tools/is_key_check_event.c							\
+				$(DSRC)tools/is_key_check_event.c						\
 
 SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
