@@ -23,20 +23,34 @@ static bool is_in_player_vis(pnj_t *pnj, game_t *game)
 static bool is_col(game_t *game, pnj_t *pnj)
 {
     if (game->wmain->hitbox[pnj->pos.y][pnj->pos.x + 1] == 'o' ||
-            game->wmain->hitbox[pnj->pos.y][pnj->pos.x - 1] == 'o' ||
-            ((pnj->pos.x - 1 == game->wmain->position_on_map.x ||
-                pnj->pos.x + 1 == game->wmain->position_on_map.x) &&
-                pnj->pos.y == game->wmain->position_on_map.y))
+            game->wmain->hitbox[pnj->pos.y][pnj->pos.x - 1] == 'o')
         return true;
     return false;
 }
 
-void simple_pnj_move(pnj_t *pnj, game_t *game)
+static void display_pnj(pnj_t *pnj, game_t *game, bool stat)
 {
     sfVector2f pos = {0};
 
+    if (is_in_player_vis(pnj, game)) {
+        pos.x = (pnj->pos.x - PLAYER.x) * 64 + 1152;
+        pos.y = (pnj->pos.y - PLAYER.y) * 64 + 384;
+        sfSprite_setPosition(pnj->move.sprite, pos);
+        display_player(game->w.window, &pnj->move, stat);
+    }
+}
+
+void simple_pnj_move(pnj_t *pnj, game_t *game)
+{
+    bool stat = true;
+
+    if (((pnj->pos.x - 1 == PLAYER.x || pnj->pos.x + 1 == PLAYER.x) &&
+        pnj->pos.y == PLAYER.y))
+        stat = false;
     if (as_seconds(pnj->clock) > 0.5) {
-        pnj->pos.x += (pnj->sens) ? -1 : 1;
+        if (!((pnj->pos.x - 1 == PLAYER.x || pnj->pos.x + 1 == PLAYER.x) &&
+            pnj->pos.y == PLAYER.y))
+            pnj->pos.x += (pnj->sens) ? -1 : 1;
         if (is_col(game, pnj)) {
             pnj->sens = (pnj->sens) ? false : true;
             if (pnj->sens)
@@ -46,10 +60,5 @@ void simple_pnj_move(pnj_t *pnj, game_t *game)
         }
         sfClock_restart(pnj->clock);
     }
-    if (is_in_player_vis(pnj, game)) {
-        pos.x = (pnj->pos.x - game->wmain->position_on_map.x) * 64 + 1152;
-        pos.y = (pnj->pos.y - game->wmain->position_on_map.y) * 64 + 384;
-        sfSprite_setPosition(pnj->move.sprite, pos);
-        display_player(game->w.window, &pnj->move, true);
-    }
+    display_pnj(pnj, game, stat);
 }
