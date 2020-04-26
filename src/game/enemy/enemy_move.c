@@ -12,8 +12,10 @@ static bool is_in_player_vis(pnj_t *pnj, game_t *game)
     int x = pnj->pos.x * 16;
     int y = pnj->pos.y * 16;
 
-    if (x > game->wmain->rect->left && x < game->wmain->rect->left + game->wmain->rect->width)
-        if (y > game->wmain->rect->top && y < game->wmain->rect->top + game->wmain->rect->height)
+    if (x > game->wmain->rect->left &&
+        x < game->wmain->rect->left + game->wmain->rect->width)
+        if (y > game->wmain->rect->top &&
+            y < game->wmain->rect->top + game->wmain->rect->height)
             return true;
     return false;
 }
