@@ -55,6 +55,9 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c					\
 				$(DSRC)game/main_world/display_main_world.c					\
 				$(DSRC)game/main_world/event_main_world.c					\
 				$(DSRC)game/main_world/event_player.c						\
+				$(DSRC)game/player_animation/player_animation_player.c				\
+				$(DSRC)game/player_animation/player_animation_manage.c				\
+				$(DSRC)game/player_animation/input_manage.c							\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\
@@ -151,9 +154,6 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_event.c								\
 				$(DSRC)game/function_array.c							\
 				$(DSRC)game/set_game_state.c							\
-				$(DSRC)game/move/player_animation_player.c				\
-				$(DSRC)game/move/player_animation_manage.c				\
-				$(DSRC)game/move/input_manage.c							\
 				$(DSRC)game/enemy/init_enemy.c							\
 				$(DSRC)game/enemy/enemy_move.c							\
 
