@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-extern const int azerty[];
+extern const int keypad[];
 
 static int game_init_struct(game_t *game)
 {
@@ -44,7 +44,7 @@ static int init_option(game_t *game)
         return EXIT_ERROR;
     OPTION->volume = (float)volume;
     set_slider_position(game->option_menu->sound, OPTION->volume);
-    set_keyboard_config(OPTION, azerty);
+    set_keyboard_config(OPTION, keypad);
     return EXIT_SUCCESS;
 }
 

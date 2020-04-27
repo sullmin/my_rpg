@@ -60,7 +60,7 @@ static int set_option_menu_button(game_t *game)
     ret += set_button_texture(game->option_menu->keypad, keypad_path);
     ret += set_button_texture(game->option_menu->main_menu, main_menu_path);
     ret += set_button_label(game->option_menu->main_menu, label, font, 50);
-    game->option_menu->azerty->is_activate = true;
+    game->option_menu->keypad->is_activate = true;
     return ret;
 }
 
