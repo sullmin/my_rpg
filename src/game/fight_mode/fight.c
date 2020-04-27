@@ -47,16 +47,19 @@ static void spawn_events(float interval, combination_t events,
 
 static int fight_loop(fight_mode_t *mfight, fight_run_t *rfight)
 {
-    for (int i = 0; i < mfight->actions; i++) {
-        spawn_events(mfight->interval, rfight->events[i],
-                    sfClock_getElapsedTime(rfight->inter_clock).microseconds, i);
-        event_group_run(mfight, rfight, rfight->events[i],
-            sfClock_getElapsedTime(rfight->update).microseconds);
-        manage_keys_pressed(&rfight->events[i]);
+    while (!is_finish(mfight->actions, rfight->events)) {
+        sfRenderWindow_clear(rfight->window.window, sfBlack);
+        for (int i = 0; i < mfight->actions; i++) {
+            spawn_events(mfight->interval, rfight->events[i],
+                sfClock_getElapsedTime(rfight->inter_clock).microseconds, i);
+            event_group_run(mfight, rfight, rfight->events[i],
+                sfClock_getElapsedTime(rfight->update).microseconds);
+            manage_keys_pressed(&rfight->events[i]);
+        }
+        sfClock_restart(rfight->update);
+        sfRenderWindow_display(rfight->window.window);
     }
-    sfClock_restart(rfight->update);
-    if (is_finish(mfight->actions, rfight->events))
-        destroy_events(rfight, mfight->actions);
+    destroy_events(rfight, mfight->actions);
     return EXIT_SUCCESS;
 }
 
