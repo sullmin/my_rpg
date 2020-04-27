@@ -17,6 +17,7 @@ typedef struct {
     sfTexture *t_player;
     sfVector2f position_player;
     sfVector2i position_on_map;
+    float zoom;
 }main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */

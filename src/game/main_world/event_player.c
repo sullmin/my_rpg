@@ -16,7 +16,7 @@ static void compute_move_f(game_t *game)
             WMAIN->rect->top -= 16;
             sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
         } else {
-            WMAIN->position_player.y -= 16 * 4;
+            WMAIN->position_player.y -= 16 * WMAIN->zoom;
             sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
         }
     }
@@ -31,7 +31,7 @@ static void compute_move_b(game_t *game)
         WMAIN->rect->top += 16;
             sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
         } else {
-            WMAIN->position_player.y += 16 * 4;
+            WMAIN->position_player.y += 16 * WMAIN->zoom;
             sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
         }
     }
@@ -46,7 +46,7 @@ static void compute_move_r(game_t *game)
             WMAIN->rect->left += 16;
             sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
         } else {
-            WMAIN->position_player.x += 16 * 4;
+            WMAIN->position_player.x += 16 * WMAIN->zoom;
             sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
         }
     }
@@ -61,7 +61,7 @@ static void compute_move_l(game_t *game)
             WMAIN->rect->left -= 16;
             sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
         } else {
-            WMAIN->position_player.x -= 16 * 4;
+            WMAIN->position_player.x -= 16 * WMAIN->zoom;
             sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
         }
     }
