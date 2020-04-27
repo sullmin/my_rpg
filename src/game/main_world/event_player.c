@@ -13,10 +13,11 @@ static void compute_move_forward(game_t *game)
         return;
     }
     if (WMAIN->hitbox[WMAIN->position_on_map.y - 1][WMAIN->position_on_map.x]
-        == '.') {
-        WMAIN->position_on_map.y -= 1;
-        mw_camera_move(game, UP);
+        != '.') {
+        return;
     }
+    WMAIN->position_on_map.y -= 1;
+    update_map_position(game);
 }
 
 static void compute_move_backward(game_t *game)
@@ -25,22 +26,23 @@ static void compute_move_backward(game_t *game)
         return;
     }
     if (WMAIN->hitbox[WMAIN->position_on_map.y + 1][WMAIN->position_on_map.x]
-        == '.') {
-        WMAIN->position_on_map.y += 1;
-        mw_camera_move(game, DOWN);
+        != '.') {
+        return;
     }
+    WMAIN->position_on_map.y += 1;
+    update_map_position(game);
 }
 
 static void compute_move_right(game_t *game)
 {
-    if (WMAIN->position_on_map.x + 1 >= WMAIN->size_map.x) {
+    if (WMAIN->position_on_map.x + 1 >= WMAIN->size_map.x)
+        return;
+    if (WMAIN->hitbox[WMAIN->position_on_map.y][WMAIN->position_on_map.x + 1]
+        != '.') {
         return;
     }
-    if (WMAIN->hitbox[WMAIN->position_on_map.y][WMAIN->position_on_map.x + 1]
-        == '.') {
-        WMAIN->position_on_map.x += 1;
-        mw_camera_move(game, RIGHT);
-    }
+    WMAIN->position_on_map.x += 1;
+    update_map_position(game);
 }
 
 static void compute_move_left(game_t *game)
@@ -49,10 +51,11 @@ static void compute_move_left(game_t *game)
         return;
     }
     if (WMAIN->hitbox[WMAIN->position_on_map.y][WMAIN->position_on_map.x - 1]
-        == '.') {
-        WMAIN->position_on_map.x -= 1;
-        mw_camera_move(game, LEFT);
+        != '.') {
+        return;
     }
+    WMAIN->position_on_map.x -= 1;
+    update_map_position(game);
 }
 
 void event_player(game_t *game, sfEvent *event)
