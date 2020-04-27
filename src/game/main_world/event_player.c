@@ -7,82 +7,73 @@
 
 #include "my_rpg.h"
 
-static void compute_move_f(game_t *game)
+static void compute_move_forward(game_t *game)
 {
+    if (WMAIN->position_on_map.y - 1 < 0) {
+        return;
+    }
     if (WMAIN->hitbox[WMAIN->position_on_map.y - 1][WMAIN->position_on_map.x]
         == '.') {
         WMAIN->position_on_map.y -= 1;
-        if (WMAIN->rect->top - 16 > 0) {
-            WMAIN->rect->top -= 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.y -= 16 * 4;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
+        mw_camera_move(game, UP);
     }
 }
 
-static void compute_move_b(game_t *game)
+static void compute_move_backward(game_t *game)
 {
+    if (WMAIN->position_on_map.y + 1 >= WMAIN->size_map.y) {
+        return;
+    }
     if (WMAIN->hitbox[WMAIN->position_on_map.y + 1][WMAIN->position_on_map.x]
         == '.') {
         WMAIN->position_on_map.y += 1;
-        if (WMAIN->rect->top + 16 <= 1232) {
-        WMAIN->rect->top += 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.y += 16 * 4;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
+        mw_camera_move(game, DOWN);
     }
 }
 
-static void compute_move_r(game_t *game)
+static void compute_move_right(game_t *game)
 {
+    if (WMAIN->position_on_map.x + 1 >= WMAIN->size_map.x) {
+        return;
+    }
     if (WMAIN->hitbox[WMAIN->position_on_map.y][WMAIN->position_on_map.x + 1]
         == '.') {
         WMAIN->position_on_map.x += 1;
-        if (WMAIN->rect->left + 16 <= 992) {
-            WMAIN->rect->left += 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.x += 16 * 4;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
+        mw_camera_move(game, RIGHT);
     }
 }
 
-static void compute_move_l(game_t *game)
+static void compute_move_left(game_t *game)
 {
+    if (WMAIN->position_on_map.x - 1 < 0) {
+        return;
+    }
     if (WMAIN->hitbox[WMAIN->position_on_map.y][WMAIN->position_on_map.x - 1]
         == '.') {
         WMAIN->position_on_map.x -= 1;
-        if (WMAIN->rect->left - 16 > 0) {
-            WMAIN->rect->left -= 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.x -= 16 * 4;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
+        mw_camera_move(game, LEFT);
     }
 }
 
 void event_player(game_t *game, sfEvent *event)
 {
-    if (is_key_released(event, game->option->move->forward)
-        && WMAIN->position_on_map.y - 1 >= 0) {
-        compute_move_f(game);
-    }
-    if (is_key_released(event, game->option->move->backward)
-        && WMAIN->position_on_map.y + 1 <= 92) {
-        compute_move_b(game);
-    }
-    if (is_key_released(event, game->option->move->right)
-        && WMAIN->position_on_map.x + 1 <= 91) {
-        compute_move_r(game);
-    }
-    if (is_key_released(event, game->option->move->left)
-        && WMAIN->position_on_map.x - 1 >= 0) {
-        compute_move_l(game);
+    WMAIN->timer += TIME_MILLI(WMAIN->clock);
+    sfClock_restart(WMAIN->clock);
+    if (WMAIN->timer >= WMAIN->ms_loop) {
+        while (WMAIN->timer >= WMAIN->ms_loop) {
+            WMAIN->timer -= WMAIN->ms_loop;
+        }
+        if (is_key_pressed(event, game->option->move->forward)) {
+            compute_move_forward(game);
+        }
+        if (is_key_pressed(event, game->option->move->backward)) {
+            compute_move_backward(game);
+        }
+        if (is_key_pressed(event, game->option->move->right)) {
+            compute_move_right(game);
+        }
+        if (is_key_pressed(event, game->option->move->left)) {
+            compute_move_left(game);
+        }
     }
 }

@@ -55,6 +55,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c					\
 				$(DSRC)game/main_world/display_main_world.c					\
 				$(DSRC)game/main_world/event_main_world.c					\
 				$(DSRC)game/main_world/event_player.c						\
+				$(DSRC)game/main_world/camera.c								\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\
