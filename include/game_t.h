@@ -22,7 +22,8 @@ typedef enum game_status {
     FIGHT_MODE = 4,
     MAIN_WORLD = 5,
     ISO_WORLD = 6,
-    OPTION_MENU = 7
+    OPTION_MENU = 7,
+    HELP_MENU = 8
 } game_status_t;
 
 typedef enum submenu_status {
@@ -33,7 +34,7 @@ typedef enum submenu_status {
     MHIST = 3
 } submenu_status_t;
 
-#define NB_GAME_STATE 8
+#define NB_GAME_STATE 9
 #define NB_SUB_MENU 4
 
 #define OPTION game->option
@@ -43,6 +44,7 @@ typedef enum submenu_status {
 #define SOUND game->sound
 #define MENU_QUEST game->quest_menu
 #define QUEST game->sysquest
+#define MENU_HELP game->help_menu
 
 #include "gui_t.h"
 #include "option_t.h"
@@ -55,6 +57,7 @@ typedef enum submenu_status {
 #include "main_world_t.h"
 #include "movement_t.h"
 #include "pnj_t.h"
+#include "help_menu_t.h"
 
 
 /*
@@ -79,6 +82,7 @@ typedef struct game {
     main_menu_t *menu;
     option_menu_t *option_menu;
     pause_menu_t *pause;
+    help_menu_t *help_menu;
     option_t *option;
     movement_t player_move;
     pnj_t enemy;

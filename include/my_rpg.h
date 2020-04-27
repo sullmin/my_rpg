@@ -27,6 +27,7 @@
 #include "inventory_system.h"
 #include "option_menu.h"
 #include "main_menu.h"
+#include "help_menu.h"
 #include "pause_menu.h"
 #include "main_world.h"
 #include "movement.h"

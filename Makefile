@@ -148,6 +148,11 @@ SRC_PAUSE_MENU	=	$(DSRC)menu/pause/create_pause_menu.c				\
 					$(DSRC)menu/pause/display_pause_menu.c				\
 					$(DSRC)menu/pause/event_pause_menu.c				\
 
+SRC_HELP_MENU	=	$(DSRC)menu/help/create_help_menu.c					\
+					$(DSRC)menu/help/destroy_help_menu.c				\
+					$(DSRC)menu/help/display_help_menu.c				\
+					$(DSRC)menu/help/event_help_menu.c					\
+
 SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_destroy.c								\
 				$(DSRC)game/game_loop.c									\
@@ -165,7 +170,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_ISO) $(SRC_MWORLD) $(SRC_FIGHT)
+SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_HELP_MENU) $(SRC_ISO) $(SRC_MWORLD) $(SRC_FIGHT)
 
 OBJ	=	$(SRC:.c=.o)
 
