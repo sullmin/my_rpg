@@ -73,5 +73,6 @@ int game_create(game_t *game)
         return EXIT_ERROR;
     if (init_option(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
+    set_game_state(game, MAIN_MENU);
     return EXIT_SUCCESS;
 }
