@@ -8,8 +8,8 @@
 #include "my_rpg.h"
 
 const int azerty[] = {sfKeyZ, sfKeyQ, sfKeyS, sfKeyD};
-static const int qwerty[] = {sfKeyW, sfKeyA, sfKeyS, sfKeyD};
-static const int keypad[] = {sfKeyUp, sfKeyLeft, sfKeyDown, sfKeyRight};
+const int qwerty[] = {sfKeyW, sfKeyA, sfKeyS, sfKeyD};
+const int keypad[] = {sfKeyUp, sfKeyLeft, sfKeyDown, sfKeyRight};
 
 void event_azerty_button(game_t *game)
 {

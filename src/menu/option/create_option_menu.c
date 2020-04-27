@@ -50,6 +50,22 @@ extern const char *font;
 
 static const char *PATH_BACK = "asset/sprite/option_menu_back.png";
 
+static int set_option_button(game_t *game)
+{
+    char *keypad_conf = GET_VAR(game, "DEFAULT_KEY");
+
+    if (keypad_conf == NULL)
+        return EXIT_ERROR;
+    if (!my_strcmp(keypad_conf, "keypad"))
+        game->option_menu->keypad->is_activate = true;
+    if (!my_strcmp(keypad_conf, "azerty"))
+        game->option_menu->azerty->is_activate = true;
+    if (!my_strcmp(keypad_conf, "qwerty"))
+        game->option_menu->qwerty->is_activate = true;
+    free(keypad_conf);
+    return EXIT_SUCCESS;
+}
+
 static int set_option_menu_button(game_t *game)
 {
     char *label = "main menu";
@@ -60,7 +76,8 @@ static int set_option_menu_button(game_t *game)
     ret += set_button_texture(game->option_menu->keypad, keypad_path);
     ret += set_button_texture(game->option_menu->main_menu, main_menu_path);
     ret += set_button_label(game->option_menu->main_menu, label, font, 50);
-    game->option_menu->azerty->is_activate = true;
+    if (set_option_button(game) == EXIT_ERROR)
+        return EXIT_ERROR;
     return ret;
 }
 
