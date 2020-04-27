@@ -9,8 +9,6 @@
 
 extern const char *font;
 
-static const char *PATH_BACK = "asset/sprite/menu_quest_back.png";
-
 static const sfVector2f BUTTON_POS = {1920 - 600, 150};
 static const sfVector2f BUTTON_SIZE = {300, 75};
 
@@ -21,21 +19,26 @@ static const char *BUTTON_TXT[] = {
     NULL,
 };
 
-static int create_background_texture(quest_menu_t *menu)
+static int create_background_texture(game_t *game, quest_menu_t *menu)
 {
-    menu->txr_background = sfTexture_createFromFile(PATH_BACK, NULL);
+    char *path_back = GET_VAR(game, "QUEST_BACK");
+
+    if (path_back == NULL)
+        return EXIT_ERROR;
+    menu->txr_background = sfTexture_createFromFile(path_back, NULL);
     menu->spr_background = sfSprite_create();
     if (menu->txr_background == NULL || !menu->spr_background) {
         return puterr("load quest menu texture : fail\n", EXIT_ERROR);
     }
     sfSprite_setTexture(menu->spr_background,
     menu->txr_background, true);
+    free(path_back);
     return EXIT_SUCCESS;
 }
 
 int menu_quest_create(game_t *game)
 {
-    if (create_background_texture(&MENU_QUEST) != EXIT_SUCCESS) {
+    if (create_background_texture(game, &MENU_QUEST) != EXIT_SUCCESS) {
         return puterr("quest menu create\n", EXIT_ERROR);
     }
     MENU_QUEST.exit = create_button(BUTTON_POS, BUTTON_SIZE);
