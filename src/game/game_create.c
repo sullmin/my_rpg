@@ -8,6 +8,8 @@
 #include "my_rpg.h"
 
 extern const int keypad[];
+extern const int azerty[];
+extern const int qwerty[];
 
 static int game_init_struct(game_t *game)
 {
@@ -37,6 +39,7 @@ static int load_sound_manager(game_t *game)
 
 static int init_option(game_t *game)
 {
+    char *keypad_conf = NULL;
     bool err = false;
     int volume = GET_VAR_NBR(game, "DEF_VOLUME", &err);
 
@@ -44,7 +47,16 @@ static int init_option(game_t *game)
         return EXIT_ERROR;
     OPTION->volume = (float)volume;
     set_slider_position(game->option_menu->sound, OPTION->volume);
-    set_keyboard_config(OPTION, keypad);
+    keypad_conf = GET_VAR(game, "DEFAULT_KEY");
+    if (keypad_conf == NULL)
+        return EXIT_ERROR;
+    if (!my_strcmp(keypad_conf, "keypad"))
+        set_keyboard_config(OPTION, keypad);
+    if (!my_strcmp(keypad_conf, "azerty"))
+        set_keyboard_config(OPTION, azerty);
+    if (!my_strcmp(keypad_conf, "qwerty"))
+        set_keyboard_config(OPTION, qwerty);
+    free(keypad_conf);
     return EXIT_SUCCESS;
 }
 
