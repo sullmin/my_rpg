@@ -12,6 +12,8 @@ typedef struct pause_menu {
     button_t *resume;
     button_t *quit;
     button_t *main_menu;
+    sfTexture *txr_screen;
+    sfSprite *spr_screen;
 } pause_menu_t;
 
 #endif /* !PAUSE_MENU_T_H_ */
