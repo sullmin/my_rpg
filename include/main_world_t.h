@@ -21,7 +21,6 @@ typedef struct {
     sfIntRect rect_init;
     sfIntRect rect;
     char **hitbox;
-    sfVector2f position_player;
     sfVector2i position_on_map;
     int shift_rect;
     sfClock *clock;

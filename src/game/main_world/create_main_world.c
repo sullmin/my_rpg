@@ -38,10 +38,8 @@ static int get_background(game_t *game)
 
 static int get_player(game_t *game)
 {
-    game->wmain->position_player.x = 18 * 16 * game->wmain->zoom;
-    game->wmain->position_player.y = 6 * 16 * game->wmain->zoom;
-    game->wmain->position_on_map.x = 43;
-    game->wmain->position_on_map.y = 32;
+    WMAIN->position_on_map.x = 43;
+    WMAIN->position_on_map.y = 32;
     update_map_position(game);
     return EXIT_SUCCESS;
 }
