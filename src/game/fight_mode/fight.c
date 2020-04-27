@@ -12,10 +12,10 @@
 static int init_variables(fight_run_t *rfight, fight_mode_t *mfight)
 {
     rfight->inter_clock = sfClock_create();
-    if (rfight->inter_clock)
+    if (rfight->inter_clock == NULL)
         return EXIT_ERROR;
     rfight->update = sfClock_create();
-    if (rfight->update) {
+    if (rfight->update == NULL) {
         sfClock_destroy(rfight->inter_clock);
         return EXIT_ERROR;
     }
