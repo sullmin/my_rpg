@@ -14,6 +14,7 @@ typedef struct main_menu {
     button_t *play;
     button_t *quit;
     button_t *option;
+    button_t *help;
     sfSprite *spr_background;
     sfTexture *txr_background;
 } main_menu_t;

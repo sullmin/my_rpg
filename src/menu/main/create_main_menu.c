@@ -28,12 +28,20 @@ static const char *option_path[] = {
     NULL,
 };
 
+static const char *help_path[] = {
+    "asset/sprite/buttons/help.png",
+    "asset/sprite/buttons/help_h.png",
+    "asset/sprite/buttons/help_c.png",
+    NULL,
+};
+
 static const sfVector2f button_s = {300, 75};
 
-static const sfVector2f button_p[3] = {
+static const sfVector2f button_p[4] = {
     {500, 400},
     {500, 500},
-    {500, 600}
+    {500, 600},
+    {500, 700}
 };
 
 const char *font = "asset/font/MADETOMMY.ttf";
@@ -44,12 +52,14 @@ static int set_main_menu_button(game_t *game)
 {
     int ret = 0;
 
-    ret += set_button_texture(game->menu->play, play_path);
-    ret += set_button_texture(game->menu->quit, quit_path);
-    ret += set_button_texture(game->menu->option, option_path);
-    ret += set_button_label(game->menu->play, "play", font, 50);
-    ret += set_button_label(game->menu->quit, "quit", font, 50);
-    ret += set_button_label(game->menu->option, "option", font, 50);
+    ret += set_button_texture(MMENU->play, play_path);
+    ret += set_button_texture(MMENU->quit, quit_path);
+    ret += set_button_texture(MMENU->option, option_path);
+    ret += set_button_texture(MMENU->help, help_path);
+    ret += set_button_label(MMENU->play, "play", font, 50);
+    ret += set_button_label(MMENU->quit, "quit", font, 50);
+    ret += set_button_label(MMENU->option, "option", font, 50);
+    ret += set_button_label(MMENU->help, "help", font, 50);
     return ret;
 }
 
@@ -66,14 +76,14 @@ static int load_texture(game_t *game)
 
 int create_main_menu(game_t *game)
 {
-    game->menu = malloc(sizeof(main_menu_t));
+    MMENU = malloc(sizeof(main_menu_t));
     if (game->menu == NULL)
         return EXIT_ERROR;
-    game->menu->play = create_button(button_p[0], button_s);
-    game->menu->quit = create_button(button_p[1], button_s);
-    game->menu->option = create_button(button_p[2], button_s);
-    if (game->menu->play == NULL || !game->menu->quit
-        || !game->menu->option)
+    MMENU->play = create_button(button_p[0], button_s);
+    MMENU->quit = create_button(button_p[1], button_s);
+    MMENU->option = create_button(button_p[2], button_s);
+    MMENU->help = create_button(button_p[3], button_s);
+    if (!MMENU->play || !MMENU->quit || !MMENU->option || !MMENU->help)
         return EXIT_ERROR;
     if (set_main_menu_button(game) != EXIT_SUCCESS)
         return EXIT_ERROR;

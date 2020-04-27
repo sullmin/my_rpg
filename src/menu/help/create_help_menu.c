@@ -14,7 +14,7 @@ static const char *return_path[] = {
     NULL,
 };
 static const sfVector2f button_s = {300, 75};
-static const sfVector2f button_p = {500, 400};
+static const sfVector2f button_p = {800, 900};
 const char *filepath = "asset/sprite/man.jpg";
 static const char *font = "asset/font/MADETOMMY.ttf";
 
