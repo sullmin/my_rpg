@@ -28,6 +28,8 @@ typedef struct {
     sfInt32 timer;
     sfInt32 ms_loop;
     sfVector2i size_map;
+    sfVector2i map_max_pos_rect;
+    sfVector2i size_map_pixel;
     float zoom;
 } main_world_t;
 

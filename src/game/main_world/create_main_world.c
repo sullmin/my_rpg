@@ -12,12 +12,14 @@ static const char *hitbox = "asset/map/map.hitbox";
 
 static int get_rect_view(game_t *game)
 {
-    game->wmain->rect_init.top = 400;
-    game->wmain->rect_init.left = 400;
+    game->wmain->rect_init.top = 0;
+    game->wmain->rect_init.left = 0;
     game->wmain->rect_init.width = 480;
     game->wmain->rect_init.height = 256;
     game->wmain->rect = game->wmain->rect_init;
     WMAIN->size_map = (sfVector2i){91, 92};
+    WMAIN->map_max_pos_rect = (sfVector2i){992, 1232};
+    WMAIN->size_map_pixel = (sfVector2i){1472, 1488};
     return EXIT_SUCCESS;
 }
 
@@ -40,6 +42,7 @@ static int get_player(game_t *game)
     game->wmain->position_player.y = 6 * 16 * game->wmain->zoom;
     game->wmain->position_on_map.x = 43;
     game->wmain->position_on_map.y = 32;
+    update_map_position(game);
     return EXIT_SUCCESS;
 }
 
@@ -62,7 +65,8 @@ int create_main_world(game_t *game)
     game->wmain = malloc(sizeof(main_world_t));
     if (game->wmain == NULL)
         return EXIT_ERROR;
-    game->wmain->zoom = 4;
+    WMAIN->zoom = 4;
+    WMAIN->shift_rect = 16;
     if (get_rect_view(game) == EXIT_ERROR)
         return EXIT_ERROR;
     if (get_background(game) == EXIT_ERROR)
@@ -75,6 +79,5 @@ int create_main_world(game_t *game)
     if (create_clock(game) == EXIT_ERROR) {
         return EXIT_ERROR;
     }
-    WMAIN->shift_rect = 16;
     return EXIT_SUCCESS;
 }

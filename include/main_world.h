@@ -19,4 +19,6 @@ void event_player(game_t *game, sfEvent *event);
 
 bool mw_camera_move(game_t *game, enum direction dir);
 
+void update_map_position(game_t *game);
+
 #endif /* !MAIN_WORLD_H_ */
