@@ -11,7 +11,8 @@ static void music_manager(game_t *game)
 {
     sound_manager_set_volume(&SOUND, OPTION->volume);
     sound_manager_stop_all(&SOUND);
-    if (game->state == MAIN_MENU) {
+    if (game->state == MAIN_MENU || game->state == PAUSE_MENU ||
+        game->state == OPTION_MENU || game->state == HELP_MENU) {
         sound_manager_play(&SOUND, MUSIC1);
     }
 }
