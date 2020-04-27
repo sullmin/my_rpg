@@ -15,7 +15,7 @@ void display_main_world(game_t *game)
     sfSprite_setScale(WMAIN->sprite, (sfVector2f){WMAIN->zoom, WMAIN->zoom});
 
     sfRenderWindow_drawSprite(game->w.window, game->wmain->sprite, NULL);
-    display_player(game->w.window, &game->player_move,
-        game->player_move.in_move, game->wmain->zoom);
-    simple_pnj_move(&game->enemy, game);
+    display_player(game->w.window, &game->wmain->player_move,
+        game->wmain->player_move.in_move, game->wmain->zoom);
+    simple_pnj_move(&game->wmain->enemy, game);
 }

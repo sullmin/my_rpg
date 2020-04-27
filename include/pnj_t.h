@@ -13,7 +13,7 @@
 
 typedef struct pnj_s
 {
-    movement_t move;
+    chara_animation_t move;
     sfVector2i pos;
     sfClock *clock;
     bool sens;

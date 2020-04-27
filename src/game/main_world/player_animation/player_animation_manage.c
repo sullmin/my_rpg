@@ -8,7 +8,7 @@
 #include "movement.h"
 #include "my_rpg.h"
 
-bool movement_creat(movement_t *mov, const char *sprite)
+bool movement_creat(chara_animation_t *mov, const char *sprite)
 {
     mov->sprite = sfSprite_create();
     mov->texture = sfTexture_createFromFile(sprite, NULL);
@@ -25,7 +25,7 @@ bool movement_creat(movement_t *mov, const char *sprite)
     return true;
 }
 
-void destroy_movement(movement_t *mov)
+void destroy_movement(chara_animation_t *mov)
 {
     sfSprite_destroy(mov->sprite);
     sfTexture_destroy(mov->texture);

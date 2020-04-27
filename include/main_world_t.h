@@ -8,6 +8,9 @@
 #ifndef MAIN_WORLD_T_H_
 #define MAIN_WORLD_T_H_
 
+#include "movement_t.h"
+#include "pnj_t.h"
+
 enum direction {
     UP,
     DOWN,
@@ -30,6 +33,8 @@ typedef struct {
     sfVector2i map_max_pos_rect;
     sfVector2i size_map_pixel;
     float zoom;
+    chara_animation_t player_move;
+    pnj_t enemy;
 } main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */
