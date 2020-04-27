@@ -81,8 +81,6 @@ typedef struct game {
     pause_menu_t *pause;
     help_menu_t *help_menu;
     option_t *option;
-    movement_t player_move;
-    pnj_t enemy;
 } game_t;
 
 #endif
