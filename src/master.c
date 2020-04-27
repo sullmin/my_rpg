@@ -30,9 +30,9 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (menu_quest_create(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
-    if (!movement_creat(&game->player_move, "./asset/sprite/hero.png"))
+    if (!movement_creat(&WMAIN->player_move, "./asset/sprite/hero.png"))
         return EXIT_ERROR;
-    if (!init_pnj(&game->enemy))
+    if (!init_pnj(&WMAIN->enemy))
         return EXIT_ERROR;
     if (create_help_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
@@ -62,8 +62,8 @@ static int master_contruct_part1(game_t *game)
 
 static int master_destroy(game_t *game)
 {
-    destroy_pnj(&game->enemy);
-    destroy_movement(&game->player_move);
+    destroy_pnj(&WMAIN->enemy);
+    destroy_movement(&WMAIN->player_move);
     destroy_main_menu(game);
     destroy_option_menu(game);
     destroy_pause_menu(game);

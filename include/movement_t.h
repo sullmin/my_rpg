@@ -12,12 +12,12 @@
 #include <stdbool.h>
 #include <SFML/Graphics.h>
 
-typedef struct movement_s {
+typedef struct chara_animation_s {
     sfTexture *texture;
     sfSprite *sprite;
     sfClock *clock;
     bool orient[4];
     bool in_move;
-} movement_t;
+} chara_animation_t;
 
 #endif
