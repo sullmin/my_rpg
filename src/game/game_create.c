@@ -13,7 +13,8 @@ extern const int qwerty[];
 
 static int game_init_struct(game_t *game)
 {
-    game->state = MAIN_MENU;
+    //game->state = MAIN_MENU;
+    game->state = MAIN_WORLD;
     game->prev_state = QUIT;
     game->submenu = NO_MENU;
     return EXIT_SUCCESS;

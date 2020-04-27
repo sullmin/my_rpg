@@ -45,6 +45,7 @@ typedef enum submenu_status {
 #define MENU_QUEST game->quest_menu
 #define QUEST game->sysquest
 #define MENU_HELP game->help_menu
+#define WMAIN game->wmain
 
 #include "gui_t.h"
 #include "option_t.h"
@@ -58,7 +59,6 @@ typedef enum submenu_status {
 #include "movement_t.h"
 #include "pnj_t.h"
 #include "help_menu_t.h"
-
 
 /*
     Main structure of the program
