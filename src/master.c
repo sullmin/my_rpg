@@ -34,6 +34,8 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (!init_pnj(&game->enemy))
         return EXIT_ERROR;
+    if (create_help_menu(game) == EXIT_ERROR)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -72,6 +74,7 @@ static int master_destroy(game_t *game)
     player_inventory_destroy(&game->inventory);
     distroy_item_list(game->item_load);
     destroy_main_world(game);
+    destroy_help_menu(game);
     menu_quest_destroy(game);
     return EXIT_SUCCESS;
 }

@@ -28,6 +28,7 @@ typedef struct {
     sfInt32 timer;
     sfInt32 ms_loop;
     sfVector2i size_map;
+    float zoom;
 } main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */

@@ -8,8 +8,7 @@
 #include "movement.h"
 #include "my_rpg.h"
 
-static void player_in_movement(sfRenderWindow *window, movement_t *mov,
-    float time, sfIntRect *rec)
+static void player_in_movement(movement_t *mov, float time, sfIntRect *rec)
 {
     if (time > TIME_MOVE) {
         sfClock_restart(mov->clock);
@@ -24,11 +23,10 @@ static void player_in_movement(sfRenderWindow *window, movement_t *mov,
     else {
         rec->left = rec->width * 3;
     }
-    sfSprite_setTextureRect(mov->sprite, *rec);
-    sfRenderWindow_drawSprite(window, mov->sprite, NULL);
 }
 
-void display_player(sfRenderWindow *window, movement_t *mov, bool act_move)
+void display_player(sfRenderWindow *window, movement_t *mov, bool act_move,
+    float zoom)
 {
     sfIntRect rec = {0, 0, 32, 65};
     size_t i;
@@ -38,9 +36,15 @@ void display_player(sfRenderWindow *window, movement_t *mov, bool act_move)
     for (i = 0; i < 3 && !mov->orient[i]; i++);
     rec.top = rec.height * i;
     if (!act_move && time > TIME_MOVE) {
+        sfSprite_setScale(mov->sprite, (sfVector2f) {zoom / 2, zoom / 2});
         sfSprite_setTextureRect(mov->sprite, rec);
         sfRenderWindow_drawSprite(window, mov->sprite, NULL);
         return;
     }
-    player_in_movement(window, mov, time, &rec);
+    player_in_movement(mov, time, &rec);
+    sfSprite_setPosition(mov->sprite,
+        (sfVector2f) {1136 * (zoom / 4), 368 * (zoom / 4)});
+    sfSprite_setScale(mov->sprite, (sfVector2f) {zoom / 2, zoom / 2});
+    sfSprite_setTextureRect(mov->sprite, rec);
+    sfRenderWindow_drawSprite(window, mov->sprite, NULL);
 }
