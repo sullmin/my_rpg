@@ -16,13 +16,6 @@ static void compute_move_forward(game_t *game)
         == '.') {
         WMAIN->position_on_map.y -= 1;
         mw_camera_move(game, UP);
-        if (WMAIN->rect->top - 16 > 0) {
-            WMAIN->rect->top -= 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.y -= 16 * WMAIN->zoom;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
     }
 }
 
@@ -35,13 +28,6 @@ static void compute_move_backward(game_t *game)
         == '.') {
         WMAIN->position_on_map.y += 1;
         mw_camera_move(game, DOWN);
-        if (WMAIN->rect->top + 16 <= 1232) {
-        WMAIN->rect->top += 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.y += 16 * WMAIN->zoom;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
     }
 }
 
@@ -54,13 +40,6 @@ static void compute_move_right(game_t *game)
         == '.') {
         WMAIN->position_on_map.x += 1;
         mw_camera_move(game, RIGHT);
-        if (WMAIN->rect->left + 16 <= 992) {
-            WMAIN->rect->left += 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.x += 16 * WMAIN->zoom;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
     }
 }
 
@@ -73,13 +52,6 @@ static void compute_move_left(game_t *game)
         == '.') {
         WMAIN->position_on_map.x -= 1;
         mw_camera_move(game, LEFT);
-        if (WMAIN->rect->left - 16 > 0) {
-            WMAIN->rect->left -= 16;
-            sfSprite_setTextureRect(WMAIN->sprite, *WMAIN->rect);
-        } else {
-            WMAIN->position_player.x -= 16 * WMAIN->zoom;
-            sfSprite_setPosition(WMAIN->s_player, WMAIN->position_player);
-        }
     }
 }
 
