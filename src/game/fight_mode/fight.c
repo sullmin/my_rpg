@@ -5,64 +5,68 @@
 ** fight mode
 */
 
-#include "my_rpg.h"
+#include <SFML/Graphics.h>
+#include <stdlib.h>
+#include "fight.h"
 
-static int init_variables(sfClock **inter_clock, sfClock **update,
-                        combination_t **events, game_t *game)
+static int init_variables(fight_run_t *rfight, fight_mode_t *mfight)
 {
-    if (*inter_clock == NULL)
-        *inter_clock = sfClock_create();
-    if (*update == NULL)
-        *update = sfClock_create();
-    if (*events == NULL) {
-        *events = create_fight_events(game);
-        game->wfight.win = true;
-    }
-    if (*events == NULL || *update == NULL || *inter_clock == NULL)
+    rfight->inter_clock = sfClock_create();
+    if (rfight->inter_clock)
         return EXIT_ERROR;
+    rfight->update = sfClock_create();
+    if (rfight->update) {
+        sfClock_destroy(rfight->inter_clock);
+        return EXIT_ERROR;
+    }
+    rfight->events = create_fight_events(mfight, rfight->window);
+    if (rfight->events == NULL) {
+        sfClock_destroy(rfight->inter_clock);
+        sfClock_destroy(rfight->update);
+        return EXIT_ERROR;
+    }
     return EXIT_SUCCESS;
 }
 
-static bool is_finish(game_t *game, combination_t *events)
+static bool is_finish(int actions, combination_t *events)
 {
-    for (int i = 0; i < game->wfight.actions; i++)
+    for (int i = 0; i < actions; i++)
         for (int k = 0; k < events[i].nbr_comb; k++)
             if (!events[i].group[k].finish)
                 return false;
     return true;
 }
 
-static void spawn_events(game_t *game, combination_t events,
+static void spawn_events(float interval, combination_t events,
                         sfInt64 microseconds, int n)
 {
-    if (microseconds / 1000 > n * game->wfight.interval)
+    if (microseconds / 1000 > n * interval)
         for (int i = 0; i < events.nbr_comb; i++)
             events.group[i].toggle = true;
 }
 
-static int fight_loop(game_t *game)
+static int fight_loop(fight_mode_t *mfight, fight_run_t *rfight)
 {
-    static sfClock *inter_clock = NULL;
-    static sfClock *update = NULL;
-    static combination_t *events = NULL;
-
-    if (init_variables(&inter_clock, &update, &events, game) == EXIT_ERROR)
-        return EXIT_ERROR;
-    for (int i = 0; i < game->wfight.actions; i++) {
-        spawn_events(game, events[i],
-                    sfClock_getElapsedTime(inter_clock).microseconds, i);
-        event_group_run(game, events[i],
-            sfClock_getElapsedTime(update).microseconds);
-        manage_keys_pressed(&events[i]);
+    for (int i = 0; i < mfight->actions; i++) {
+        spawn_events(mfight->interval, rfight->events[i],
+                    sfClock_getElapsedTime(rfight->inter_clock).microseconds, i);
+        event_group_run(mfight, rfight, rfight->events[i],
+            sfClock_getElapsedTime(rfight->update).microseconds);
+        manage_keys_pressed(&rfight->events[i]);
     }
-    sfClock_restart(update);
-    if (is_finish(game, events))
-        destroy_events(&events, &inter_clock, &update, game->wfight.actions);
+    sfClock_restart(rfight->update);
+    if (is_finish(mfight->actions, rfight->events))
+        destroy_events(rfight, mfight->actions);
     return EXIT_SUCCESS;
 }
 
-void fight_mode(game_t *game)
+int play_fight(window_t window, fight_mode_t mfight)
 {
-    if (fight_loop(game) == EXIT_ERROR)
-        game->state = ERR;
+    fight_run_t rfight = {NULL, NULL, NULL, window, true};
+
+    if (init_variables(&rfight, &mfight) == EXIT_ERROR)
+        return EXIT_ERROR;
+    if (fight_loop(&mfight, &rfight) == EXIT_ERROR)
+        return EXIT_ERROR;
+    return rfight.win;
 }

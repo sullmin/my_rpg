@@ -8,6 +8,9 @@
 #ifndef H_FIGHT_MODE
 #define H_FIGHT_MODE
 
+#include "isow.h"
+//#include "window_t.h"
+
 #define KEY_TAB_SIZE 36
 
 #define KEYS_MAX_SIZE 100
@@ -42,14 +45,22 @@ typedef struct fight_mode_s
     float interval;
     float speed;
     int comb;
-    bool win;
 } fight_mode_t;
 
-void fight_mode(game_t *game);
-combination_t *create_fight_events(game_t *game);
-void destroy_events(combination_t **key_events, sfClock **inter_clock,
-                    sfClock **update, int actions);
-void event_group_run(game_t *game, combination_t events, float ms);
+typedef struct fight_run_s
+{
+    sfClock *inter_clock;
+    sfClock *update;
+    combination_t *events;
+    window_t window;
+    bool win;
+} fight_run_t;
+
+int play_fight(window_t window, fight_mode_t mfight);
+combination_t *create_fight_events(fight_mode_t *mfight, window_t window);
+void destroy_events(fight_run_t *rfight, int actions);
+void event_group_run(fight_mode_t *mfight, fight_run_t *rfight,
+                    combination_t events, float ms);
 void manage_keys_pressed(combination_t *events);
 
 #endif
