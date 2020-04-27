@@ -66,5 +66,8 @@ int isow_create(game_t *game)
     if (kinem_create(&ISOW) != EXIT_SUCCESS) {
         return EXIT_ERROR;
     }
+    ISOW.event.player_move_key_h = 0;
+    ISOW.event.player_move_key_v = 0;
+    ISOW.event.player_move = false;
     return EXIT_SUCCESS;
 }
