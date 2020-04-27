@@ -151,8 +151,8 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_event.c								\
 				$(DSRC)game/function_array.c							\
 				$(DSRC)game/set_game_state.c							\
-				$(DSRC)game/move/movement_player.c						\
-				$(DSRC)game/move/movement_manage.c						\
+				$(DSRC)game/move/player_animation_player.c				\
+				$(DSRC)game/move/player_animation_manage.c				\
 				$(DSRC)game/move/input_manage.c							\
 				$(DSRC)game/enemy/init_enemy.c							\
 				$(DSRC)game/enemy/enemy_move.c							\
