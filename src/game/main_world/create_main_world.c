@@ -9,6 +9,7 @@
 
 static const char *background = "asset/sprite/background.png";
 static const char *hitbox = "asset/map/map.hitbox";
+static const float SHIFT_POS = 0.5;
 
 static int get_rect_view(game_t *game)
 {
@@ -40,6 +41,8 @@ static int get_player(game_t *game)
 {
     WMAIN->position_on_map.x = 43;
     WMAIN->position_on_map.y = 32;
+    update_position_on_map(game);
+    WMAIN->shift_pos = SHIFT_POS;
     update_map_position(game);
     return EXIT_SUCCESS;
 }

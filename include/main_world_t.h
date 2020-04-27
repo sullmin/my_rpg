@@ -24,7 +24,9 @@ typedef struct {
     sfIntRect rect_init;
     sfIntRect rect;
     char **hitbox;
-    sfVector2i position_on_map;
+    sfVector2f position_on_map;
+    sfVector2i pos_on_map_int;
+    float shift_pos;
     int shift_rect;
     sfClock *clock;
     sfInt32 timer;

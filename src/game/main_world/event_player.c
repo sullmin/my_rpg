@@ -9,27 +9,28 @@
 
 static void compute_move_forward(game_t *game)
 {
-    if (WMAIN->position_on_map.y - 1 < 0) {
+    if (WMAIN->pos_on_map_int.y - WMAIN->shift_pos < 0) {
         return;
     }
-    if (WMAIN->hitbox[WMAIN->position_on_map.y - 1][WMAIN->position_on_map.x]
-        != '.') {
+    if (!is_right_position(game, UP)) {
         return;
     }
-    WMAIN->position_on_map.y -= 1;
+    WMAIN->position_on_map.y -= WMAIN->shift_pos;
+    update_position_on_map(game);
     update_map_position(game);
 }
 
 static void compute_move_backward(game_t *game)
 {
-    if (WMAIN->position_on_map.y + 1 >= WMAIN->size_map.y) {
+    if (WMAIN->position_on_map.y + WMAIN->shift_pos
+        >= WMAIN->size_map.y) {
         return;
     }
-    if (WMAIN->hitbox[WMAIN->position_on_map.y + 1][WMAIN->position_on_map.x]
-        != '.') {
+    if (!is_right_position(game, DOWN)) {
         return;
     }
-    WMAIN->position_on_map.y += 1;
+    WMAIN->position_on_map.y += WMAIN->shift_pos;
+    update_position_on_map(game);
     update_map_position(game);
 }
 
@@ -37,11 +38,11 @@ static void compute_move_right(game_t *game)
 {
     if (WMAIN->position_on_map.x + 1 >= WMAIN->size_map.x)
         return;
-    if (WMAIN->hitbox[WMAIN->position_on_map.y][WMAIN->position_on_map.x + 1]
-        != '.') {
+    if (!is_right_position(game, RIGHT)) {
         return;
     }
-    WMAIN->position_on_map.x += 1;
+    WMAIN->position_on_map.x += WMAIN->shift_pos;
+    update_position_on_map(game);
     update_map_position(game);
 }
 
@@ -50,11 +51,11 @@ static void compute_move_left(game_t *game)
     if (WMAIN->position_on_map.x - 1 < 0) {
         return;
     }
-    if (WMAIN->hitbox[WMAIN->position_on_map.y][WMAIN->position_on_map.x - 1]
-        != '.') {
+    if (!is_right_position(game, LEFT)) {
         return;
     }
-    WMAIN->position_on_map.x -= 1;
+    WMAIN->position_on_map.x -= WMAIN->shift_pos;
+    update_position_on_map(game);
     update_map_position(game);
 }
 
