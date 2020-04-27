@@ -36,6 +36,15 @@ typedef struct combination_s
     int nbr_comb;
 } combination_t;
 
+typedef struct fight_mode_s
+{
+    int actions;
+    float interval;
+    float speed;
+    int comb;
+    bool win;
+} fight_mode_t;
+
 void fight_mode(game_t *game);
 combination_t *create_fight_events(game_t *game);
 void destroy_events(combination_t **key_events, sfClock **inter_clock,

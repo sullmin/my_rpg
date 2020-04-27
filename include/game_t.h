@@ -9,7 +9,6 @@
 #define H_GAME_T
 
 #include "quest_t.h"
-#include "fight_t.h"
 
 /*
     Define the state of the program (in game loop)
@@ -19,11 +18,10 @@ typedef enum game_status {
     ERR = 1,
     MAIN_MENU = 2,
     PAUSE_MENU = 3,
-    FIGHT_MODE = 4,
-    MAIN_WORLD = 5,
-    ISO_WORLD = 6,
-    OPTION_MENU = 7,
-    HELP_MENU = 8
+    MAIN_WORLD = 4,
+    ISO_WORLD = 5,
+    OPTION_MENU = 6,
+    HELP_MENU = 7
 } game_status_t;
 
 typedef enum submenu_status {
@@ -34,7 +32,7 @@ typedef enum submenu_status {
     MHIST = 3
 } submenu_status_t;
 
-#define NB_GAME_STATE 9
+#define NB_GAME_STATE 8
 #define NB_SUB_MENU 4
 
 #define OPTION game->option
@@ -78,7 +76,6 @@ typedef struct game {
     isow_t wiso;
     main_world_t *wmain;
     quest_menu_t quest_menu;
-    fight_mode_t wfight;
     main_menu_t *menu;
     option_menu_t *option_menu;
     pause_menu_t *pause;

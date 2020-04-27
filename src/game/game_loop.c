@@ -18,7 +18,7 @@ static void crossroads(game_t *game)
     if (fct_exec[game->state] != NULL)
         fct_exec[game->state](game);
     if (game->sysquest.play_dialogue == true && (game->state == MAIN_WORLD
-            || game->state == ISO_WORLD || game->state == FIGHT_MODE)) {
+            || game->state == ISO_WORLD)) {
         dialogue_display(game);
     }
     if (game->submenu != NO_MENU && fct_exec_sub_menu[game->submenu]

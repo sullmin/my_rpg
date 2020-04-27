@@ -21,7 +21,6 @@
 #include "window.h"
 #include "quest_menu.h"
 #include "game.h"
-#include "fight.h"
 #include "isow.h"
 #include "quest_system.h"
 #include "inventory_system.h"
