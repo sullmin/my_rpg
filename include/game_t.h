@@ -44,6 +44,7 @@ typedef enum submenu_status {
 #define QUEST game->sysquest
 #define MENU_HELP game->help_menu
 #define WMAIN game->wmain
+#define MENU_CREDIT game->credit_menu
 
 #include "gui_t.h"
 #include "option_t.h"
@@ -57,6 +58,7 @@ typedef enum submenu_status {
 #include "movement_t.h"
 #include "pnj_t.h"
 #include "help_menu_t.h"
+#include "credit_menu_t.h"
 
 /*
     Main structure of the program
@@ -79,6 +81,7 @@ typedef struct game {
     main_menu_t *menu;
     option_menu_t *option_menu;
     pause_menu_t *pause;
+    credit_menu_t credit_menu;
     help_menu_t *help_menu;
     option_t *option;
 } game_t;
