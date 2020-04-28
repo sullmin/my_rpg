@@ -14,4 +14,8 @@ int credit_menu_create(game_t *game);
 
 void credit_menu_destroy(game_t *game);
 
+void credit_menu_display(game_t *game);
+
+void credit_menu_event(game_t *game, sfEvent *event);
+
 #endif

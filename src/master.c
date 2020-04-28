@@ -36,6 +36,8 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (create_help_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (credit_menu_create(game) == EXIT_ERROR)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -79,6 +81,7 @@ static int master_destroy(game_t *game)
     destroy_main_world(game);
     destroy_help_menu(game);
     menu_quest_destroy(game);
+    credit_menu_destroy(game);
     return EXIT_SUCCESS;
 }
 

@@ -15,7 +15,8 @@ FUNC_EXEC fct_exec[NB_GAME_STATE] = {
     &display_main_world, // Main World
     &isow_run, // Iso World
     &display_option_menu, // Option Menu
-    &display_help_menu
+    &display_help_menu,
+    &credit_menu_display
 };
 
 FUNC_EVENT fct_event[NB_GAME_STATE] = {
@@ -26,7 +27,8 @@ FUNC_EVENT fct_event[NB_GAME_STATE] = {
     &event_main_world, // Main World
     &isow_event_manager, // Iso World
     &event_option_menu, // Option Menu
-    &event_help_menu
+    &event_help_menu,
+    &credit_menu_event
 };
 
 FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU] = {

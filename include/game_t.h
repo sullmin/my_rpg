@@ -21,7 +21,8 @@ typedef enum game_status {
     MAIN_WORLD = 4,
     ISO_WORLD = 5,
     OPTION_MENU = 6,
-    HELP_MENU = 7
+    HELP_MENU = 7,
+    CREDIT_MENU = 8
 } game_status_t;
 
 typedef enum submenu_status {
@@ -32,7 +33,7 @@ typedef enum submenu_status {
     MHIST = 3
 } submenu_status_t;
 
-#define NB_GAME_STATE 8
+#define NB_GAME_STATE 9
 #define NB_SUB_MENU 4
 
 #define OPTION game->option
