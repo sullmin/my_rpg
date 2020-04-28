@@ -7,6 +7,8 @@
 
 #include "my_rpg.h"
 
+static const sfVector2f NULL_VECTOR = {0, 0};
+
 static int load_texture(game_t *game)
 {
     char *path_back = GET_VAR(game, "CREDIT_BACK");
@@ -23,6 +25,8 @@ static int load_texture(game_t *game)
     }
     sfSprite_setTexture(MENU_CREDIT.spr_back, MENU_CREDIT.txr_back, true);
     sfSprite_setTexture(MENU_CREDIT.spr_front, MENU_CREDIT.txr_front, true);
+    sfSprite_setPosition(MENU_CREDIT.spr_back, NULL_VECTOR);
+    sfSprite_setPosition(MENU_CREDIT.spr_front, MENU_CREDIT.pos_front);
     free(path_back);
     free(path_front);
     return EXIT_SUCCESS;
