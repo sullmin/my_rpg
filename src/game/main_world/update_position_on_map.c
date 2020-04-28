@@ -41,11 +41,19 @@ static size_t add_tests(sfVector2f futur_pos, sfVector2i *pos)
 
 static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
 {
-    if (WMAIN->hitbox[pos[i].y][pos[i].x] != '.' &&
-        !(WMAIN->hitbox[pos[i].y][pos[i].x] == 'P' &&
-            is_in_player_inv(&game->inventory, "113")))
-        return false;
-    return true;
+    bool stat = false;
+
+    if (WMAIN->hitbox[pos[i].y][pos[i].x] == '.')
+        stat = true;
+    else if ((WMAIN->hitbox[pos[i].y][pos[i].x] == 'P' &&
+            is_in_player_inv(&game->inventory, "113"))) {
+        stat = true;
+        if (as_seconds(WMAIN->sound_effect[0].clock) > 2) {
+            sfSound_play(WMAIN->sound_effect[0].sound);
+            sfClock_restart(WMAIN->sound_effect[0].clock);
+        }
+    }
+    return stat;
 }
 
 bool is_right_position(game_t *game, enum direction dir)

@@ -43,7 +43,6 @@ static int get_player(game_t *game)
     WMAIN->position_on_map.y = 32;
     update_position_on_map(game);
     WMAIN->shift_pos = SHIFT_POS;
-    update_map_position(game);
     return EXIT_SUCCESS;
 }
 
