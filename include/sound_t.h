@@ -11,6 +11,7 @@
 typedef struct sound_s {
     sfSound *sound;
     sfSoundBuffer *buffer;
+    sfClock *clock;
 } sound_t;
 
 #endif /* !SOUND_T_H_ */
