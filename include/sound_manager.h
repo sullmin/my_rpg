@@ -14,10 +14,11 @@
 #include "my.h"
 
 #define WALK 0
-#define SUCCESS 1
-#define CLOCHE 2
-#define MUSIC2 3
-#define MUSIC1 4
+#define FANTASY_THEME 1
+#define ISO_WORLD_THEME 2
+#define SUCCESS 3
+#define CLOCHE 4
+#define MENU_THEME 5
 
 typedef struct sound_manager {
     int size;

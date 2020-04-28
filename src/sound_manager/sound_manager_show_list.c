@@ -21,7 +21,7 @@ void sound_manager_show_list(sound_manager_t *sm)
         filename = my_file_list_read(sm->file_list);
         if (filename) {
             my_printf("%s%s<SOUND FILE>:\t", GREEN_C, BOLD_T);
-            my_printf("%s\t{OK} ===> [ID: %d]\n", filename, idx);
+            my_printf("%s\t\t{OK} ===> [ID: %d]\n", filename, idx);
             my_putstr(DEFAULT_T);
             idx++;
         }
