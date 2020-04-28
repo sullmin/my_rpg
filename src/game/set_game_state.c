@@ -14,6 +14,8 @@ static void music_manager(game_t *game)
     if (game->state == MAIN_MENU || game->state == PAUSE_MENU ||
         game->state == OPTION_MENU || game->state == HELP_MENU) {
         sound_manager_play(&SOUND, MUSIC1);
+    } else if (game->state == MAIN_WORLD) {
+        sound_manager_play(&SOUND, MUSIC1);
     }
 }
 

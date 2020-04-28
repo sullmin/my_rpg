@@ -15,10 +15,9 @@
 
 #define WALK 0
 #define SUCCESS 1
-#define DOOR 2
-#define CLOCHE 3
-#define MUSIC2 4
-#define MUSIC1 5
+#define CLOCHE 2
+#define MUSIC2 3
+#define MUSIC1 4
 
 typedef struct sound_manager {
     int size;
