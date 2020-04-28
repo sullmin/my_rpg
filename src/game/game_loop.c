@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "fight.h"
 
 extern FUNC_EXEC fct_exec[NB_GAME_STATE];
 extern FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU];
@@ -44,8 +45,10 @@ int game_loop(game_t *game)
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
-        if (run(game) == EXIT_ERROR)
-            return EXIT_ERROR;
+        play_fight(game->w, (fight_mode_t) {3, 2000, 0.8, 3});
+        exit(0);
+        /*if (run(game) == EXIT_ERROR)
+            return EXIT_ERROR;*/
         if (game->state == QUIT) {
             event_window_close(game);
         }
