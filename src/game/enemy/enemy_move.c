@@ -34,7 +34,7 @@ static void display_pnj(pnj_t *pnj, game_t *game, bool stat)
 
     if (is_in_player_vis(pnj, game)) {
         pos.x = (pnj->pos.x - PLAYER.x) * 64 + 1152;
-        pos.y = (pnj->pos.y - PLAYER.y) * 64 + 384;
+        pos.y = (pnj->pos.y - PLAYER.y) * 64 + 370;
         sfSprite_setPosition(pnj->move.sprite, pos);
         display_player(game->w.window, &pnj->move, stat, game->wmain->zoom);
     }

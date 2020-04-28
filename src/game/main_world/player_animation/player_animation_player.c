@@ -42,8 +42,6 @@ void display_player(sfRenderWindow *window, chara_animation_t *mov, bool act_mov
         return;
     }
     player_in_movement(mov, time, &rec);
-    sfSprite_setPosition(mov->sprite,
-        (sfVector2f) {1136 * (zoom / 4), 368 * (zoom / 4)});
     sfSprite_setScale(mov->sprite, (sfVector2f) {zoom / 2, zoom / 2});
     sfSprite_setTextureRect(mov->sprite, rec);
     sfRenderWindow_drawSprite(window, mov->sprite, NULL);
