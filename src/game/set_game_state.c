@@ -13,7 +13,12 @@ static void music_manager(game_t *game)
     sound_manager_stop_all(&SOUND);
     if (game->state == MAIN_MENU || game->state == PAUSE_MENU ||
         game->state == OPTION_MENU || game->state == HELP_MENU) {
-        sound_manager_play(&SOUND, MUSIC1);
+        sound_manager_play(&SOUND, MENU_THEME);
+    } else if (game->state == MAIN_WORLD) {
+        sound_manager_play(&SOUND, FANTASY_THEME);
+    }
+    if (game->state == ISO_WORLD) {
+        sound_manager_play(&SOUND, ISO_WORLD_THEME);
     }
 }
 
