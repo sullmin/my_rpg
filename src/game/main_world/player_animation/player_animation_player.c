@@ -8,7 +8,8 @@
 #include "movement.h"
 #include "my_rpg.h"
 
-static void player_in_movement(chara_animation_t *mov, float time, sfIntRect *rec)
+static void player_in_movement(chara_animation_t *mov, float time,
+    sfIntRect *rec)
 {
     if (time > TIME_MOVE) {
         sfClock_restart(mov->clock);
@@ -25,8 +26,8 @@ static void player_in_movement(chara_animation_t *mov, float time, sfIntRect *re
     }
 }
 
-void display_player(sfRenderWindow *window, chara_animation_t *mov, bool act_move,
-    float zoom)
+void display_player(sfRenderWindow *window, chara_animation_t *mov,
+    bool act_move, float zoom)
 {
     sfIntRect rec = {0, 0, 32, 65};
     size_t i;

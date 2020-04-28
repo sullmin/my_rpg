@@ -60,6 +60,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c					\
 				$(DSRC)game/main_world/player_animation/player_animation_player.c				\
 				$(DSRC)game/main_world/player_animation/player_animation_manage.c				\
 				$(DSRC)game/main_world/player_animation/input_manage.c							\
+				$(DSRC)game/main_world/player_animation/sound.c							\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\

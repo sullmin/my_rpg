@@ -9,6 +9,7 @@
 #define MAIN_WORLD_T_H_
 
 #include "movement_t.h"
+#include "sound_t.h"
 #include "pnj_t.h"
 
 enum direction {
@@ -37,6 +38,7 @@ typedef struct {
     float zoom;
     chara_animation_t player_move;
     pnj_t enemy;
+    sound_t *sound_effect;
 } main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */

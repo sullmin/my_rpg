@@ -7,6 +7,9 @@
 
 #include "my_rpg.h"
 
+bool load_sound_effect(game_t *game);
+void destroy_sound_effect(game_t *game);
+
 static int load_config_files(game_t *game)
 {
     int ret;
@@ -36,6 +39,8 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (create_help_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (!load_sound_effect(game))
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -62,6 +67,7 @@ static int master_contruct_part1(game_t *game)
 
 static int master_destroy(game_t *game)
 {
+    destroy_sound_effect(game);
     destroy_pnj(&WMAIN->enemy);
     destroy_movement(&WMAIN->player_move);
     destroy_main_menu(game);
