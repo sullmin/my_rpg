@@ -23,5 +23,6 @@ void set_game_state(game_t *game, game_status_t new_state)
         game->prev_state = game->state;
     }
     game->state = new_state;
+    sound_effect_set_volume(game);
     music_manager(game);
 }

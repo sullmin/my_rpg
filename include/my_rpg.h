@@ -31,6 +31,7 @@
 #include "main_world.h"
 #include "movement.h"
 #include "pnj.h"
+#include "sound.h"
 
 #define ENV(game) &game->env
 
