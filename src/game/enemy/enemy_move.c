@@ -40,6 +40,18 @@ static void display_pnj(pnj_t *pnj, game_t *game, bool stat)
     }
 }
 
+static void play_sound(game_t *game, pnj_t *pnj, bool stat)
+{
+    float dist = point_length((sfVector2f) {PLAYER.x, PLAYER.y},
+        (sfVector2f) {pnj->pos.x, pnj->pos.y});
+
+    if (dist > 10 || !stat || game->wmain->player_move.in_move)
+        return;
+    dist = 10 - dist;
+    sfSound_setVolume(WMAIN->sound_effect[1].sound, dist * 10);
+    sfSound_play(WMAIN->sound_effect[1].sound);
+}
+
 void simple_pnj_move(pnj_t *pnj, game_t *game)
 {
     bool stat = true;
@@ -58,6 +70,7 @@ void simple_pnj_move(pnj_t *pnj, game_t *game)
             else
                 built_it(&pnj->move, 0);
         }
+        play_sound(game, pnj, stat);
         sfClock_restart(pnj->clock);
     }
     display_pnj(pnj, game, stat);
