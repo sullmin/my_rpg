@@ -7,9 +7,9 @@
 
 #include "my_rpg.h"
 
-static const sfColor COLOR_FRONT = (sfColor) {255, 0, 0, 255};
-static const sfColor COLOR_BACK = (sfColor) {0, 0, 0, 255};
-static const sfColor COLOR_TEXT = (sfColor) {255, 255, 225, 255};
+static const sfColor COLOR_FRONT = {255, 0, 0, 255};
+static const sfColor COLOR_BACK = {0, 0, 0, 255};
+static const sfColor COLOR_TEXT = {255, 255, 225, 255};
 static const unsigned int TEXT_SIZE = 20;
 static const char *FONT_PATH = "./asset/font/BebasNeue-Regular.ttf";
 static const unsigned int DEF_PERCENT = 50;

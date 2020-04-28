@@ -18,10 +18,16 @@ list_t *make_list(item_t *first)
     return start;
 }
 
-bool add_one(list_t *my_list, item_t *other)
+bool add_one(list_t **my_list, item_t *other)
 {
-    list_t *end = my_list;
+    list_t *end = *my_list;
 
+    if (!(*my_list)) {
+        *my_list = make_list(other);
+        if (!(*my_list))
+            return false;
+        return true;
+    }
     while (end->next)
         end = end->next;
     end->next = malloc(sizeof(list_t));
@@ -32,7 +38,7 @@ bool add_one(list_t *my_list, item_t *other)
     return true;
 }
 
-void distroy(list_t *list)
+void distroy_item_list(list_t *list)
 {
     list_t *temp = list;
     list_t *end = list;
@@ -44,4 +50,31 @@ void distroy(list_t *list)
         free(temp);
         temp = end;
     }
+}
+
+static list_t *set_all_item(void)
+{
+    char *path[] = {"./asset/config/soap.conf", "./asset/config/knife.conf",
+                    "./asset/config/key.conf",
+                    NULL,
+                    };
+    list_t *ret = NULL;
+    item_t *tmp;
+
+    for (size_t i = 0; path[i]; i++) {
+        tmp = item_load(path[i]);
+        if (!tmp)
+            return NULL;
+        if (!add_one(&ret, tmp))
+            return NULL;
+    }
+    return ret;
+}
+
+bool item_manage(list_t **list)
+{
+    *list = set_all_item();
+    if (!(*list))
+        return false;
+    return true;
 }

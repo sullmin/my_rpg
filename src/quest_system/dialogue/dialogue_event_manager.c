@@ -7,6 +7,8 @@
 
 #include "my_rpg.h"
 
+static const sfKeyCode KEY_EXIT = sfKeyEscape;
+
 bool dialogue_read_next_sentence(sys_quest_t *sysquest)
 {
     list_str_t *dialogue = NULL;
@@ -24,16 +26,21 @@ bool dialogue_read_next_sentence(sys_quest_t *sysquest)
     return true;
 }
 
-int dialogue_event_manager(game_t *game, sfEvent *event)
+bool dialogue_event_manager(game_t *game, sfEvent *event)
 {
     if (!game || game->sysquest.play_dialogue == false) {
-        return EXIT_FAILURE;
+        return false;
+    }
+    if (event && event->type == sfEvtKeyPressed) {
+        return true;
     } else if (!event || (event->type != sfEvtKeyReleased
             && event->type != sfEvtMouseButtonReleased)) {
-        return EXIT_FAILURE;
+        return false;
     }
-    if (dialogue_read_next_sentence(&game->sysquest) == false) {
+    if (event->type == sfEvtKeyReleased && event->key.code == KEY_EXIT) {
+        game->sysquest.play_dialogue = false;
+    } else if (dialogue_read_next_sentence(&game->sysquest) == false) {
         game->sysquest.play_dialogue = false;
     }
-    return EXIT_SUCCESS;
+    return true;
 }

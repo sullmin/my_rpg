@@ -19,13 +19,18 @@
 #include "gui.h"
 #include "my_math.h"
 #include "window.h"
-#include "quest_system.h"
+#include "quest_menu.h"
 #include "game.h"
-#include "fight.h"
+#include "isow.h"
+#include "quest_system.h"
 #include "inventory_system.h"
 #include "option_menu.h"
 #include "main_menu.h"
+#include "help_menu.h"
 #include "pause_menu.h"
+#include "main_world.h"
+#include "movement.h"
+#include "pnj.h"
 
 #define ENV(game) &game->env
 
@@ -43,18 +48,13 @@
 typedef void (* const FUNC_EXEC)(game_t *game);
 typedef void (* const FUNC_EVENT)(game_t *game, sfEvent *event);
 
-// Information Importantes !!!!
-// Etant donne que le projet est consequent et pour eviter les merges
-// ne PAS mettre les prototypes de vos fonctions dans ce header
-// mais creer un .h dedie et l'inclure dans celui-ci
-
-// #include "quest_system.h"
-// #include "inventory_system.h"
-// #include "main_menu.h"
-// ...
-
 // Just the main function's prototypes are in this header
 int usage(int status, const char *program_name);
 int master(void);
+
+void set_game_state(game_t *game, game_status_t new_state);
+
+// TEMP
+void display_player_gui(game_t *game);
 
 #endif

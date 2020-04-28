@@ -9,6 +9,7 @@
 
 void display_option_menu(game_t *game)
 {
+    sfRenderWindow_drawSprite(WINDOW, MENU_OPTION->spr_background, NULL);
     display_button(game->option_menu->azerty, game->w.window);
     display_button(game->option_menu->qwerty, game->w.window);
     display_button(game->option_menu->keypad, game->w.window);

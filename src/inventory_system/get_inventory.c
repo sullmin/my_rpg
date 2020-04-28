@@ -23,7 +23,7 @@ static item_t **get_tab_inventory(size_t size)
 
 bool player_inventory_creat(player_inventory_t *inv, env_t *env)
 {
-    bool err;
+    bool err = false;
 
     inv->size = my_env_get_value_int(env, "INVENTORY_SIZE", &err);
     if (err || inv->size <= 0)
@@ -32,11 +32,20 @@ bool player_inventory_creat(player_inventory_t *inv, env_t *env)
     if (!inv->inventory)
         return false;
     inv->nb_item = 0;
+    inv->sprite = sfSprite_create();
+    inv->texture = sfTexture_createFromFile(INV_SPRITE, NULL);
+    if (!inv->texture || !inv->sprite)
+        return false;
+    sfSprite_setTexture(inv->sprite, inv->texture, sfTrue);
+    inv->pos.x = my_env_get_value_int(env, "INVENTORY_POSX", NULL);
+    inv->pos.y = my_env_get_value_int(env, "INVENTORY_POSY", NULL);
+    sfSprite_setPosition(inv->sprite, inv->pos);
     return true;
 }
 
 void player_inventory_destroy(player_inventory_t *inv)
 {
-    //free item who is in?
     free(inv->inventory);
+    sfSprite_destroy(inv->sprite);
+    sfTexture_destroy(inv->texture);
 }

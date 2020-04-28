@@ -8,7 +8,7 @@
 #ifndef H_QUEST_T
 #define H_QUEST_T
 
-#define NB_QUEST 1
+#define NB_QUEST 10
 
 #define IDX_DIALOGUE_END -1
 #define IDX_DIALOGUE_FAIL -2

@@ -9,6 +9,8 @@
 
 void destroy_option_menu(game_t *game)
 {
+    sfTexture_destroy(MENU_OPTION->txr_background);
+    sfSprite_destroy(MENU_OPTION->spr_background);
     destroy_button(game->option_menu->azerty);
     destroy_button(game->option_menu->qwerty);
     destroy_button(game->option_menu->keypad);

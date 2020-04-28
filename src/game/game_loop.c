@@ -6,8 +6,10 @@
 */
 
 #include "my_rpg.h"
+#include "fight.h"
 
 extern FUNC_EXEC fct_exec[NB_GAME_STATE];
+extern FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU];
 
 static void crossroads(game_t *game)
 {
@@ -16,8 +18,13 @@ static void crossroads(game_t *game)
     }
     if (fct_exec[game->state] != NULL)
         fct_exec[game->state](game);
-    if (game->sysquest.play_dialogue == true) {
+    if (game->sysquest.play_dialogue == true && (game->state == MAIN_WORLD
+            || game->state == ISO_WORLD)) {
         dialogue_display(game);
+    }
+    if (game->submenu != NO_MENU && fct_exec_sub_menu[game->submenu]
+            && (game->state == MAIN_WORLD || game->state == ISO_WORLD)) {
+        fct_exec_sub_menu[game->submenu](game);
     }
 }
 
@@ -41,8 +48,13 @@ int game_loop(game_t *game)
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
-        if (run(game) == EXIT_ERROR)
-            return EXIT_ERROR;
+        play_fight(game->w, (fight_mode_t) {3, 2000, 0.8, 3});
+        exit(0);
+        /*if (run(game) == EXIT_ERROR)
+            return EXIT_ERROR;*/
+        if (game->state == QUIT) {
+            event_window_close(game);
+        }
     }
     return EXIT_SUCCESS;
 }

@@ -19,12 +19,12 @@ int sysquest_check_end(game_t *game);
 
 // DIALOGUE
 int dialogue_display(game_t *game);
-int dialogue_event_manager(game_t *game, sfEvent *event);
+bool dialogue_event_manager(game_t *game, sfEvent *event);
 
 /////////
 
 // Quest sub-function
-int quest_finish(sys_quest_t *quests, game_t *game, size_t id);
+int quest_finish(game_t *game, const size_t id);
 
 // Dialogue sub-function
 void dialogue_play(sys_quest_t *quests, int id);

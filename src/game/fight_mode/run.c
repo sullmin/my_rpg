@@ -5,7 +5,9 @@
 ** run fight
 */
 
-#include "my_rpg.h"
+#include <SFML/Graphics.h>
+#include <stdlib.h>
+#include "fight.h"
 
 static bool update_event_size(key_event_t *key, sfInt64 speed)
 {
@@ -28,13 +30,15 @@ static bool update_event_size(key_event_t *key, sfInt64 speed)
     return false;
 }
 
-void event_group_run(game_t *game, combination_t events, float ms)
+void event_group_run(fight_mode_t *mfight, fight_run_t *rfight,
+                    combination_t events, float ms)
 {
     for (int i = 0; i < events.nbr_comb; i++) {
-        if (update_event_size(&events.group[i], ms * game->wfight.speed))
-            game->wfight.win = false;
+        if (update_event_size(&events.group[i], ms * mfight->speed))
+            rfight->win = false;
         if (events.group[i].size > 0)
-            sfRenderWindow_drawText(game->w.window, events.group[i].text, NULL);
+            sfRenderWindow_drawText(rfight->window.window,
+                                    events.group[i].text, NULL);
     }
 }
 

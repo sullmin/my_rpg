@@ -5,7 +5,10 @@
 ** create fight events
 */
 
-#include "my_rpg.h"
+#include <SFML/Graphics.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "fight.h"
 
 const event_input_t key_tab[36] = {
     {sfKeyA, "A"},
@@ -55,7 +58,7 @@ static int set_key_values(key_event_t *key, event_input_t input)
     key->size = 0;
     key->key = input.code;
     key->text = sfText_create();
-    key->font = sfFont_createFromFile("./asset/fonts/ChunkfiveEx.ttf");
+    key->font = sfFont_createFromFile("./asset/font/ChunkfiveEx.ttf");
     if (key->text == NULL || key->font == NULL)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
@@ -71,7 +74,7 @@ static void set_key_text(window_t window, key_event_t *key, event_input_t input,
         % (window.width - KEYS_MAX_SIZE), rand() % (window.height - KEYS_MAX_SIZE)});
 }
 
-static int fill_keys(game_t *game, combination_t key_evt)
+static int fill_keys(window_t window, combination_t key_evt)
 {
     int group_input;
     sfColor color = sfColor_fromInteger(rand() % 0xffffffff);
@@ -82,39 +85,38 @@ static int fill_keys(game_t *game, combination_t key_evt)
     for (int i = 0; i < key_evt.nbr_comb; i++) {
         group_input = rand() % KEY_TAB_SIZE;
         set_key_values(&key_evt.group[i], key_tab[group_input]);
-        set_key_text(game->w, &key_evt.group[i], key_tab[group_input], color);
+        set_key_text(window, &key_evt.group[i], key_tab[group_input], color);
     }
     return EXIT_SUCCESS;
 }
 
-combination_t *create_fight_events(game_t *game)
+combination_t *create_fight_events(fight_mode_t *mfight, window_t window)
 {
-    combination_t *events = malloc(sizeof(combination_t) * game->wfight.actions);   
+    combination_t *events = malloc(sizeof(combination_t) * mfight->actions);
 
     if (events == NULL)
         return NULL;
-    for (int i = 0; i < game->wfight.actions; i++) {
-        events[i].nbr_comb = rand() % game->wfight.comb + 1;
+    for (int i = 0; i < mfight->actions; i++) {
+        events[i].nbr_comb = rand() % mfight->comb + 1;
         events[i].group = malloc(sizeof(key_event_t) * events[i].nbr_comb + 1);
         if (events[i].group == NULL)
             return NULL;
-        if (fill_keys(game, events[i]) == EXIT_ERROR)
+        if (fill_keys(window, events[i]) == EXIT_ERROR)
             return NULL;
     }
     return events;
 }
 
-void destroy_events(combination_t **key_events, sfClock **inter_clock,
-                    sfClock **update, int actions)
+void destroy_events(fight_run_t *rfight, int actions)
 {
-    sfClock_destroy(*inter_clock);
-    *inter_clock = NULL;
-    sfClock_destroy(*update);
-    *update = NULL;
+    sfClock_destroy(rfight->inter_clock);
+    rfight->inter_clock = NULL;
+    sfClock_destroy(rfight->update);
+    rfight->update = NULL;
     for (int i = 0; i < actions; i++)
-        for (int k = 0; k < (*key_events)[i].nbr_comb; k++) {
-            sfText_destroy((*key_events)[i].group[k].text);
-            sfFont_destroy((*key_events)[i].group[k].font);
+        for (int k = 0; k < (rfight->events)[i].nbr_comb; k++) {
+            sfText_destroy((rfight->events)[i].group[k].text);
+            sfFont_destroy((rfight->events)[i].group[k].font);
         }
-    *key_events = NULL;
+    rfight->events = NULL;
 }

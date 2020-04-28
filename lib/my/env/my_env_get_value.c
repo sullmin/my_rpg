@@ -27,8 +27,12 @@ char *my_env_get_value(env_t *env, const char *label)
 {
     char *entry = my_env_get(env, label);
 
-    if (!entry)
+    if (!entry) {
+        my_putstr_error("Error: env variable => \"");
+        my_putstr_error(label);
+        my_putstr_error("\" not found\n");
         return NULL;
+    }
     return my_env_get_var_value(entry);
 }
 

@@ -10,6 +10,11 @@
 
 #include "move_t.h"
 
+#define LEFT_KEY option->move->left
+#define RIGHT_KEY option->move->right
+#define UP_KEY option->move->forward
+#define DOWN_KEY option->move->backward
+
 typedef struct option_s
 {
     move_t *move;
