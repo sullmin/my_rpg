@@ -13,14 +13,19 @@ static const float SHIFT_POS = 0.5;
 
 static int get_rect_view(game_t *game)
 {
-    game->wmain->rect_init.top = 0;
-    game->wmain->rect_init.left = 0;
-    game->wmain->rect_init.width = 480;
-    game->wmain->rect_init.height = 256;
-    game->wmain->rect = game->wmain->rect_init;
+    WMAIN->rect_init.top = 0;
+    WMAIN->rect_init.left = 0;
+    WMAIN->rect_init.width = 480;
+    WMAIN->rect_init.height = 256;
+    WMAIN->rect = game->wmain->rect_init;
     WMAIN->size_map = (sfVector2i){91, 92};
     WMAIN->map_max_pos_rect = (sfVector2i){992, 1232};
     WMAIN->size_map_pixel = (sfVector2i){1472, 1488};
+    WMAIN->view = sfView_createFromRect((sfFloatRect){0, 0, game->w.width,
+    game->w.height});
+    if (WMAIN->view == NULL)
+        return EXIT_ERROR;
+    WMAIN->nb_zoom = 0;
     return EXIT_SUCCESS;
 }
 

@@ -24,6 +24,8 @@ typedef struct {
     sfTexture *texture;
     sfIntRect rect_init;
     sfIntRect rect;
+    sfView *view;
+    int nb_zoom;
     char **hitbox;
     sfVector2f position_on_map;
     sfVector2i pos_on_map_int;
