@@ -39,6 +39,15 @@ static size_t add_tests(sfVector2f futur_pos, sfVector2i *pos)
     return idx;
 }
 
+static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
+{
+    if (WMAIN->hitbox[pos[i].y][pos[i].x] != '.' &&
+        !(WMAIN->hitbox[pos[i].y][pos[i].x] == 'P' &&
+            is_in_player_inv(&game->inventory, "113")))
+        return false;
+    return true;
+}
+
 bool is_right_position(game_t *game, enum direction dir)
 {
     sfVector2f futur_pos = WMAIN->position_on_map;
@@ -55,7 +64,7 @@ bool is_right_position(game_t *game, enum direction dir)
         futur_pos.y += WMAIN->shift_pos;
     nb_test = add_tests(futur_pos, pos);
     for (size_t i = 0; i < nb_test; i++) {
-        if (WMAIN->hitbox[pos[i].y][pos[i].x] != '.') {
+        if (!correct_move(pos, game, i)) {
             return false;
         }
     }

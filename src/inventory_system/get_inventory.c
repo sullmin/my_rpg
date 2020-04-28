@@ -45,7 +45,6 @@ bool player_inventory_creat(player_inventory_t *inv, env_t *env)
 
 void player_inventory_destroy(player_inventory_t *inv)
 {
-    //free item who is in?
     free(inv->inventory);
     sfSprite_destroy(inv->sprite);
     sfTexture_destroy(inv->texture);
