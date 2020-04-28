@@ -43,8 +43,6 @@ int game_loop(game_t *game)
     sfEvent event;
 
     //quest_enable(game, 0); // DEBUG => quest system dialogue
-    game->state = FIGHT_MODE;   //DEBUG
-    game->wfight = (fight_mode_t) {3, 3000, 0.4, 3};    //DEBUG => fight mode
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
