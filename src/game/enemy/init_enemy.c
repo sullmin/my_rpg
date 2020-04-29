@@ -7,20 +7,62 @@
 
 #include "my_rpg.h"
 
-bool init_pnj(pnj_t *pnj)
+static void movement_pnj_creat(chara_animation_t *mov,
+    sfSprite *sprite, sfTexture *texture)
+{
+    mov->sprite = sprite;
+    mov->texture = texture;
+    for (size_t i = 0; i < 4; i++)
+        mov->orient[i] = false;
+    mov->orient[3] = true;
+    mov->in_move = true;
+    mov->clock = sfClock_create();
+}
+
+static void init_pnj(pnj_t *pnj, sfVector2i pos,
+    sfSprite *sprite, sfTexture *texture)
 {
     pnj->clock = sfClock_create();
     pnj->sens = true;
-    pnj->pos.x = 66;
-    pnj->pos.y = 32;
-    if (!movement_creat(&pnj->move, "./asset/sprite/enemy.png"))
-        return false;
+    pnj->pos.x = pos.x;
+    pnj->pos.y = pos.y;
+    movement_pnj_creat(&pnj->move, sprite, texture);
     built_it(&pnj->move, 1);
+}
+
+void destroy_pnj(pnj_manage_t *pnj_man)
+{
+    sfSprite_destroy(pnj_man->all_pnj[0].move.sprite);
+    sfTexture_destroy(pnj_man->all_pnj[0].move.texture);
+    for (size_t i = 0; i < pnj_man->nb_pnj; i++) {
+        sfClock_destroy(pnj_man->all_pnj[i].clock);
+        sfClock_destroy(pnj_man->all_pnj[i].move.clock);
+    }
+}
+
+bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
+{
+    bool err = false;
+    sfSprite *sprite = sfSprite_create();
+    sfTexture *texture = sfTexture_createFromFile("./asset/sprite/enemy.png",
+        NULL);
+    sfVector2i pos[] = {(sfVector2i) {66, 32}, (sfVector2i) {44, 49}
+                        };
+
+    pnj_man->nb_pnj = my_env_get_value_int(env, "NB_PNJ", &err);
+    pnj_man->all_pnj = malloc(sizeof(pnj_t) * pnj_man->nb_pnj);
+    if (!pnj_man->all_pnj || !sprite || !texture)
+        return false;
+    sfSprite_setPosition(sprite, (sfVector2f) {1136, 368});
+    sfSprite_setTexture(sprite, texture, sfTrue);
+    sfSprite_setScale(sprite, (sfVector2f) {2, 2});
+    for (size_t i = 0; i < pnj_man->nb_pnj; i++)
+        init_pnj(&pnj_man->all_pnj[i], pos[i], sprite, texture);
     return true;
 }
 
-void destroy_pnj(pnj_t *pnj)
+void display_all_pnj(game_t *game)
 {
-    sfClock_destroy(pnj->clock);
-    destroy_movement(&pnj->move);
+    for (size_t i = 0; i < game->wmain->pnj_man.nb_pnj; i++)
+        simple_pnj_move(&game->wmain->pnj_man.all_pnj[i], game);
 }
