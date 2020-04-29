@@ -23,7 +23,6 @@ typedef struct display_stat_s {
 
 #define INTER_LINE 50
 
-char *myrevgetnbr(int nb);
 void display_stat(sfRenderWindow *window, display_stat_t *info, stat_t *stat);
 bool init_display_stat(display_stat_t *info, env_t *env);
 void destroy_display_stat(display_stat_t *info);

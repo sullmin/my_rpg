@@ -10,23 +10,25 @@
 FUNC_EXEC fct_exec[NB_GAME_STATE] = {
     NULL,
     NULL,
-    &display_main_menu, // Main Menu
-    &display_pause_menu, // Pause Menu
-    &display_main_world, // Main World
-    &isow_run, // Iso World
-    &display_option_menu, // Option Menu
-    &display_help_menu
+    &display_main_menu,
+    &display_pause_menu,
+    &display_main_world,
+    &isow_run,
+    &display_option_menu,
+    &display_help_menu,
+    &credit_menu_display
 };
 
 FUNC_EVENT fct_event[NB_GAME_STATE] = {
     NULL,
     NULL,
-    &event_main_menu, // Main Menu
-    &event_pause_menu, // Pause Menu
-    &event_main_world, // Main World
-    &isow_event_manager, // Iso World
-    &event_option_menu, // Option Menu
-    &event_help_menu
+    &event_main_menu,
+    &event_pause_menu,
+    &event_main_world,
+    &isow_event_manager,
+    &event_option_menu,
+    &event_help_menu,
+    &credit_menu_event
 };
 
 FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU] = {

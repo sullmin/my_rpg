@@ -32,7 +32,7 @@ static void display_name(sfRenderWindow *window, sfText *text, sfVector2f pos)
 static void display_value(sfRenderWindow *window, sfText *text, sfVector2f *pos,
     int nb)
 {
-    char *tmp = myrevgetnbr(nb);
+    char *tmp = my_putnbr_base_str(nb, "0123456789");
 
     if (!tmp)
         return;

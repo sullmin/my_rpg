@@ -9,16 +9,19 @@
 
 static bool is_valid_map_coord(sfVector2i *coord, map_t *map)
 {
-    if (coord->x >= map->width - 1)
+    if (coord->x >= map->width - 1) {
         return false;
-    else if (coord->x < 0)
+    } else if (coord->x < 0) {
         return false;
-    if (coord->y >= map->height - 1)
+    }
+    if (coord->y >= map->height - 1) {
         return false;
-    else if (coord->y < 0)
+    } else if (coord->y < 0) {
         return false;
-    if (coord->y < 25 && coord->x <= 23)
+    }
+    if (coord->y < 25 && coord->x <= 23) {
         return false;
+    }
     return true;
 }
 

@@ -7,8 +7,6 @@
 
 #include "my_rpg.h"
 
-extern const char *font;
-
 static const sfVector2f BUTTON_POS = {1920 - 600, 150};
 static const sfVector2f BUTTON_SIZE = {300, 75};
 
@@ -38,15 +36,20 @@ static int create_background_texture(game_t *game, quest_menu_t *menu)
 
 int menu_quest_create(game_t *game)
 {
-    if (create_background_texture(game, &MENU_QUEST) != EXIT_SUCCESS) {
+    bool err = false;
+    int max_display_quest = GET_VAR_NBR(game, "MQUEST_MAX_DISP", &err);
+    char *fontpath = GET_VAR(game, "BASE_FONT");
+
+    if (create_background_texture(game, &MENU_QUEST) != EXIT_SUCCESS || err) {
         return puterr("quest menu create\n", EXIT_ERROR);
     }
+    MENU_QUEST.max_display = max_display_quest;
     MENU_QUEST.exit = create_button(BUTTON_POS, BUTTON_SIZE);
-    if (!MENU_QUEST.exit)
+    if (!MENU_QUEST.exit || !fontpath)
         return puterr("quest menu create\n", EXIT_ERROR);
     if (set_button_texture(MENU_QUEST.exit, BUTTON_TXT) != 0)
         return puterr("quest menu create\n", EXIT_ERROR);
-    set_button_label(MENU_QUEST.exit, "EXIT", font, 50);
+    set_button_label(MENU_QUEST.exit, "EXIT", fontpath, 50);
     MENU_QUEST.ui_size = 0;
     if (menu_quest_load(game) != EXIT_SUCCESS)
         return puterr("quest menu create\n", EXIT_ERROR);

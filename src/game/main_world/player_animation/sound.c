@@ -21,10 +21,17 @@ static sound_t create_sound(char *filepath)
     return my_sound;
 }
 
-static void sound_destroy(sound_t *sound) {
+static void sound_destroy(sound_t *sound)
+{
     sfClock_destroy(sound->clock);
     sfSound_destroy(sound->sound);
     sfSoundBuffer_destroy(sound->buffer);
+}
+
+void sound_effect_set_volume(game_t *game)
+{
+    for (size_t i = 0; WMAIN->sound_effect[i].sound; i++)
+        sfSound_setVolume(WMAIN->sound_effect[i].sound, OPTION->volume);
 }
 
 bool load_sound_effect(game_t *game)

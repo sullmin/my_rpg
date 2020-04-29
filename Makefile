@@ -50,17 +50,23 @@ SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 					\
 				$(DSRC)game/fight_mode/fight.c 							\
 				$(DSRC)game/fight_mode/run.c 							\
 
-SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c					\
-				$(DSRC)game/main_world/destroy_main_world.c					\
-				$(DSRC)game/main_world/display_main_world.c					\
-				$(DSRC)game/main_world/event_main_world.c					\
-				$(DSRC)game/main_world/event_player.c						\
-				$(DSRC)game/main_world/update_map_position.c								\
-				$(DSRC)game/main_world/update_position_on_map.c								\
-				$(DSRC)game/main_world/player_animation/player_animation_player.c				\
-				$(DSRC)game/main_world/player_animation/player_animation_manage.c				\
-				$(DSRC)game/main_world/player_animation/input_manage.c							\
-				$(DSRC)game/main_world/player_animation/sound.c							\
+SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
+				$(DSRC)game/main_world/destroy_main_world.c							\
+				$(DSRC)game/main_world/display_main_world.c							\
+				$(DSRC)game/main_world/event_main_world.c							\
+				$(DSRC)game/main_world/event_player.c								\
+				$(DSRC)game/main_world/update_map_position.c						\
+				$(DSRC)game/main_world/player_position_on_map.c						\
+				$(DSRC)game/main_world/player_animation/player_animation_player.c	\
+				$(DSRC)game/main_world/player_animation/player_animation_manage.c	\
+				$(DSRC)game/main_world/player_animation/input_manage.c				\
+				$(DSRC)game/main_world/player_animation/sound.c						\
+				$(DSRC)game/main_world/pnj/init_pnj.c								\
+				$(DSRC)game/main_world/pnj/pnj_move.c								\
+				$(DSRC)game/main_world/pnj/pnj_col.c								\
+				$(DSRC)game/main_world/xp_bar/create_xp_bar.c						\
+				$(DSRC)game/main_world/xp_bar/display_xp_bar.c						\
+				$(DSRC)game/main_world/xp_bar/update_xp_bar.c						\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\
@@ -87,7 +93,8 @@ SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/map/map_scale.c							\
 			$(DSRC)game/iso_world/map/map_tools_view.c						\
 			$(DSRC)game/iso_world/map/map_vertex_create_destroy.c			\
-			$(DSRC)game/iso_world/map/map_texture_vertex_create_destroy.c	\
+			$(DSRC)game/iso_world/map/map_texture_vertex_destroy.c			\
+			$(DSRC)game/iso_world/map/map_texture_vertex_create.c			\
 			$(DSRC)game/iso_world/map/map_texture_create_destroy.c			\
 			$(DSRC)game/iso_world/map/map_create_destroy.c					\
 			$(DSRC)game/iso_world/map/map_3d_create_destroy.c				\
@@ -132,13 +139,15 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/stat_inventory/display_player_stat.c		\
 				$(DSRC)menu/stat_inventory/init_display_stat.c			\
 				$(DSRC)menu/stat_inventory/display_player_gui.c			\
-				$(DSRC)menu/stat_inventory/my_revgetnbr.c				\
 				$(DSRC)menu/quest/menu_quest_create_destroy.c			\
 				$(DSRC)menu/quest/menu_quest_display.c					\
 				$(DSRC)menu/quest/menu_quest_event.c					\
 				$(DSRC)menu/quest/menu_quest_load_quest.c				\
 				$(DSRC)menu/quest/menu_quest_reload.c					\
 				$(DSRC)menu/submenu_event_manager.c						\
+				$(DSRC)menu/credit/credit_menu_create_destroy.c			\
+				$(DSRC)menu/credit/credit_menu_display.c				\
+				$(DSRC)menu/credit/credit_menu_event.c					\
 
 SRC_OPTION_MENU =	$(DSRC)menu/option/create_option_menu.c				\
 					$(DSRC)menu/option/destroy_option_menu.c			\
@@ -162,8 +171,6 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_event.c								\
 				$(DSRC)game/function_array.c							\
 				$(DSRC)game/set_game_state.c							\
-				$(DSRC)game/enemy/init_enemy.c							\
-				$(DSRC)game/enemy/enemy_move.c							\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
 				$(DSRC)tools/as_second.c								\

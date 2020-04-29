@@ -21,8 +21,7 @@ int kinem_start(isow_t *isow, sound_manager_t *sound)
     isow->kinem.player_start_pos.x, isow->kinem.player_start_pos.y);
     map_set_angley(&isow->map, isow->kinem.start_angle);
     map_set_angley(&isow->map_water, isow->kinem.start_angle);
-    sound_manager_stop_all(sound);
-    sound_manager_play(sound, isow->kinem.id_music);
+    (void)sound;
     return EXIT_SUCCESS;
 }
 
@@ -31,8 +30,6 @@ int kinem_stop(game_t *game)
     size_t idx = 0;
 
     ISOW.kinem.start = false;
-    sound_manager_stop_all(&SOUND);
-    map_scale_all(&ISOW, (-ISOW.kinem.scale));
     object_on_map_set_coord(&ISOW.player, &ISOW.map,
     ISOW.kinem.player_start_pos.x, ISOW.kinem.player_start_pos.y);
     while (!(PLAYER_MOVEMENT[idx].x == 0 && PLAYER_MOVEMENT[idx].y == 0)) {
@@ -40,6 +37,8 @@ int kinem_stop(game_t *game)
         PLAYER_MOVEMENT[idx].y);
         idx++;
     }
+    map_scale_all(&ISOW, (-ISOW.kinem.scale));
+    camera_move(&ISOW, &game->w);
     quest_enable(game, 0);
     return EXIT_SUCCESS;
 }

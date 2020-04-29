@@ -21,6 +21,7 @@ typedef struct quest_menu {
     button_t *exit;
     quest_ui_t *ui_element;
     size_t ui_size;
+    int max_display;
 } quest_menu_t;
 
 #endif
