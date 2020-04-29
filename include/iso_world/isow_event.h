@@ -12,6 +12,9 @@
 
 // EVENT
 
+typedef void (* const EVENT_HANDLER)(isow_t *, sfEvent *, option_t *);
+typedef sfEventType EVENT_TYPE;
+
 void event_mouse_wheel_scroll(isow_t *isow, sfEvent *event, option_t *);
 
 void event_keypressed(isow_t *isow, sfEvent *event, option_t *);

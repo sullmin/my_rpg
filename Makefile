@@ -87,7 +87,8 @@ SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/map/map_scale.c							\
 			$(DSRC)game/iso_world/map/map_tools_view.c						\
 			$(DSRC)game/iso_world/map/map_vertex_create_destroy.c			\
-			$(DSRC)game/iso_world/map/map_texture_vertex_create_destroy.c	\
+			$(DSRC)game/iso_world/map/map_texture_vertex_destroy.c			\
+			$(DSRC)game/iso_world/map/map_texture_vertex_create.c			\
 			$(DSRC)game/iso_world/map/map_texture_create_destroy.c			\
 			$(DSRC)game/iso_world/map/map_create_destroy.c					\
 			$(DSRC)game/iso_world/map/map_3d_create_destroy.c				\
@@ -132,7 +133,6 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/stat_inventory/display_player_stat.c		\
 				$(DSRC)menu/stat_inventory/init_display_stat.c			\
 				$(DSRC)menu/stat_inventory/display_player_gui.c			\
-				$(DSRC)menu/stat_inventory/my_revgetnbr.c				\
 				$(DSRC)menu/quest/menu_quest_create_destroy.c			\
 				$(DSRC)menu/quest/menu_quest_display.c					\
 				$(DSRC)menu/quest/menu_quest_event.c					\

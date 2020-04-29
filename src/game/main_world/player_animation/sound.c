@@ -21,7 +21,8 @@ static sound_t create_sound(char *filepath)
     return my_sound;
 }
 
-static void sound_destroy(sound_t *sound) {
+static void sound_destroy(sound_t *sound)
+{
     sfClock_destroy(sound->clock);
     sfSound_destroy(sound->sound);
     sfSoundBuffer_destroy(sound->buffer);
