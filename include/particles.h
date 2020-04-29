@@ -14,7 +14,7 @@
 
 #define EXIT_ERROR 84
 #define MAX_ID 1
-#define MAX_PARTICLES 100
+#define MAX_PARTICLES 30
 
 typedef struct jump_pixels_s
 {
@@ -36,6 +36,7 @@ typedef struct particles_pack_s
     tpe_part_t tpe_part;
     sfTexture *texture;
     sfSprite *sprite;
+    sfClock *clock;
     framebuffer_t *framebuffer;
 } particles_pack_t;
 

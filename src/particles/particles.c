@@ -38,7 +38,8 @@ particles_pack_t *create_particles(window_t window, int const id,
     pack->texture = sfTexture_create(window.width, window.height);
     pack->sprite = sfSprite_create();
     pack->framebuffer = framebuffer_create(window.width, window.height);
-    if (!pack->texture || !pack->framebuffer || !pack->sprite
+    pack->clock = sfClock_create();
+    if (!pack->texture || !pack->framebuffer || !pack->sprite || !pack->clock
     || create_func_id[id - 1](&pack->tpe_part, color, size) == EXIT_ERROR)
         return NULL;
     sfSprite_setTexture(pack->sprite, pack->texture, sfTrue);
@@ -54,6 +55,7 @@ void destroy_particles(particles_pack_t *pack)
 {
     sfTexture_destroy(pack->texture);
     framebuffer_destroy(pack->framebuffer);
+    sfClock_destroy(pack->clock);
     destroy_func_id[pack->id - 1](pack->tpe_part);
     free(pack);
 }
