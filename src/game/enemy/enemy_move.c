@@ -31,10 +31,10 @@ static bool is_col(game_t *game, pnj_t *pnj)
 static void display_pnj(pnj_t *pnj, game_t *game, bool stat)
 {
     sfVector2f pos = {0};
-
+    //984, 540
     if (is_in_player_vis(pnj, game)) {
-        pos.x = (pnj->pos.x - PLAYER.x) * 64 + 1152;
-        pos.y = (pnj->pos.y - PLAYER.y) * 64 + 370;
+        pos.x = (pnj->pos.x - PLAYER.x) * 64 + 984;
+        pos.y = (pnj->pos.y - PLAYER.y) * 64 + 540;
         sfSprite_setPosition(pnj->move.sprite, pos);
         display_player(game->w.window, &pnj->move, stat, game->wmain->zoom);
     }
