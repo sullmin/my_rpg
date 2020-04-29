@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "particles.h"
 
 extern FUNC_EXEC fct_exec[NB_GAME_STATE];
 extern FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU];
@@ -27,12 +28,14 @@ static void crossroads(game_t *game)
     }
 }
 
-static int run(game_t *game)
+static int run(game_t *game, particles_pack_t *pack)
 {
     sfRenderWindow_clear(game->w.window, sfBlack);
-    crossroads(game);
+    /*crossroads(game);
     if (game->state == ERR)
-        return EXIT_ERROR;
+        return EXIT_ERROR;*/
+    draw_particles(pack);
+    update_particles(pack, game->w);
     sfRenderWindow_display(game->w.window);
     return EXIT_SUCCESS;
 }
@@ -41,14 +44,17 @@ int game_loop(game_t *game)
 {
     sfEvent event;
 
+    particles_pack_t *pack = create_particles(game->w, 1, sfBlue, 20);
+    set_particles_pos(pack, (sfVector2f) {700, 500}, 20);
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
-        if (run(game) == EXIT_ERROR)
+        if (run(game, pack) == EXIT_ERROR)
             return EXIT_ERROR;
         if (game->state == QUIT) {
             event_window_close(game);
         }
     }
+    destroy_particles(pack);
     return EXIT_SUCCESS;
 }
