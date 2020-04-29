@@ -51,6 +51,7 @@ SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 					\
 				$(DSRC)game/fight_mode/run.c 							\
 
 SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
+				$(DSRC)game/main_world/create_xp_bar.c								\
 				$(DSRC)game/main_world/destroy_main_world.c							\
 				$(DSRC)game/main_world/display_main_world.c							\
 				$(DSRC)game/main_world/event_main_world.c							\

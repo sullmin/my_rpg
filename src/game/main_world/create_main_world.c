@@ -81,8 +81,9 @@ int create_main_world(game_t *game)
     game->wmain->hitbox = my_read_file(hitbox);
     if (game->wmain->hitbox == NULL)
         return EXIT_ERROR;
-    if (create_clock(game) == EXIT_ERROR) {
+    if (create_clock(game) == EXIT_ERROR)
         return EXIT_ERROR;
-    }
+    if (create_xp_bar(game) == EXIT_ERROR)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
