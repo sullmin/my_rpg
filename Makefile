@@ -61,6 +61,9 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/player_animation/player_animation_manage.c	\
 				$(DSRC)game/main_world/player_animation/input_manage.c				\
 				$(DSRC)game/main_world/player_animation/sound.c						\
+				$(DSRC)game/main_world/pnj/init_pnj.c								\
+				$(DSRC)game/main_world/pnj/pnj_move.c								\
+				$(DSRC)game/main_world/pnj/pnj_col.c								\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\
@@ -165,9 +168,6 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/game_event.c								\
 				$(DSRC)game/function_array.c							\
 				$(DSRC)game/set_game_state.c							\
-				$(DSRC)game/enemy/init_enemy.c							\
-				$(DSRC)game/enemy/enemy_move.c							\
-				$(DSRC)game/enemy/pnj_col.c								\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
 				$(DSRC)tools/as_second.c								\
