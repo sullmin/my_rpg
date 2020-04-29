@@ -15,7 +15,7 @@ bool movement_creat(chara_animation_t *mov, const char *sprite)
     if (!mov->sprite || !mov->texture)
         return false;
     mov->clock = sfClock_create();
-    sfSprite_setPosition(mov->sprite, (sfVector2f) {1136, 368});
+    sfSprite_setPosition(mov->sprite, (sfVector2f) {984, 540});
     sfSprite_setTexture(mov->sprite, mov->texture, sfTrue);
     sfSprite_setScale(mov->sprite, (sfVector2f) {2, 2});
     for (size_t i = 0; i < 4; i++)
