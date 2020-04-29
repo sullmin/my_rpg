@@ -64,6 +64,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/pnj/init_pnj.c								\
 				$(DSRC)game/main_world/pnj/pnj_move.c								\
 				$(DSRC)game/main_world/pnj/pnj_col.c								\
+				$(DSRC)game/main_world/pnj/pnj_evolution.c							\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\

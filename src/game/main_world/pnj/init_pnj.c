@@ -23,9 +23,10 @@ static void init_pnj(pnj_t *pnj, sfVector2i pos,
     sfSprite *sprite, sfTexture *texture)
 {
     pnj->clock = sfClock_create();
-    pnj->sens = true;
+    pnj->fpos = (sfVector2i) {-1, 0};
     pnj->pos.x = pos.x;
     pnj->pos.y = pos.y;
+    pnj->go_act = true;
     movement_pnj_creat(&pnj->move, sprite, texture);
     built_it(&pnj->move, 1);
 }
@@ -46,7 +47,7 @@ bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
     sfSprite *sprite = sfSprite_create();
     sfTexture *texture = sfTexture_createFromFile("./asset/sprite/enemy.png",
         NULL);
-    sfVector2i pos[] = {(sfVector2i) {66, 32}, (sfVector2i) {44, 49}
+    sfVector2i pos[] = {(sfVector2i) {65, 32}, (sfVector2i) {44, 49}
                         };
 
     pnj_man->nb_pnj = my_env_get_value_int(env, "NB_PNJ", &err);

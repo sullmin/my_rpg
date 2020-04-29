@@ -20,14 +20,6 @@ static bool is_in_player_vis(pnj_t *pnj, game_t *game)
     return false;
 }
 
-static bool is_col(game_t *game, pnj_t *pnj)
-{
-    if (game->wmain->hitbox[pnj->pos.y][pnj->pos.x + 1] == 'o' ||
-            game->wmain->hitbox[pnj->pos.y][pnj->pos.x - 1] == 'o')
-        return true;
-    return false;
-}
-
 static void display_pnj(pnj_t *pnj, game_t *game, bool stat)
 {
     sfVector2f pos = {0};
@@ -59,15 +51,7 @@ void simple_pnj_move(pnj_t *pnj, game_t *game)
     if (is_pnj_col(&WMAIN->pos_on_map_int, &pnj->pos))
         stat = false;
     if (as_seconds(pnj->clock) > 0.5) {
-        if (stat)
-            pnj->pos.x += (pnj->sens) ? -1 : 1;
-        if (is_col(game, pnj)) {
-            pnj->sens = (pnj->sens) ? false : true;
-            if (pnj->sens)
-                built_it(&pnj->move, 1);
-            else
-                built_it(&pnj->move, 0);
-        }
+        pnj_evol(pnj, game, stat);
         play_sound(game, pnj, stat);
         sfClock_restart(pnj->clock);
     }

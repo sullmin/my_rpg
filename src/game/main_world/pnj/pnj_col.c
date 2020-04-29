@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "fight.h"
 
 bool is_pnj_col(sfVector2i *player, sfVector2i *pnj)
 {
@@ -40,5 +41,8 @@ void collision_act(game_t *game)
 
     if (ret == -1)
         return;
-    //execute act for pnj ret
+    if (ret == 0 && WMAIN->pnj_man.all_pnj[ret].go_act) {
+        WMAIN->pnj_man.all_pnj[ret].go_act = false;
+        play_fight(game->w, (fight_mode_t) {1, 1000, 0.8, 1});
+    }
 }
