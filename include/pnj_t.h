@@ -16,6 +16,8 @@ typedef struct pnj_s
     chara_animation_t move;
     sfVector2i pos;
     sfClock *clock;
+    sfInt32 timer;
+    sfInt32 ms_loop;
     bool sens;
 } pnj_t;
 

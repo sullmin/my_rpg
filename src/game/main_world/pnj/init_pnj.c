@@ -7,6 +7,8 @@
 
 #include "my_rpg.h"
 
+static const sfInt32 INIT_SPEED_PNJ = 1000;
+
 static void movement_pnj_creat(chara_animation_t *mov,
     sfSprite *sprite, sfTexture *texture)
 {
@@ -27,6 +29,8 @@ static void init_pnj(pnj_t *pnj, sfVector2i pos,
 {
     pnj->clock = sfClock_create();
     pnj->sens = true;
+    pnj->timer = 0;
+    pnj->ms_loop = INIT_SPEED_PNJ;
     pnj->pos.x = pos.x;
     pnj->pos.y = pos.y;
     movement_pnj_creat(&pnj->move, sprite, texture);

@@ -58,7 +58,9 @@ void simple_pnj_move(pnj_t *pnj, game_t *game)
 
     if (is_pnj_col(&WMAIN->pos_on_map_int, &pnj->pos))
         stat = false;
-    if (as_seconds(pnj->clock) > 0.5) {
+    pnj->timer += TIME_MILLI(pnj->clock);
+    while (pnj->timer >= pnj->ms_loop) {
+        pnj->timer -= pnj->ms_loop;
         if (stat)
             pnj->pos.x += (pnj->sens) ? -1 : 1;
         if (is_col(game, pnj)) {
