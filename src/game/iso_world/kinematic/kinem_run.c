@@ -38,10 +38,8 @@ int kinem_run(game_t *game)
 {
     ISOW.kinem.timer += TIME_MILLI(ISOW.clock);
     sfClock_restart(ISOW.clock);
-    if (ISOW.kinem.timer >= ISOW.kinem.ms_loop) {
-        while (ISOW.kinem.timer >= ISOW.kinem.ms_loop) {
-            ISOW.kinem.timer -= ISOW.kinem.ms_loop;
-        }
+    while (ISOW.kinem.timer >= ISOW.kinem.ms_loop) {
+        ISOW.kinem.timer -= ISOW.kinem.ms_loop;
         if (ISOW.kinem.mode == ANGLE
                 && content_mode_angle(game) != EXIT_SUCCESS) {
             return EXIT_ERROR;
