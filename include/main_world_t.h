@@ -39,7 +39,7 @@ typedef struct {
     sfVector2i size_map_pixel;
     float zoom;
     chara_animation_t player_move;
-    pnj_t enemy;
+    pnj_manage_t pnj_man;
     sound_t *sound_effect;
 } main_world_t;
 

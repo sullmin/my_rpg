@@ -13,7 +13,8 @@
 #define PLAYER game->wmain->position_on_map
 
 void simple_pnj_move(pnj_t *pnj, game_t *game);
-bool init_pnj(pnj_t *pnj);
-void destroy_pnj(pnj_t *pnj);
+bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env);
+void destroy_pnj(pnj_manage_t *pnj_man);
+void display_all_pnj(game_t *game);
 
 #endif

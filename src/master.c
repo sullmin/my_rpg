@@ -32,7 +32,7 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (!movement_creat(&WMAIN->player_move, "./asset/sprite/hero.png"))
         return EXIT_ERROR;
-    if (!init_pnj(&WMAIN->enemy))
+    if (!init_all_pnj(&WMAIN->pnj_man, &game->env))
         return EXIT_ERROR;
     if (create_help_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;
@@ -67,7 +67,7 @@ static int master_contruct_part1(game_t *game)
 static int master_destroy(game_t *game)
 {
     destroy_sound_effect(game);
-    destroy_pnj(&WMAIN->enemy);
+    destroy_pnj(&WMAIN->pnj_man);
     destroy_movement(&WMAIN->player_move);
     destroy_main_menu(game);
     destroy_option_menu(game);
@@ -94,6 +94,7 @@ int master(void)
         return EXIT_ERROR;
     if (master_contruct_part2(&game) == EXIT_ERROR)
         return EXIT_ERROR;
+    move_item_in_inventory(&game, "113");
     ret = game_loop(&game);
     if (master_destroy(&game) == EXIT_ERROR)
         return EXIT_ERROR;
