@@ -43,9 +43,9 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
 {
     bool stat = false;
 
-    if (WMAIN->hitbox[pos[i].y][pos[i].x] == '.')
+    if (WMAIN->hitbox[pos[i].y][pos[i].x] == '.') {
         stat = true;
-    else if ((WMAIN->hitbox[pos[i].y][pos[i].x] == 'P' &&
+    } else if ((WMAIN->hitbox[pos[i].y][pos[i].x] == 'P' &&
             is_in_player_inv(&game->inventory, "113"))) {
         stat = true;
         if (as_seconds(WMAIN->sound_effect[0].clock) > 2) {

@@ -11,7 +11,7 @@ static const char *background = "asset/sprite/background.png";
 static const char *hitbox = "asset/map/map.hitbox";
 static const float SHIFT_POS = 0.5;
 
-static int get_rect_view(game_t *game)
+static int init_map(game_t *game)
 {
     WMAIN->rect_init.top = 0;
     WMAIN->rect_init.left = 0;
@@ -29,7 +29,7 @@ static int get_rect_view(game_t *game)
     return EXIT_SUCCESS;
 }
 
-static int get_background(game_t *game)
+static int load_map_texture(game_t *game)
 {
     game->wmain->texture = sfTexture_createFromFile(background, NULL);
     game->wmain->sprite = sfSprite_create();
@@ -42,7 +42,7 @@ static int get_background(game_t *game)
     return EXIT_SUCCESS;
 }
 
-static int get_player(game_t *game)
+static int init_player(game_t *game)
 {
     WMAIN->position_on_map.x = 43;
     WMAIN->position_on_map.y = 32;
@@ -72,11 +72,11 @@ int create_main_world(game_t *game)
         return EXIT_ERROR;
     WMAIN->zoom = 4;
     WMAIN->shift_rect = 16;
-    if (get_rect_view(game) == EXIT_ERROR)
+    if (init_map(game) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (get_background(game) == EXIT_ERROR)
+    if (load_map_texture(game) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (get_player(game) == EXIT_ERROR)
+    if (init_player(game) == EXIT_ERROR)
         return EXIT_ERROR;
     game->wmain->hitbox = my_read_file(hitbox);
     if (game->wmain->hitbox == NULL)
