@@ -12,16 +12,19 @@ bool movement_creat(chara_animation_t *mov, const char *sprite)
 {
     mov->sprite = sfSprite_create();
     mov->texture = sfTexture_createFromFile(sprite, NULL);
+    mov->clock = sfClock_create();
     if (!mov->sprite || !mov->texture)
         return false;
-    mov->clock = sfClock_create();
     sfSprite_setPosition(mov->sprite, (sfVector2f) {984, 540});
     sfSprite_setTexture(mov->sprite, mov->texture, sfTrue);
     sfSprite_setScale(mov->sprite, (sfVector2f) {2, 2});
     for (size_t i = 0; i < 4; i++)
         mov->orient[i] = false;
     mov->orient[3] = true;
-    mov->in_move = true;
+    mov->in_move = false;
+    mov->timer = 0;
+    mov->rec = (sfIntRect) {0, 0, 32, 65};
+    mov->count = 1;
     return true;
 }
 

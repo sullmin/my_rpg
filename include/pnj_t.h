@@ -18,6 +18,8 @@ typedef struct pnj_s
     sfClock *clock;
     sfVector2i fpos;
     bool go_act;
+    sfInt32 timer;
+    sfInt32 ms_loop;
 } pnj_t;
 
 typedef struct pnj_manage_s

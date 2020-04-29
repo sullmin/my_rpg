@@ -22,5 +22,6 @@ void collision_act(game_t *game);
 ssize_t collision_manage(game_t *game);
 bool collision_for_player(sfVector2i *player, game_t *game);
 void pnj_evol(pnj_t *pnj, game_t *game, bool stat);
+void player_move(game_t *game);
 
 #endif
