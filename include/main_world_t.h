@@ -44,6 +44,8 @@ typedef struct {
     progress_t *bar;
     int xp;
     int lvl;
+    bool is_player_move;
+    enum direction move_dir;
 } main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */

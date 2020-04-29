@@ -18,6 +18,7 @@ void display_main_world(game_t *game)
     display_all_pnj(game);
     display_player(game, &game->wmain->player_move,
     game->wmain->player_move.in_move);
+    player_move(game);
     display_xp_bar(game);
     collision_act(game);
 }
