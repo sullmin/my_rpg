@@ -94,7 +94,6 @@ int master(void)
         return EXIT_ERROR;
     if (master_contruct_part2(&game) == EXIT_ERROR)
         return EXIT_ERROR;
-    move_item_in_inventory(&game, "113");
     ret = game_loop(&game);
     if (master_destroy(&game) == EXIT_ERROR)
         return EXIT_ERROR;
