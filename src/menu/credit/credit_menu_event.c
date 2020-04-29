@@ -9,7 +9,7 @@
 
 void credit_menu_event(game_t *game, sfEvent *event)
 {
-    if (is_key_pressed(event, sfKeyEscape) == true) {
+    if (is_key_pressed(event, sfKeySpace) == true) {
         MENU_CREDIT.pos_front.y = -game->w.height;
         set_game_state(game, MAIN_MENU);
     }
