@@ -17,6 +17,9 @@ static void movement_pnj_creat(chara_animation_t *mov,
     mov->orient[3] = true;
     mov->in_move = true;
     mov->clock = sfClock_create();
+    mov->count = 1;
+    mov->timer = 0;
+    mov->rec = (sfIntRect) {0, 0, 32, 65};
 }
 
 static void init_pnj(pnj_t *pnj, sfVector2i pos,

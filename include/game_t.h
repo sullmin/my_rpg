@@ -37,6 +37,7 @@ typedef enum submenu_status {
 #define NB_SUB_MENU 4
 
 #define OPTION game->option
+#define KEYSET game->option->move
 #define MENU_OPTION game->option_menu
 #define MMENU game->menu
 #define WINDOW game->w.window

@@ -36,7 +36,7 @@ static void display_pnj(pnj_t *pnj, game_t *game, bool stat)
         pos.x = (pnj->pos.x - PLAYER.x) * 64 + 984;
         pos.y = (pnj->pos.y - PLAYER.y) * 64 + 550;
         sfSprite_setPosition(pnj->move.sprite, pos);
-        display_player(game->w.window, &pnj->move, stat, game->wmain->zoom);
+        display_player(game, &pnj->move, stat);
     }
 }
 
