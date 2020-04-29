@@ -11,14 +11,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <SFML/Graphics.h>
+#include "particles.h"
 
 //ITEM STRUCT
-
-typedef struct {
-    unsigned int width;
-    unsigned int height;
-    sfUint8 *pixels;
-} framebuffer_t;
 
 typedef struct particule_effect_s
 {

@@ -189,18 +189,22 @@ all:  lib $(NAME)
 
 $(NAME): $(OBJ)
 	make -C ./lib/my
-	@gcc -o $(NAME) $(OBJ) -L./lib/my -lmy $(CSFML_FLAGS) && \
+	make -C ./lib/graph
+	@gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -L./lib/graph -lgraph $(CSFML_FLAGS) && \
 		$(ECHO) $(BOLD_T)$(GREEN_C)"\n[✔] COMPILED:" $(DEFAULT)$(LIGHT_GREEN) "$(NAME)\n"$(DEFAULT) || \
 		$(ECHO) $(BOLD_T)$(RED_C)"[✘] "$(UNDLN_T)"BUILD FAILED:" $(LIGHT_RED) "$(NAME)\n"$(DEFAULT)
 
 lib:
 	make -C ./lib/my
+	make -C ./lib/graph
 
 lib_re:
 	make re -C ./lib/my
+	make re -C ./lib/graph
 
 lib_fclean:
 	make fclean -C lib/my
+	make fclean -C lib/graph
 
 clean:
 	rm -f  $(OBJ)
