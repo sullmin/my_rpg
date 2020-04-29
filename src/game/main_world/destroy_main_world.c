@@ -12,6 +12,7 @@ void destroy_main_world(game_t *game)
     sfSprite_destroy(WMAIN->sprite);
     sfTexture_destroy(WMAIN->texture);
     word_array_destroy(WMAIN->hitbox);
+    progress_destroy(game->wmain->bar);
     sfClock_destroy(WMAIN->clock);
     sfView_destroy(WMAIN->view);
     free(WMAIN);

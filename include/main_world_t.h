@@ -41,6 +41,9 @@ typedef struct {
     chara_animation_t player_move;
     pnj_manage_t pnj_man;
     sound_t *sound_effect;
+    progress_t *bar;
+    int xp;
+    int lvl;
 } main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */
