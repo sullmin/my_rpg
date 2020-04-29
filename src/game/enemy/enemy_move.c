@@ -33,7 +33,7 @@ static void display_pnj(pnj_t *pnj, game_t *game, bool stat)
     sfVector2f pos = {0};
 
     if (is_in_player_vis(pnj, game)) {
-        pos.x = (pnj->pos.x - PLAYER.x) * 64 + 936;
+        pos.x = (pnj->pos.x - PLAYER.x) * 64 + 984;
         pos.y = (pnj->pos.y - PLAYER.y) * 64 + 550;
         sfSprite_setPosition(pnj->move.sprite, pos);
         display_player(game->w.window, &pnj->move, stat, game->wmain->zoom);
@@ -56,12 +56,10 @@ void simple_pnj_move(pnj_t *pnj, game_t *game)
 {
     bool stat = true;
 
-    if (((pnj->pos.x - 1 == PLAYER.x || pnj->pos.x + 1 == PLAYER.x) &&
-        pnj->pos.y == PLAYER.y))
+    if (is_pnj_col(&WMAIN->pos_on_map_int, &pnj->pos))
         stat = false;
     if (as_seconds(pnj->clock) > 0.5) {
-        if (!((pnj->pos.x - 1 == PLAYER.x || pnj->pos.x + 1 == PLAYER.x) &&
-            pnj->pos.y == PLAYER.y))
+        if (stat)
             pnj->pos.x += (pnj->sens) ? -1 : 1;
         if (is_col(game, pnj)) {
             pnj->sens = (pnj->sens) ? false : true;

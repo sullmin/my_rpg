@@ -167,6 +167,7 @@ SRC_GAME	=	$(DSRC)game/game_create.c								\
 				$(DSRC)game/set_game_state.c							\
 				$(DSRC)game/enemy/init_enemy.c							\
 				$(DSRC)game/enemy/enemy_move.c							\
+				$(DSRC)game/enemy/pnj_col.c								\
 
 SRC_TOOLS	=	$(DSRC)tools/my_math.c									\
 				$(DSRC)tools/as_second.c								\
