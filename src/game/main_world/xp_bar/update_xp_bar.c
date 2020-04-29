@@ -30,13 +30,12 @@ static int update_xp_txt(game_t *game)
 
 int update_xp_bar(game_t *game)
 {
-    char *nbr_lvl = NULL;
-    char *str = NULL;
-
     if (WMAIN->xp > 10) {
         WMAIN->lvl += WMAIN->xp / 10;
         WMAIN->xp = WMAIN->xp % 10;
     }
+    if (update_xp_txt(game) == EXIT_ERROR)
+        return EXIT_ERROR;
     if (progress_set_percentage(WMAIN->bar, 10 * WMAIN->xp) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
