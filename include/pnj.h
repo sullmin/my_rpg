@@ -18,5 +18,6 @@ void destroy_pnj(pnj_manage_t *pnj_man);
 void display_all_pnj(game_t *game);
 
 bool is_pnj_col(sfVector2i *player, sfVector2i *pnj);
+void collision_act(game_t *game);
 
 #endif
