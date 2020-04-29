@@ -14,8 +14,8 @@ void display_main_world(game_t *game)
     game->wmain->rect.height = 256 * WMAIN->zoom;
     sfSprite_setTextureRect(WMAIN->sprite, WMAIN->rect);
     sfSprite_setScale(WMAIN->sprite, (sfVector2f){WMAIN->zoom, WMAIN->zoom});
-    sfRenderWindow_drawSprite(WINDOW, WMAIN->sprite, NULL);
-    display_player(WINDOW, &WMAIN->player_move,
-        WMAIN->player_move.in_move, WMAIN->zoom);
-    simple_pnj_move(&WMAIN->enemy, game);
+    sfRenderWindow_drawSprite(game->w.window, game->wmain->sprite, NULL);
+    display_all_pnj(game);
+    display_player(game->w.window, &game->wmain->player_move,
+        game->wmain->player_move.in_move, game->wmain->zoom);
 }

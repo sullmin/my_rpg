@@ -19,4 +19,10 @@ typedef struct pnj_s
     bool sens;
 } pnj_t;
 
+typedef struct pnj_manage_s
+{
+    pnj_t *all_pnj;
+    size_t nb_pnj;
+} pnj_manage_t;
+
 #endif
