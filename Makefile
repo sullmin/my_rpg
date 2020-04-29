@@ -51,7 +51,6 @@ SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 					\
 				$(DSRC)game/fight_mode/run.c 							\
 
 SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
-				$(DSRC)game/main_world/create_xp_bar.c								\
 				$(DSRC)game/main_world/destroy_main_world.c							\
 				$(DSRC)game/main_world/display_main_world.c							\
 				$(DSRC)game/main_world/event_main_world.c							\
@@ -65,6 +64,9 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/pnj/init_pnj.c								\
 				$(DSRC)game/main_world/pnj/pnj_move.c								\
 				$(DSRC)game/main_world/pnj/pnj_col.c								\
+				$(DSRC)game/main_world/xp_bar/create_xp_bar.c						\
+				$(DSRC)game/main_world/xp_bar/display_xp_bar.c						\
+				$(DSRC)game/main_world/xp_bar/update_xp_bar.c						\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\

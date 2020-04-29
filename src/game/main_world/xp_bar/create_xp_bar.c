@@ -40,7 +40,7 @@ int set_position_size(game_t *game)
     if (err)
         return EXIT_ERROR;
     position.y = GET_VAR_NBR(game, "XP_POSY", &err);
-    if (progress_create(WMAIN->bar, size, position,  "XP") == EXIT_ERROR)
+    if (progress_create(WMAIN->bar, size, position,  "LVL:") == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }

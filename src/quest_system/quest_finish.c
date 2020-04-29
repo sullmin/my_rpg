@@ -18,6 +18,7 @@ static void quest_give_reward(game_t *game, const size_t id)
             puterr("ERR: Fail to add QUEST reward ITEM in INVENTORY\n", 0);
         }
     }
+    WMAIN->xp += 5;
 }
 
 int quest_finish(game_t *game, const size_t id)

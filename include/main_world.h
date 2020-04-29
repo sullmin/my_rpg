@@ -18,6 +18,8 @@ void event_main_world(game_t *game, sfEvent *event);
 void event_player(game_t *game, sfEvent *event);
 
 int create_xp_bar(game_t *game);
+int display_xp_bar(game_t *game);
+int update_xp_bar(game_t *game);
 
 bool mw_camera_move(game_t *game, enum direction dir);
 

@@ -18,6 +18,6 @@ void display_main_world(game_t *game)
     display_all_pnj(game);
     display_player(game->w.window, &game->wmain->player_move,
         game->wmain->player_move.in_move, game->wmain->zoom);
-    progress_display(WMAIN->bar, WINDOW);
+    display_xp_bar(game);
     collision_act(game);
 }
