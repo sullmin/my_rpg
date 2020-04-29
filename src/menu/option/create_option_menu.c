@@ -46,8 +46,6 @@ static const sfVector2f button_p[4] = {
     {1920 / 2 - 150, 180},
 };
 
-extern const char *font;
-
 static const char *PATH_BACK = "asset/sprite/option_menu_back.png";
 
 static int set_option_button(game_t *game)
@@ -69,15 +67,19 @@ static int set_option_button(game_t *game)
 static int set_option_menu_button(game_t *game)
 {
     char *label = "main menu";
+    char *fontpath = GET_VAR(game, "BASE_FONT");
     int ret = 0;
 
+    if (!fontpath)
+        return EXIT_ERROR;
     ret += set_button_texture(game->option_menu->azerty, azerty_path);
     ret += set_button_texture(game->option_menu->qwerty, qwerty_path);
     ret += set_button_texture(game->option_menu->keypad, keypad_path);
     ret += set_button_texture(game->option_menu->main_menu, main_menu_path);
-    ret += set_button_label(game->option_menu->main_menu, label, font, 50);
+    ret += set_button_label(game->option_menu->main_menu, label, fontpath, 50);
     if (set_option_button(game) == EXIT_ERROR)
         return EXIT_ERROR;
+    free(fontpath);
     return ret;
 }
 
