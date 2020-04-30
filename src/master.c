@@ -30,7 +30,7 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (menu_quest_create(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
-    if (!movement_creat(&WMAIN->player_move, "./asset/sprite/hero.png"))
+    if (!movement_creat(&WMAIN->player_move))
         return EXIT_ERROR;
     if (!init_all_pnj(&WMAIN->pnj_man, &game->env))
         return EXIT_ERROR;
