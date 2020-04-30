@@ -19,6 +19,7 @@ static void quest_give_reward(game_t *game, const size_t id)
         }
     }
     WMAIN->xp += 5;
+    sound_manager_play(&SOUND, SUCCESS);
 }
 
 int quest_finish(game_t *game, const size_t id)
