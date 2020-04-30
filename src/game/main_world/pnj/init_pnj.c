@@ -18,6 +18,7 @@ static void movement_pnj_creat(chara_animation_t *mov,
         mov->orient[i] = false;
     mov->orient[3] = true;
     mov->in_move = true;
+    mov->is_static = false;
     mov->clock = sfClock_create();
     mov->count = 1;
     mov->timer = 0;
