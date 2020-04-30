@@ -9,7 +9,7 @@
 #include <math.h>
 #include "particles.h"
 
-const int sand_max_par = 1000;
+const int sand_max_par = 300;
 
 int create_sand(particles_pack_t *pack, sfColor color, float size)
 {
