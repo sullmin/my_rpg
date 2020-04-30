@@ -21,8 +21,11 @@ static void set_player_movement_state(game_t *game, sfEvent *event)
 
 static void set_pnj_activate(game_t *game, sfEvent *event)
 {
-    if (is_key_pressed(event, sfKeyF))
-        collision_act(game);
+    if (is_key_pressed(event, sfKeyF)) {
+        if (!get_loot(game))
+            collision_act(game);
+        sysquest_check_end(game);
+    }
 }
 
 void event_main_world(game_t *game, sfEvent *event)
