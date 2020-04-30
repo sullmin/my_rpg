@@ -186,13 +186,17 @@ SRC_MAIN	=	$(DSRC)main.c											\
 				$(DSRC)usage.c											\
 				$(DSRC)master.c											\
 
-SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_HELP_MENU) $(SRC_ISO) $(SRC_MWORLD) $(SRC_FIGHT)
+SRC_PARTICLES	=	$(DSRC)particles/particles.c						\
+					$(DSRC)particles/jump_pixels.c						\
+					$(DSRC)particles/sand.c								\
+
+SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_HELP_MENU) $(SRC_ISO) $(SRC_MWORLD) $(SRC_FIGHT) $(SRC_PARTICLES)
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	my_rpg
 
-INCLUDE = -I./include/ -I./lib/my/include -I./include/iso_world  -I./include/interface -I./include/gui
+INCLUDE = -I./include/ -I./lib/my/include -I./lib/graph/include -I./include/iso_world  -I./include/interface -I./include/gui
 
 CSFML_FLAGS = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system -lm
 
@@ -202,18 +206,22 @@ all:  lib $(NAME)
 
 $(NAME): $(OBJ)
 	make -C ./lib/my
-	@gcc -o $(NAME) $(OBJ) -L./lib/my -lmy $(CSFML_FLAGS) && \
+	make -C ./lib/graph
+	@gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -L./lib/graph -lgraph $(CSFML_FLAGS) && \
 		$(ECHO) $(BOLD_T)$(GREEN_C)"\n[✔] COMPILED:" $(DEFAULT)$(LIGHT_GREEN) "$(NAME)\n"$(DEFAULT) || \
 		$(ECHO) $(BOLD_T)$(RED_C)"[✘] "$(UNDLN_T)"BUILD FAILED:" $(LIGHT_RED) "$(NAME)\n"$(DEFAULT)
 
 lib:
 	make -C ./lib/my
+	make -C ./lib/graph
 
 lib_re:
 	make re -C ./lib/my
+	make re -C ./lib/graph
 
 lib_fclean:
 	make fclean -C lib/my
+	make fclean -C lib/graph
 
 clean:
 	rm -f  $(OBJ)

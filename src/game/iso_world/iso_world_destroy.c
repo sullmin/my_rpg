@@ -15,5 +15,6 @@ int isow_destroy(isow_t *isow)
     map_destroy(&isow->map_water);
     sfClock_destroy(isow->clock);
     kinem_destroy(isow);
+    destroy_particles(isow->sand);
     return EXIT_SUCCESS;
 }
