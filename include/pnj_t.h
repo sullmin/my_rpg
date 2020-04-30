@@ -29,4 +29,9 @@ typedef struct pnj_manage_s
     bool activate;
 } pnj_manage_t;
 
+typedef struct pnj_plan {
+    sfVector2i position;
+    const char *path_sprite;
+} pnj_plan_t;
+
 #endif

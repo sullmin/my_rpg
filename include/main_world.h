@@ -30,4 +30,6 @@ void update_map_position(game_t *game);
 void update_position_on_map(game_t *game);
 bool is_right_position(game_t *game, enum direction dir);
 
+void act_manage(game_t *game, const size_t id);
+
 #endif /* !MAIN_WORLD_H_ */
