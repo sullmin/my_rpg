@@ -24,6 +24,7 @@ int create_sand(particles_pack_t *pack, sfColor color, float size)
                                     rand() % pack->framebuffer->height};
         sand[i].color = color;
         sand[i].angle = rand_angle;
+        sand[i].speed = RAND(1, 2);
         sand[i].size = size;
     }
     return EXIT_SUCCESS;
@@ -45,14 +46,16 @@ static void check_over_screen(sfVector2f *coord,
 int draw_sand(particles_pack_t *pack)
 {
     float ms = sfClock_getElapsedTime(pack->clock).microseconds / 10000;
-    float rand_angle = RAND(7, 7);
+    float rand_angle = RAND(-7, 7);
 
     for (int i = 0; i < sand_max_par; i++) {
         my_draw_rect(pack->framebuffer, (sfVector2f) {SAND(i).coord.x,
                     SAND(i).coord.y}, (sfVector2f) {2, 2}, sfTransparent);
         SAND(i).angle = SAND(i).angle + rand_angle;
-        SAND(i).coord.x += ms * cos(SAND(i).angle * M_PI / 180);
-        SAND(i).coord.y += ms * sin(SAND(i).angle * M_PI / 180);
+        SAND(i).coord.x += (SAND(i).speed * ms)
+                        * cos(SAND(i).angle * M_PI / 180);
+        SAND(i).coord.y += (SAND(i).speed * ms)
+                        * sin(SAND(i).angle * M_PI / 180);
         check_over_screen(&SAND(i).coord, pack->framebuffer->width,
                         pack->framebuffer->height);
         my_draw_rect(pack->framebuffer, SAND(i).coord,
