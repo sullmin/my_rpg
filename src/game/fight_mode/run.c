@@ -35,7 +35,7 @@ void event_group_run(fight_mode_t *mfight, fight_run_t *rfight,
 {
     for (int i = 0; i < events.nbr_comb; i++) {
         if (update_event_size(&events.group[i], ms * mfight->speed))
-            rfight->win = false;
+            rfight->win = 0;
         if (events.group[i].size > 0)
             sfRenderWindow_drawText(rfight->window.window,
                                     events.group[i].text, NULL);

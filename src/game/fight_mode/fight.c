@@ -45,10 +45,14 @@ static void spawn_events(float interval, combination_t events,
             events.group[i].toggle = true;
 }
 
-static int fight_loop(fight_mode_t *mfight, fight_run_t *rfight,
+static void fight_loop(fight_mode_t *mfight, fight_run_t *rfight,
                     sfSprite *background)
 {
     while (!is_finish(mfight->actions, rfight->events)) {
+        if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+            rfight->win = -1;
+            break;
+        }
         sfRenderWindow_clear(rfight->window.window, sfBlack);
         sfRenderWindow_drawSprite(rfight->window.window, background, NULL);
         for (int i = 0; i < mfight->actions; i++) {
@@ -62,12 +66,11 @@ static int fight_loop(fight_mode_t *mfight, fight_run_t *rfight,
         sfRenderWindow_display(rfight->window.window);
     }
     destroy_events(rfight, mfight->actions);
-    return EXIT_SUCCESS;
 }
 
 int play_fight(window_t window, fight_mode_t mfight)
 {
-    fight_run_t rfight = {NULL, NULL, NULL, window, true};
+    fight_run_t rfight = {NULL, NULL, NULL, window, 1};
     sfSprite *background = sfSprite_create();
     sfTexture *texture = sfTexture_createFromFile(
         "./asset/sprite/fight/fight_bg.jpg", NULL);
@@ -77,8 +80,7 @@ int play_fight(window_t window, fight_mode_t mfight)
     if (init_variables(&rfight, &mfight) == EXIT_ERROR)
         return EXIT_ERROR;
     sfSprite_setTexture(background, texture, sfTrue);
-    if (fight_loop(&mfight, &rfight, background) == EXIT_ERROR)
-        return EXIT_ERROR;
+    fight_loop(&mfight, &rfight, background);
     sfSprite_destroy(background);
     sfTexture_destroy(texture);
     return rfight.win;
