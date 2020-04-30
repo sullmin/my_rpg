@@ -51,6 +51,8 @@ static bool is_col(game_t *game, pnj_t *pnj)
 
 void pnj_evol(pnj_t *pnj, game_t *game, bool stat)
 {
+    if (pnj->move.is_static)
+        return;
     if (stat && !is_col(game, pnj)) {
         pnj->pos.x += pnj->fpos.x;
         pnj->pos.y += pnj->fpos.y;
