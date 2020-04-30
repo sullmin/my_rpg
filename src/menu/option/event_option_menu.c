@@ -44,6 +44,22 @@ void event_keypad_button(game_t *game)
     }
 }
 
+void event_chara_button(game_t *game)
+{
+    event_button(game->option_menu->chara1, WINDOW);
+    if (game->option_menu->chara1->is_activate == true) {
+        game->option_menu->chara1->toggle = 2;
+        game->option_menu->chara2->is_activate = false;
+        reload_player_sprite(game, 0);
+    }
+    event_button(game->option_menu->chara2, WINDOW);
+    if (game->option_menu->chara2->is_activate == true) {
+        game->option_menu->chara2->toggle = 2;
+        game->option_menu->chara1->is_activate = false;
+        reload_player_sprite(game, 1);
+    }
+}
+
 void event_option_menu(game_t *game, sfEvent *event)
 {
     (void)event;
@@ -51,6 +67,7 @@ void event_option_menu(game_t *game, sfEvent *event)
     if (game->option_menu->main_menu->toggle == 2) {
         set_game_state(game, MAIN_MENU);
     }
+    event_chara_button(game);
     event_azerty_button(game);
     event_qwerty_button(game);
     event_keypad_button(game);

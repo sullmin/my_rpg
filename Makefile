@@ -152,6 +152,7 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/credit/credit_menu_event.c					\
 
 SRC_OPTION_MENU =	$(DSRC)menu/option/create_option_menu.c				\
+					$(DSRC)menu/option/create_option_menu_button.c		\
 					$(DSRC)menu/option/destroy_option_menu.c			\
 					$(DSRC)menu/option/display_option_menu.c			\
 					$(DSRC)menu/option/event_option_menu.c				\
