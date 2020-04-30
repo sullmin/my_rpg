@@ -51,8 +51,8 @@ static int load_map_texture(game_t *game)
 
 static int init_player(game_t *game)
 {
-    WMAIN->position_on_map.x = 43;
-    WMAIN->position_on_map.y = 32;
+    WMAIN->position_on_map.x = 42;
+    WMAIN->position_on_map.y = 36;
     update_position_on_map(game);
     WMAIN->shift_pos = SHIFT_POS;
     WMAIN->is_player_move = false;

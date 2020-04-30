@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-const sfInt32 MS_UPDATE_PANEL = 100;
+const sfInt32 MS_UPDATE_PANEL = 200;
 
 // MAP PARAMETERS
 const char *DEFAULT_MAP_NAME = "undefined";
