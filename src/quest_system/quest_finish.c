@@ -13,7 +13,7 @@ static void quest_give_reward(game_t *game, const size_t id)
 {
     const quest_t CURR_QUEST = QUEST_ARRAY[id];
 
-    if (CURR_QUEST.type_reward != REW_ITEM) {
+    if (CURR_QUEST.type_reward != REW_STAT) {
         if (!move_item_in_inventory(game, CURR_QUEST.reward_ref_item)) {
             puterr("ERR: Fail to add QUEST reward ITEM in INVENTORY\n", 0);
         }
