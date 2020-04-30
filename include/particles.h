@@ -14,6 +14,7 @@
 
 #define EXIT_ERROR 84
 #define MAX_ID 2
+#define RAND(min, max) min - rand() % (max + min + 1)
 #define SAND(i) pack->tpe_part.sand[i]
 #define JMP_PIX(i) pack->tpe_part.jump_pixels[i]
 
@@ -29,9 +30,18 @@ typedef struct jump_pixels_s
     sfColor color;
 } jump_pixels_t;
 
+typedef struct sand_s
+{
+    sfVector2f coord;
+    sfColor color;
+    float angle;
+    float size;
+} sand_t;
+
 typedef union tpe_part_s
 {
     jump_pixels_t *jump_pixels;
+    sand_t *sand;
 } tpe_part_t;
 
 typedef struct particles_pack_s
@@ -45,16 +55,21 @@ typedef struct particles_pack_s
 } particles_pack_t;
 
 particles_pack_t *create_particles(window_t window, int const id,
-                                sfColor color, float size);
+                                sfColor color, float value);
 int draw_particles(particles_pack_t *pack);
 void destroy_particles(particles_pack_t *pack);
 void set_particles_pos(particles_pack_t *pack, sfVector2f pos, int radius);
 void update_particles(particles_pack_t *pack, window_t win);
 
 //jump pixels
-int create_jump_pixels(tpe_part_t *tpe_part, sfColor color, float size);
+int create_jump_pixels(particles_pack_t *pack, sfColor color, float max_height);
 void destroy_jump_pixels(tpe_part_t tpe_part);
 void set_pos_jump_pixels(tpe_part_t *tpe_part, sfVector2f coord, int radius);
 int draw_jump_pixels(particles_pack_t *pack);
+
+//sand
+int create_sand(particles_pack_t *pack, sfColor color, float speed);
+int draw_sand(particles_pack_t *pack);
+void destroy_sand(tpe_part_t tpe_part);
 
 #endif
