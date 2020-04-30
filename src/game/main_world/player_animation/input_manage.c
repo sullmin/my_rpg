@@ -13,7 +13,6 @@ void built_it(chara_animation_t *mov, size_t pos)
 {
     for (size_t i = 0; i < 4; mov->orient[i] = false, i++);
     mov->orient[pos] = true;
-    mov->in_move = true;
 }
 
 void input_manage(game_t *game, sfEvent *event)
