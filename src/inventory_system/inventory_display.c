@@ -29,3 +29,8 @@ void display_inventory(player_inventory_t *inv, sfRenderWindow *window)
             display_item(inv, window, i);
     }
 }
+
+void display_only_inventory(game_t *game)
+{
+    display_inventory(&INVENTORY, WINDOW);
+}

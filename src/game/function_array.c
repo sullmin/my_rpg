@@ -35,12 +35,12 @@ FUNC_EXEC fct_exec_sub_menu[NB_SUB_MENU] = {
     &menu_quest_display,
     &display_player_gui,
     NULL,   // Help menu
-    NULL    // History menu
+    &display_only_inventory,
 };
 
 FUNC_EVENT fct_event_sub_menu[NB_SUB_MENU] = {
     &menu_quest_event,
     NULL,   // inventory / stat menu
     NULL,   // Help menu
-    NULL    // History menu
+    NULL
 };

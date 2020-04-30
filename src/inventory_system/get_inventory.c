@@ -21,6 +21,20 @@ static item_t **get_tab_inventory(size_t size)
     return inventory;
 }
 
+static bool init_values(player_inventory_t *inv, env_t *env)
+{
+    bool err = false;
+
+    my_env_get_value_int(env, "INVENTORY_POSX", &err);
+    my_env_get_value_int(env, "INVENTORY_POSY", &err);
+    inv->pos.x = 0;
+    inv->pos.y = 0;
+    if (err) {
+        return false;
+    }
+    return true;
+}
+
 bool player_inventory_creat(player_inventory_t *inv, env_t *env)
 {
     bool err = false;
@@ -37,10 +51,10 @@ bool player_inventory_creat(player_inventory_t *inv, env_t *env)
     if (!inv->texture || !inv->sprite)
         return false;
     sfSprite_setTexture(inv->sprite, inv->texture, sfTrue);
-    inv->pos.x = my_env_get_value_int(env, "INVENTORY_POSX", NULL);
-    inv->pos.y = my_env_get_value_int(env, "INVENTORY_POSY", NULL);
+    if (err)
+        return false;
     sfSprite_setPosition(inv->sprite, inv->pos);
-    return true;
+    return init_values(inv, env);
 }
 
 void player_inventory_destroy(player_inventory_t *inv)

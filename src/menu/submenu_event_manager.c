@@ -12,8 +12,19 @@ static const sfKeyCode SHORTCUT_SUBMENU[NB_SUB_MENU] =
     sfKeyO,
     sfKeyE,
     0,
-    0
+    sfKeyR
 };
+
+static void do_action(game_t *game)
+{
+    if (game->submenu == MINVSTAT) {
+        INVENTORY.pos.x = GET_VAR_DEC(game, "INVENTORY_POSX", NULL);
+        INVENTORY.pos.y = GET_VAR_DEC(game, "INVENTORY_POSY", NULL);
+    } else if (game->submenu == MINV) {
+        INVENTORY.pos.x = 0;
+        INVENTORY.pos.y = 0;
+    }
+}
 
 void submenu_event_manager(game_t *game, sfEvent *event)
 {
@@ -28,4 +39,5 @@ void submenu_event_manager(game_t *game, sfEvent *event)
             game->submenu = NO_MENU;
         }
     }
+    do_action(game);
 }
