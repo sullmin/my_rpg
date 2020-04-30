@@ -8,42 +8,36 @@
 #include "movement.h"
 #include "my_rpg.h"
 
-static void player_in_movement(chara_animation_t *mov, float time,
-    sfIntRect *rec)
+static const sfInt32 MS_LOOP = 200;
+static const sfIntRect RECT_IDLE = {0, 130, 32, 65};
+
+static void player_in_movement(chara_animation_t *mov)
 {
-    if (time > TIME_MOVE) {
-        sfClock_restart(mov->clock);
-        time = as_seconds(mov->clock);
+    mov->count++;
+    if (mov->count > 3) {
+        mov->count = 1;
     }
-    if (time < TIME_MOVE * 0.3) {
-        rec->left = rec->width * 1;
-    }
-    else if (time < TIME_MOVE * 0.6) {
-        rec->left = rec->width * 2;
-    }
-    else {
-        rec->left = rec->width * 3;
-    }
+    mov->rec.left = mov->rec.width * mov->count;
 }
 
-void display_player(sfRenderWindow *window, chara_animation_t *mov,
-    bool act_move, float zoom)
+void display_player(game_t *game, chara_animation_t *mov, bool in_move)
 {
-    sfIntRect rec = {0, 0, 32, 65};
     size_t i;
-    float time = as_seconds(mov->clock);
 
-    mov->in_move = false;
+    mov->timer += sfTime_asMilliseconds(sfClock_getElapsedTime(mov->clock));
+    sfClock_restart(mov->clock);
     for (i = 0; i < 3 && !mov->orient[i]; i++);
-    rec.top = rec.height * i;
-    if (!act_move && time > TIME_MOVE) {
-        sfSprite_setScale(mov->sprite, (sfVector2f) {zoom / 2, zoom / 2});
-        sfSprite_setTextureRect(mov->sprite, rec);
-        sfRenderWindow_drawSprite(window, mov->sprite, NULL);
+    mov->rec.top = mov->rec.height * i;
+    if (!in_move) {
+        mov->timer = 0;
+        sfSprite_setTextureRect(mov->sprite, RECT_IDLE);
+        sfRenderWindow_drawSprite(WINDOW, mov->sprite, NULL);
         return;
     }
-    player_in_movement(mov, time, &rec);
-    sfSprite_setScale(mov->sprite, (sfVector2f) {zoom / 2, zoom / 2});
-    sfSprite_setTextureRect(mov->sprite, rec);
-    sfRenderWindow_drawSprite(window, mov->sprite, NULL);
+    while (mov->timer >= MS_LOOP) {
+        mov->timer -= MS_LOOP;
+        player_in_movement(mov);
+    }
+    sfSprite_setTextureRect(mov->sprite, mov->rec);
+    sfRenderWindow_drawSprite(WINDOW, mov->sprite, NULL);
 }

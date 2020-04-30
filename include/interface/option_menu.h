@@ -13,8 +13,12 @@
 #include "option_menu_t.h"
 
 int create_option_menu(game_t *game);
+int create_option_menu_button(game_t *game);
+
 void destroy_option_menu(game_t *game);
+
 void display_option_menu(game_t *game);
+
 void event_option_menu(game_t *game, sfEvent *event);
 
 int set_keyboard_config(option_t *option, const int *keyconfig);
@@ -23,5 +27,7 @@ int set_keyboard_config(option_t *option, const int *keyconfig);
 void event_keypad_button(game_t *game);
 void event_qwerty_button(game_t *game);
 void event_azerty_button(game_t *game);
+
+void event_chara_button(game_t *game);
 
 #endif /* !OPTION_MENU_H_ */

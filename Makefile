@@ -55,6 +55,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/display_main_world.c							\
 				$(DSRC)game/main_world/event_main_world.c							\
 				$(DSRC)game/main_world/event_player.c								\
+				$(DSRC)game/main_world/player_move.c								\
 				$(DSRC)game/main_world/update_map_position.c						\
 				$(DSRC)game/main_world/player_position_on_map.c						\
 				$(DSRC)game/main_world/player_animation/player_animation_player.c	\
@@ -64,6 +65,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/pnj/init_pnj.c								\
 				$(DSRC)game/main_world/pnj/pnj_move.c								\
 				$(DSRC)game/main_world/pnj/pnj_col.c								\
+				$(DSRC)game/main_world/pnj/pnj_evolution.c							\
 				$(DSRC)game/main_world/xp_bar/create_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/display_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/update_xp_bar.c						\
@@ -150,6 +152,7 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/credit/credit_menu_event.c					\
 
 SRC_OPTION_MENU =	$(DSRC)menu/option/create_option_menu.c				\
+					$(DSRC)menu/option/create_option_menu_button.c		\
 					$(DSRC)menu/option/destroy_option_menu.c			\
 					$(DSRC)menu/option/display_option_menu.c			\
 					$(DSRC)menu/option/event_option_menu.c				\

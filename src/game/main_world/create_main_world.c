@@ -9,7 +9,7 @@
 
 static const char *background = "asset/sprite/background.png";
 static const char *hitbox = "asset/map/map.hitbox";
-static const float SHIFT_POS = 0.5;
+static const float SHIFT_POS = 0.2;
 
 static int init_map(game_t *game)
 {
@@ -48,6 +48,7 @@ static int init_player(game_t *game)
     WMAIN->position_on_map.y = 32;
     update_position_on_map(game);
     WMAIN->shift_pos = SHIFT_POS;
+    WMAIN->is_player_move = false;
     return EXIT_SUCCESS;
 }
 
