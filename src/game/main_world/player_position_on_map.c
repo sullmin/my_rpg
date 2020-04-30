@@ -43,7 +43,7 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
 {
     bool stat = false;
 
-    if (collision_for_player(&pos[i], game))
+    if (collision_for_player(&pos[i], game) && i == 0)
         return false;
     if (WMAIN->hitbox[pos[i].y][pos[i].x] == '.') {
         stat = true;
