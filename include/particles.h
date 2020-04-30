@@ -13,8 +13,12 @@
 #include "graph.h"
 
 #define EXIT_ERROR 84
-#define MAX_ID 1
-#define MAX_PARTICLES 30
+#define MAX_ID 2
+#define SAND(i) pack->tpe_part.sand[i]
+#define JMP_PIX(i) pack->tpe_part.jump_pixels[i]
+
+extern const int jmpix_max_par;
+extern const int sand_max_par;
 
 typedef struct jump_pixels_s
 {
