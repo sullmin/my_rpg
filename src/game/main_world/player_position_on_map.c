@@ -45,8 +45,6 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
 {
     bool stat = false;
 
-    if (collision_for_player(&pos[i], game))
-        return false;
     if (WMAIN->hitbox[pos[i].y][pos[i].x] == '.') {
         stat = true;
     } else if (WMAIN->hitbox[pos[i].y][pos[i].x] == 'P' &&
@@ -75,6 +73,8 @@ bool is_right_position(game_t *game, enum direction dir)
     } else if (dir == DOWN)
         futur_pos.y += WMAIN->shift_pos;
     nb_test = add_tests(futur_pos, pos);
+    if (collision_for_player(&pos[0], game))
+        return false;
     for (size_t i = 0; i < nb_test; i++) {
         if (!correct_move(pos, game, i)) {
             return false;
