@@ -6,7 +6,6 @@
 */
 
 #include "my_rpg.h"
-#include "fight.h"
 
 bool is_pnj_col(sfVector2i *player, sfVector2i *pnj)
 {
@@ -39,25 +38,10 @@ static ssize_t collision_manage(game_t *game)
 
 void collision_act(game_t *game)
 {
-    ssize_t ret;
+    ssize_t id;
 
-    ret = collision_manage(game);
-    if (ret == -1)
+    id = collision_manage(game);
+    if (id == -1)
         return;
-    if ((ret == 0 || ret == 1) && WMAIN->pnj_man.all_pnj[ret].go_act) {
-        if (play_fight(game->w, (fight_mode_t) {1, 1000, 0.8, 1}) == 1)
-            WMAIN->pnj_man.all_pnj[ret].go_act = false;
-    }
-    if (ret == 2 && WMAIN->pnj_man.all_pnj[ret].go_act) {
-        if (WMAIN->pnj_man.all_pnj[ret].go_act)
-            quest_enable(game, 1);
-        WMAIN->pnj_man.all_pnj[ret].go_act = false;
-        //quest reward key "113"
-    }
-    if (ret == 3 && WMAIN->pnj_man.all_pnj[ret].go_act) {
-        //quest !!!!
-    }
-    if (ret == 4 && WMAIN->pnj_man.all_pnj[ret].go_act) {
-        // final quest
-    }
+    act_manage(game, id);
 }
