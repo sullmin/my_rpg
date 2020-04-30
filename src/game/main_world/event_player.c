@@ -13,7 +13,6 @@ enum direction direction)
     WMAIN->player_move.in_move = is_moving;
     WMAIN->is_player_move = is_moving;
     WMAIN->move_dir = direction;
-    printf("%d\n", WMAIN->player_move.in_move);
 }
 
 static bool is_player_move_start(sfEvent *event, game_t *game)

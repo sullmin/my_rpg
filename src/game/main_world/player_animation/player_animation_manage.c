@@ -10,7 +10,7 @@
 
 static const char *PLAYER_SPRITE[] =
 {
-    "./asset/sprite/hero.png",
+    "./asset/sprite/stupid_nathan.png",
     "./asset/sprite/hero2.png"
 };
 
