@@ -12,7 +12,6 @@
 //#include "window_t.h"
 
 #define KEY_TAB_SIZE 36
-
 #define KEYS_MAX_SIZE 100
 
 typedef struct event_input_s
@@ -53,7 +52,7 @@ typedef struct fight_run_s
     sfClock *update;
     combination_t *events;
     window_t window;
-    bool win;
+    int win;
 } fight_run_t;
 
 int play_fight(window_t window, fight_mode_t mfight);
