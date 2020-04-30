@@ -50,7 +50,8 @@ int draw_sand(particles_pack_t *pack)
 
     for (int i = 0; i < sand_max_par; i++) {
         my_draw_rect(pack->framebuffer, (sfVector2f) {SAND(i).coord.x,
-                    SAND(i).coord.y}, (sfVector2f) {2, 2}, sfTransparent);
+                    SAND(i).coord.y}, (sfVector2f) {SAND(i).size, SAND(i).size},
+                    sfTransparent);
         SAND(i).angle = SAND(i).angle + rand_angle;
         SAND(i).coord.x += (SAND(i).speed * ms)
                         * cos(SAND(i).angle * M_PI / 180);
