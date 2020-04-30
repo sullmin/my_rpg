@@ -10,10 +10,8 @@
 
 bool is_pnj_col(sfVector2i *player, sfVector2i *pnj)
 {
-    if (player->x == pnj->x + 1 || player->x == pnj->x ||
-        player->x == pnj->x - 1 || player->x == pnj->x - 2)
-        if (player->y == pnj->y + 1 || player->y == pnj->y ||
-            player->y == pnj->y - 1)
+    if (player->x <= pnj->x + 2 && player->x >= pnj->x - 2)
+        if (player->y <= pnj->y + 2 && player->y >= pnj->y - 2)
             return true;
     return false;
 }

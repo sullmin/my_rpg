@@ -30,6 +30,7 @@ bool movement_creat(chara_animation_t *mov)
         mov->orient[i] = false;
     mov->orient[3] = true;
     mov->in_move = false;
+    mov->is_static = false;
     mov->timer = 0;
     mov->rec = (sfIntRect) {0, 0, 32, 65};
     mov->count = 1;

@@ -19,6 +19,8 @@ static bool have_decimal(float nbr)
     if (nbr == 0) {
         return false;
     }
+    if (nbr < 0.3)
+        return false;
     return true;
 }
 
@@ -43,7 +45,7 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
 {
     bool stat = false;
 
-    if (collision_for_player(&pos[i], game) && i == 0)
+    if (collision_for_player(&pos[i], game))
         return false;
     if (WMAIN->hitbox[pos[i].y][pos[i].x] == '.') {
         stat = true;
