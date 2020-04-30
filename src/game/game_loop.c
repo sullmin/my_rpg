@@ -27,12 +27,14 @@ static void crossroads(game_t *game)
     }
 }
 
-static int run(game_t *game)
+static int run(game_t *game, particles_pack_t *pack)
 {
     sfRenderWindow_clear(game->w.window, sfBlack);
-    crossroads(game);
+    /*crossroads(game);
     if (game->state == ERR)
-        return EXIT_ERROR;
+        return EXIT_ERROR;*/
+    draw_sand(pack);
+    update_particles(pack, game->w);
     sfRenderWindow_display(game->w.window);
     return EXIT_SUCCESS;
 }
@@ -41,14 +43,19 @@ int game_loop(game_t *game)
 {
     sfEvent event;
 
+    particles_pack_t *pack = create_particles(game->w, 2, sfWhite, 2);
+
+    if (pack == NULL)
+        return EXIT_ERROR;
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
-        if (run(game) == EXIT_ERROR)
+        if (run(game, pack) == EXIT_ERROR)
             return EXIT_ERROR;
         if (game->state == QUIT) {
             event_window_close(game);
         }
     }
+    destroy_particles(pack);
     return EXIT_SUCCESS;
 }
