@@ -9,8 +9,11 @@
 
 static void set_pnj_activate(game_t *game, sfEvent *event)
 {
-    if (is_key_pressed(event, sfKeyF))
-        collision_act(game);
+    if (is_key_pressed(event, sfKeyF)) {
+        if (!get_loot(game))
+            collision_act(game);
+        sysquest_check_end(game);
+    }
 }
 
 void event_main_world(game_t *game, sfEvent *event)
@@ -21,7 +24,6 @@ void event_main_world(game_t *game, sfEvent *event)
         if (event->mouseWheelScroll.delta == 1) {
             sfView_zoom(WMAIN->view, 0.9);
             WMAIN->nb_zoom++;
-
         } else if (event->mouseWheelScroll.delta == -1 && WMAIN->nb_zoom) {
             sfView_zoom(WMAIN->view,
             powf(0.9, WMAIN->nb_zoom - 1) / powf(0.9, WMAIN->nb_zoom));
