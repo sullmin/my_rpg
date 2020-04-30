@@ -15,9 +15,13 @@
 typedef struct chara_animation_s {
     sfTexture *texture;
     sfSprite *sprite;
+    sfIntRect rec;
     sfClock *clock;
+    sfInt32 timer;
     bool orient[4];
     bool in_move;
+    bool is_static;
+    int count;
 } chara_animation_t;
 
 #endif

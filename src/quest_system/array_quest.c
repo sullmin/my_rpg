@@ -16,7 +16,61 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "STARTING QUEST",
         .text = "find the holy savonette and conquier the world",
         .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
+        .type_reward = REW_ITEM,
+        .reward_stat =
+        {
+            .agility = 0,
+            .strength = 0,
+            .speed = 0,
+            .health = 0,
+            .resistance = 0,
+            .iq = 0
+        },
+        .reward_ref_item = {'1', '1', '3', 0},
+        .ref_item_end = {'1', '1', '1', 0},
+        .max_duration = 0
+    },
+    {
+        .title = "Get the guardian key",
+        .text = "In order to open the door of the prison...",
+        .file_pnj_dialogue = "getkey.diag",
+        .type_reward = REW_ITEM,
+        .reward_stat =
+        {
+            .agility = 0,
+            .strength = 0,
+            .speed = 0,
+            .health = 0,
+            .resistance = 0,
+            .iq = 0
+        },
+        .reward_ref_item = {'1', '1', '3', 0},
+        .ref_item_end = {'1', '1', '2', 0},
+        .max_duration = 120000000
+    },
+    {
+        .title = "Kill one guardian",
+        .text = "Are you ready?",
+        .file_pnj_dialogue = "kill_guard.diag",
+        .type_reward = REW_ITEM,
+        .reward_stat =
+        {
+            .agility = 0,
+            .strength = 0,
+            .speed = 0,
+            .health = 0,
+            .resistance = 0,
+            .iq = 0
+        },
+        .reward_ref_item = {'1', '1', '5', 0},
+        .ref_item_end = {'1', '1', '4', 0},
+        .max_duration = 120000000
+    },
+    {
+        .title = "TEST",
+        .text = "TEST",
+        .file_pnj_dialogue = "start.diag",
+        .type_reward = REW_ITEM,
         .reward_stat =
         {
             .agility = 0,
@@ -34,7 +88,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "TEST",
         .text = "TEST",
         .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
+        .type_reward = REW_ITEM,
         .reward_stat =
         {
             .agility = 0,
@@ -52,7 +106,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "TEST",
         .text = "TEST",
         .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
+        .type_reward = REW_ITEM,
         .reward_stat =
         {
             .agility = 0,
@@ -70,7 +124,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "TEST",
         .text = "TEST",
         .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
+        .type_reward = REW_ITEM,
         .reward_stat =
         {
             .agility = 0,
@@ -88,7 +142,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "TEST",
         .text = "TEST",
         .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
+        .type_reward = REW_ITEM,
         .reward_stat =
         {
             .agility = 0,
@@ -106,7 +160,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "TEST",
         .text = "TEST",
         .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
+        .type_reward = REW_ITEM,
         .reward_stat =
         {
             .agility = 0,
@@ -124,61 +178,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "TEST",
         .text = "TEST",
         .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
-        .reward_stat =
-        {
-            .agility = 0,
-            .strength = 0,
-            .speed = 0,
-            .health = 0,
-            .resistance = 0,
-            .iq = 0
-        },
-        .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'x', 'x', 'x', 0},
-        .max_duration = 0
-    },
-    {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
-        .reward_stat =
-        {
-            .agility = 0,
-            .strength = 0,
-            .speed = 0,
-            .health = 0,
-            .resistance = 0,
-            .iq = 0
-        },
-        .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'x', 'x', 'x', 0},
-        .max_duration = 0
-    },
-    {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
-        .reward_stat =
-        {
-            .agility = 0,
-            .strength = 0,
-            .speed = 0,
-            .health = 0,
-            .resistance = 0,
-            .iq = 0
-        },
-        .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'x', 'x', 'x', 0},
-        .max_duration = 0
-    },
-    {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_STAT,
+        .type_reward = REW_ITEM,
         .reward_stat =
         {
             .agility = 0,

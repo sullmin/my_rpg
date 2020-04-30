@@ -42,6 +42,7 @@ static bool struct_load(item_t *item, env_t *my_env)
     item->sprite = sfSprite_create();
     item->texture = sfTexture_createFromFile(
         my_env_get_value(my_env, "SPRITE"), NULL);
+    item->is_equiped = false;
     if (!item->sprite || !item->texture)
         return false;
     sfSprite_setTexture(item->sprite, item->texture, sfTrue);

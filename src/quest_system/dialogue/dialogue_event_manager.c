@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-static const sfKeyCode KEY_EXIT = sfKeyEscape;
+static const sfKeyCode KEY_EXIT = sfKeyEnter;
 
 bool dialogue_read_next_sentence(sys_quest_t *sysquest)
 {

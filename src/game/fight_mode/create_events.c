@@ -64,14 +64,14 @@ static int set_key_values(key_event_t *key, event_input_t input)
     return EXIT_SUCCESS;
 }
 
-static void set_key_text(window_t window, key_event_t *key, event_input_t input,
+static void set_key_text(window_t win, key_event_t *key, event_input_t input,
                         sfColor color)
 {
     sfText_setString(key->text, input.key);
     sfText_setFont(key->text, key->font);
     sfText_setColor(key->text, color);
     sfText_setPosition(key->text, (sfVector2f) {rand()
-        % (window.width - KEYS_MAX_SIZE), rand() % (window.height - KEYS_MAX_SIZE)});
+        % (win.width - KEYS_MAX_SIZE), rand() % (win.height - KEYS_MAX_SIZE)});
 }
 
 static int fill_keys(window_t window, combination_t key_evt)

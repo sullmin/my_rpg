@@ -24,6 +24,8 @@ typedef struct {
     sfTexture *texture;
     sfIntRect rect_init;
     sfIntRect rect;
+    sfView *view;
+    int nb_zoom;
     char **hitbox;
     sfVector2f position_on_map;
     sfVector2i pos_on_map_int;
@@ -37,8 +39,13 @@ typedef struct {
     sfVector2i size_map_pixel;
     float zoom;
     chara_animation_t player_move;
-    pnj_t enemy;
+    pnj_manage_t pnj_man;
     sound_t *sound_effect;
+    progress_t *bar;
+    int xp;
+    int lvl;
+    bool is_player_move;
+    enum direction move_dir;
 } main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */

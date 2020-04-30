@@ -10,8 +10,8 @@
 extern FUNC_EVENT fct_event[NB_GAME_STATE];
 extern FUNC_EVENT fct_event_sub_menu[NB_SUB_MENU];
 
-static const sfKeyCode FORCE_QUIT_KEY = sfKeyP;
-static const sfKeyCode PAUSE_MENU_KEY = sfKeySpace;
+static const sfKeyCode FORCE_QUIT_KEY = sfKeyDelete;
+static const sfKeyCode PAUSE_MENU_KEY = sfKeyEscape;
 
 void event_window_close(game_t *game)
 {
@@ -64,6 +64,5 @@ void call_event_manager(game_t *game, sfEvent *event)
         set_game_state(game, PAUSE_MENU);
         return;
     }
-    input_manage(game, event);
     event_crossroads(game, event);
 }

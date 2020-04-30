@@ -21,7 +21,8 @@ typedef enum game_status {
     MAIN_WORLD = 4,
     ISO_WORLD = 5,
     OPTION_MENU = 6,
-    HELP_MENU = 7
+    HELP_MENU = 7,
+    CREDIT_MENU = 8
 } game_status_t;
 
 typedef enum submenu_status {
@@ -29,13 +30,14 @@ typedef enum submenu_status {
     MQUEST = 0,
     MINVSTAT = 1,
     MHELP = 2,
-    MHIST = 3
+    MINV = 3
 } submenu_status_t;
 
-#define NB_GAME_STATE 8
+#define NB_GAME_STATE 9
 #define NB_SUB_MENU 4
 
 #define OPTION game->option
+#define KEYSET game->option->move
 #define MENU_OPTION game->option_menu
 #define MMENU game->menu
 #define WINDOW game->w.window
@@ -44,6 +46,8 @@ typedef enum submenu_status {
 #define QUEST game->sysquest
 #define MENU_HELP game->help_menu
 #define WMAIN game->wmain
+#define MENU_CREDIT game->credit_menu
+#define INVENTORY game->inventory
 
 #include "gui_t.h"
 #include "option_t.h"
@@ -57,6 +61,7 @@ typedef enum submenu_status {
 #include "movement_t.h"
 #include "pnj_t.h"
 #include "help_menu_t.h"
+#include "credit_menu_t.h"
 
 /*
     Main structure of the program
@@ -79,6 +84,7 @@ typedef struct game {
     main_menu_t *menu;
     option_menu_t *option_menu;
     pause_menu_t *pause;
+    credit_menu_t credit_menu;
     help_menu_t *help_menu;
     option_t *option;
 } game_t;
