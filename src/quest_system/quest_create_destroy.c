@@ -36,6 +36,7 @@ static int load_dialogues(sys_quest_t *quests)
 {
     for (size_t i = 0; i < quests->size; i++) {
         quests->is_active[i] = false;
+        quests->is_finish[i] = false;
         quests->time_begin[i] = 0;
         if (QUEST_ARRAY[i].file_pnj_dialogue == NULL) {
             quests->pnj_dialogue[i] = NULL;

@@ -30,6 +30,7 @@ int quest_finish(game_t *game, const size_t id)
     my_printf("QUEST %lu : has been complete !\n", id);
     QUEST.size_enable -= 1;
     QUEST.is_active[id] = false;
+    QUEST.is_finish[id] = true;
     if ((now - QUEST.time_begin[id]) > QUEST_ARRAY[id].max_duration) {
         dialogue_play(&QUEST, IDX_DIALOGUE_FAIL);
     } else {
