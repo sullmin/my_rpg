@@ -56,7 +56,7 @@ bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
         NULL);
     sfVector2i pos[] = {(sfVector2i) {65, 32}, (sfVector2i) {44, 49},
                         (sfVector2i) {44, 34}, (sfVector2i) {47, 62},
-                        (sfVector2i) {40, 71}
+                        (sfVector2i) {40, 71}, (sfVector2i) {37, 38}
                         };
 
     pnj_man->nb_pnj = my_env_get_value_int(env, "NB_PNJ", NULL);
