@@ -63,9 +63,11 @@ int isow_create(game_t *game)
         return EXIT_ERROR;
     if (create_objects(&ISOW) != EXIT_SUCCESS)
         return EXIT_ERROR;
-    if (kinem_create(&ISOW) != EXIT_SUCCESS) {
+    if (kinem_create(&ISOW) != EXIT_SUCCESS)
         return EXIT_ERROR;
-    }
+    ISOW.sand = create_particles(game->w, 2, (sfColor) {255, 153, 0, 255}, 3);
+    if (ISOW.sand == NULL)
+        return EXIT_ERROR;
     ISOW.event.player_move_key_h = 0;
     ISOW.event.player_move_key_v = 0;
     ISOW.event.player_move = false;
