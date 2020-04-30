@@ -10,9 +10,9 @@
 
 bool is_pnj_col(sfVector2i *player, sfVector2i *pnj)
 {
-    if (player->x == pnj->x + 1  || player->x == pnj->x ||
-        player->x == pnj->x - 1)
-        if (player->y == pnj->y + 1  || player->y == pnj->y ||
+    if (player->x == pnj->x + 1 || player->x == pnj->x ||
+        player->x == pnj->x - 1 || player->x == pnj->x - 2)
+        if (player->y == pnj->y + 1 || player->y == pnj->y ||
             player->y == pnj->y - 1)
             return true;
     return false;
@@ -20,10 +20,14 @@ bool is_pnj_col(sfVector2i *player, sfVector2i *pnj)
 
 bool collision_for_player(sfVector2i *player, game_t *game)
 {
-    for (size_t i = 0; i < game->wmain->pnj_man.nb_pnj; i++)
+    for (size_t i = 0; i < game->wmain->pnj_man.nb_pnj; i++) {
         if (player->x == WMAIN->pnj_man.all_pnj[i].pos.x &&
             player->y == WMAIN->pnj_man.all_pnj[i].pos.y)
             return true;
+        if (player->x + 1 == WMAIN->pnj_man.all_pnj[i].pos.x &&
+            player->y == WMAIN->pnj_man.all_pnj[i].pos.y)
+            return true;
+    }
     return false;
 }
 
