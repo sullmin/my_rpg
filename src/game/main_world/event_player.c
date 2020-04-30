@@ -40,4 +40,5 @@ void event_player(game_t *game, sfEvent *event)
     } else if (WMAIN->is_player_move == true) {
         WMAIN->is_player_move = false;
     }
+    input_manage(game, event);
 }

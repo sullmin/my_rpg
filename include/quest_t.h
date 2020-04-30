@@ -42,6 +42,7 @@ typedef struct quest_system {
     list_str_t *pnj_dialogue_fail;
     list_str_t *pnj_dialogue[NB_QUEST];
     bool is_active[NB_QUEST];
+    bool is_finish[NB_QUEST];
     sfInt64 time_begin[NB_QUEST];
     sfRectangleShape *back;
     sfText *text;

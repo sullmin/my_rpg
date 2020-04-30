@@ -32,7 +32,10 @@ bool move_item_in_inventory(game_t *game, const char *id)
         end = end->next;
     if (!end)
         return false;
-    if (!add_item_in_player_inv(&game->inventory, end->item))
+    if (!add_item_in_player_inv(&game->inventory, end->item)) {
         return false;
+    } else {
+        sysquest_check_end(game);
+    }
     return true;
 }
