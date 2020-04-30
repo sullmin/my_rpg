@@ -9,8 +9,7 @@
 
 static const sfInt32 INIT_SPEED_PNJ = 1000;
 
-static const size_t SIZE_LIST_PNJ = 5;
-
+static const size_t SIZE_LIST_PNJ = 6;
 static const pnj_plan_t LIST_PNJ[] = {
     {
         .position = {65, 32},
@@ -31,6 +30,10 @@ static const pnj_plan_t LIST_PNJ[] = {
     {
         .position = {40, 71},
         .path_sprite = "./asset/sprite/pnj_y.png"
+    },
+    {
+        .position = {37, 38},
+        .path_sprite = "./asset/sprite/pnj_x.png"
     }
 };
 
