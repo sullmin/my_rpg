@@ -8,6 +8,7 @@
 #include "my_rpg.h"
 
 static const char *background = "asset/sprite/background.png";
+static const char *box = "asset/sprite/box.png";
 static const char *hitbox = "asset/map/map.hitbox";
 static const float SHIFT_POS = 0.2;
 
@@ -31,14 +32,20 @@ static int init_map(game_t *game)
 
 static int load_map_texture(game_t *game)
 {
-    game->wmain->texture = sfTexture_createFromFile(background, NULL);
-    game->wmain->sprite = sfSprite_create();
-    if (game->wmain->texture == NULL || game->wmain->sprite == NULL)
+    WMAIN->texture = sfTexture_createFromFile(background, NULL);
+    WMAIN->sprite = sfSprite_create();
+    if (WMAIN->texture == NULL || WMAIN->sprite == NULL)
         return EXIT_ERROR;
     sfSprite_setScale(WMAIN->sprite, (sfVector2f){WMAIN->zoom, WMAIN->zoom});
-    sfSprite_setPosition(game->wmain->sprite, (sfVector2f){0, 0});
-    sfSprite_setTexture(game->wmain->sprite, game->wmain->texture, sfFalse);
-    sfSprite_setTextureRect(game->wmain->sprite, game->wmain->rect);
+    sfSprite_setPosition(WMAIN->sprite, (sfVector2f){0, 0});
+    sfSprite_setTexture(WMAIN->sprite, WMAIN->texture, sfFalse);
+    sfSprite_setTextureRect(WMAIN->sprite, WMAIN->rect);
+    WMAIN->txt_box = sfTexture_createFromFile(box, NULL);
+    WMAIN->spr_box = sfSprite_create();
+    if (WMAIN->txt_box == NULL || WMAIN->spr_box == NULL)
+        return EXIT_FAILURE;
+    sfSprite_setTexture(WMAIN->spr_box, WMAIN->txt_box, sfFalse);
+    sfSprite_setScale(WMAIN->spr_box, (sfVector2f){WMAIN->zoom, WMAIN->zoom});
     return EXIT_SUCCESS;
 }
 

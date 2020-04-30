@@ -22,6 +22,8 @@ enum direction {
 typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
+    sfSprite *spr_box;
+    sfTexture *txt_box;
     sfIntRect rect_init;
     sfIntRect rect;
     sfView *view;
