@@ -44,6 +44,7 @@ typedef struct fight_mode_s
     float interval;
     float speed;
     int comb;
+    sfEvent evt;
 } fight_mode_t;
 
 typedef struct fight_run_s

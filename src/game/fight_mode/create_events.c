@@ -94,6 +94,7 @@ combination_t *create_fight_events(fight_mode_t *mfight, window_t window)
 {
     combination_t *events = malloc(sizeof(combination_t) * mfight->actions);
 
+    mfight->evt = (sfEvent) {};
     if (events == NULL)
         return NULL;
     for (int i = 0; i < mfight->actions; i++) {

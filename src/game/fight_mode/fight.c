@@ -46,9 +46,10 @@ static void spawn_events(float interval, combination_t events,
 }
 
 static void fight_loop(fight_mode_t *mfight, fight_run_t *rfight,
-                    sfSprite *background)
+sfSprite *background)
 {
     while (!is_finish(mfight->actions, rfight->events)) {
+        while (sfRenderWindow_pollEvent(rfight->window.window, &mfight->evt));
         if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
             rfight->win = -1;
             break;
