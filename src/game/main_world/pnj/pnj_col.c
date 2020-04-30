@@ -10,10 +10,8 @@
 
 bool is_pnj_col(sfVector2i *player, sfVector2i *pnj)
 {
-    if (player->x == pnj->x + 1 || player->x == pnj->x ||
-        player->x == pnj->x - 1 || player->x == pnj->x - 2)
-        if (player->y == pnj->y + 1 || player->y == pnj->y ||
-            player->y == pnj->y - 1)
+    if (player->x <= pnj->x + 2 && player->x >= pnj->x - 2)
+        if (player->y <= pnj->y + 2 && player->y >= pnj->y - 2)
             return true;
     return false;
 }
@@ -47,10 +45,13 @@ void collision_act(game_t *game)
     if (ret == -1)
         return;
     if ((ret == 0 || ret == 1) && WMAIN->pnj_man.all_pnj[ret].go_act) {
-        WMAIN->pnj_man.all_pnj[ret].go_act = false;
-        play_fight(game->w, (fight_mode_t) {1, 1000, 0.8, 1});
+        if (play_fight(game->w, (fight_mode_t) {1, 1000, 0.8, 1}) == 1)
+            WMAIN->pnj_man.all_pnj[ret].go_act = false;
     }
     if (ret == 2 && WMAIN->pnj_man.all_pnj[ret].go_act) {
+        if (WMAIN->pnj_man.all_pnj[ret].go_act)
+            quest_enable(game, 1);
+        WMAIN->pnj_man.all_pnj[ret].go_act = false;
         //quest reward key "113"
     }
     if (ret == 3 && WMAIN->pnj_man.all_pnj[ret].go_act) {

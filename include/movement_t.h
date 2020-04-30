@@ -20,6 +20,7 @@ typedef struct chara_animation_s {
     sfInt32 timer;
     bool orient[4];
     bool in_move;
+    bool is_static;
     int count;
 } chara_animation_t;
 

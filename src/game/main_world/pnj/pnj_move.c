@@ -48,7 +48,11 @@ void simple_pnj_move(pnj_t *pnj, game_t *game)
 {
     bool stat = true;
 
-    if (is_pnj_col(&WMAIN->pos_on_map_int, &pnj->pos))
+    if (game->submenu != NO_MENU && game->submenu != MINV) {
+        display_pnj(pnj, game, stat);
+        return;
+    }
+    if (is_pnj_col(&WMAIN->pos_on_map_int, &pnj->pos) || pnj->move.is_static)
         stat = false;
     pnj->timer += TIME_MILLI(pnj->clock);
     while (pnj->timer >= pnj->ms_loop) {

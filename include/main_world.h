@@ -11,6 +11,8 @@
 #include "game_t.h"
 #include "main_world_t.h"
 
+#define PLAYER_INT game->wmain->pos_on_map_int
+
 int create_main_world(game_t *game);
 void destroy_main_world(game_t *game);
 void display_main_world(game_t *game);

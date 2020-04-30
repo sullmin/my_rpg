@@ -30,7 +30,7 @@ typedef enum submenu_status {
     MQUEST = 0,
     MINVSTAT = 1,
     MHELP = 2,
-    MHIST = 3
+    MINV = 3
 } submenu_status_t;
 
 #define NB_GAME_STATE 9
@@ -47,6 +47,7 @@ typedef enum submenu_status {
 #define MENU_HELP game->help_menu
 #define WMAIN game->wmain
 #define MENU_CREDIT game->credit_menu
+#define INVENTORY game->inventory
 
 #include "gui_t.h"
 #include "option_t.h"

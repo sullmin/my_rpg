@@ -13,12 +13,13 @@ static void quest_give_reward(game_t *game, const size_t id)
 {
     const quest_t CURR_QUEST = QUEST_ARRAY[id];
 
-    if (CURR_QUEST.type_reward != REW_ITEM) {
+    if (CURR_QUEST.type_reward != REW_STAT) {
         if (!move_item_in_inventory(game, CURR_QUEST.reward_ref_item)) {
             puterr("ERR: Fail to add QUEST reward ITEM in INVENTORY\n", 0);
         }
     }
     WMAIN->xp += 5;
+    sound_manager_play(&SOUND, SUCCESS);
 }
 
 int quest_finish(game_t *game, const size_t id)
@@ -30,6 +31,7 @@ int quest_finish(game_t *game, const size_t id)
     my_printf("QUEST %lu : has been complete !\n", id);
     QUEST.size_enable -= 1;
     QUEST.is_active[id] = false;
+    QUEST.is_finish[id] = true;
     if ((now - QUEST.time_begin[id]) > QUEST_ARRAY[id].max_duration) {
         dialogue_play(&QUEST, IDX_DIALOGUE_FAIL);
     } else {
