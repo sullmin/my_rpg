@@ -76,8 +76,10 @@ bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
     bool err = false;
 
     pnj_man->nb_pnj = my_env_get_value_int(env, "NB_PNJ", &err);
-    if (pnj_man->nb_pnj > SIZE_LIST_PNJ)
+    if (pnj_man->nb_pnj > SIZE_LIST_PNJ) {
+        my_putstr_error("WARNING: NB_PNJ greater than SIZE of array\n");
         pnj_man->nb_pnj = SIZE_LIST_PNJ;
+    }
     pnj_man->all_pnj = malloc(sizeof(pnj_t) * pnj_man->nb_pnj);
     if (!pnj_man->all_pnj || err)
         return false;
