@@ -38,7 +38,10 @@ void distroy_item_list(list_t *list);
 
 item_t *item_load(const char *filepath);
 bool item_manage(list_t **list);
+
 void display_inventory(player_inventory_t *inv, sfRenderWindow *window);
+void display_only_inventory(game_t *game);
+
 bool add_item_in_player_inv(player_inventory_t *inv, item_t *item);
 bool move_item_in_inventory(game_t *game, const char *id);
 
