@@ -13,9 +13,12 @@
 
 bool add_item_in_player_inv(player_inventory_t *inv, item_t *item)
 {
+    if (item->is_equiped)
+        return false;
     for (size_t i = 0; i < inv->size; i++)
         if (!inv->inventory[i]) {
             inv->inventory[i] = item;
+            item->is_equiped = true;
             return true;
         }
     return false;
