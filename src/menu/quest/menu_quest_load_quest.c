@@ -12,7 +12,7 @@ extern const quest_t QUEST_ARRAY[];
 static const sfVector2f INIT_POSITION = {320, 250};
 static const sfVector2f SIZE = {1000, 80};
 static const float POS_Y_SHIFT = 10;
-static const sfColor COLOR_RECT = {10, 10, 10, 90};
+static const sfColor COLOR_RECT = {10, 10, 10, 180};
 static const sfColor COLOR_TEXT = {255, 255, 255, 255};
 
 static int create_text(sfText **txt, game_t *game, const char *label,
