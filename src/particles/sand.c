@@ -45,7 +45,7 @@ static void check_over_screen(sfVector2f *coord,
 
 int draw_sand(particles_pack_t *pack)
 {
-    float ms = sfClock_getElapsedTime(pack->clock).microseconds / 10000;
+    sfInt64 ms = sfClock_getElapsedTime(pack->clock).microseconds / 10000;
     float rand_angle = RAND(-7, 7);
 
     for (int i = 0; i < sand_max_par; i++) {
