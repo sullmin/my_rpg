@@ -27,7 +27,7 @@ bool collision_for_player(sfVector2i *player, game_t *game)
     return false;
 }
 
-ssize_t collision_manage(game_t *game)
+static ssize_t collision_manage(game_t *game)
 {
     for (size_t i = 0; i < game->wmain->pnj_man.nb_pnj; i++)
         if (is_pnj_col(&WMAIN->pos_on_map_int, &WMAIN->pnj_man.all_pnj[i].pos))
@@ -37,12 +37,22 @@ ssize_t collision_manage(game_t *game)
 
 void collision_act(game_t *game)
 {
-    ssize_t ret = collision_manage(game);
+    ssize_t ret;
 
+    ret = collision_manage(game);
     if (ret == -1)
         return;
-    if (ret == 0 && WMAIN->pnj_man.all_pnj[ret].go_act) {
+    if ((ret == 0 || ret == 1) && WMAIN->pnj_man.all_pnj[ret].go_act) {
         WMAIN->pnj_man.all_pnj[ret].go_act = false;
         play_fight(game->w, (fight_mode_t) {1, 1000, 0.8, 1});
+    }
+    if (ret == 2 && WMAIN->pnj_man.all_pnj[ret].go_act) {
+        //quest reward key "113"
+    }
+    if (ret == 3 && WMAIN->pnj_man.all_pnj[ret].go_act) {
+        //quest !!!!
+    }
+    if (ret == 4 && WMAIN->pnj_man.all_pnj[ret].go_act) {
+        // final quest
     }
 }

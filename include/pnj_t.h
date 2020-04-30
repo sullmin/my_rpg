@@ -26,6 +26,7 @@ typedef struct pnj_manage_s
 {
     pnj_t *all_pnj;
     size_t nb_pnj;
+    bool activate;
 } pnj_manage_t;
 
 #endif

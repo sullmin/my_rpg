@@ -54,13 +54,16 @@ bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
     sfSprite *sprite = sfSprite_create();
     sfTexture *texture = sfTexture_createFromFile("./asset/sprite/enemy.png",
         NULL);
-    sfVector2i pos[] = {(sfVector2i) {65, 32}, (sfVector2i) {44, 49}
+    sfVector2i pos[] = {(sfVector2i) {65, 32}, (sfVector2i) {44, 49},
+                        (sfVector2i) {43, 35}, (sfVector2i) {47, 62},
+                        (sfVector2i) {40, 71}
                         };
 
     pnj_man->nb_pnj = my_env_get_value_int(env, "NB_PNJ", &err);
     pnj_man->all_pnj = malloc(sizeof(pnj_t) * pnj_man->nb_pnj);
     if (!pnj_man->all_pnj || !sprite || !texture)
         return false;
+    pnj_man->activate = false;
     sfSprite_setPosition(sprite, (sfVector2f) {1136, 368});
     sfSprite_setTexture(sprite, texture, sfTrue);
     sfSprite_setScale(sprite, (sfVector2f) {2, 2});
