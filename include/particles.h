@@ -14,7 +14,7 @@
 
 #define EXIT_ERROR 84
 #define MAX_ID 2
-#define RAND(min, max) min - rand() % (max + min + 1)
+#define RAND(min, max) min + rand() % (max + (min < 0 ? -min + 1 : 0))
 #define SAND(i) pack->tpe_part.sand[i]
 #define JMP_PIX(i) pack->tpe_part.jump_pixels[i]
 
@@ -35,6 +35,7 @@ typedef struct sand_s
     sfVector2f coord;
     sfColor color;
     float angle;
+    float speed;
     float size;
 } sand_t;
 
