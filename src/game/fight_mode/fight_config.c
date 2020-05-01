@@ -14,7 +14,7 @@ static const float INIT_INTERVAL = 2500;
 static const float MAX_INTERVAL = 5000;
 static const int INIT_COMBO = 3;
 
-static void config_actions(game_t game, stat_t *player_stat,
+static void config_actions(stat_t *player_stat,
 fight_mode_t *config)
 {
     config->actions = INIT_ACTIONS - player_stat->iq;
@@ -41,6 +41,6 @@ fight_mode_t fight_get_config(game_t *game)
     if (config.comb <= 0) {
         config.comb = 1;
     }
-    config_actions(game, &player_stat, &config);
+    config_actions(&player_stat, &config);
     return config;
 }
