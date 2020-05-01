@@ -18,7 +18,7 @@ static void quest_give_reward(game_t *game, const size_t id)
             puterr("ERR: Fail to add QUEST reward ITEM in INVENTORY\n", 0);
         }
     }
-    WMAIN->xp += 5;
+    player_add_xp(game, 5);
     sound_manager_play(&SOUND, SUCCESS);
 }
 
