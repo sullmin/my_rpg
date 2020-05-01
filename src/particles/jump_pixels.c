@@ -10,7 +10,7 @@
 #include <math.h>
 #include "particles.h"
 
-const int jmpix_max_par = 30;
+const int jmpix_max_par = 15;
 
 int create_jump_pixels(particles_pack_t *pack, sfColor color, float max_height)
 {
