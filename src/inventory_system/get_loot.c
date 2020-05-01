@@ -23,5 +23,6 @@ bool get_loot(game_t *game)
     if (!add_item_in_player_inv(&game->inventory, end->item)) {
         return false;
     }
+    sound_manager_play(&SOUND, CLOCHE);
     return true;
 }
