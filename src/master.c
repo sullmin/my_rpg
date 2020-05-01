@@ -38,6 +38,8 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (credit_menu_create(game) == EXIT_ERROR)
         return EXIT_ERROR;
+    if (!init_particles_effect(game))
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
@@ -66,6 +68,7 @@ static int master_contruct_part1(game_t *game)
 
 static int master_destroy(game_t *game)
 {
+    destroy_particles_effct(game);
     destroy_sound_effect(game);
     destroy_pnj(&WMAIN->pnj_man);
     destroy_movement(&WMAIN->player_move);

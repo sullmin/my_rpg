@@ -65,7 +65,7 @@ void update_particles(particles_pack_t *pack, window_t win);
 //jump pixels
 int create_jump_pixels(particles_pack_t *pack, sfColor color, float max_height);
 void destroy_jump_pixels(tpe_part_t tpe_part);
-void set_pos_jump_pixels(tpe_part_t *tpe_part, sfVector2f coord, int radius);
+void set_pos_jump_pixels(particles_pack_t *pack, sfVector2f coord, int radius);
 int draw_jump_pixels(particles_pack_t *pack);
 
 //sand

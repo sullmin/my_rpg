@@ -29,9 +29,9 @@ static const char *keypad_path[] = {
 };
 
 static const char *main_menu_path[] = {
-    "asset/sprite/buttons/quit.png",
-    "asset/sprite/buttons/quit_h.png",
-    "asset/sprite/buttons/quit_c.png",
+    "asset/sprite/buttons/button.png",
+    "asset/sprite/buttons/button_h.png",
+    "asset/sprite/buttons/button_c.png",
     NULL,
 };
 

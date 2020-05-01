@@ -10,7 +10,7 @@
 #include <math.h>
 #include "particles.h"
 
-const int jmpix_max_par = 30;
+const int jmpix_max_par = 15;
 
 int create_jump_pixels(particles_pack_t *pack, sfColor color, float max_height)
 {
@@ -34,9 +34,6 @@ int draw_jump_pixels(particles_pack_t *pack)
     bool restart = false;
 
     for (int i = 0; i < jmpix_max_par; i++) {
-        my_draw_rect(pack->framebuffer, (sfVector2f) {JMP_PIX(i).coord.x,
-            JMP_PIX(i).coord.y - JMP_PIX(i).height}, (sfVector2f) {2, 2},
-            sfTransparent);
         if (sfClock_getElapsedTime(pack->clock).microseconds > 40000) {
             JMP_PIX(i).height++;
             if (JMP_PIX(i).height > JMP_PIX(i).end_height || (rand() % 8) == 1)
@@ -57,12 +54,13 @@ void destroy_jump_pixels(tpe_part_t tpe_part)
     free(tpe_part.jump_pixels);
 }
 
-void set_pos_jump_pixels(tpe_part_t *tpe_part, sfVector2f coord, int radius)
+void set_pos_jump_pixels(particles_pack_t *pack, sfVector2f coord, int radius)
 {
     for (int i = 0; i < jmpix_max_par; i++) {
-        tpe_part->jump_pixels[i].coord.x = coord.x
-            - radius + (rand() % (radius * 2));
-        tpe_part->jump_pixels[i].coord.y = coord.y
-            + radius + (rand() % (radius * 2));
+        my_draw_rect(pack->framebuffer, (sfVector2f) {JMP_PIX(i).coord.x,
+            JMP_PIX(i).coord.y - JMP_PIX(i).height}, (sfVector2f) {2, 2},
+            sfTransparent);
+        JMP_PIX(i).coord.x = coord.x - radius + (rand() % (radius * 2));
+        JMP_PIX(i).coord.y = coord.y + radius + (rand() % (radius * 2));
     }
 }

@@ -51,6 +51,7 @@ typedef struct {
     sfSprite *player_hitbox_spr;
     sfTexture *player_hitbox_txr;
     sfVector2i player_hitbox_pos[4];
+    particles_pack_t *effect[13];
 } main_world_t;
 
 #endif /* !MAIN_WORLD_T_H_ */

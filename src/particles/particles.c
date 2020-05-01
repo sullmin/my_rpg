@@ -25,7 +25,7 @@ void (* const destroy_func_id[MAX_ID])(tpe_part_t tpe_part) = {
     destroy_sand
 };
 
-void (* const set_pos_func_id[MAX_ID])(tpe_part_t *tpe_part, sfVector2f pos,
+void (* const set_pos_func_id[MAX_ID])(particles_pack_t *pack, sfVector2f pos,
                                         int radius) = {
     set_pos_jump_pixels
 };
@@ -65,7 +65,7 @@ void destroy_particles(particles_pack_t *pack)
 
 void set_particles_pos(particles_pack_t *pack, sfVector2f pos, int radius)
 {
-    set_pos_func_id[pack->id - 1](&pack->tpe_part, pos, radius);
+    set_pos_func_id[pack->id - 1](pack, pos, radius);
 }
 
 void update_particles(particles_pack_t *pack, window_t win)
