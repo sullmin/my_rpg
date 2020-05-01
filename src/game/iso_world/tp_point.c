@@ -25,6 +25,8 @@ static void tp_player(game_t *game)
     POST_TP_COORD.x, POST_TP_COORD.y);
     sfClock_restart(WMAIN->clock);
     set_game_state(game, MAIN_WORLD);
+    quest_finish(game, 0, true);
+    quest_enable(game, 1);
 }
 
 void check_tp_point(game_t *game)
