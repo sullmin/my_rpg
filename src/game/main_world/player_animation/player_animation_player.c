@@ -40,4 +40,9 @@ void display_player(game_t *game, chara_animation_t *mov, bool in_move)
     }
     sfSprite_setTextureRect(mov->sprite, mov->rec);
     sfRenderWindow_drawSprite(WINDOW, mov->sprite, NULL);
+    if (in_move) {
+        //set_particles_pos(mov->effect, (sfVector2f) {1015, 650}, 10);
+        draw_particles(mov->effect);
+        update_particles(mov->effect, game->w);
+    }
 }

@@ -30,9 +30,9 @@ static int master_contruct_part2(game_t *game)
         return EXIT_ERROR;
     if (menu_quest_create(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
-    if (!movement_creat(&WMAIN->player_move))
+    if (!movement_creat(&WMAIN->player_move, game->w))
         return EXIT_ERROR;
-    if (!init_all_pnj(&WMAIN->pnj_man, &game->env))
+    if (!init_all_pnj(&WMAIN->pnj_man, &game->env, game->w))
         return EXIT_ERROR;
     if (create_help_menu(game) == EXIT_ERROR)
         return EXIT_ERROR;

@@ -18,12 +18,14 @@ static const size_t SIZE_PLAYER_SPRITE = 2;
 
 const sfVector2f PLAYER_POSITION = {984, 540};
 
-bool movement_creat(chara_animation_t *mov)
+bool movement_creat(chara_animation_t *mov, window_t window)
 {
     mov->sprite = sfSprite_create();
     mov->texture = sfTexture_createFromFile(PLAYER_SPRITE[0], NULL);
     mov->clock = sfClock_create();
-    if (!mov->sprite || !mov->texture)
+    mov-> effect = create_particles(window, 1,
+        (sfColor) {171, 183, 183, 255}, 30);
+    if (!mov->sprite || !mov->texture || !mov->effect)
         return false;
     sfSprite_setPosition(mov->sprite, PLAYER_POSITION);
     sfSprite_setTexture(mov->sprite, mov->texture, sfTrue);
@@ -41,6 +43,7 @@ bool movement_creat(chara_animation_t *mov)
 
 void destroy_movement(chara_animation_t *mov)
 {
+    destroy_particles(mov->effect);
     sfSprite_destroy(mov->sprite);
     sfTexture_destroy(mov->texture);
     sfClock_destroy(mov->clock);

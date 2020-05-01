@@ -58,11 +58,13 @@ static const pnj_plan_t LIST_PNJ[] = {
     }
 };
 
-static int movement_pnj_creat(chara_animation_t *mov, size_t idx)
+static int movement_pnj_creat(chara_animation_t *mov, size_t idx, window_t window)
 {
     mov->sprite = sfSprite_create();
     mov->texture = sfTexture_createFromFile(LIST_PNJ[idx].path_sprite, NULL);
-    if (!mov->texture) {
+    mov-> effect = create_particles(window, 1,
+        (sfColor) {171, 183, 183, 255}, 30);
+    if (!mov->texture || ! mov-> effect) {
         return EXIT_ERROR;
     }
     for (size_t i = 0; i < 4; i++)
@@ -80,7 +82,7 @@ static int movement_pnj_creat(chara_animation_t *mov, size_t idx)
     return EXIT_SUCCESS;
 }
 
-static int init_pnj(pnj_t *pnj, size_t idx)
+static int init_pnj(pnj_t *pnj, size_t idx, window_t window)
 {
     pnj->clock = sfClock_create();
     pnj->fpos = (sfVector2i) {-1, 0};
@@ -90,13 +92,13 @@ static int init_pnj(pnj_t *pnj, size_t idx)
     pnj->pos.y = LIST_PNJ[idx].position.y;
     pnj->go_act = true;
     pnj->is_hostile = LIST_PNJ[idx].is_hostile;
-    if (movement_pnj_creat(&pnj->move, idx) != EXIT_SUCCESS)
+    if (movement_pnj_creat(&pnj->move, idx, window) != EXIT_SUCCESS)
         return EXIT_ERROR;
     built_it(&pnj->move, 1);
     return EXIT_SUCCESS;
 }
 
-bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
+bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env, window_t window)
 {
     bool err = false;
 
@@ -110,7 +112,7 @@ bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
         return false;
     pnj_man->activate = false;
     for (size_t i = 0; i < pnj_man->nb_pnj; i++) {
-        if (init_pnj(&pnj_man->all_pnj[i], i) == EXIT_ERROR)
+        if (init_pnj(&pnj_man->all_pnj[i], i, window) == EXIT_ERROR)
             return false;
     }
     pnj_man->all_pnj[2].move.is_static = true;

@@ -17,8 +17,8 @@ void display_main_world(game_t *game)
     sfRenderWindow_drawSprite(game->w.window, game->wmain->sprite, NULL);
     display_box(game);
     display_all_pnj(game);
-    display_player(game, &game->wmain->player_move,
-    game->wmain->player_move.in_move);
+    set_particles_pos(WMAIN->player_move.effect, (sfVector2f) {1014, 650}, 10);
+    display_player(game, &WMAIN->player_move, WMAIN->player_move.in_move);
     player_move(game);
     display_xp_bar(game);
     if (game->debug_mode) {

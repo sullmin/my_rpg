@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <SFML/Graphics.h>
+#include "particles.h"
 
 typedef struct chara_animation_s {
     sfTexture *texture;
@@ -22,6 +23,7 @@ typedef struct chara_animation_s {
     bool in_move;
     bool is_static;
     int count;
+    particles_pack_t *effect;
 } chara_animation_t;
 
 #endif
