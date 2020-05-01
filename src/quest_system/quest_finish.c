@@ -22,7 +22,7 @@ static void quest_give_reward(game_t *game, const size_t id)
     sound_manager_play(&SOUND, SUCCESS);
 }
 
-int quest_finish(game_t *game, const size_t id)
+int quest_finish(game_t *game, const size_t id, bool skip_dialogue)
 {
     sfInt64 now = sfClock_getElapsedTime(game->clock).microseconds;
 
@@ -32,9 +32,10 @@ int quest_finish(game_t *game, const size_t id)
     QUEST.size_enable -= 1;
     QUEST.is_active[id] = false;
     QUEST.is_finish[id] = true;
-    if ((now - QUEST.time_begin[id]) > QUEST_ARRAY[id].max_duration) {
+    if (!(now - QUEST.time_begin[id]) > QUEST_ARRAY[id].max_duration
+            && QUEST_ARRAY[id].max_duration != 0 && !skip_dialogue) {
         dialogue_play(&QUEST, IDX_DIALOGUE_FAIL);
-    } else {
+    } else if (!skip_dialogue) {
         dialogue_play(&QUEST, IDX_DIALOGUE_END);
         quest_give_reward(game, id);
     }
