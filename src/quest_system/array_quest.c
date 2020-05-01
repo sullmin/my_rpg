@@ -52,7 +52,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "[III] Le debut de la liberte",
         .text = "Cherchez la cle dans les toilettes et sortez de la cellule",
         .file_pnj_dialogue = "m3.diag",
-        .type_reward = REW_ITEM,
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,
@@ -80,8 +80,8 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'1', '1', '3', 0},
-        .ref_item_end = {'?', '?', '?', 0},
+        .reward_ref_item = {'?', '?', '?', 0},
+        .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
     },
     {

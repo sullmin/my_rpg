@@ -13,48 +13,48 @@ const size_t SIZE_LIST_PNJ = 9;
 static const pnj_plan_t LIST_PNJ[] = {
     {
         .position = {65, 32},
-        .is_hostile = true,
-        .path_sprite = "./asset/sprite/enemy.png"
+        .is_hostile = false,
+        .path_sprite = "./asset/sprite/guardian2.png"
     },
     {
         .position = {44, 49},
-        .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_barbe.png"
+        .is_hostile = true,
+        .path_sprite = "./asset/sprite/guardian1.png"
     },
     {
         .position = {44, 34},
         .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_barbe2.png"
+        .path_sprite = "./asset/sprite/vladimir.png"
     },
     {
         .position = {47, 62},
         .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_x.png"
+        .path_sprite = "./asset/sprite/prisoner1.png"
     },
     {
         .position = {40, 71},
-        .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_y.png"
+        .is_hostile = true,
+        .path_sprite = "./asset/sprite/prisoner_hostile.png"
     },
     {
         .position = {39, 39},
         .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_x.png"
+        .path_sprite = "./asset/sprite/prisoner_grey.png"
     },
     {
         .position = {66, 15},
         .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_x.png"
+        .path_sprite = "./asset/sprite/prisoner_yellow.png"
     },
     {
         .position = {62, 15},
         .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_x.png"
+        .path_sprite = "./asset/sprite/prisoner_grey.png"
     },
     {
         .position = {28, 41},
         .is_hostile = false,
-        .path_sprite = "./asset/sprite/pnj_x.png"
+        .path_sprite = "./asset/sprite/prisoner_yellow.png"
     }
 };
 
