@@ -41,6 +41,8 @@ bool item_manage(list_t **list);
 
 void display_inventory(player_inventory_t *inv, sfRenderWindow *window);
 void display_only_inventory(game_t *game);
+void display_item_stat(sfRenderWindow *window,
+    display_stat_t *info, stat_t *stat);
 
 bool add_item_in_player_inv(player_inventory_t *inv, item_t *item);
 bool move_item_in_inventory(game_t *game, const char *id);
@@ -48,5 +50,8 @@ bool move_item_in_inventory(game_t *game, const char *id);
 bool is_in_player_inv(player_inventory_t *inv, const char *id);
 bool get_loot(game_t *game);
 void set_color_key(list_t *end);
+void stat_inv(sfRenderWindow *window, display_stat_t *info,
+    player_inventory_t *inv);
+void compare_item(sfRenderWindow *window, display_stat_t *info, stat_t *stat);
 
 #endif

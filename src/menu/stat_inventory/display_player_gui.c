@@ -38,4 +38,5 @@ void display_player_gui(game_t *game)
 
     display_stat(game->w.window, &game->ui.display_stat, &player_stat);
     display_inventory(&game->inventory, game->w.window);
+    stat_inv(game->w.window, &game->ui.display_stat, &game->inventory);
 }

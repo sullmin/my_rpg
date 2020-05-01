@@ -155,6 +155,7 @@ SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/stat_inventory/display_player_stat.c		\
 				$(DSRC)menu/stat_inventory/init_display_stat.c			\
 				$(DSRC)menu/stat_inventory/display_player_gui.c			\
+				$(DSRC)menu/stat_inventory/compare.c					\
 				$(DSRC)menu/quest/menu_quest_create_destroy.c			\
 				$(DSRC)menu/quest/menu_quest_display.c					\
 				$(DSRC)menu/quest/menu_quest_event.c					\
