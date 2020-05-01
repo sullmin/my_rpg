@@ -13,10 +13,10 @@ const char *FILE_PNJ_DIALOGUE_FAIL = "fail.diag";
 const quest_t QUEST_ARRAY[NB_QUEST] =
 {
     {
-        .title = "STARTING QUEST",
-        .text = "find the holy savonette and conquier the world",
-        .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_ITEM,
+        .title = "[I] Un lieu inconne",
+        .text = "Trouvez comment vous échapper de ce lieu",
+        .file_pnj_dialogue = "m1.diag",
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,
@@ -26,14 +26,32 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'1', '1', '3', 0},
+        .reward_ref_item = {'x', 'x', 'x', 0},
         .ref_item_end = {'1', '1', '1', 0},
         .max_duration = 0
     },
     {
-        .title = "Get the guardian key",
-        .text = "In order to open the door of the prison...",
-        .file_pnj_dialogue = "getkey.diag",
+        .title = "[II] Sur le chemin de la vangeance",
+        .text = "Parlez à votre voisin de cellule",
+        .file_pnj_dialogue = "m2.diag",
+        .type_reward = REW_STAT,
+        .reward_stat =
+        {
+            .agility = 0,
+            .strength = 0,
+            .speed = 0,
+            .health = 0,
+            .resistance = 0,
+            .iq = 0
+        },
+        .reward_ref_item = {'x', 'x', 'x', 0},
+        .ref_item_end = {'1', '1', '2', 0},
+        .max_duration = 0
+    },
+    {
+        .title = "[III] Le début de la liberté",
+        .text = "Trouvez un moyen de sortir de cette cellule",
+        .file_pnj_dialogue = "m3.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
@@ -45,13 +63,13 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .iq = 0
         },
         .reward_ref_item = {'1', '1', '3', 0},
-        .ref_item_end = {'1', '1', '2', 0},
+        .ref_item_end = {'?', '?', '?', 0},
         .max_duration = 120000000
     },
     {
-        .title = "Kill one guardian",
-        .text = "Are you ready?",
-        .file_pnj_dialogue = "kill_guard.diag",
+        .title = "[IV] Le début de la liberté II",
+        .text = "Tabasser le gardien et volez lui sa clé",
+        .file_pnj_dialogue = "m4.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
@@ -62,32 +80,32 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'1', '1', '5', 0},
-        .ref_item_end = {'1', '1', '4', 0},
-        .max_duration = 120000000
-    },
-    {
-        .title = "take soap",
-        .text = "je ne sais pas quoi mettre",
-        .file_pnj_dialogue = "SOAP.diag",
-        .type_reward = REW_ITEM,
-        .reward_stat =
-        {
-            .agility = 0,
-            .strength = 0,
-            .speed = 0,
-            .health = 0,
-            .resistance = 0,
-            .iq = 0
-        },
-        .reward_ref_item = {'1', '1', '6', 0},
-        .ref_item_end = {'1', '1', '5', 0},
+        .reward_ref_item = {'1', '1', '3', 0},
+        .ref_item_end = {'?', '?', '?', 0},
         .max_duration = 0
     },
     {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "Find.diag",
+        .title = "[V] Le précieux",
+        .text = "Trouvez l’objet convoité dans les douches",
+        .file_pnj_dialogue = "m5.diag",
+        .type_reward = REW_STAT,
+        .reward_stat =
+        {
+            .agility = 0,
+            .strength = 0,
+            .speed = 0,
+            .health = 0,
+            .resistance = 0,
+            .iq = 0
+        },
+        .reward_ref_item = {'x', 'x', 'x', 0},
+        .ref_item_end = {'x', 'x', 'x', 0},
+        .max_duration = 0
+    },
+    {
+        .title = "[VI] Sur la route du pouvoir",
+        .text = "Augmentez vos statistiques en vous battant",
+        .file_pnj_dialogue = "m6.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
@@ -103,9 +121,9 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 0
     },
     {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
+        .title = "[VII A] L'affrontement finale",
+        .text = "Trouvez votre ennemie juré et battez le",
+        .file_pnj_dialogue = "m7_a.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
@@ -121,9 +139,9 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 0
     },
     {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
+        .title = "[VII B] La fuite",
+        .text = "Echappez vous de la prison",
+        .file_pnj_dialogue = "m7_b.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
@@ -139,45 +157,9 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 0
     },
     {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_ITEM,
-        .reward_stat =
-        {
-            .agility = 0,
-            .strength = 0,
-            .speed = 0,
-            .health = 0,
-            .resistance = 0,
-            .iq = 0
-        },
-        .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'x', 'x', 'x', 0},
-        .max_duration = 0
-    },
-    {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
-        .type_reward = REW_ITEM,
-        .reward_stat =
-        {
-            .agility = 0,
-            .strength = 0,
-            .speed = 0,
-            .health = 0,
-            .resistance = 0,
-            .iq = 0
-        },
-        .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'x', 'x', 'x', 0},
-        .max_duration = 0
-    },
-    {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
+        .title = "[B1] La gratitude d'un prisonnier",
+        .text = "Apportez une caisse de vodka à Vladimir pour le remercier",
+        .file_pnj_dialogue = "b1.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
