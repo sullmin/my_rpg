@@ -24,4 +24,5 @@ void display_main_world(game_t *game)
     if (game->debug_mode) {
         player_display_hitbox(game);
     }
+    display_particule(game);
 }
