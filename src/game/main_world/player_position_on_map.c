@@ -19,5 +19,6 @@ void player_teleportation(game_t *game)
     update_position_on_map(game);
     update_map_position(game);
     sfClock_restart(ISOW.clock);
+    reload_particules(game);
     set_game_state(game, ISO_WORLD);
 }

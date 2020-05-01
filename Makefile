@@ -194,6 +194,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 SRC_PARTICLES	=	$(DSRC)particles/particles.c						\
 					$(DSRC)particles/jump_pixels.c						\
 					$(DSRC)particles/sand.c								\
+					$(DSRC)particles/reload_particules.c				\
 
 SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_HELP_MENU) $(SRC_ISO) $(SRC_MWORLD) $(SRC_FIGHT) $(SRC_PARTICLES)
 
