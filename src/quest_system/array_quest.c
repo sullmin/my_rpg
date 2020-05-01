@@ -67,9 +67,9 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 120000000
     },
     {
-        .title = "TEST",
-        .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
+        .title = "take soap",
+        .text = "je ne sais pas quoi mettre",
+        .file_pnj_dialogue = "SOAP.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
@@ -80,14 +80,14 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'x', 'x', 'x', 0},
+        .reward_ref_item = {'1', '1', '6', 0},
+        .ref_item_end = {'1', '1', '5', 0},
         .max_duration = 0
     },
     {
         .title = "TEST",
         .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
+        .file_pnj_dialogue = "Find.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {

@@ -9,7 +9,7 @@
 
 static const sfInt32 INIT_SPEED_PNJ = 1000;
 
-static const size_t SIZE_LIST_PNJ = 6;
+static const size_t SIZE_LIST_PNJ = 9;
 static const pnj_plan_t LIST_PNJ[] = {
     {
         .position = {65, 32},
@@ -38,6 +38,21 @@ static const pnj_plan_t LIST_PNJ[] = {
     },
     {
         .position = {39, 39},
+        .is_hostile = false,
+        .path_sprite = "./asset/sprite/pnj_x.png"
+    },
+    {
+        .position = {66, 15},
+        .is_hostile = false,
+        .path_sprite = "./asset/sprite/pnj_x.png"
+    },
+    {
+        .position = {62, 15},
+        .is_hostile = false,
+        .path_sprite = "./asset/sprite/pnj_x.png"
+    },
+    {
+        .position = {28, 41},
         .is_hostile = false,
         .path_sprite = "./asset/sprite/pnj_x.png"
     }
@@ -99,6 +114,7 @@ bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
             return false;
     }
     pnj_man->all_pnj[2].move.is_static = true;
+    pnj_man->all_pnj[6].move.is_static = true;
     return true;
 }
 
