@@ -87,7 +87,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
     {
         .title = "TEST",
         .text = "TEST",
-        .file_pnj_dialogue = "start.diag",
+        .file_pnj_dialogue = "Find.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
         {
