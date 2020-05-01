@@ -41,11 +41,6 @@ static void display_value(sfRenderWindow *window, sfText *text, sfVector2f *pos,
     pos->y += INTER_LINE;
 }
 
-/*
-**display_stat(game->w.window, &game->ui.display_stat,
-**&game->item_load->item->stats);
-*/
-
 void display_stat(sfRenderWindow *window, display_stat_t *info, stat_t *stat)
 {
     sfVector2f pos = info->pos;
