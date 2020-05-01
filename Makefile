@@ -59,6 +59,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/box/display_box.c							\
 				$(DSRC)game/main_world/box/move_box.c								\
 				$(DSRC)game/main_world/box/check_box_on_pos.c						\
+				$(DSRC)game/main_world/box/move_box_direction.c						\
 				$(DSRC)game/main_world/event_main_world.c							\
 				$(DSRC)game/main_world/event_player.c								\
 				$(DSRC)game/main_world/player_move.c								\
