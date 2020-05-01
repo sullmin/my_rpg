@@ -24,9 +24,7 @@ extern const int sand_max_par;
 typedef struct jump_pixels_s
 {
     sfVector2f coord;
-    float height;
-    float start_height;
-    float end_height;
+    float size;
     sfColor color;
 } jump_pixels_t;
 
@@ -63,7 +61,7 @@ void set_particles_pos(particles_pack_t *pack, sfVector2f pos, int radius);
 void update_particles(particles_pack_t *pack, window_t win);
 
 //jump pixels
-int create_jump_pixels(particles_pack_t *pack, sfColor color, float max_height);
+int create_jump_pixels(particles_pack_t *pack, sfColor color, float size);
 void destroy_jump_pixels(tpe_part_t tpe_part);
 void set_pos_jump_pixels(particles_pack_t *pack, sfVector2f coord, int radius);
 int draw_jump_pixels(particles_pack_t *pack);
