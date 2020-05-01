@@ -9,7 +9,6 @@
 #define H_FIGHT_MODE
 
 #include "isow.h"
-//#include "window_t.h"
 
 #define KEY_TAB_SIZE 36
 #define KEYS_MAX_SIZE 100
