@@ -7,40 +7,35 @@
 
 #include "my_rpg.h"
 
-void dir_up(game_t *game, sfVector2i pos)
+static void quest_manage(game_t *game)
 {
-    if (WMAIN->hitbox[pos.y - 1][pos.x] == 'B' &&
-        WMAIN->hitbox[pos.y - 2][pos.x] == '.') {
-        WMAIN->hitbox[pos.y - 1][pos.x] = '.';
-        WMAIN->hitbox[pos.y - 2][pos.x] = 'B';
+    sfVector2i box_dest = {42, 32};
+
+    if (QUEST.is_active[8] == true) {
+        if (check_box_on_pos(game, &box_dest, 1)) {
+            quest_finish(game, 8, false);
         }
-}
-
-void dir_down(game_t *game, sfVector2i pos)
-{
-    if (WMAIN->hitbox[pos.y + 1][pos.x] == 'B' &&
-        WMAIN->hitbox[pos.y + 2][pos.x] == '.') {
-        WMAIN->hitbox[pos.y + 1][pos.x] = '.';
-        WMAIN->hitbox[pos.y + 2][pos.x] = 'B';
     }
 }
 
-void dir_left(game_t *game, sfVector2i pos)
+static bool check_move_box(game_t *game, enum direction dir,
+sfVector2i pos)
 {
-    if (WMAIN->hitbox[pos.y][pos.x - 1] == 'B' &&
-        WMAIN->hitbox[pos.y][pos.x - 2] == '.') {
-        WMAIN->hitbox[pos.y][pos.x - 1] = '.';
-        WMAIN->hitbox[pos.y][pos.x - 2] = 'B';
+    if (dir == UP && pos.y - 2 >= 0) {
+        dir_up(game, pos);
+        return true;
+    } else if (dir == DOWN && pos.y + 2 < WMAIN->size_map.y) {
+        dir_down(game, pos);
+        return true;
     }
-}
-
-void dir_right(game_t *game, sfVector2i pos)
-{
-    if (WMAIN->hitbox[pos.y][pos.x + 1] == 'B' &&
-        WMAIN->hitbox[pos.y][pos.x + 2] == '.') {
-        WMAIN->hitbox[pos.y][pos.x + 1] = '.';
-        WMAIN->hitbox[pos.y][pos.x + 2] = 'B';
+    if (dir == LEFT && pos.x - 2 >= 0) {
+        dir_left(game, pos);
+        return true;
+    } else if (dir == RIGHT && pos.y + 2 < WMAIN->size_map.x) {
+        dir_right(game, pos);
+        return true;
     }
+    return false;
 }
 
 int move_box(game_t *game, enum direction dir)
@@ -49,13 +44,8 @@ int move_box(game_t *game, enum direction dir)
 
     pos.x = ceil(WMAIN->position_on_map.x) - 1;
     pos.y = ceil(WMAIN->position_on_map.y) - 1;
-    if (dir == UP && pos.y - 2 >= 0)
-        dir_up(game, pos);
-    if (dir == DOWN && pos.y + 2 < WMAIN->size_map.y)
-        dir_down(game, pos);
-    if (dir == LEFT && pos.x - 2 >= 0)
-        dir_left(game, pos);
-    if (dir == RIGHT && pos.y + 2 < WMAIN->size_map.x)
-        dir_right(game, pos);
+    if (check_move_box(game, dir, pos)) {
+        quest_manage(game);
+    }
     return EXIT_SUCCESS;
 }

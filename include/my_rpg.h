@@ -33,6 +33,7 @@
 #include "movement.h"
 #include "pnj.h"
 #include "sound.h"
+#include "door_t.h"
 
 #define ENV(game) &game->env
 

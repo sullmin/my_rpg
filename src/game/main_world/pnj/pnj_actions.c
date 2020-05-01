@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "fight.h"
 
 static const size_t ID_QUEST_BONUS_A = 8;
 
@@ -23,7 +24,20 @@ void vladimir_action(game_t *game, const size_t id_pnj)
 
 void guardian_action(game_t *game, const size_t id_pnj)
 {
+    fight_mode_t fight_config;
 
+    if (WMAIN->pnj_man.all_pnj[id_pnj].nb_interaction == 0) {
+        quest_enable(game, 3);
+    } else if (QUEST.is_active[3] == true) {
+        fight_config = fight_get_config(game);
+        if (play_fight(game, fight_config) == 1) {
+            quest_finish(game, 3, true);
+            sound_manager_play(&SOUND, SUCCESS);
+            quest_enable(game, 4);
+        }
+    } else {
+        sound_manager_play(&SOUND, HIT);
+    }
 }
 
 void boss_action(game_t *game, const size_t id_pnj)
