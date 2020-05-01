@@ -53,6 +53,7 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
         }
         if (QUEST.is_active[2]) {
             move_item_in_inventory(game, "112");
+            WMAIN->is_player_move = false;
         }
     }
     if (WMAIN->hitbox[pos[i].y][pos[i].x] == 'T') {
