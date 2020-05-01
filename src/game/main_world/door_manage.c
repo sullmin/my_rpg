@@ -9,9 +9,9 @@
 
 door_t const DIF_DOOR[] = {
     (door_t) {'P', "113"},
-    (door_t) {'V', "113"},
-    (door_t) {'R', "113"},
-    (door_t) {'T', "113"}
+    (door_t) {'V', "213"},
+    (door_t) {'R', "313"},
+    (door_t) {'T', "413"}
 };
 
 bool is_correct_door(sfVector2i *pos, game_t *game)
