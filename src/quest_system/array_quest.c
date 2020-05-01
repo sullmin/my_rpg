@@ -173,5 +173,23 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .reward_ref_item = {'x', 'x', 'x', 0},
         .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
+    },
+    {
+        .title = "[B2] Kill one guardian",
+        .text = "Are you ready?",
+        .file_pnj_dialogue = "kill_guard.diag",
+        .type_reward = REW_ITEM,
+        .reward_stat =
+        {
+            .agility = 0,
+            .strength = 0,
+            .speed = 0,
+            .health = 0,
+            .resistance = 0,
+            .iq = 0
+        },
+        .reward_ref_item = {'1', '1', '5', 0},
+        .ref_item_end = {'1', '1', '4', 0},
+        .max_duration = 120000000
     }
 };

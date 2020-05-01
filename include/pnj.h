@@ -23,4 +23,11 @@ bool collision_for_player(sfVector2i *player, game_t *game);
 void pnj_evol(pnj_t *pnj, game_t *game, bool stat);
 void player_move(game_t *game);
 
+// PNJ ACTIONS
+
+void vladimir_action(game_t *game, const size_t id_pnj);
+void guardian_action(game_t *game, const size_t id_pnj);
+void boss_action(game_t *game, const size_t id_pnj);
+void random_alpha_action(game_t *game, const size_t id_pnj);
+
 #endif

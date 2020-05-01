@@ -50,6 +50,8 @@
 typedef void (* const FUNC_EXEC)(game_t *game);
 typedef void (* const FUNC_EVENT)(game_t *game, sfEvent *event);
 
+typedef void (* const FUNC_PNJ_ACTION)(game_t *game, const size_t id_pnj);
+
 // Just the main function's prototypes are in this header
 int usage(int status, const char *program_name);
 int master(void);

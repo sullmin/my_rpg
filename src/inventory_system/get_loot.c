@@ -14,9 +14,10 @@ bool get_loot(game_t *game)
 
     if (!end)
         return false;
-    while (end &&
-        (PLAYER_INT.x != end->item->pos.x && PLAYER_INT.y != end->item->pos.y))
+    while (end && (PLAYER_INT.x != end->item->pos.x
+            && PLAYER_INT.y != end->item->pos.y)) {
         end = end->next;
+    }
     if (!end)
         return false;
     if (!add_item_in_player_inv(&game->inventory, end->item)) {
