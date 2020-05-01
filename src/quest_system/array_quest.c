@@ -14,7 +14,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
 {
     {
         .title = "[I] Un lieu inconne",
-        .text = "Trouvez comment vous échapper de ce lieu",
+        .text = "Trouvez comment vous echapper de ce lieu",
         .file_pnj_dialogue = "m1.diag",
         .type_reward = REW_STAT,
         .reward_stat =
@@ -32,7 +32,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
     },
     {
         .title = "[II] Sur le chemin de la vangeance",
-        .text = "Parlez à votre voisin de cellule",
+        .text = "Parlez a votre voisin de cellule",
         .file_pnj_dialogue = "m2.diag",
         .type_reward = REW_STAT,
         .reward_stat =
@@ -49,7 +49,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 0
     },
     {
-        .title = "[III] Le début de la liberté",
+        .title = "[III] Le debut de la liberte",
         .text = "Trouvez un moyen de sortir de cette cellule",
         .file_pnj_dialogue = "m3.diag",
         .type_reward = REW_ITEM,
@@ -64,11 +64,11 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         },
         .reward_ref_item = {'1', '1', '3', 0},
         .ref_item_end = {'?', '?', '?', 0},
-        .max_duration = 120000000
+        .max_duration = 0
     },
     {
-        .title = "[IV] Le début de la liberté II",
-        .text = "Tabasser le gardien et volez lui sa clé",
+        .title = "[IV] Le debut de la liberte II",
+        .text = "Tabasser le gardien et volez lui sa cle",
         .file_pnj_dialogue = "m4.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
@@ -85,8 +85,8 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 0
     },
     {
-        .title = "[V] Le précieux",
-        .text = "Trouvez l’objet convoité dans les douches",
+        .title = "[V] Le precieux",
+        .text = "Trouvez l'objet convoite dans les douches",
         .file_pnj_dialogue = "m5.diag",
         .type_reward = REW_STAT,
         .reward_stat =
@@ -122,7 +122,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
     },
     {
         .title = "[VII A] L'affrontement finale",
-        .text = "Trouvez votre ennemie juré et battez le",
+        .text = "Trouvez votre ennemie jure et battez le",
         .file_pnj_dialogue = "m7_a.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
