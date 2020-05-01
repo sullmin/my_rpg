@@ -27,7 +27,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .iq = 0
         },
         .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'1', '1', '1', 0},
+        .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
     },
     {
@@ -45,12 +45,12 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .iq = 0
         },
         .reward_ref_item = {'x', 'x', 'x', 0},
-        .ref_item_end = {'1', '1', '2', 0},
+        .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
     },
     {
         .title = "[III] Le debut de la liberte",
-        .text = "Cherchez la cle dans les toilettes",
+        .text = "Cherchez la cle dans les toilettes et sortez de la cellule",
         .file_pnj_dialogue = "m3.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
@@ -62,8 +62,8 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'1', '1', '3', 0},
-        .ref_item_end = {'?', '?', '?', 0},
+        .reward_ref_item = {'x', 'x', 'x', 0},
+        .ref_item_end = {'1', '1', '2', 0},
         .max_duration = 0
     },
     {

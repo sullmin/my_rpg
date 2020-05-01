@@ -51,6 +51,9 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
             sfSound_play(WMAIN->sound_effect[0].sound);
             sfClock_restart(WMAIN->sound_effect[0].clock);
         }
+        if (QUEST.is_active[2]) {
+            move_item_in_inventory(game, "112");
+        }
     }
     if (WMAIN->hitbox[pos[i].y][pos[i].x] == 'T') {
         player_teleportation(game);
