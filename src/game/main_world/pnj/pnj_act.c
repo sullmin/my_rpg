@@ -8,12 +8,18 @@
 #include "my_rpg.h"
 #include "fight.h"
 
-static void quest_manage(game_t *game, const size_t id, const size_t quest_id)
+extern const size_t SIZE_LIST_PNJ;
+
+FUNC_PNJ_ACTION PNJ_ACTIONS[7] =
 {
-    if (WMAIN->pnj_man.all_pnj[id].go_act)
-        quest_enable(game, quest_id);
-    WMAIN->pnj_man.all_pnj[id].go_act = false;
-}
+    &guardian_action,
+    NULL,
+    &vladimir_action,
+    &random_alpha_action,
+    &boss_action,
+    NULL,
+    NULL
+};
 
 static void default_action(game_t *game, const size_t id)
 {
@@ -24,27 +30,21 @@ static void default_action(game_t *game, const size_t id)
         play_fight(game, fight_config) == 1) {
         WMAIN->pnj_man.all_pnj[id].move.is_static = false;
         WMAIN->pnj_man.all_pnj[id].go_act = false;
-        if (QUEST.is_active[2])
+        if (QUEST.is_active[2]) {
             move_item_in_inventory(game, "114");
+        }
     }
 }
 
 void act_manage(game_t *game, const size_t id)
 {
-    switch(id) {
-        case 2:
-            quest_manage(game, id, 1);
-            break;
-        case 5:
-            quest_manage(game, id, 2);
-            break;
-        case 7:
-            quest_manage(game, id, 3);
-            break;
-        case 8:
-            quest_manage(game, id, 4);
-            break;
-        default:
-            default_action(game, id);
+    if (id >= WMAIN->pnj_man.nb_pnj) {
+        return;
     }
+    if (id < SIZE_LIST_PNJ && PNJ_ACTIONS[id]) {
+        PNJ_ACTIONS[id](game, id);
+    } else {
+        default_action(game, id);
+    }
+    WMAIN->pnj_man.all_pnj[id].nb_interaction++;
 }

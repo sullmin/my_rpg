@@ -9,7 +9,7 @@
 
 static const sfInt32 INIT_SPEED_PNJ = 1000;
 
-static const size_t SIZE_LIST_PNJ = 9;
+const size_t SIZE_LIST_PNJ = 9;
 static const pnj_plan_t LIST_PNJ[] = {
     {
         .position = {65, 32},
@@ -90,6 +90,7 @@ static int init_pnj(pnj_t *pnj, size_t idx)
     pnj->pos.y = LIST_PNJ[idx].position.y;
     pnj->go_act = true;
     pnj->is_hostile = LIST_PNJ[idx].is_hostile;
+    pnj->nb_interaction = 0;
     if (movement_pnj_creat(&pnj->move, idx) != EXIT_SUCCESS)
         return EXIT_ERROR;
     built_it(&pnj->move, 1);

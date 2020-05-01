@@ -74,6 +74,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/pnj/pnj_col.c								\
 				$(DSRC)game/main_world/pnj/pnj_evolution.c							\
 				$(DSRC)game/main_world/pnj/pnj_act.c								\
+				$(DSRC)game/main_world/pnj/pnj_actions.c							\
 				$(DSRC)game/main_world/xp_bar/create_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/display_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/update_xp_bar.c						\
