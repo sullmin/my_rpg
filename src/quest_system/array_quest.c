@@ -175,8 +175,8 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 0
     },
     {
-        .title = "[B2] Kill one guardian",
-        .text = "Are you ready?",
+        .title = "[B2] Try to kill someone",
+        .text = "Are you ready? Go",
         .file_pnj_dialogue = "kill_guard.diag",
         .type_reward = REW_ITEM,
         .reward_stat =

@@ -10,13 +10,15 @@
 
 extern const size_t SIZE_LIST_PNJ;
 
-FUNC_PNJ_ACTION PNJ_ACTIONS[7] =
+FUNC_PNJ_ACTION PNJ_ACTIONS[9] =
 {
     &guardian_action,
     NULL,
     &vladimir_action,
-    &random_alpha_action,
+    NULL,
     &boss_action,
+    &random_alpha_action,
+    NULL,
     NULL,
     NULL
 };
@@ -30,7 +32,7 @@ static void default_action(game_t *game, const size_t id)
         play_fight(game, fight_config) == 1) {
         WMAIN->pnj_man.all_pnj[id].move.is_static = false;
         WMAIN->pnj_man.all_pnj[id].go_act = false;
-        if (QUEST.is_active[2]) {
+        if (QUEST.is_active[9]) {
             move_item_in_inventory(game, "114");
         }
     }
