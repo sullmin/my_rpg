@@ -13,12 +13,16 @@
 
 #include "my.h"
 
-#define WALK 0
-#define FANTASY_THEME 1
-#define ISO_WORLD_THEME 2
-#define SUCCESS 3
-#define CLOCHE 4
-#define MENU_THEME 5
+enum sounds {
+    WALK = 0,
+    FANTASY_THEME = 1,
+    ISO_WORLD_THEME = 2,
+    SUCCESS = 3,
+    HIT = 4,
+    CLOCHE = 5,
+    BATTLE = 6,
+    MENU_THEME = 7
+};
 
 typedef struct sound_manager {
     int size;

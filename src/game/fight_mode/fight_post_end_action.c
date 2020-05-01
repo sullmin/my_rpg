@@ -11,10 +11,18 @@ const int FIGHT_WIN = 1;
 
 void fight_post_end_action(game_t *game, int status)
 {
+    sound_manager_stop_all(&SOUND);
     if (status == FIGHT_WIN) {
         player_add_xp(game, 2);
         sound_manager_play(&SOUND, SUCCESS);
     } else {
-        
+        sound_manager_play(&SOUND, HIT);
     }
+    sound_manager_play(&SOUND, FANTASY_THEME);
+}
+
+void fight_start_action(game_t *game)
+{
+    sound_manager_stop_all(&SOUND);
+    sound_manager_play(&SOUND, BATTLE);
 }

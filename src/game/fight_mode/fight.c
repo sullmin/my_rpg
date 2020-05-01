@@ -76,6 +76,7 @@ int play_fight(game_t *game, fight_mode_t mfight)
     sfTexture *texture = sfTexture_createFromFile(
         "./asset/sprite/fight/fight_bg.jpg", NULL);
 
+    fight_start_action(game);
     if (background == NULL || texture == NULL)
         return EXIT_ERROR;
     if (init_variables(&rfight, &mfight) == EXIT_ERROR)

@@ -63,6 +63,7 @@ void event_group_run(fight_mode_t *mfight, fight_run_t *rfight,
                     combination_t events, float ms);
 void manage_keys_pressed(combination_t *events);
 
+void fight_start_action(game_t *game);
 void fight_post_end_action(game_t *game, int status);
 
 #endif
