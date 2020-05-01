@@ -20,8 +20,8 @@ static void display_str(sfRenderWindow *window, sfText *text, sfVector2f pos,
 
 static void display_name(sfRenderWindow *window, sfText *text, sfVector2f pos)
 {
-    char *name[] = {"agility", "strength", "speed",
-                    "health", "resistance", "IQ", NULL};
+    char *name[] = {"Agility", "Strength", "Speed",
+                    "Health", "Resistance", "IQ", NULL};
 
     for (size_t i = 0; name[i]; i++) {
         display_str(window, text, pos, name[i]);
@@ -41,11 +41,6 @@ static void display_value(sfRenderWindow *window, sfText *text, sfVector2f *pos,
     pos->y += INTER_LINE;
 }
 
-/*
-**display_stat(game->w.window, &game->ui.display_stat,
-**&game->item_load->item->stats);
-*/
-
 void display_stat(sfRenderWindow *window, display_stat_t *info, stat_t *stat)
 {
     sfVector2f pos = info->pos;
@@ -56,8 +51,8 @@ void display_stat(sfRenderWindow *window, display_stat_t *info, stat_t *stat)
     sfRenderWindow_drawSprite(window, info->sprite, NULL);
     pos.x += INTER_LINE * 8;
     sfText_setFont(text, info->font);
-    sfText_setCharacterSize(text, 40);
-    sfText_setColor(text, sfGreen);
+    sfText_setCharacterSize(text, 35);
+    sfText_setColor(text, sfBlack);
     display_name(window, text, info->pos);
     display_value(window, text, &pos, stat->agility);
     display_value(window, text, &pos, stat->strength);

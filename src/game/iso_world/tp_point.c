@@ -17,12 +17,13 @@ static const sfVector2i TP_COORD[2] =
 
 static const size_t TP_COORD_SIZE = 2;
 
-static const sfVector2i POST_TP_COORD = {16, 26};
+static const sfVector2i POST_TP_COORD = {10, 28};
 
 static void tp_player(game_t *game)
 {
     object_on_map_set_coord(&ISOW.player, &ISOW.map,
     POST_TP_COORD.x, POST_TP_COORD.y);
+    sfClock_restart(WMAIN->clock);
     set_game_state(game, MAIN_WORLD);
 }
 

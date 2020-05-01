@@ -41,7 +41,7 @@ bool dialogue_event_manager(game_t *game, sfEvent *event)
         }
         return true;
     }
-    if (is_key_pressed(event, KEY_EXIT) || is_key_pressed(event, KEY_NEXT)) {
+    if (event->type == sfEvtKeyReleased || event->type == sfEvtKeyPressed) {
         return true;
     }
     return false;

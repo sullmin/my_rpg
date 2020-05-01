@@ -46,9 +46,10 @@ static void spawn_events(float interval, combination_t events,
 }
 
 static void fight_loop(fight_mode_t *mfight, fight_run_t *rfight,
-                    sfSprite *background)
+sfSprite *background)
 {
     while (!is_finish(mfight->actions, rfight->events)) {
+        while (sfRenderWindow_pollEvent(rfight->window.window, &rfight->evt));
         if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
             rfight->win = -1;
             break;
@@ -68,13 +69,14 @@ static void fight_loop(fight_mode_t *mfight, fight_run_t *rfight,
     destroy_events(rfight, mfight->actions);
 }
 
-int play_fight(window_t window, fight_mode_t mfight)
+int play_fight(game_t *game, fight_mode_t mfight)
 {
-    fight_run_t rfight = {NULL, NULL, NULL, window, 1};
+    fight_run_t rfight = {NULL, NULL, NULL, game->w, 1, {}};
     sfSprite *background = sfSprite_create();
     sfTexture *texture = sfTexture_createFromFile(
         "./asset/sprite/fight/fight_bg.jpg", NULL);
 
+    fight_start_action(game);
     if (background == NULL || texture == NULL)
         return EXIT_ERROR;
     if (init_variables(&rfight, &mfight) == EXIT_ERROR)
@@ -83,5 +85,6 @@ int play_fight(window_t window, fight_mode_t mfight)
     fight_loop(&mfight, &rfight, background);
     sfSprite_destroy(background);
     sfTexture_destroy(texture);
+    fight_post_end_action(game, rfight.win);
     return rfight.win;
 }

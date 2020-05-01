@@ -49,16 +49,22 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 					\
 				$(DSRC)game/fight_mode/fight.c 							\
 				$(DSRC)game/fight_mode/run.c 							\
+				$(DSRC)game/fight_mode/fight_post_end_action.c			\
+				$(DSRC)game/fight_mode/fight_config.c					\
 
 SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/destroy_main_world.c							\
 				$(DSRC)game/main_world/display_main_world.c							\
+				$(DSRC)game/main_world/box/display_box.c							\
+				$(DSRC)game/main_world/box/move_box.c								\
+				$(DSRC)game/main_world/box/check_box_on_pos.c						\
 				$(DSRC)game/main_world/event_main_world.c							\
 				$(DSRC)game/main_world/event_player.c								\
 				$(DSRC)game/main_world/player_move.c								\
 				$(DSRC)game/main_world/update_map_position.c						\
 				$(DSRC)game/main_world/player_position_on_map.c						\
 				$(DSRC)game/main_world/is_right_position.c							\
+				$(DSRC)game/main_world/player_show_hitbox.c							\
 				$(DSRC)game/main_world/player_animation/player_animation_player.c	\
 				$(DSRC)game/main_world/player_animation/player_animation_manage.c	\
 				$(DSRC)game/main_world/player_animation/input_manage.c				\
@@ -71,6 +77,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/xp_bar/create_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/display_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/update_xp_bar.c						\
+				$(DSRC)game/main_world/xp_bar/add_xp.c								\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\
@@ -189,6 +196,7 @@ SRC_MAIN	=	$(DSRC)main.c											\
 SRC_PARTICLES	=	$(DSRC)particles/particles.c						\
 					$(DSRC)particles/jump_pixels.c						\
 					$(DSRC)particles/sand.c								\
+					$(DSRC)particles/reload_particules.c				\
 
 SRC			= $(SRC_MAIN) $(SRC_TOOLS) $(SRC_GAME) $(SRC_WINDOW) $(SRC_SOUND) $(SRC_CONFIG) $(SRC_QUEST) $(SRC_INVENT) $(SRC_GUI) $(SRC_MENU) $(SRC_OPTION_MENU) $(SRC_PAUSE_MENU) $(SRC_HELP_MENU) $(SRC_ISO) $(SRC_MWORLD) $(SRC_FIGHT) $(SRC_PARTICLES)
 

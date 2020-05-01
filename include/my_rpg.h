@@ -57,6 +57,8 @@ int master(void);
 void set_game_state(game_t *game, game_status_t new_state);
 
 // TEMP
+stat_t get_player_stat(game_t *game);
 void display_player_gui(game_t *game);
+void reload_particules(game_t *game);
 
 #endif

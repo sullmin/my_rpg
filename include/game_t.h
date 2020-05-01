@@ -67,6 +67,7 @@ typedef enum submenu_status {
     Main structure of the program
 */
 typedef struct game {
+    bool debug_mode;
     submenu_status_t submenu;
     game_status_t prev_state;
     game_status_t state;

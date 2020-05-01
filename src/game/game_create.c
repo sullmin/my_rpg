@@ -16,6 +16,7 @@ static int game_init_struct(game_t *game)
     game->state = MAIN_MENU;
     game->prev_state = QUIT;
     game->submenu = NO_MENU;
+    game->debug_mode = true;
     return EXIT_SUCCESS;
 }
 
@@ -73,7 +74,7 @@ int game_create(game_t *game)
         return EXIT_ERROR;
     if (init_option(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
-    set_game_state(game, MAIN_MENU);
-    //set_game_state(game, MAIN_WORLD);
+    //set_game_state(game, MAIN_MENU);
+    set_game_state(game, MAIN_WORLD);
     return EXIT_SUCCESS;
 }

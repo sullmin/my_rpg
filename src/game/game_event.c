@@ -12,6 +12,7 @@ extern FUNC_EVENT fct_event_sub_menu[NB_SUB_MENU];
 
 static const sfKeyCode FORCE_QUIT_KEY = sfKeyDelete;
 static const sfKeyCode PAUSE_MENU_KEY = sfKeyEscape;
+static const sfKeyCode DEBUG_MODE_KEY = sfKeyEnd;
 
 void event_window_close(game_t *game)
 {
@@ -63,6 +64,9 @@ void call_event_manager(game_t *game, sfEvent *event)
         && (game->state != MAIN_MENU && game->state != OPTION_MENU)) {
         set_game_state(game, PAUSE_MENU);
         return;
+    }
+    if (is_key_pressed(event, DEBUG_MODE_KEY)) {
+        game->debug_mode = !game->debug_mode;
     }
     event_crossroads(game, event);
 }

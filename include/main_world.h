@@ -16,12 +16,16 @@
 int create_main_world(game_t *game);
 void destroy_main_world(game_t *game);
 void display_main_world(game_t *game);
+int display_box(game_t *game);
+int move_box(game_t *game, enum direction dir);
+
 void event_main_world(game_t *game, sfEvent *event);
 void event_player(game_t *game, sfEvent *event);
 
 int create_xp_bar(game_t *game);
 int display_xp_bar(game_t *game);
 int update_xp_bar(game_t *game);
+void player_add_xp(game_t *game, int value);
 
 bool mw_camera_move(game_t *game, enum direction dir);
 
@@ -29,6 +33,11 @@ void update_map_position(game_t *game);
 void update_position_on_map(game_t *game);
 bool is_right_position(game_t *game, enum direction dir);
 
+void player_teleportation(game_t *game);
+
 void act_manage(game_t *game, const size_t id);
+
+int player_display_hitbox_create(game_t *game);
+void player_display_hitbox(game_t *game);
 
 #endif /* !MAIN_WORLD_H_ */

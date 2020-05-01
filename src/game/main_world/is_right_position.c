@@ -22,6 +22,9 @@ static size_t add_tests(sfVector2f futur_pos, sfVector2i *pos)
 {
     size_t idx = 1;
 
+    for (size_t i = 0; i < 4; i++) {
+        pos[i] = (sfVector2i) {-1, -1};
+    }
     pos[0] = (sfVector2i){floor(futur_pos.x), floor(futur_pos.y)};
     if (have_decimal(futur_pos.x) && have_decimal(futur_pos.y)) {
         pos[idx++] = (sfVector2i){ceil(futur_pos.x), ceil(futur_pos.y)};
@@ -49,6 +52,9 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
             sfClock_restart(WMAIN->sound_effect[0].clock);
         }
     }
+    if (WMAIN->hitbox[pos[i].y][pos[i].x] == 'T') {
+        player_teleportation(game);
+    }
     return stat;
 }
 
@@ -68,15 +74,14 @@ enum direction dir)
 bool is_right_position(game_t *game, enum direction dir)
 {
     sfVector2f futur_pos = WMAIN->position_on_map;
-    sfVector2i pos[4];
     size_t nb_test;
 
     compute_futur_position(game, &futur_pos, dir);
-    nb_test = add_tests(futur_pos, pos);
-    if (collision_for_player(&pos[0], game))
+    nb_test = add_tests(futur_pos, WMAIN->player_hitbox_pos);
+    if (collision_for_player(&WMAIN->player_hitbox_pos[0], game))
         return false;
     for (size_t i = 0; i < nb_test; i++) {
-        if (!correct_move(pos, game, i)) {
+        if (!correct_move(WMAIN->player_hitbox_pos, game, i)) {
             return false;
         }
     }
