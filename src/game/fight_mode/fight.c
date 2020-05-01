@@ -49,7 +49,7 @@ static void fight_loop(fight_mode_t *mfight, fight_run_t *rfight,
 sfSprite *background)
 {
     while (!is_finish(mfight->actions, rfight->events)) {
-        while (sfRenderWindow_pollEvent(rfight->window.window, &mfight->evt));
+        while (sfRenderWindow_pollEvent(rfight->window.window, &rfight->evt));
         if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
             rfight->win = -1;
             break;
@@ -71,7 +71,7 @@ sfSprite *background)
 
 int play_fight(window_t window, fight_mode_t mfight)
 {
-    fight_run_t rfight = {NULL, NULL, NULL, window, 1};
+    fight_run_t rfight = {NULL, NULL, NULL, window, 1, {}};
     sfSprite *background = sfSprite_create();
     sfTexture *texture = sfTexture_createFromFile(
         "./asset/sprite/fight/fight_bg.jpg", NULL);
