@@ -170,7 +170,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'?', '?', '?', 0},
+        .reward_ref_item = {'6', '6', '6', 0},
         .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
     },
