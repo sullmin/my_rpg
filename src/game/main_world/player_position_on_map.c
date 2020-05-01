@@ -18,5 +18,6 @@ void player_teleportation(game_t *game)
     WMAIN->position_on_map.y -= 2;
     update_position_on_map(game);
     update_map_position(game);
+    sfClock_restart(ISOW.clock);
     set_game_state(game, ISO_WORLD);
 }

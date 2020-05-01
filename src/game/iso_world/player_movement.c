@@ -22,7 +22,7 @@ int player_movement(isow_t *isow, game_t *game)
         object_on_map_move(&isow->player, &isow->map, -1, 0);
     if (isow->event.player_move_key_h == RIGHT_KEY)
         object_on_map_move(&isow->player, &isow->map, 1, 0);
-    check_tp_point(game);
     camera_move(isow, &game->w);
+    check_tp_point(game);
     return EXIT_SUCCESS;
 }
