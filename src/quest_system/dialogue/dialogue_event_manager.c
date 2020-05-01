@@ -33,6 +33,7 @@ bool dialogue_event_manager(game_t *game, sfEvent *event)
         return false;
     }
     if (is_key_released(event, KEY_EXIT) == true) {
+        while (dialogue_read_next_sentence(&game->sysquest) == true);
         game->sysquest.play_dialogue = false;
         return true;
     } else if (is_key_released(event, KEY_NEXT) == true) {
