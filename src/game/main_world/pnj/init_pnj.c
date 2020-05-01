@@ -92,6 +92,7 @@ static int init_pnj(pnj_t *pnj, size_t idx, window_t window)
     pnj->pos.y = LIST_PNJ[idx].position.y;
     pnj->go_act = true;
     pnj->is_hostile = LIST_PNJ[idx].is_hostile;
+    pnj->nb_interaction = 0;
     if (movement_pnj_creat(&pnj->move, idx, window) != EXIT_SUCCESS)
         return EXIT_ERROR;
     built_it(&pnj->move, 1);
