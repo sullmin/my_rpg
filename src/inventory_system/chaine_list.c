@@ -58,6 +58,7 @@ static list_t *set_all_item(void)
                     "./asset/config/key.conf", "./asset/config/keyv.conf",
                     "./asset/config/keyr.conf", "./asset/config/keyt.conf",
                     "./asset/config/Blood.conf", "./asset/config/Money.conf",
+                    "./asset/config/Gun.conf",
                     NULL,
                     };
     list_t *ret = NULL;
