@@ -44,8 +44,7 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
 
     if (WMAIN->hitbox[pos[i].y][pos[i].x] == '.') {
         stat = true;
-    } else if (WMAIN->hitbox[pos[i].y][pos[i].x] == 'P' &&
-        is_in_player_inv(&game->inventory, "113")) {
+    } else if (is_correct_door(&pos[i], game)) {
         stat = true;
         if (as_seconds(WMAIN->sound_effect[0].clock) > 2) {
             sfSound_play(WMAIN->sound_effect[0].sound);
