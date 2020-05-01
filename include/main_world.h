@@ -17,6 +17,8 @@ int create_main_world(game_t *game);
 void destroy_main_world(game_t *game);
 void display_main_world(game_t *game);
 int display_box(game_t *game);
+int move_box(game_t *game, enum direction dir);
+
 void event_main_world(game_t *game, sfEvent *event);
 void event_player(game_t *game, sfEvent *event);
 
