@@ -40,11 +40,17 @@ float volume, const char *dirpath)
     return EXIT_SUCCESS;
 }
 
+static void config_music_loop(sound_manager_t *sm)
+{
+    sound_manager_set_loop(sm, FANTASY_THEME, true);
+    sound_manager_set_loop(sm, ISO_WORLD_THEME, true);
+    sound_manager_set_loop(sm, BATTLE, true);
+    sound_manager_set_loop(sm, MENU_THEME, true);
+}
+
 int sound_manager_create(sound_manager_t *sm, float volume, const char *dirpath,
 bool show_loaded)
 {
-    if (!sm)
-        return EXIT_ERROR;
     sm->size = my_read_dir(&sm->file_list, dirpath);
     if (sm->size == 0)
         return EXIT_SUCCESS;
@@ -62,6 +68,7 @@ bool show_loaded)
         sound_manager_show_list(sm);
         sm->have_err = false;
     }
+    config_music_loop(sm);
     return EXIT_SUCCESS;
 }
 
