@@ -69,9 +69,9 @@ sfSprite *background)
     destroy_events(rfight, mfight->actions);
 }
 
-int play_fight(window_t window, fight_mode_t mfight)
+int play_fight(game_t *game, fight_mode_t mfight)
 {
-    fight_run_t rfight = {NULL, NULL, NULL, window, 1, {}};
+    fight_run_t rfight = {NULL, NULL, NULL, game->w, 1, {}};
     sfSprite *background = sfSprite_create();
     sfTexture *texture = sfTexture_createFromFile(
         "./asset/sprite/fight/fight_bg.jpg", NULL);
@@ -84,5 +84,6 @@ int play_fight(window_t window, fight_mode_t mfight)
     fight_loop(&mfight, &rfight, background);
     sfSprite_destroy(background);
     sfTexture_destroy(texture);
+    fight_post_end_action(game, rfight.win);
     return rfight.win;
 }

@@ -49,6 +49,7 @@ SRC_GUI		=	$(DSRC)gui/widget/inputs/button/create_button.c	\
 SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 					\
 				$(DSRC)game/fight_mode/fight.c 							\
 				$(DSRC)game/fight_mode/run.c 							\
+				$(DSRC)game/fight_mode/fight_post_end_action.c			\
 
 SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/destroy_main_world.c							\
@@ -74,6 +75,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/xp_bar/create_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/display_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/update_xp_bar.c						\
+				$(DSRC)game/main_world/xp_bar/add_xp.c								\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\

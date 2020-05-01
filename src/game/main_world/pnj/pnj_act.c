@@ -25,7 +25,7 @@ void act_manage(game_t *game, const size_t id)
             break;
         default:
             if ((pnj_list[id].go_act || pnj_list[id].is_hostile) &&
-                play_fight(game->w, (fight_mode_t) {1, 1000, 0.8, 1}) == 1)
+                play_fight(game, (fight_mode_t) {1, 1000, 0.8, 1}) == 1)
                 WMAIN->pnj_man.all_pnj[id].go_act = false;
                 if (QUEST.is_active[2])
                     move_item_in_inventory(game, "114");
