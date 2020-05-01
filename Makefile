@@ -54,6 +54,7 @@ SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 					\
 
 SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/destroy_main_world.c							\
+				$(DSRC)game/main_world/door_manage.c								\
 				$(DSRC)game/main_world/display_main_world.c							\
 				$(DSRC)game/main_world/box/display_box.c							\
 				$(DSRC)game/main_world/box/move_box.c								\

@@ -47,4 +47,6 @@ void act_manage(game_t *game, const size_t id);
 int player_display_hitbox_create(game_t *game);
 void player_display_hitbox(game_t *game);
 
+bool is_correct_door(sfVector2i *pos, game_t *game);
+
 #endif /* !MAIN_WORLD_H_ */
