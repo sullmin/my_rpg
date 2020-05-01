@@ -71,6 +71,7 @@ static list_t *set_all_item(void)
         if (!add_one(&ret, tmp))
             return NULL;
     }
+    set_color_key(ret);
     return ret;
 }
 

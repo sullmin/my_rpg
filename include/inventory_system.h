@@ -47,4 +47,6 @@ bool move_item_in_inventory(game_t *game, const char *id);
 
 bool is_in_player_inv(player_inventory_t *inv, const char *id);
 bool get_loot(game_t *game);
+void set_color_key(list_t *end);
+
 #endif
