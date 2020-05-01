@@ -24,7 +24,7 @@ bool movement_creat(chara_animation_t *mov, window_t window)
     mov->texture = sfTexture_createFromFile(PLAYER_SPRITE[0], NULL);
     mov->clock = sfClock_create();
     mov-> effect = create_particles(window, 1,
-        (sfColor) {171, 183, 183, 255}, 30);
+        (sfColor) {171, 183, 183, 255}, 2);
     if (!mov->sprite || !mov->texture || !mov->effect)
         return false;
     sfSprite_setPosition(mov->sprite, PLAYER_POSITION);

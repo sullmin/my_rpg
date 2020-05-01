@@ -19,6 +19,7 @@ typedef struct pnj_s
     sfVector2i fpos;
     bool is_hostile;
     bool go_act;
+    size_t nb_interaction;
     sfInt32 timer;
     sfInt32 ms_loop;
 } pnj_t;

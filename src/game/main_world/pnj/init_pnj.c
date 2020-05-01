@@ -9,7 +9,7 @@
 
 static const sfInt32 INIT_SPEED_PNJ = 1000;
 
-static const size_t SIZE_LIST_PNJ = 9;
+const size_t SIZE_LIST_PNJ = 9;
 static const pnj_plan_t LIST_PNJ[] = {
     {
         .position = {65, 32},
@@ -63,7 +63,7 @@ static int movement_pnj_creat(chara_animation_t *mov, size_t idx, window_t windo
     mov->sprite = sfSprite_create();
     mov->texture = sfTexture_createFromFile(LIST_PNJ[idx].path_sprite, NULL);
     mov-> effect = create_particles(window, 1,
-        (sfColor) {171, 183, 183, 255}, 30);
+        (sfColor) {171, 183, 183, 255}, 2);
     if (!mov->texture || ! mov-> effect) {
         return EXIT_ERROR;
     }
