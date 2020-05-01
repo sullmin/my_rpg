@@ -24,7 +24,7 @@ int sysquest_check_end(game_t *game)
         }
         if (is_in_player_inv(&game->inventory, QUEST_ARRAY[id].ref_item_end)
                 == true) {
-            quest_finish(game, id);
+            quest_finish(game, id, false);
         }
     }
     return EXIT_SUCCESS;

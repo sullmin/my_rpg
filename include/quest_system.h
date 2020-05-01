@@ -24,7 +24,7 @@ bool dialogue_event_manager(game_t *game, sfEvent *event);
 /////////
 
 // Quest sub-function
-int quest_finish(game_t *game, const size_t id);
+int quest_finish(game_t *game, const size_t id, bool skip_dialogue);
 
 // Dialogue sub-function
 void dialogue_play(sys_quest_t *quests, int id);
