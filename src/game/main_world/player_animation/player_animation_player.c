@@ -46,6 +46,6 @@ void display_player(game_t *game, chara_animation_t *mov, bool in_move)
     }
     sfSprite_setTextureRect(mov->sprite, mov->rec);
     sfRenderWindow_drawSprite(WINDOW, mov->sprite, NULL);
-    if (in_move)
+    if (in_move && mov->effect)
         display_particule_effect(game, mov);
 }
