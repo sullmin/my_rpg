@@ -35,4 +35,6 @@ void isow_run(game_t *game)
     map_display(&ISOW, &ISOW.map, game->w.window);
     object_display(&ISOW.prison, game->w.window);
     object_display(&ISOW.player, game->w.window);
+    draw_particles(ISOW.sand);
+    update_particles(ISOW.sand, game->w);
 }

@@ -13,26 +13,32 @@ static const size_t SIZE_LIST_PNJ = 6;
 static const pnj_plan_t LIST_PNJ[] = {
     {
         .position = {65, 32},
+        .is_hostile = true,
         .path_sprite = "./asset/sprite/enemy.png"
     },
     {
         .position = {44, 49},
+        .is_hostile = false,
         .path_sprite = "./asset/sprite/pnj_barbe.png"
     },
     {
         .position = {44, 34},
+        .is_hostile = false,
         .path_sprite = "./asset/sprite/pnj_barbe2.png"
     },
     {
         .position = {47, 62},
+        .is_hostile = false,
         .path_sprite = "./asset/sprite/pnj_x.png"
     },
     {
         .position = {40, 71},
+        .is_hostile = false,
         .path_sprite = "./asset/sprite/pnj_y.png"
     },
     {
         .position = {37, 38},
+        .is_hostile = false,
         .path_sprite = "./asset/sprite/pnj_x.png"
     }
 };
@@ -68,6 +74,7 @@ static int init_pnj(pnj_t *pnj, size_t idx)
     pnj->pos.x = LIST_PNJ[idx].position.x;
     pnj->pos.y = LIST_PNJ[idx].position.y;
     pnj->go_act = true;
+    pnj->is_hostile = LIST_PNJ[idx].is_hostile;
     if (movement_pnj_creat(&pnj->move, idx) != EXIT_SUCCESS)
         return EXIT_ERROR;
     built_it(&pnj->move, 1);
@@ -79,8 +86,10 @@ bool init_all_pnj(pnj_manage_t *pnj_man, env_t *env)
     bool err = false;
 
     pnj_man->nb_pnj = my_env_get_value_int(env, "NB_PNJ", &err);
-    if (pnj_man->nb_pnj > SIZE_LIST_PNJ)
+    if (pnj_man->nb_pnj > SIZE_LIST_PNJ) {
+        my_putstr_error("WARNING: NB_PNJ greater than SIZE of array\n");
         pnj_man->nb_pnj = SIZE_LIST_PNJ;
+    }
     pnj_man->all_pnj = malloc(sizeof(pnj_t) * pnj_man->nb_pnj);
     if (!pnj_man->all_pnj || err)
         return false;

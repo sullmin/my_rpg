@@ -17,6 +17,7 @@ typedef struct pnj_s
     sfVector2i pos;
     sfClock *clock;
     sfVector2i fpos;
+    bool is_hostile;
     bool go_act;
     sfInt32 timer;
     sfInt32 ms_loop;
@@ -32,6 +33,7 @@ typedef struct pnj_manage_s
 typedef struct pnj_plan {
     sfVector2i position;
     const char *path_sprite;
+    bool is_hostile;
 } pnj_plan_t;
 
 #endif

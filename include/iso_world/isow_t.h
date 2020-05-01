@@ -10,6 +10,7 @@
 
 #include "isow_map_t.h"
 #include "object_t.h"
+#include "particles.h"
 
 struct isow_event {
     sfKeyCode player_move_key_h;
@@ -47,6 +48,7 @@ typedef struct iso_world {
     sfClock *clock;
     sfInt32 timer;
     sfInt32 ms_loop;
+    particles_pack_t *sand;
 } isow_t;
 
 #endif
