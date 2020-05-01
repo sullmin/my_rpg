@@ -22,9 +22,9 @@ static const char *quit_path[] = {
 };
 
 static const char *option_path[] = {
-    "asset/sprite/buttons/option.png",
-    "asset/sprite/buttons/option_h.png",
-    "asset/sprite/buttons/option_c.png",
+    "asset/sprite/buttons/button.png",
+    "asset/sprite/buttons/button_h.png",
+    "asset/sprite/buttons/button_c.png",
     NULL,
 };
 
