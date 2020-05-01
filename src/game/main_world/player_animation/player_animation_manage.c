@@ -16,6 +16,8 @@ static const char *PLAYER_SPRITE[] =
 
 static const size_t SIZE_PLAYER_SPRITE = 2;
 
+const sfVector2f PLAYER_POSITION = {984, 540};
+
 bool movement_creat(chara_animation_t *mov)
 {
     mov->sprite = sfSprite_create();
@@ -23,7 +25,7 @@ bool movement_creat(chara_animation_t *mov)
     mov->clock = sfClock_create();
     if (!mov->sprite || !mov->texture)
         return false;
-    sfSprite_setPosition(mov->sprite, (sfVector2f) {984, 540});
+    sfSprite_setPosition(mov->sprite, PLAYER_POSITION);
     sfSprite_setTexture(mov->sprite, mov->texture, sfTrue);
     sfSprite_setScale(mov->sprite, (sfVector2f) {2, 2});
     for (size_t i = 0; i < 4; i++)

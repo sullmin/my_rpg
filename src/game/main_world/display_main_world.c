@@ -21,4 +21,7 @@ void display_main_world(game_t *game)
     game->wmain->player_move.in_move);
     player_move(game);
     display_xp_bar(game);
+    if (game->debug_mode) {
+        player_display_hitbox(game);
+    }
 }

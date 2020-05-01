@@ -56,6 +56,8 @@ static int init_player(game_t *game)
     update_position_on_map(game);
     WMAIN->shift_pos = SHIFT_POS;
     WMAIN->is_player_move = false;
+    if (player_display_hitbox_create(game) != EXIT_SUCCESS)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 

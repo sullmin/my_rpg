@@ -16,6 +16,7 @@ static int game_init_struct(game_t *game)
     game->state = MAIN_MENU;
     game->prev_state = QUIT;
     game->submenu = NO_MENU;
+    game->debug_mode = true;
     return EXIT_SUCCESS;
 }
 

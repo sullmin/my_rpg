@@ -61,6 +61,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/update_map_position.c						\
 				$(DSRC)game/main_world/player_position_on_map.c						\
 				$(DSRC)game/main_world/is_right_position.c							\
+				$(DSRC)game/main_world/player_show_hitbox.c							\
 				$(DSRC)game/main_world/player_animation/player_animation_player.c	\
 				$(DSRC)game/main_world/player_animation/player_animation_manage.c	\
 				$(DSRC)game/main_world/player_animation/input_manage.c				\
