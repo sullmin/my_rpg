@@ -50,7 +50,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
     },
     {
         .title = "[III] Le debut de la liberte",
-        .text = "Trouvez un moyen de sortir de cette cellule",
+        .text = "Cherchez la cle dans les toilettes",
         .file_pnj_dialogue = "m3.diag",
         .type_reward = REW_ITEM,
         .reward_stat =
