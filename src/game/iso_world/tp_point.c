@@ -17,7 +17,7 @@ static const sfVector2i TP_COORD[2] =
 
 static const size_t TP_COORD_SIZE = 2;
 
-static const sfVector2i POST_TP_COORD = {16, 26};
+static const sfVector2i POST_TP_COORD = {10, 28};
 
 static void tp_player(game_t *game)
 {

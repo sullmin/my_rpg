@@ -49,6 +49,9 @@ static bool correct_move(sfVector2i *pos, game_t *game, size_t i)
             sfClock_restart(WMAIN->sound_effect[0].clock);
         }
     }
+    if (WMAIN->hitbox[pos[i].y][pos[i].x] == 'T') {
+        player_teleportation(game);
+    }
     return stat;
 }
 
