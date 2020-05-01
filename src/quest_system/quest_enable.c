@@ -22,6 +22,5 @@ int quest_enable(game_t *game, size_t id)
     game->sysquest.time_begin[id] = now.microseconds;
     dialogue_play(&game->sysquest, (int)id);
     menu_quest_reload(game);
-    sound_manager_play(&SOUND, CLOCHE);
     return EXIT_SUCCESS;
 }
