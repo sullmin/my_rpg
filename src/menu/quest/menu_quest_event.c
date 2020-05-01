@@ -11,7 +11,7 @@ void menu_quest_event(game_t *game, sfEvent *event)
 {
     (void)event;
     event_button(MENU_QUEST.exit, WINDOW);
-    if (MENU_QUEST.exit->toggle == 2) {
+    if (MENU_QUEST.exit->toggle == 2 || is_key_released(event, sfKeyO)) {
         game->submenu = NO_MENU;
     }
 }
