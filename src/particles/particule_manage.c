@@ -5,8 +5,8 @@
 ** my_rpg
 */
 
-#include "particles.h"
 #include "my_rpg.h"
+#include "particles.h"
 
 const sfVector2i toilets_parts[] = {
     {28, 26},
