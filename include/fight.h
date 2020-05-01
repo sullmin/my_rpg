@@ -65,5 +65,6 @@ void manage_keys_pressed(combination_t *events);
 
 void fight_start_action(game_t *game);
 void fight_post_end_action(game_t *game, int status);
+fight_mode_t fight_get_config(game_t *game);
 
 #endif

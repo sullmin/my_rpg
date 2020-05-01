@@ -50,6 +50,7 @@ SRC_FIGHT	=	$(DSRC)game/fight_mode/create_events.c 					\
 				$(DSRC)game/fight_mode/fight.c 							\
 				$(DSRC)game/fight_mode/run.c 							\
 				$(DSRC)game/fight_mode/fight_post_end_action.c			\
+				$(DSRC)game/fight_mode/fight_config.c					\
 
 SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/destroy_main_world.c							\

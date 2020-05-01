@@ -8,10 +8,22 @@
 #include "my_rpg.h"
 #include "fight.h"
 
-void act_manage(game_t *game, const size_t id)
+static void default_action(game_t *game, const size_t id)
 {
     pnj_t *pnj_list = WMAIN->pnj_man.all_pnj;
+    fight_mode_t fight_config = fight_get_config(game);
 
+    if ((pnj_list[id].go_act || pnj_list[id].is_hostile)
+            && play_fight(game, fight_config) == 1) {
+        WMAIN->pnj_man.all_pnj[id].go_act = false;
+        if (QUEST.is_active[2]) {
+            move_item_in_inventory(game, "114");
+        }
+    }
+}
+
+void act_manage(game_t *game, const size_t id)
+{
     switch(id) {
         case 2:
             if (WMAIN->pnj_man.all_pnj[id].go_act)
@@ -24,10 +36,6 @@ void act_manage(game_t *game, const size_t id)
             WMAIN->pnj_man.all_pnj[id].go_act = false;
             break;
         default:
-            if ((pnj_list[id].go_act || pnj_list[id].is_hostile) &&
-                play_fight(game, (fight_mode_t) {1, 1000, 0.8, 1}) == 1)
-                WMAIN->pnj_man.all_pnj[id].go_act = false;
-                if (QUEST.is_active[2])
-                    move_item_in_inventory(game, "114");
+            default_action(game, id);
     }
 }
