@@ -14,7 +14,7 @@ static const char *return_path[] = {
     NULL,
 };
 static const sfVector2f button_s = {300, 75};
-static const sfVector2f button_p = {800, 900};
+static const sfVector2f button_p = {800, 930};
 
 static int load_help_img(game_t *game)
 {
