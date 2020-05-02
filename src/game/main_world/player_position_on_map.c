@@ -15,10 +15,13 @@ void update_position_on_map(game_t *game)
 
 void player_teleportation(game_t *game)
 {
-    WMAIN->position_on_map.y -= 2;
+    WMAIN->position_on_map.y -= 3;
     update_position_on_map(game);
     update_map_position(game);
-    sfClock_restart(ISOW.clock);
-    reload_particules(game);
-    set_game_state(game, ISO_WORLD);
+    if (QUEST.is_active[7]) {
+        set_game_state(game, CREDIT_MENU);
+        quest_finish(game, 7, false);
+    } else {
+        sound_manager_play(&SOUND, HIT);
+    }
 }
