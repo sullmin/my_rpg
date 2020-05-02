@@ -58,13 +58,14 @@ static const pnj_plan_t LIST_PNJ[] = {
     }
 };
 
-static int movement_pnj_creat(chara_animation_t *mov, size_t idx, window_t window)
+static int movement_pnj_creat(chara_animation_t *mov, size_t idx,
+window_t window)
 {
     mov->sprite = sfSprite_create();
     mov->texture = sfTexture_createFromFile(LIST_PNJ[idx].path_sprite, NULL);
     mov-> effect = create_particles(window, 1,
         (sfColor) {171, 183, 183, 255}, 2);
-    if (!mov->texture || ! mov-> effect) {
+    if (!mov->texture || !mov->effect) {
         return EXIT_ERROR;
     }
     for (size_t i = 0; i < 4; i++)

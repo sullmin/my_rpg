@@ -1,9 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** myrpg
-
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
 ** File description:
-** myrpg
+** compare
 */
 
 #include "my_rpg.h"

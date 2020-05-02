@@ -19,7 +19,6 @@ typedef struct option_s
 {
     move_t *move;
     float volume;
-    //const char *langugae
 } option_t;
 
 #endif /* !OPTION_T_H_ */
