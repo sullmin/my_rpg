@@ -53,7 +53,7 @@ bool get_loot(game_t *game);
 void set_color_key(list_t *end);
 void stat_inv(sfRenderWindow *window, display_stat_t *info,
     player_inventory_t *inv);
-void compare_item(sfRenderWindow *window, display_stat_t *info, stat_t *stat);
+void compare_item(sfRenderWindow *window, display_stat_t *info, item_t *item);
 
 void level_up_item(game_t *game);
 
