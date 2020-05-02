@@ -55,4 +55,6 @@ void stat_inv(sfRenderWindow *window, display_stat_t *info,
     player_inventory_t *inv);
 void compare_item(sfRenderWindow *window, display_stat_t *info, stat_t *stat);
 
+void level_up(game_t *game);
+
 #endif
