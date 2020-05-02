@@ -34,12 +34,15 @@ typedef struct sound_manager {
 void sound_manager_destroy(sound_manager_t *sm);
 int sound_manager_create(sound_manager_t *sm, float volume,
 const char *dirpath, bool show_loaded);
+int sound_manager_load(sound_manager_t *sm, float volume, const char *dirpath,
+bool show_loaded);
 
 void sound_manager_play(sound_manager_t *sm, int id_sound);
 void sound_manager_stop(sound_manager_t *sm, int id_sound);
 void sound_manager_stop_all(sound_manager_t *sm);
 
 void sound_manager_show_list(sound_manager_t *sm);
+void sound_manager_show_array(sound_manager_t *sm);
 
 sfMusic *sound_manager_get(sound_manager_t *sm, int id);
 int sound_manager_set_loop(sound_manager_t *sm, int id, bool state);

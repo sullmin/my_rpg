@@ -11,6 +11,7 @@ SRC_SOUND	=	$(DSRC)sound_manager/sound_manager_create_destroy.c		\
 				$(DSRC)sound_manager/sound_manager_play_stop.c			\
 				$(DSRC)sound_manager/sound_manager_show_list.c			\
 				$(DSRC)sound_manager/sound_manager_config.c				\
+				$(DSRC)sound_manager/sound_manager_load.c				\
 
 SRC_CONFIG	=	$(DSRC)config_manager/config_manager_read.c				\
 				$(DSRC)config_manager/config_manager_clean_lines.c		\

@@ -32,7 +32,7 @@ static int load_sound_manager(game_t *game)
     if (volume < 0 || volume > 100) {
         return my_puterror("game_create: volume invalid\n", EXIT_ERROR);
     }
-    if (sound_manager_create(&game->sound, volume, dirpath, true) != 0)
+    if (sound_manager_load(&game->sound, volume, dirpath, true) != 0)
         return my_puterror("game_create: sound_manager ERROR\n", EXIT_ERROR);
     free(dirpath);
     return EXIT_SUCCESS;
