@@ -34,6 +34,9 @@ static int run(game_t *game)
     if (game->state == ERR)
         return EXIT_ERROR;
     sfRenderWindow_display(game->w.window);
+    if (game->help_popup.is_enable) {
+        image_viewer_display(&game->help_popup);
+    }
     return EXIT_SUCCESS;
 }
 
