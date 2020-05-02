@@ -23,7 +23,7 @@ static bool are_greater_than(int *array, int stage, size_t size)
 void detect_stat_stage(game_t *game)
 {
     stat_t stat = get_player_stat(game);
-    int stage[2] = {10, 20};
+    int stage[2] = {21, 23};
     int array[5] = {stat.agility, stat.strength, stat.speed, stat.resistance,
     stat.iq};
 
