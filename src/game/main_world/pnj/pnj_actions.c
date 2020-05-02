@@ -45,10 +45,16 @@ void boss_action(game_t *game, const size_t id_pnj)
 
     (void)id_pnj;
     fight_config = fight_get_config(game);
+    fight_config.actions += 8;
+    fight_config.interval -= 500;
+    fight_config.speed -= 0.1;
+    fight_config.comb += 4;
     if (play_fight(game, fight_config) == 1) {
-        sound_manager_play(&SOUND, SUCCESS);
+        if (QUEST.is_active[6] == true) {
+            quest_finish(game, 6, false);
+            set_game_state(game, CREDIT_MENU);
+        }
     }
-    // TODO
 }
 
 void random_alpha_action(game_t *game, const size_t id_pnj)

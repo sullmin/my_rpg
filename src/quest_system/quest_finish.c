@@ -41,6 +41,7 @@ int quest_finish(game_t *game, const size_t id, bool skip_dialogue)
         }
         quest_give_reward(game, id);
     }
+    WMAIN->is_player_move = false;
     menu_quest_reload(game);
     return EXIT_SUCCESS;
 }

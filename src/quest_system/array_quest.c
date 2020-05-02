@@ -13,7 +13,7 @@ const char *FILE_PNJ_DIALOGUE_FAIL = "fail.diag";
 const quest_t QUEST_ARRAY[NB_QUEST] =
 {
     {
-        .title = "[I] Un lieu inconne",
+        .title = "[I] Un lieu inconnu",
         .text = "Trouvez comment vous echapper de ce lieu",
         .file_pnj_dialogue = "m1.diag",
         .type_reward = REW_STAT,
@@ -31,7 +31,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .max_duration = 0
     },
     {
-        .title = "[II] Sur le chemin de la vangeance",
+        .title = "[II] Sur le chemin de la vengeance",
         .text = "Parlez a votre voisin de cellule",
         .file_pnj_dialogue = "m2.diag",
         .type_reward = REW_STAT,
@@ -106,7 +106,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "[VI] Sur la route du pouvoir",
         .text = "Augmentez vos statistiques en vous battant",
         .file_pnj_dialogue = "m6.diag",
-        .type_reward = REW_ITEM,
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,
@@ -124,7 +124,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "[VII A] L'affrontement finale",
         .text = "Trouvez votre ennemie jure et battez le",
         .file_pnj_dialogue = "m7_a.diag",
-        .type_reward = REW_ITEM,
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,
@@ -140,9 +140,10 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
     },
     {
         .title = "[VII B] La fuite",
-        .text = "Echappez vous de la prison",
+        .text = "Echappez vous de la prison, volez les clefs se trouvant dans"
+        " la bibliothèque puis sortez de la prison",
         .file_pnj_dialogue = "m7_b.diag",
-        .type_reward = REW_ITEM,
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,

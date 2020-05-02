@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include "fight.h"
 
+static const char *PATH_BACK = "./asset/sprite/fight/fight_bg.jpg";
+
 static int init_variables(fight_run_t *rfight, fight_mode_t *mfight)
 {
     rfight->inter_clock = sfClock_create();
@@ -72,19 +74,22 @@ sfSprite *background)
 int play_fight(game_t *game, fight_mode_t mfight)
 {
     fight_run_t rfight = {NULL, NULL, NULL, game->w, 1, {}};
-    sfSprite *background = sfSprite_create();
-    sfTexture *texture = sfTexture_createFromFile(
-        "./asset/sprite/fight/fight_bg.jpg", NULL);
+    sfSprite *background;
+    sfTexture *texture;
 
-    fight_start_action(game);
-    if (background == NULL || texture == NULL)
-        return EXIT_ERROR;
-    if (init_variables(&rfight, &mfight) == EXIT_ERROR)
-        return EXIT_ERROR;
-    sfSprite_setTexture(background, texture, sfTrue);
-    fight_loop(&mfight, &rfight, background);
-    sfSprite_destroy(background);
-    sfTexture_destroy(texture);
+    if (game->debug_mode == false) {
+        background = sfSprite_create();
+        texture = sfTexture_createFromFile(PATH_BACK, NULL);
+        fight_start_action(game);
+        if (background == NULL || texture == NULL)
+            return EXIT_ERROR;
+        if (init_variables(&rfight, &mfight) == EXIT_ERROR)
+            return EXIT_ERROR;
+        sfSprite_setTexture(background, texture, sfTrue);
+        fight_loop(&mfight, &rfight, background);
+        sfSprite_destroy(background);
+        sfTexture_destroy(texture);
+    }
     fight_post_end_action(game, rfight.win);
     return rfight.win;
 }
