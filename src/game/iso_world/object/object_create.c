@@ -18,7 +18,7 @@ sfVector3f *sampling, const char **img_path)
         obj->size = *sampling;
     obj->angle = (sfVector2f){0, 45};
     obj->origin = (sfVector2f){400, 400};
-    obj->line_color = (sfColor){200, 200, 200, 255};
+    obj->line_color = (sfColor){200, 200, 200, 150};
     obj->path_img = img_path;
     obj->modified = sfFalse;
     obj->coord_map = (sfVector2i){1, 1};

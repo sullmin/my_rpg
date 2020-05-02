@@ -18,7 +18,7 @@ static void quest_give_reward(game_t *game, const size_t id)
             puterr("ERR: Fail to add QUEST reward ITEM in INVENTORY\n", 0);
         }
     }
-    WMAIN->xp += 5;
+    player_add_xp(game, 5);
     sound_manager_play(&SOUND, SUCCESS);
 }
 
@@ -35,8 +35,10 @@ int quest_finish(game_t *game, const size_t id, bool skip_dialogue)
     if ((now - QUEST.time_begin[id]) > QUEST_ARRAY[id].max_duration
             && QUEST_ARRAY[id].max_duration != 0 && !skip_dialogue) {
         dialogue_play(&QUEST, IDX_DIALOGUE_FAIL);
-    } else if (!skip_dialogue) {
-        dialogue_play(&QUEST, IDX_DIALOGUE_END);
+    } else {
+        if (!skip_dialogue) {
+            dialogue_play(&QUEST, IDX_DIALOGUE_END);
+        }
         quest_give_reward(game, id);
     }
     menu_quest_reload(game);

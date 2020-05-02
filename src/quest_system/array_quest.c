@@ -80,7 +80,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'?', '?', '?', 0},
+        .reward_ref_item = {'2', '1', '3', 0},
         .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
     },
@@ -170,13 +170,13 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
             .resistance = 0,
             .iq = 0
         },
-        .reward_ref_item = {'?', '?', '?', 0},
+        .reward_ref_item = {'6', '6', '6', 0},
         .ref_item_end = {'x', 'x', 'x', 0},
         .max_duration = 0
     },
     {
-        .title = "[B2] Kill one guardian",
-        .text = "Are you ready?",
+        .title = "[B2] Try to kill someone",
+        .text = "Are you ready? Go",
         .file_pnj_dialogue = "kill_guard.diag",
         .type_reward = REW_ITEM,
         .reward_stat =

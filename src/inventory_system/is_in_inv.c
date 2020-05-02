@@ -15,3 +15,8 @@ bool is_in_player_inv(player_inventory_t *inv, const char *id)
             return true;
     return false;
 }
+
+void empty_slot(player_inventory_t *inv, const size_t slot)
+{
+    inv->inventory[slot] = NULL;
+}

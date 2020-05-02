@@ -36,9 +36,10 @@ void sound_effect_set_volume(game_t *game)
 
 bool load_sound_effect(game_t *game)
 {
-    size_t size = 2;
+    size_t size = 3;
     char *name[] = {"./asset/sound/effect/door.ogg",
-                    "./asset/sound/effect/walk.ogg"};
+                    "./asset/sound/effect/walk.ogg",
+                    "./asset/sound/effect/lock.ogg"};
 
     WMAIN->sound_effect = malloc(sizeof(sound_t) * (size + 1));
     if (!WMAIN->sound_effect)

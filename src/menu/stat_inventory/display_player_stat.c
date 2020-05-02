@@ -36,7 +36,9 @@ static void display_value(sfRenderWindow *window, sfText *text, sfVector2f *pos,
 
     if (!tmp)
         return;
-    display_str(window, text, *pos, tmp);
+    if (tmp[0])
+        display_str(window, text, *pos, tmp);
+    else display_str(window, text, *pos, "0");
     free(tmp);
     pos->y += INTER_LINE;
 }
@@ -54,6 +56,27 @@ void display_stat(sfRenderWindow *window, display_stat_t *info, stat_t *stat)
     sfText_setCharacterSize(text, 35);
     sfText_setColor(text, sfBlack);
     display_name(window, text, info->pos);
+    display_value(window, text, &pos, stat->agility);
+    display_value(window, text, &pos, stat->strength);
+    display_value(window, text, &pos, stat->speed);
+    display_value(window, text, &pos, stat->health);
+    display_value(window, text, &pos, stat->resistance);
+    display_value(window, text, &pos, stat->iq);
+    sfText_destroy(text);
+}
+
+void compare_item(sfRenderWindow *window, display_stat_t *info, stat_t *stat)
+{
+    sfVector2f pos = (sfVector2f) {100, 100};
+    sfText *text = sfText_create();
+
+    if (!text)
+        return;
+    sfText_setFont(text, info->font);
+    sfText_setCharacterSize(text, 35);
+    sfText_setColor(text, sfWhite);
+    display_name(window, text, pos);
+    pos.x += INTER_LINE * 8;
     display_value(window, text, &pos, stat->agility);
     display_value(window, text, &pos, stat->strength);
     display_value(window, text, &pos, stat->speed);
