@@ -48,6 +48,7 @@ typedef struct list_s
 typedef struct player_inventory_s
 {
     item_t **inventory;
+    item_t *equiped;
     size_t size;
     size_t nb_item;
     sfSprite *sprite;
