@@ -5,8 +5,6 @@
 ** rpg
 */
 
-//créer une fonction qui prend un id et qui ajoute l'item dans l'inventaire
-
 #include <stdbool.h>
 #include "inventory_system.h"
 #include "game_t.h"
