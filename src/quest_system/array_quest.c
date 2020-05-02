@@ -140,7 +140,8 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
     },
     {
         .title = "[VII B] La fuite",
-        .text = "Echappez vous de la prison",
+        .text = "Echappez vous de la prison, volez les clefs se trouvant dans"
+        " la bibliothèque puis sortez de la prison",
         .file_pnj_dialogue = "m7_b.diag",
         .type_reward = REW_STAT,
         .reward_stat =
