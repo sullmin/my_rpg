@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "particles_manager.h"
 
 void display_main_world(game_t *game)
 {
