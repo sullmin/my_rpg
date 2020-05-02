@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "particles_manager.h"
 
 static int load_config_files(game_t *game)
 {

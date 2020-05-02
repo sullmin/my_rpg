@@ -26,8 +26,7 @@ bool add_item_in_player_inv(player_inventory_t *inv, item_t *item)
 
 bool move_item_in_inventory(game_t *game, const char *id)
 {
-    list_t *item_load = game->item_load;
-    list_t *end = item_load;
+    list_t *end = game->item_load;
 
     if (!end)
         return false;

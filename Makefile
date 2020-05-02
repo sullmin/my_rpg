@@ -147,6 +147,7 @@ SRC_INVENT =	$(DSRC)inventory_system/chaine_list.c					\
 				$(DSRC)inventory_system/inventory_display.c				\
 				$(DSRC)inventory_system/get_loot.c						\
 				$(DSRC)inventory_system/set_key_color.c					\
+				$(DSRC)inventory_system/upgrade_item.c					\
 
 SRC_MENU 	=	$(DSRC)menu/main/create_main_menu.c						\
 				$(DSRC)menu/main/destroy_main_menu.c					\
