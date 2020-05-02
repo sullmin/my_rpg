@@ -18,7 +18,7 @@ static const pnj_plan_t LIST_PNJ[] = {
     },
     {
         .position = {44, 49},
-        .is_hostile = true,
+        .is_hostile = false,
         .path_sprite = "./asset/sprite/guardian1.png"
     },
     {
@@ -27,7 +27,7 @@ static const pnj_plan_t LIST_PNJ[] = {
         .path_sprite = "./asset/sprite/vladimir.png"
     },
     {
-        .position = {47, 49},
+        .position = {47, 51},
         .is_hostile = false,
         .path_sprite = "./asset/sprite/prisoner_grey.png"
     },
