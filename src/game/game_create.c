@@ -63,7 +63,7 @@ static int init_option(game_t *game)
 
 int game_create(game_t *game)
 {
-    char *help_path = GET_VAR(game, "MHELP_BACK");
+    char *help_path = GET_VAR(game, "POPHELP_BACK");
 
     game->clock = sfClock_create();
     if (!game->clock || !help_path)
