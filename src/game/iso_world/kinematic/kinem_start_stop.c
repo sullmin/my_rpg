@@ -21,6 +21,7 @@ int kinem_start(isow_t *isow, sound_manager_t *sound)
     isow->kinem.player_start_pos.x, isow->kinem.player_start_pos.y);
     map_set_angley(&isow->map, isow->kinem.start_angle);
     map_set_angley(&isow->map_water, isow->kinem.start_angle);
+    sfClock_restart(isow->clock);
     (void)sound;
     return EXIT_SUCCESS;
 }
