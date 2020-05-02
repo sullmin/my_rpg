@@ -30,10 +30,10 @@ void guardian_action(game_t *game, const size_t id_pnj)
         quest_enable(game, 3);
     } else if (QUEST.is_active[3] == true) {
         fight_config = fight_get_config(game);
-        //if (play_fight(game, fight_config) == 1) {
+        if (play_fight(game, fight_config) == 1) {
             quest_finish(game, 3, true);
             quest_enable(game, 4);
-        //}
+        }
     } else {
         sound_manager_play(&SOUND, HIT);
     }

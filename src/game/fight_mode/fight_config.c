@@ -9,9 +9,9 @@
 #include "fight.h"
 
 static const float INIT_SPEED = 0.8;
-static const int INIT_ACTIONS = 8;
-static const float INIT_INTERVAL = 2500;
-static const float MAX_INTERVAL = 5000;
+static const int INIT_ACTIONS = 10;
+static const float INIT_INTERVAL = 2400;
+static const float MAX_INTERVAL = 3000;
 static const int INIT_COMBO = 3;
 
 static void config_actions(stat_t *player_stat,
@@ -32,12 +32,12 @@ fight_mode_t fight_get_config(game_t *game)
 
     if (speed_div == 0)
         speed_div = 1;
-    config.speed = INIT_SPEED / speed_div;
-    config.interval = INIT_INTERVAL + (player_stat.agility * 100);
+    config.speed = INIT_SPEED / (speed_div / 2);
+    config.interval = INIT_INTERVAL + (player_stat.agility * 50);
     if (config.interval >= MAX_INTERVAL)
      config.interval = MAX_INTERVAL;
-    config.comb = INIT_COMBO - player_stat.resistance;
-    config.comb += (player_stat.strength / 10);
+    config.comb = INIT_COMBO - (player_stat.resistance / 10);
+    config.comb -= (player_stat.strength / 10);
     if (config.comb <= 0) {
         config.comb = 1;
     }

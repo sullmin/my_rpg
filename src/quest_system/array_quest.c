@@ -106,7 +106,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "[VI] Sur la route du pouvoir",
         .text = "Augmentez vos statistiques en vous battant",
         .file_pnj_dialogue = "m6.diag",
-        .type_reward = REW_ITEM,
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,
@@ -124,7 +124,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "[VII A] L'affrontement finale",
         .text = "Trouvez votre ennemie jure et battez le",
         .file_pnj_dialogue = "m7_a.diag",
-        .type_reward = REW_ITEM,
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,
@@ -142,7 +142,7 @@ const quest_t QUEST_ARRAY[NB_QUEST] =
         .title = "[VII B] La fuite",
         .text = "Echappez vous de la prison",
         .file_pnj_dialogue = "m7_b.diag",
-        .type_reward = REW_ITEM,
+        .type_reward = REW_STAT,
         .reward_stat =
         {
             .agility = 0,
