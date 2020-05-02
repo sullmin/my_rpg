@@ -35,7 +35,7 @@ fight_mode_t fight_get_config(game_t *game)
     config.speed = INIT_SPEED / (speed_div / 2);
     config.interval = INIT_INTERVAL + (player_stat.agility * 50);
     if (config.interval >= MAX_INTERVAL)
-     config.interval = MAX_INTERVAL;
+        config.interval = MAX_INTERVAL;
     config.comb = INIT_COMBO - (player_stat.resistance / 10);
     config.comb -= (player_stat.strength / 10);
     if (config.comb <= 0) {

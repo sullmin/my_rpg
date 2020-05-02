@@ -19,7 +19,7 @@ int display_box(game_t *game)
                 position.y = (y - WMAIN->rect.top / 16) * 16 * 4 -
                             (WMAIN->rect.top % 16) * 4;
                 sfSprite_setPosition(WMAIN->spr_box, position);
-                sfRenderWindow_drawSprite(WINDOW, WMAIN->spr_box ,NULL);
+                sfRenderWindow_drawSprite(WINDOW, WMAIN->spr_box, NULL);
             }
         }
     }

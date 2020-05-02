@@ -12,8 +12,6 @@ typedef struct help_box_s
 {
     sfFont *font;
     sfText *text;
-    //sfTexture *texture;
-    //sfSprite *sprite;
 } help_box_t;
 
 #endif /* !HELP_BOX_T_H_ */

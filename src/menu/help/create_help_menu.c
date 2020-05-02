@@ -23,7 +23,7 @@ static int load_help_img(game_t *game)
     if (!path_back)
         return EXIT_ERROR;
     MENU_HELP->spr_help = sfSprite_create();
-    MENU_HELP->ter_help = sfTexture_createFromFile(path_back ,NULL);
+    MENU_HELP->ter_help = sfTexture_createFromFile(path_back, NULL);
     if (MENU_HELP->spr_help == NULL || MENU_HELP->ter_help == NULL)
         return EXIT_ERROR;
     sfSprite_setTexture(MENU_HELP->spr_help, MENU_HELP->ter_help, sfTrue);
