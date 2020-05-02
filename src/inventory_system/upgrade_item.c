@@ -33,7 +33,8 @@ void level_up_item(game_t *game)
     size_t i;
 
     for (i = 0; i < INVENTORY.size; i++)
-        if (INVENTORY.inventory[i] && my_strcmp("000", INVENTORY.inventory[i]->id) == 0)
+        if (INVENTORY.inventory[i] &&
+            my_strcmp("000", INVENTORY.inventory[i]->id) == 0)
             break;
     if (i == INVENTORY.size) {
         move_item_in_inventory(game, "000");
