@@ -8,7 +8,7 @@
 #include "my_rpg.h"
 #include "display_stat.h"
 
-static void display_str(sfRenderWindow *window, sfText *text, sfVector2f *pos,
+void display_str(sfRenderWindow *window, sfText *text, sfVector2f *pos,
     char *str)
 {
     if (!str)

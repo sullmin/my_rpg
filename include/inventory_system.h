@@ -51,10 +51,16 @@ bool is_in_player_inv(player_inventory_t *inv, const char *id);
 void empty_slot(player_inventory_t *inv, const size_t slot);
 bool get_loot(game_t *game);
 void set_color_key(list_t *end);
-void stat_inv(sfRenderWindow *window, display_stat_t *info,
+void stat_inv(game_t *game, display_stat_t *info,
     player_inventory_t *inv);
 void compare_item(sfRenderWindow *window, display_stat_t *info, item_t *item);
 
 void level_up_item(game_t *game);
+void move_to_equiped(game_t *game, item_t *item);
+void unequiped(game_t *game);
+void inventory_edit(game_t *game, display_stat_t *info, const size_t i);
+void display_str(sfRenderWindow *window, sfText *text, sfVector2f *pos,
+    char *str);
+void display_equiped_item(game_t *game);
 
 #endif
