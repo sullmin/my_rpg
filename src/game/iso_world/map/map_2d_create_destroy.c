@@ -7,6 +7,18 @@
 
 #include "my_rpg.h"
 
+int allocate_height(map_t *map)
+{
+    for (int i = 0; i < map->height; i++) {
+        map->map_2d[i] = malloc(sizeof(sfVector2f) * map->width);
+        if (!map->map_2d[i]) {
+            my_putstr_error("create_2d_map: malloc error\n");
+            return EXIT_FAILURE;
+        }
+    }
+    return EXIT_SUCCESS;
+}
+
 int create_2d_map(map_t *map)
 {
     int map_point;
@@ -16,12 +28,8 @@ int create_2d_map(map_t *map)
         my_putstr_error("create_2d_map: malloc error\n");
         return EXIT_FAILURE;
     }
-    for (int i = 0; i < map->height; i++) {
-        map->map_2d[i] = malloc(sizeof(sfVector2f) * map->width);
-        if (!map->map_2d[i]) {
-            my_putstr_error("create_2d_map: malloc error\n");
-            return EXIT_FAILURE;
-        }
+    if (allocate_height(map) == EXIT_FAILURE) {
+        return EXIT_FAILURE;
     }
     for (int y = 0; y < map->height; y++) {
         for (int x = 0; x < map->width; x++) {
