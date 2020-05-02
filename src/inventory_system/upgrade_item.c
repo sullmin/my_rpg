@@ -28,7 +28,7 @@ static void uprage_item(item_t *item)
     upgrade_stat(&item->stats.iq);
 }
 
-void level_up(game_t *game)
+void level_up_item(game_t *game)
 {
     list_t *end = game->item_load;
 
@@ -36,7 +36,7 @@ void level_up(game_t *game)
         end = end->next;
     if (!end) {
         if (move_item_in_inventory(game, "000"))
-            level_up(game);
+            level_up_item(game);
         else
             return;
     }
