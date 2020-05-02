@@ -30,15 +30,14 @@ static void uprage_item(item_t *item)
 
 void level_up_item(game_t *game)
 {
-    list_t *end = game->item_load;
+    size_t i;
 
-    while (end && my_strcmp("000", end->item->id) != 0)
-        end = end->next;
-    if (!end) {
-        if (move_item_in_inventory(game, "000"))
-            level_up_item(game);
-        else
-            return;
+    for (i = 0; i < INVENTORY.size; i++)
+        if (INVENTORY.inventory[i] && my_strcmp("000", INVENTORY.inventory[i]->id) == 0)
+            break;
+    if (i == INVENTORY.size) {
+        move_item_in_inventory(game, "000");
+        return;
     }
-    uprage_item(end->item);
+    uprage_item(INVENTORY.inventory[i]);
 }
