@@ -81,6 +81,7 @@ SRC_MWORLD 	=	$(DSRC)game/main_world/create_main_world.c							\
 				$(DSRC)game/main_world/xp_bar/display_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/update_xp_bar.c						\
 				$(DSRC)game/main_world/xp_bar/add_xp.c								\
+				$(DSRC)game/main_world/xp_bar/detect_stat_stage.c					\
 
 SRC_ISO	=	$(DSRC)game/iso_world/iso_world_create.c						\
 			$(DSRC)game/iso_world/iso_world_destroy.c						\

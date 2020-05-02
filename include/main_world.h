@@ -33,6 +33,7 @@ int create_xp_bar(game_t *game);
 int display_xp_bar(game_t *game);
 int update_xp_bar(game_t *game);
 void player_add_xp(game_t *game, int value);
+void detect_stat_stage(game_t *game);
 
 bool mw_camera_move(game_t *game, enum direction dir);
 
