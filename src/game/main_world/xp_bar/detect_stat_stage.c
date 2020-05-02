@@ -9,10 +9,13 @@
 
 static bool are_greater_than(int *array, int stage, size_t size)
 {
+    int sum = 0;
+
     for (size_t i = 0; i < size; i++) {
-        if (array[i] < stage) {
-            return false;
-        }
+        sum += array[i];
+    }
+    if (sum < stage) {
+        return false;
     }
     return true;
 }
@@ -20,7 +23,7 @@ static bool are_greater_than(int *array, int stage, size_t size)
 void detect_stat_stage(game_t *game)
 {
     stat_t stat = get_player_stat(game);
-    int stage[2] = {20, 40};
+    int stage[2] = {10, 20};
     int array[5] = {stat.agility, stat.strength, stat.speed, stat.resistance,
     stat.iq};
 

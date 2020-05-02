@@ -35,6 +35,7 @@ static void level_up(game_t *game)
     WMAIN->lvl += WMAIN->xp / 10;
     WMAIN->xp = WMAIN->xp % 10;
     level_up_item(game);
+    detect_stat_stage(game);
 }
 
 int update_xp_bar(game_t *game)
