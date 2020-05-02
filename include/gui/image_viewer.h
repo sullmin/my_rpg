@@ -24,4 +24,5 @@ void image_viewer_destroy(img_view_t *self);
 
 int image_viewer_display(img_view_t *self);
 int image_viewer_status(img_view_t *self);
+
 #endif

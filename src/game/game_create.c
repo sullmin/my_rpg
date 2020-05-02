@@ -63,8 +63,10 @@ static int init_option(game_t *game)
 
 int game_create(game_t *game)
 {
+    char *help_path = GET_VAR(game, "POPHELP_BACK");
+
     game->clock = sfClock_create();
-    if (!game->clock)
+    if (!game->clock || !help_path)
         return EXIT_ERROR;
     if (load_sound_manager(game) == EXIT_ERROR)
         return EXIT_ERROR;
@@ -74,7 +76,9 @@ int game_create(game_t *game)
         return EXIT_ERROR;
     if (init_option(game) != EXIT_SUCCESS)
         return EXIT_ERROR;
-    //set_game_state(game, MAIN_MENU);
-    set_game_state(game, MAIN_WORLD);
+    if (image_viewer_create(&game->help_popup, help_path, "HELP BOX") != 0)
+        return EXIT_ERROR;
+    free(help_path);
+    set_game_state(game, MAIN_MENU);
     return EXIT_SUCCESS;
 }
