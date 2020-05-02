@@ -18,9 +18,4 @@ void built_it(chara_animation_t *mov, size_t pos);
 
 int reload_player_sprite(game_t *game, size_t idx);
 
-//VINCENT MOVE CET MERDE
-void display_particule(game_t *game);
-bool init_particles_effect(game_t *game);
-void destroy_particles_effct(game_t *game);
-
 #endif

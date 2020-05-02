@@ -13,6 +13,7 @@ const sfVector2i toilets_parts[] = {
     {32, 27},
     {36, 27},
     {40, 27},
+    {48, 27},
     {52, 27},
     {56, 27},
     {28, 37},
@@ -41,7 +42,7 @@ void display_particule(game_t *game)
 {
     sfVector2f fin = {0};
 
-    for (size_t i = 0; i < 13; i++) {
+    for (size_t i = 0; i < 14; i++) {
         if (is_display_part(toilets_parts[i], game)) {
             fin.x = (toilets_parts[i].x + 0.5 - PLAYER.x) * 64 + 984;
             fin.y = (toilets_parts[i].y + 0.2 - PLAYER.y) * 64 + 550;
@@ -54,7 +55,7 @@ void display_particule(game_t *game)
 
 bool init_particles_effect(game_t *game)
 {
-    for (size_t i = 0; i < 13; i++) {
+    for (size_t i = 0; i < 14; i++) {
         WMAIN->effect[i] = create_particles(game->w, 1, sfBlue, 2);
         if (!WMAIN->effect[i])
             return false;
@@ -64,6 +65,6 @@ bool init_particles_effect(game_t *game)
 
 void destroy_particles_effct(game_t *game)
 {
-    for (size_t i = 0; i < 13; i++)
+    for (size_t i = 0; i < 14; i++)
         destroy_particles(WMAIN->effect[i]);
 }
