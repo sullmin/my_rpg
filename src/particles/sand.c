@@ -9,7 +9,7 @@
 #include <math.h>
 #include "particles.h"
 
-const int sand_max_par = 300;
+const int sand_max_par = 250;
 
 int create_sand(particles_pack_t *pack, sfColor color, float size)
 {
@@ -20,11 +20,11 @@ int create_sand(particles_pack_t *pack, sfColor color, float size)
         return EXIT_ERROR;
     pack->tpe_part.sand = sand;
     for (int i = 0; i < sand_max_par; i++) {
-        sand[i].coord = (sfVector2f) {rand() % pack->framebuffer->width,
-                                    rand() % pack->framebuffer->height};
+        sand[i].coord = (sfVector2f) {RAND(0, pack->framebuffer->width),
+                                    RAND(0, pack->framebuffer->height)};
         sand[i].color = color;
         sand[i].angle = rand_angle;
-        sand[i].speed = RAND(1, 2);
+        sand[i].speed = ((float) RAND(1000, 3999)) / 1000;
         sand[i].size = size;
     }
     return EXIT_SUCCESS;
