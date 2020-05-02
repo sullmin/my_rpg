@@ -20,6 +20,10 @@ void event_main_world(game_t *game, sfEvent *event)
 {
     set_pnj_activate(game, event);
     event_player(game, event);
+    if (!event->key.control)
+        INVENTORY.ctrl = true;
+    else
+        INVENTORY.ctrl = false;
     if (event->type == sfEvtMouseWheelScrolled) {
         if (event->mouseWheelScroll.delta == 1) {
             sfView_zoom(WMAIN->view, 0.9);
