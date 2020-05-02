@@ -19,7 +19,7 @@ const float MAP_SHADOW_MUL = 00.1f;
 const sfVector3f MAP_INIT_SAMP = {40, 40, 8};
 const sfVector2f MAP_INIT_ANGL = {30, 25};
 const sfVector2f MAP_INIT_ORIG = {1920 / 2, -200};
-const sfColor MAP_LINE_COLOR = {255, 255, 255, 100};
+const sfColor MAP_LINE_COLOR = {255, 255, 255, 50};
 
 const int EVT_MAP_TRANSLATE_DELTA = 10;
 const float EVT_MAP_TRANSLATE_PERC = 0.1;
