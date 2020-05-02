@@ -19,6 +19,8 @@ static void music_manager(game_t *game)
     }
     if (game->state == ISO_WORLD) {
         sound_manager_play(&SOUND, ISO_WORLD_THEME);
+    } else if (game->state == CREDIT_MENU) {
+        sound_manager_play(&SOUND, MENU_THEME);
     }
 }
 
