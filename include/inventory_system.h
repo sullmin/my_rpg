@@ -48,6 +48,7 @@ bool add_item_in_player_inv(player_inventory_t *inv, item_t *item);
 bool move_item_in_inventory(game_t *game, const char *id);
 
 bool is_in_player_inv(player_inventory_t *inv, const char *id);
+void empty_slot(player_inventory_t *inv, const size_t slot);
 bool get_loot(game_t *game);
 void set_color_key(list_t *end);
 void stat_inv(sfRenderWindow *window, display_stat_t *info,

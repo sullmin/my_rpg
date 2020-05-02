@@ -62,6 +62,8 @@ void stat_inv(sfRenderWindow *window,
         pos.y = inv->pos.y + y * (INV_Y_SIZE / 2) + 55;
         if (inv->inventory[i] && display_this_stat(pos, mouse)) {
             compare_item(window, info, &inv->inventory[i]->stats);
+            if (sfMouse_isButtonPressed(sfMouseRight))
+                empty_slot(inv, i);
         }
     }
 }
