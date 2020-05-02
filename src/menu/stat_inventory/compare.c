@@ -46,6 +46,20 @@ static bool display_this_stat(sfVector2f pos, sfVector2f hit)
     return false;
 }
 
+static bool can_rm_item(item_t *item)
+{
+    char *key[] = {"113", "213", "313", "413"};
+
+    if (sfMouse_isButtonPressed(sfMouseRight)) {
+        for (size_t i = 0; i < 4; i++) {
+            if (my_strcmp(item->id, key[i]) == 0)
+                return false;
+        }
+        return true;
+    }
+    return false;
+}
+
 void stat_inv(sfRenderWindow *window,
     display_stat_t *info, player_inventory_t *inv)
 {
@@ -62,7 +76,7 @@ void stat_inv(sfRenderWindow *window,
         pos.y = inv->pos.y + y * (INV_Y_SIZE / 2) + 55;
         if (inv->inventory[i] && display_this_stat(pos, mouse)) {
             compare_item(window, info, &inv->inventory[i]->stats);
-            if (sfMouse_isButtonPressed(sfMouseRight))
+            if (can_rm_item(inv->inventory[i]))
                 empty_slot(inv, i);
         }
     }
