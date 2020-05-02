@@ -58,14 +58,20 @@ bool is_active)
     return EXIT_SUCCESS;
 }
 
-static int create_ui_element(game_t *game)
+static int create_ui_element(game_t *game, size_t idx)
 {
     sfVector2f position = INIT_POSITION;
-    size_t idx = 0;
 
+    MENU_QUEST.ui_element = malloc(sizeof(quest_ui_t) * MENU_QUEST.ui_size);
+    if (!MENU_QUEST.ui_element)
+        return EXIT_ERROR;
     for (size_t i = 0; i < NB_QUEST; i++) {
-        if (!QUEST.is_active[i] && !QUEST.is_finish[i])
+        if (!QUEST.is_active[i] && !QUEST.is_finish[i]) {
             continue;
+        } else if (MENU_QUEST.ignore > 0) {
+            MENU_QUEST.ignore--;
+            continue;
+        }
         MENU_QUEST.ui_element[idx].position = position;
         if (load_element(&MENU_QUEST.ui_element[idx], game, i,
                 QUEST.is_active[i]) != 0)
@@ -79,6 +85,7 @@ static int create_ui_element(game_t *game)
 int menu_quest_load(game_t *game)
 {
     size_t size = 0;
+    size_t idx = 0;
 
     for (size_t i = 0; i < NB_QUEST; i++) {
         if (QUEST.is_active[i] || QUEST.is_finish[i]) {
@@ -88,12 +95,13 @@ int menu_quest_load(game_t *game)
     if (size == 0) {
         MENU_QUEST.ui_size = 0;
         return EXIT_SUCCESS;
+    } else if (size > (size_t)MENU_QUEST.max_display) {
+        MENU_QUEST.ignore = size - (size_t)MENU_QUEST.max_display;
+    } else {
+        MENU_QUEST.ignore = 0;
     }
-    MENU_QUEST.ui_element = malloc(sizeof(quest_ui_t) * size);
-    if (!MENU_QUEST.ui_element)
-        return EXIT_ERROR;
-    MENU_QUEST.ui_size = size;
-    if (create_ui_element(game) != EXIT_SUCCESS)
+    MENU_QUEST.ui_size = (size - MENU_QUEST.ignore);
+    if (create_ui_element(game, idx) != EXIT_SUCCESS)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
