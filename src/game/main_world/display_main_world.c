@@ -21,9 +21,9 @@ void display_main_world(game_t *game)
     set_particles_pos(WMAIN->player_move.effect, (sfVector2f) {1014, 650}, 10);
     display_player(game, &WMAIN->player_move, WMAIN->player_move.in_move);
     player_move(game);
-    display_xp_bar(game);
     if (game->debug_mode) {
         player_display_hitbox(game);
     }
     display_particule(game);
+    display_xp_bar(game);
 }
