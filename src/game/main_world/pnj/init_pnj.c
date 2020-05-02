@@ -18,7 +18,7 @@ static const pnj_plan_t LIST_PNJ[] = {
     },
     {
         .position = {44, 49},
-        .is_hostile = false,
+        .is_hostile = true,
         .path_sprite = "./asset/sprite/guardian1.png"
     },
     {
@@ -28,12 +28,12 @@ static const pnj_plan_t LIST_PNJ[] = {
     },
     {
         .position = {39, 35},
-        .is_hostile = false,
+        .is_hostile = true,
         .path_sprite = "./asset/sprite/prisoner_grey.png"
     },
     {
         .position = {18, 53},
-        .is_hostile = true,
+        .is_hostile = false,
         .path_sprite = "./asset/sprite/prisoner_hostile.png"
     },
     {
@@ -43,17 +43,17 @@ static const pnj_plan_t LIST_PNJ[] = {
     },
     {
         .position = {62, 56},
-        .is_hostile = false,
+        .is_hostile = true,
         .path_sprite = "./asset/sprite/prisoner_yellow.png"
     },
     {
         .position = {35, 28},
-        .is_hostile = false,
+        .is_hostile = true,
         .path_sprite = "./asset/sprite/prisoner_grey.png"
     },
     {
         .position = {66, 27},
-        .is_hostile = false,
+        .is_hostile = true,
         .path_sprite = "./asset/sprite/prisoner_yellow.png"
     }
 };
