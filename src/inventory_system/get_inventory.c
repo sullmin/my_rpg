@@ -46,6 +46,7 @@ bool player_inventory_creat(player_inventory_t *inv, env_t *env)
     if (!inv->inventory)
         return false;
     inv->nb_item = 0;
+    inv->ctrl = false;
     inv->equiped = NULL;
     inv->sprite = sfSprite_create();
     inv->texture = sfTexture_createFromFile(INV_SPRITE, NULL);

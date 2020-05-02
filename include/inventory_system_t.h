@@ -54,6 +54,7 @@ typedef struct player_inventory_s
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;
+    bool ctrl;
 } player_inventory_t;
 
 #endif

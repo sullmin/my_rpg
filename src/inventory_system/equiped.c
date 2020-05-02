@@ -38,7 +38,7 @@ void inventory_edit(game_t *game, display_stat_t *info, const size_t i)
         if (INVENTORY.equiped &&
             my_strcmp(INVENTORY.inventory[i]->id, INVENTORY.equiped->id) == 0)
             unequiped(game);
-        else
+        if (INVENTORY.ctrl)
             empty_slot(&INVENTORY, i);
     }
     else if (sfMouse_isButtonPressed(sfMouseLeft))
