@@ -27,7 +27,7 @@ void detect_stat_stage(game_t *game)
     int array[5] = {stat.agility, stat.strength, stat.speed, stat.resistance,
     stat.iq};
 
-    if (!QUEST.is_active[7] && !QUEST.is_finish[7]
+    if (!QUEST.is_active[7] && !QUEST.is_finish[7] && QUEST.is_active[5]
             && are_greater_than(array, stage[0], 5)) {
         quest_enable(game, 7);
     }
