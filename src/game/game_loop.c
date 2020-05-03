@@ -44,6 +44,7 @@ int game_loop(game_t *game)
 {
     sfEvent event;
 
+    image_viewer_status(&game->help_popup);
     while (sfRenderWindow_isOpen(game->w.window)) {
         while (sfRenderWindow_pollEvent(game->w.window, &event))
             call_event_manager(game, &event);
