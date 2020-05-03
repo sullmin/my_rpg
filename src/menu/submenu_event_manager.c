@@ -32,6 +32,10 @@ void submenu_event_manager(game_t *game, sfEvent *event)
         return;
     }
     for (size_t i = 0; i < NB_SUB_MENU; i++) {
+        if (event->key.code == SHORTCUT_SUBMENU[0]
+            && (size_t)game->submenu != i) {
+        WMAIN->is_player_move = false;
+        }
         if (event->key.code == SHORTCUT_SUBMENU[i]
                 && (size_t)game->submenu != i) {
             game->submenu = i;
