@@ -46,8 +46,10 @@ void boss_action(game_t *game, const size_t id_pnj)
     (void)id_pnj;
     fight_config = fight_get_config(game);
     fight_config.actions += 8;
-    fight_config.interval -= 500;
-    fight_config.speed -= 0.1;
+    if (fight_config.interval >= 800)
+        fight_config.interval -= 500;
+    if (fight_config.speed > 0.5)
+        fight_config.speed -= 0.1;
     fight_config.comb += 4;
     if (play_fight(game, fight_config) == 1) {
         if (QUEST.is_active[6] == true) {
