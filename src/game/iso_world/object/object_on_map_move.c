@@ -41,7 +41,7 @@ static bool check_coord(sfVector2i *coord, map_t *map)
         }
         if (map->map_3d[coord->y][coord->x]
             - map->map_3d[coord_diag.y][coord_diag.x]
-            > (map->sampling.x / 3)) {
+            > (map->sampling.x / 4)) {
             return false;
         }
     }
