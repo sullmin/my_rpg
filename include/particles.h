@@ -53,6 +53,13 @@ typedef struct particles_pack_s
     framebuffer_t *framebuffer;
 } particles_pack_t;
 
+typedef int (* const CREATE_FUNC_ID)(particles_pack_t *pack,
+                    sfColor color, float value);
+typedef int (* const DRAW_FUNC_ID)(particles_pack_t *pack);
+typedef void (* const DESTROY_FUNC_ID)(tpe_part_t tpe_part);
+typedef void (* const SET_POS_FUNC_ID)(particles_pack_t *pack,
+                                            sfVector2f pos, int radius);
+
 particles_pack_t *create_particles(window_t window, int const id,
                                 sfColor color, float value);
 int draw_particles(particles_pack_t *pack);

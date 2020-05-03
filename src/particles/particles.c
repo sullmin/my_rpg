@@ -9,24 +9,22 @@
 #include "particles.h"
 #include "window_t.h"
 
-int (* const create_func_id[MAX_ID])(particles_pack_t *pack,
-                                    sfColor color, float value) = {
+CREATE_FUNC_ID create[MAX_ID] = {
     create_jump_pixels,
     create_sand
 };
 
-int (* const draw_func_id[MAX_ID])(particles_pack_t *pack) = {
+DRAW_FUNC_ID draw[MAX_ID] = {
     draw_jump_pixels,
     draw_sand
 };
 
-void (* const destroy_func_id[MAX_ID])(tpe_part_t tpe_part) = {
+DESTROY_FUNC_ID destroy[MAX_ID] = {
     destroy_jump_pixels,
     destroy_sand
 };
 
-void (* const set_pos_func_id[MAX_ID])(particles_pack_t *pack, sfVector2f pos,
-                                        int radius) = {
+SET_POS_FUNC_ID set[MAX_ID] = {
     set_pos_jump_pixels
 };
 
@@ -43,7 +41,7 @@ particles_pack_t *create_particles(window_t window, int const id,
     pack->framebuffer = framebuffer_create(window.width, window.height);
     pack->clock = sfClock_create();
     if (!pack->texture || !pack->framebuffer || !pack->sprite || !pack->clock
-    || create_func_id[id - 1](pack, color, value) == EXIT_ERROR)
+    || create[id - 1](pack, color, value) == EXIT_ERROR)
         return NULL;
     sfSprite_setTexture(pack->sprite, pack->texture, sfTrue);
     return pack;
@@ -51,7 +49,7 @@ particles_pack_t *create_particles(window_t window, int const id,
 
 int draw_particles(particles_pack_t *pack)
 {
-    return draw_func_id[pack->id - 1](pack);
+    return draw[pack->id - 1](pack);
 }
 
 void destroy_particles(particles_pack_t *pack)
@@ -59,13 +57,13 @@ void destroy_particles(particles_pack_t *pack)
     sfTexture_destroy(pack->texture);
     framebuffer_destroy(pack->framebuffer);
     sfClock_destroy(pack->clock);
-    destroy_func_id[pack->id - 1](pack->tpe_part);
+    destroy[pack->id - 1](pack->tpe_part);
     free(pack);
 }
 
 void set_particles_pos(particles_pack_t *pack, sfVector2f pos, int radius)
 {
-    set_pos_func_id[pack->id - 1](pack, pos, radius);
+    set[pack->id - 1](pack, pos, radius);
 }
 
 void update_particles(particles_pack_t *pack, window_t win)
