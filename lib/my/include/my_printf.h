@@ -58,6 +58,6 @@ void clean_flags(arg_t *arg);
 
 void search_flags(char *format, int *i, arg_t *arg);
 int search_specifier(char *format, int *i, char dest[2]);
-int search_length(char *format, int *i, char dest[3]);
+int search_length(char *format, int *i, char *dest);
 
 #endif
